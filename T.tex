@@ -1,0 +1,208 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage[T1]{fontenc} %para escurecer a cor da fonte
+\usepackage{lmodern}
+\usepackage[mathcal]{eucal}
+\usepackage{pdfpages}
+\usepackage{latexsym}
+\usepackage{minitoc}
+\usepackage{pdftexcmds}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\usepackage{geometry}
+\usepackage[multiple]{footmisc} %permite colocar virgulas entre footnotes
+\usepackage{relsize} %permite aumentar o tamanho das integrais
+\usepackage{pbox} %permite quebrar a linha numa tabela
+\usepackage{paralist}
+\usepackage[toc,page]{appendix}
+
+\newcommand{\ket}[1]{\ensuremath{|#1\rangle}\xspace} %mecanica quantica
+\newcommand{\bra}[1]{\ensuremath{\langle #1|}\xspace} %mecanica quantica
+\newcommand{\braket}[2]{\ensuremath{\langle #1|#2\rangle}\xspace} %mecanica quantica
+\newcommand{\cent}[1]{$#1\,^{\circ}{\rm C}$} %degrees
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\usepackage{fancyhdr} %para customizar o cabecalho
+\pagestyle{fancy} %para customizar o cabecalho
+\fancyhf{} %para customizar o cabecalho
+\fancyhead[EL]{\nouppercase\leftmark} %para customizar o cabecalho
+\fancyhead[OR]{\nouppercase\rightmark} %para customizar o cabecalho
+\fancyhead[ER,OL]{\thepage} 
+
+\usepackage{titlesec} %para centralizar o capitulo e o ti�tulo
+\titleformat{\chapter}[display]%para centralizar o capitulo e o ti�tulo
+{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}%para centralizar o capitulo e o ti�tulo
+\usepackage[shortcuts]{extdash} 
+\begin{document}
+\newenvironment{romanpages}
+{\setcounter{page}{1}
+	\renewcommand{\thepage}{\roman{page}}}
+{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+\newcommand{\PRESn}{Dr Brigitte PEPIN-DONAT}
+\newcommand{\PRESp}{CNRS, France}
+\newcommand{\PRESq}{Président}
+
+\newcommand{\INVAn}{Dr }
+\newcommand{\INVAp}{xxxxxxx, Univ.}
+\newcommand{\INVAq}{Invit\'e}
+\newcommand{\RAPAn}{Dr Christophe RAYNAUD}
+\newcommand{\RAPAp}{Universit\'e de Montpellier, France}
+\newcommand{\RAPAq}{Rapporteur}
+\newcommand{\RAPBn}{Dr Johannes GIERSCHNER}
+\newcommand{\RAPBp}{IMDEA, Spain}
+\newcommand{\RAPBq}{Rapporteur}
+
+\newcommand{\EXAAn}{Dr Paul TOPHAM}
+\newcommand{\EXAAp}{Aston University, UK}
+\newcommand{\EXAAq}{Examinateur}
+
+\newcommand{\EXABn}{Jury}
+\newcommand{\EXABp}{UPPA}
+\newcommand{\EXABq}{Examinateur}
+
+\newcommand{\EXACn}{M.}
+\newcommand{\EXACp}{xxxxxxxxxx}
+\newcommand{\EXACq}{Examinateur}
+
+\newcommand{\JURY}{
+	\textbf{\large{\textbf{JURY}}}\\[\baselineskip]
+	\begin{tabular}{l@{\protect\hspace{0.5cm}}l@{\protect\hspace{0.5cm}}l}
+		%\textbf{\large{\textbf{Composition du jury :}}}
+		\RAPAn &\RAPAp &\RAPAq\\
+		\RAPBn &\RAPBp &\RAPBq\\
+		\EXAAn &\EXAAp &\EXAAq\\
+		%\EXABn &\EXABp &\EXABq\\
+		\PRESn &\PRESp &\PRESq\\
+		%\EXACn &\EXACp &\EXACq\\
+		%\INVAn &\INVAp &\INVAq\\
+	\end{tabular}
+}
+
+%\begin{minipage}[c]{15cm}
+%\addtolength{\hoffset}{-0.5cm}
+%\addtolength{\textwidth}{0.6cm} 
+\thispagestyle{empty}
+\newgeometry{left=2cm,bottom=2cm,right=2cm,top=1cm}
+%\baselineskip=13pt
+%\vspace*{-4cm}
+\begin{center}
+	\includegraphics[height=2.2cm]{logo/uppa.png}
+\end{center}
+\begin{center}
+	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{13pt}~\\
+	{\Large{\textbf{THESIS}}}\\[\baselineskip]
+	submitted in fulfillment of the requirements for the degree of\\[\baselineskip]
+	{\Large\textit{{\textbf{Doctor of Philosophy}}}}\\[\baselineskip]
+	in Physical-Chemistry at\\[\baselineskip]
+	UNIVERSIT\'E DE PAU ET DES PAYS DE L'ADOUR \\[\baselineskip]
+	presented by~\\[\baselineskip]
+	\baselineskip=20pt
+	{\LARGE{\textbf{Patricia Guevara Level}}}\\
+	on\\
+	\hbox{\raisebox{0.2em}{\vrule depth 0pt height 3.5pt width 17cm}}
+	\setlength{\baselineskip}{4pt}
+	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{10pt}~\\
+	\vspace*{-5pt}
+	{\Large\textbf{Title in English \\ \textit{Titre en français}}}~\\[\baselineskip]
+	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}~\\
+	
+	Advisors: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
+	defended on September XXth, 2016\\[\baselineskip]
+	for the commission composed by\\[\baselineskip]~\\[\baselineskip] 
+	
+	\JURY
+\end{center}
+
+% Nom profession Qualite du president du jury
+\newcommand{\President}[3]{%
+	\renewcommand{\PRESn}{#1}%
+	\renewcommand{\PRESp}{#2}%
+	\renewcommand{\PRESq}{#3}%
+}
+
+% Nom Profession Qualité de l'invité
+\newcommand{\Invite}[3]{%
+	\renewcommand{\INVAn}{#1}%
+	\renewcommand{\INVAp}{#2}%
+	\renewcommand{\INVAq}{#3}%
+}
+
+% Nom Profession Qualite d'un rapporteur A
+\newcommand{\RapporteurA}[3]{%
+	\renewcommand{\RAPAn}{#1}%
+	\renewcommand{\RAPAp}{#2}%
+	\renewcommand{\RAPAq}{#3}%
+}
+% Nom Profession Qualite d'un rapporteur B
+\newcommand{\RapporteurB}[3]{%
+	\renewcommand{\RAPBn}{#1}%
+	\renewcommand{\RAPBp}{#2}%
+	\renewcommand{\RAPBq}{#3}%
+}
+
+%Prenom Nom Qualite d'un examinateur A
+\newcommand{\ExaminateurA}[3]{%
+	\renewcommand{\EXAAn}{#1}%
+	\renewcommand{\EXAAp}{#2}%
+	\renewcommand{\EXAAq}{#3}%
+}
+%Prenom Nom Qualite d'un examinateur B
+\newcommand{\ExaminateurB}[3]{%
+	\renewcommand{\EXABn}{#1}%
+	\renewcommand{\EXABp}{#2}%
+	\renewcommand{\EXABq}{#3}%
+}
+
+%Prenom Nom Qualite d'un examinateur C
+\newcommand{\ExaminateurC}[3]{%
+	\renewcommand{\EXACn}{#1}%
+	\renewcommand{\EXACp}{#2}%
+	\renewcommand{\EXACq}{#3}%
+}
+
+
+
+% une page blanche (deuxième de couverture)
+
+\newpage\thispagestyle{empty}\addtocounter{page}{-5}
+\null\newpage\thispagestyle{empty}
+
+%\newpage\thispagestyle{empty}
+%~\newpage\thispagestyle{empty}
+%\newpage
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+\restoregeometry
+\include{remerciements/remerciements}
+\include{epigrafe/epigrafe}
+\include{dedic/dedic}
+\include{resumes/ingles}
+\include{resumes/frances}
+\renewcommand*\contentsname{Table of Contents} %troca o nome do sumario para o que quiser
+\tableofcontents \thispagestyle{empty} 
+\listoffigures \thispagestyle{empty} 
+\listoftables \thispagestyle{empty}
+\newpage
+\include{abrev/abrev}
+\newpage
+\include{intro/intro}
+\include{Asp/chap1}
+\include{ChapitreD/Chapitre_DFT}
+\include{vib/chap_vib}
+\include{conclu/conclu}
+\begin{appendices}
+	\include{anex/anex1}
+	\include{grand-resumes/frances}
+\end{appendices}
+\include{bib/biblio}
+\end{document}

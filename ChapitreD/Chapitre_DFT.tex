@@ -8,9 +8,9 @@
 \section*{Introduction}
 \markright{INTRODUCTION}{}
 
-La chimie théorique est une science relativement récente, puisque ce n'est qu'en 1933 que le physicien autrichien Erwin Schr\"{o}dinger  a reçu le prix \textsc{Nobel} de physique, en commun avec Paul \textsc{Dirac}, pour ses travaux représentant, depuis, les fondements de la chimie quantique. En effet, l'équation de Schr\"{o}dinger nous prouve que la connaissance de la fonction d'onde du système donne accès, explicitement ou non, à toutes les valeurs caractéristiques du système chimique étudié. Dans l'article \textit{La situation actuelle en mécanique quantique}~\cite{schrocat} paru en 1935, la métaphore du \og \fg{chat de Schr\"{o}dinger} a largement contribué à la vulgarisation de cette science auprès du public scientifique. En effet, il y symbolise, à l'aide d'un exemple macroscopique régit par les lois de la physique classique, la philosophie de la mécanique quantique dévolue à l'étude des systèmes microscopiques. Le plus grand défi à relever ici était de faire comprendre qu'une \og mesure quantique \fg{} est une combinaison linéaire d'une somme d'états de probabilités non-nulles et non une valeur unique. L'expérience fictive consiste à placer un chat dans une boîte contenant un flacon de poison ainsi qu'une source radioactive. Lorsqu'un compteur Geiger détecte un certain seuil de radiation, un mécanisme vient briser le flacon et libère ainsi des vapeurs mortelles. Dans un raisonnement quantique, le chat est donc à la fois vivant \underline{et} mort dans la boîte tant qu'elle reste close, avec une probabilté de vie de plus en plus faible au cours du temps.
+La chimie théorique est une science relativement récente, puisque ce n'est qu'en 1933 que le physicien autrichien Erwin Schr\"{o}dinger  a reçu le prix \textsc{Nobel} de physique, en commun avec Paul \textsc{Dirac}, pour ses travaux représentant, depuis, les fondements de la chimie quantique. En effet, l'équation de Schr\"{o}dinger nous prouve que la connaissance de la fonction d'onde du système donne accès, explicitement ou non, à toutes les valeurs caractéristiques du système chimique étudié. Dans l'article \textit{La situation actuelle en mécanique quantique}~\cite{schrodinger1992situation} paru en 1935, la métaphore du  \og chat de Schr\"{o}dinger \fg{} a largement contribué à la vulgarisation de cette science auprès du public scientifique. En effet, il y symbolise, à l'aide d'un exemple macroscopique régit par les lois de la physique classique, la philosophie de la mécanique quantique dévolue à l'étude des systèmes microscopiques. Le plus grand défi à relever ici était de faire comprendre qu'une \og mesure quantique \fg{} est une combinaison linéaire d'une somme d'états de probabilités non-nulles et non une valeur unique. L'expérience fictive consiste à placer un chat dans une boîte contenant un flacon de poison ainsi qu'une source radioactive. Lorsqu'un compteur Geiger détecte un certain seuil de radiation, un mécanisme vient briser le flacon et libère ainsi des vapeurs mortelles. Dans un raisonnement quantique, le chat est donc à la fois vivant \underline{et} mort dans la boîte tant qu'elle reste close, avec une probabilité de vie de plus en plus faible au cours du temps.\\
 
-En pratique, le nombre considérable de calculs à réaliser dans le cadre de la chimie théorique lie intrinsèquement cette science au développement de l'informatique, tout aussi récent. Il s'agit même de l'une des plus grandes limites encore rencontrée de nos jours. Même si la loi de \textsc{Moore}~\cite{moore}~\footnote{La loi de \textsc{Moore} (1965), renommée première loi de \textsc{Moore} compte-tenu de l'ajustement ultérieur, énonce que la complexité des semi-conducteurs (et donc de la puissance de calcul) suit une loi exponentielle au cours du temps.}, empirique de son état, a commencé à perdre en véracité dès lors que la fréquence des processeurs (CPU) engendrait une déperdition de chaleur trop importante et commercialement non-maîtrisable ($\gtrsim$ 5 Ghz), l'apparition des processeurs multic\oe urs s'est vu être la solution la plus efficace. Après l'adaptation nécessaire des codes séquentiels en version parallèle, la démocratisation relative des clusters de calcul~\footnote{Un cluster de calcul, ou grappe de serveurs, est un ensemble de serveurs esclaves, les n\oe uds, contrôlés par un ou plusieurs serveurs maîtres, le(s) frontal(aux). Ce groupe de serveurs indépendants, fonctionnant comme un seul et même système, permet d'optimiser les ressources (processeur, mémoire vive, stockage\dots{}) et une meilleure répartition des tâches sur les différents n\oe uds.} permet à l'heure actuel le développement de codes hautement parallélisés (> 1000 processeurs). Ceci permet alors de faire moins d'approximations théoriques et donc de tendre vers des valeurs de plus en plus exactes, tout en gardant des temps de calcul raisonnables. Un engouement pour les clusters de cartes graphiques (GPU) est aussi à noter dans les domaines scientifiques où, tel que la dynamique moléculaire, les calculs sont extrêment fragmentables et peu interdépendants.\\
+En pratique, le nombre considérable de calculs à réaliser dans le cadre de la chimie théorique lie intrinsèquement cette science au développement de l'informatique, tout aussi récent. Il s'agit même de l'une des plus grandes limites encore rencontrée de nos jours. Même si la loi de \textsc{Moore}~\cite{moore1965electronics}~\footnote{La loi de \textsc{Moore} (1965), renommée première loi de \textsc{Moore} compte-tenu de l'ajustement ultérieur, énonce que la complexité des semi-conducteurs (et donc de la puissance de calcul) suit une loi exponentielle au cours du temps.}, empirique de son état, a commencé à perdre en véracité dès lors que la fréquence des processeurs (CPU) engendrait une déperdition de chaleur trop importante et commercialement non-maîtrisable ($\gtrsim$ 5 Ghz), l'apparition des processeurs multic\oe urs s'est vu être la solution la plus efficace. Après l'adaptation nécessaire des codes séquentiels en version parallèle, la démocratisation relative des clusters de calcul~\footnote{Un cluster de calcul, ou grappe de serveurs, est un ensemble de serveurs esclaves, les n\oe uds, contrôlés par un ou plusieurs serveurs maîtres, le(s) frontal(aux). Ce groupe de serveurs indépendants, fonctionnant comme un seul et même système, permet d'optimiser les ressources (processeur, mémoire vive, stockage\dots{}) et une meilleure répartition des tâches sur les différents n\oe uds.} permet à l'heure actuel le développement de codes hautement parallélisés (> 1000 processeurs). Ceci permet alors de faire moins d'approximations théoriques et donc de tendre vers des valeurs de plus en plus exactes, tout en gardant des temps de calcul raisonnables. Un engouement pour les clusters de cartes graphiques (GPU) est aussi à noter dans les domaines scientifiques où, tel que la dynamique moléculaire, les calculs sont extrêment fragmentables et peu interdépendants.\\
 
 Dans ce chapitre, nous rappellerons dans un premier temps les fondements de la théorie de la fonctionnelle de la densité, notée DFT, par le biais de l'évolution des différents modèles qui ont été proposés. Nous verrons ensuite comment les théorèmes de \textsc{Hohenberg} et \textsc{Kohn} prouvent que la seule connaissance de la densité électronique permet de résoudre l'équation de Schr\"{o}dinger dans le cadre de la DFT. La fonctionnelle universelle $F_{HK}[\rho]$, qui permettrait une résolution exacte du problème, restant inconnue, nous aborderons dans une troisième partie l'approche KS qui contourne ce problème et légitime certaines approximations. Ces dernières donnant naissance à différents types de fonctionnelle, elles seront succintement présentées dans la pénultième partie de ce chapitre. Finalement, le développement de la méthode de calcul utilisée dans ce travail de thèse, sera présentée étape par étape en fin de chapitre. 
 
@@ -18,7 +18,7 @@ Dans ce chapitre, nous rappellerons dans un premier temps les fondements de la t
 
 \section{Les fondements de la DFT}
 
-Contrairement aux méthodes HF, noté HF, (cf annexe~\ref{annexeHF}), et \textit{a fortiori} post-HF (cf annexe~\ref{annexemp2}) qui décrivent le système électronique par une fonction d'onde $\Psi_{(\vec{r})}$, la théorie de la fonctionnelle de la densité le décrit par la densité électronique, notée $\rho_{(\vec{r})}$, qui est liée à la fonction d'onde $\Psi_{(\vec{r})}$ par la relation suivante~:
+Contrairement aux méthodes HARTREE-FOCK, noté HF, (cf annexe~\ref{annexeHF}), et \textit{a fortiori} post-HF (cf annexe~\ref{annexemp2}) qui décrivent le système électronique par une fonction d'onde $\Psi_{(\vec{r})}$, la théorie de la fonctionnelle de la densité le décrit par la densité électronique, notée $\rho_{(\vec{r})}$, qui est liée à la fonction d'onde $\Psi_{(\vec{r})}$ par la relation suivante~:
 
 \begin{align}
 \rho_{(\vec{r})} &= \int \Psi_{(\vec{r})}^{*} \Psi_{(\vec{r})} \\
@@ -111,7 +111,7 @@ avec & $\rho_{0}$ : & densité électronique de l'état fondamental, \\
 \end{tabular}
 \end{flushleft}
 
-Dans cette équation, à une densité d'essai $\rho$ correspond une seule énergie potentielle $\int \rho_{(\vec{r})} \nu_{ext} .d\vec{r}$ et une seule fonction d'onde $\Psi_{\rho}$. La méthode de double minimisation, ie sous contrainte de \textsc{Levy}, permet de différencier la fonction d'onde $\Psi_{\rho_{0}}$, correspondant à l'état fondamental, parmi le jeu infini des fonctions d'ondes $\Psi_{\rho}$ donnant la même densité. Ainsi, nous pouvons déterminer, parmi toutes les densités, celle qui minimisera l'énergie par la relation suivante :
+Dans cette équation, à une densité d'essai $\rho$ correspond une seule énergie potentielle $\int \rho_{(\vec{r})} \nu_{ext} .d\vec{r}$ et une seule fonction d'onde $\Psi_{\rho}$. La méthode de double minimisation, \textit{i.e.} sous contrainte de \textsc{Levy}, permet de différencier la fonction d'onde $\Psi_{\rho_{0}}$, correspondant à l'état fondamental, parmi le jeu infini des fonctions d'ondes $\Psi_{\rho}$ donnant la même densité. Ainsi, nous pouvons déterminer, parmi toutes les densités, celle qui minimisera l'énergie par la relation suivante :
 
 \begin{equation}
 E[\rho_{0}] = \min\limits_{\rho}\, (\min\limits_{\Psi\rightarrow\rho}\, (F[\rho] + \int \rho_{\vec{r}} \nu_{\vec{r}}\, .d\vec{r}\, ))
@@ -119,7 +119,7 @@ E[\rho_{0}] = \min\limits_{\rho}\, (\min\limits_{\Psi\rightarrow\rho}\, (F[\rho]
 
 Si les théorèmes de \textsc{Hohenberg} et \textsc{Kohn} démontrent une correspondance unique entre une densité $\rho_{\vec{r}}$ et la fonction d'onde $\Psi$ du système, la fonctionnelle universelle $F_{HK}[\rho]$ reste cependant inconnue.
 
-\section{Approche KS}\label{Kohn-Sham}
+\section{Approche Kohn-Sham}\label{Kohn-Sham}
 
 Afin de contourner ce problème, \textsc{Kohn} et \textsc{Sham} substituèrent au Hamiltonien réel, décrivant un système de $n$ particules en interaction, un Hamiltonien de référence décrivant un système de $n$ particules sans interaction mais ayant la même densité que le système réel. Le problème est ainsi réduit à la résolution de $n$ équations monoélectronique couplées, analogues aux équations de HF. L'opérateur monoélectronique de Kohn-Sham $\hat{K}_{KS}$ s'exprime ainsi :
 
@@ -130,7 +130,7 @@ Afin de contourner ce problème, \textsc{Kohn} et \textsc{Sham} substituèrent a
 \noindent où :
 \begin{align}
 \nu_{H}[\rho] &= \int \frac{\rho_{(\vec{r})} - \rho_{(\vec{r}')}}{|\vec{r} - \vec{r}'|} .d\vec{r}' \\
-\nu_{xc}[\rho] &= \frac{\partial E_{xc}[\rho_{(\vec{r})}}{\partial\rho_{(\vec{r})}}
+\nu_{xc}[\rho] &= \frac{\partial E_{xc}[\rho_{(\vec{r})}]}{\partial\rho_{(\vec{r})}}
 \end{align}
 
 \noindent $\nu_{H}[\rho]$ et $\nu_{xc}[\rho]$ étant respectivement le potentiel de \textsc{Hartree} et le potentiel d'échange et de corrélation, dans lequel $E_{xc}[\rho_{(\vec{r})}]$ est l'énergie d'échange et de corrélation.
@@ -147,7 +147,7 @@ En définissant un potentiel fictif $\nu_{eff(\vec{r})}$ pouvant être appliqué
 \hat{H}_{KS} \psi_{i(\vec{r})} = \epsilon_{i} \psi_{i(\vec{r})}
 \end{equation}
 
-Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de KS. L'énergie du système est alors donnée par :
+Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de KOHN-SHAM. L'énergie du système est alors donnée par :
 
 \begin{equation}
 E_{KS}^{tot}[\rho] = T_{s}[\rho] + J[\rho] + E_{xc}[\rho] + \int V_{ext(\vec{r})}\rho_{(\vec{r})} .d\vec{r}
@@ -174,7 +174,7 @@ Le terme d'échange corrélation peut ainsi être explicité comme étant la som
 E_{xc}[\rho] = T[\rho] - T_{s}[\rho] + V_{ee}[\rho] - J[\rho]
 \end{equation}
 
-La théorie de la fonctionnelle de la densité de KS a connu un grand succès parmi les méthodes de calcul appliquées aux grands systèmes dû à son ratio coût calculatoire/performance très intéressant. C'est pour cet avantage indéniable qu'elle sert de base à de nombreuses évolutions de la DFT.
+La théorie de la fonctionnelle de la densité de KOHN-SHAM a connu un grand succès parmi les méthodes de calcul appliquées aux grands systèmes dû à son ratio coût calculatoire/performance très intéressant. C'est pour cet avantage indéniable qu'elle sert de base à de nombreuses évolutions de la DFT.
 
 \section{Les différentes classes de fonctionnelle}
 
@@ -225,7 +225,7 @@ s = \frac{|\nabla \rho_{(\vec{r})}|}{2 k_{F} \rho_{(\vec{r})}}
 
 \noindent avec $k_{F} = (3 \pi^{2} \rho_{(\vec{r})})^{1/3}$. Ainsi, on fait apparaître avec $s$ un terme quasi-local, dépendant non seulement de la densité électronique mais également de son gradient au voisinage de $\vec{r}$.
 
-Un exemple de fonctionnelle GGA est celle de \textsc{Perdew}, \textsc{Burke} et \textsc{Ernzherhof}, notée PBE~\cite{pbe}.
+Un exemple de fonctionnelle GGA est celle de \textsc{Perdew}, \textsc{Burke} et \textsc{Ernzherhof}, notée PBE~\cite{perdew1996generalized}.
 
 \subsection{Fonctionnelles hybrides}
 
@@ -236,7 +236,7 @@ E_{xc}^{hybride}[\rho_{(\vec{r})}] = (1- \alpha) E_{xc}^{GGA}[\rho_{(\vec{r})}] 
 \end{equation}
 
 \noindent où le coefficient de la combinaison $\alpha$ donne le rapport HF/DFT.
-PBE0~\cite{pbe0} Celle-ci présente 25\% d’échange HF~\cite{methodehf} dans une fonctionnelle GGA de type PBE~\cite{pbe} :
+PBE0~\cite{adamo1999toward} Celle-ci présente 25\% d’échange HF~\cite{adamo1997toward} dans une fonctionnelle GGA de type PBE~\cite{perdew1996generalized} :
 
 \begin{equation}
 E_{xc}^{PBE0} = E_{xc}^{PBE} + \frac{1}{4} (E_{x}^{HF} - E_{x}^{PBE})

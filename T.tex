@@ -6,6 +6,7 @@
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage{graphicx}
 \usepackage{ragged2e}
+\usepackage{setspace}
 \usepackage[T1]{fontenc} %para escurecer a cor da fonte
 \usepackage{lmodern}
 \usepackage[mathcal]{eucal}
@@ -23,6 +24,7 @@
 \usepackage{pbox} %permite quebrar a linha numa tabela
 \usepackage{paralist}
 \usepackage[toc,page]{appendix}
+\bibliographystyle{unsrt}
 
 \newcommand{\ket}[1]{\ensuremath{|#1\rangle}\xspace} %mecanica quantica
 \newcommand{\bra}[1]{\ensuremath{\langle #1|}\xspace} %mecanica quantica
@@ -93,19 +95,20 @@
 %\baselineskip=13pt
 %\vspace*{-4cm}
 \begin{center}
-	\includegraphics[height=2.2cm]{logo/uppa.png}
+\includegraphics[height=2.2cm]{logo/uppa.png}
 \end{center}
 \begin{center}
-	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{13pt}~\\
-	{\Large{\textbf{THESIS}}}\\[\baselineskip]
-	submitted in fulfillment of the requirements for the degree of\\[\baselineskip]
-	{\Large\textit{{\textbf{Doctor of Philosophy}}}}\\[\baselineskip]
-	in Physical-Chemistry at\\[\baselineskip]
-	UNIVERSIT\'E DE PAU ET DES PAYS DE L'ADOUR \\[\baselineskip]
-	presented by~\\[\baselineskip]
-	\baselineskip=20pt
+	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 15cm}}\setlength{\baselineskip}{13pt}~\\
+	{\Large{\textbf{THESES}}}\\[\baselineskip]
+	préparée et présentée à \\[\baselineskip]
+	L'UNIVERSIT\'E DE PAU ET DES PAYS DE L'ADOUR \\[\baselineskip]
+	pour obtenir le grade de\\[\baselineskip]
+		{\Large\textit{{\textbf{Docteur}}}}\\[\baselineskip]
+	Spécialité : CHIMIE PHYSIQUE \\[\baselineskip]
+	par\\[\baselineskip]
+  	\baselineskip=20pt
 	{\LARGE{\textbf{Patricia Guevara Level}}}\\
-	on\\
+	Sujet de la thèse :\\
 	\hbox{\raisebox{0.2em}{\vrule depth 0pt height 3.5pt width 17cm}}
 	\setlength{\baselineskip}{4pt}
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{10pt}~\\
@@ -113,9 +116,9 @@
 	{\Large\textbf{Title in English \\ \textit{Titre en français}}}~\\[\baselineskip]
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}~\\
 	
-	Advisors: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
-	defended on September XXth, 2016\\[\baselineskip]
-	for the commission composed by\\[\baselineskip]~\\[\baselineskip] 
+	Directeur de Thèse: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
+	Soutenue le  XXth, 2016\\[\baselineskip]
+	devant la commission d'examen composée de :\\[\baselineskip]~\\[\baselineskip] 
 	
 	\JURY
 \end{center}
@@ -204,5 +207,8 @@
 	\include{anex/anex1}
 	\include{grand-resumes/frances}
 \end{appendices}
-\include{bib/biblio}
+\bibliography{biblio}
+\renewcommand{\bibname}{Références bibliographiques}
+\bibliographystyle{unsrt}
+\bibliography{biblio}
 \end{document}

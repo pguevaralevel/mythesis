@@ -7,6 +7,7 @@
 
 \section*{Introduction}
 \markright{INTRODUCTION}{}
+\spacing{1.5}
 
 La chimie théorique est une science relativement récente, puisque ce n'est qu'en 1933 que le physicien autrichien Erwin Schr\"{o}dinger  a reçu le prix \textsc{Nobel} de physique, en commun avec Paul \textsc{Dirac}, pour ses travaux représentant, depuis, les fondements de la chimie quantique. En effet, l'équation de Schr\"{o}dinger nous prouve que la connaissance de la fonction d'onde du système donne accès, explicitement ou non, à toutes les valeurs caractéristiques du système chimique étudié. Dans l'article \textit{La situation actuelle en mécanique quantique}~\cite{schrodinger1992situation} paru en 1935, la métaphore du  \og chat de Schr\"{o}dinger \fg{} a largement contribué à la vulgarisation de cette science auprès du public scientifique. En effet, il y symbolise, à l'aide d'un exemple macroscopique régit par les lois de la physique classique, la philosophie de la mécanique quantique dévolue à l'étude des systèmes microscopiques. Le plus grand défi à relever ici était de faire comprendre qu'une \og mesure quantique \fg{} est une combinaison linéaire d'une somme d'états de probabilités non-nulles et non une valeur unique. L'expérience fictive consiste à placer un chat dans une boîte contenant un flacon de poison ainsi qu'une source radioactive. Lorsqu'un compteur Geiger détecte un certain seuil de radiation, un mécanisme vient briser le flacon et libère ainsi des vapeurs mortelles. Dans un raisonnement quantique, le chat est donc à la fois vivant \underline{et} mort dans la boîte tant qu'elle reste close, avec une probabilité de vie de plus en plus faible au cours du temps.\\
 
@@ -18,7 +19,7 @@ Dans ce chapitre, nous rappellerons dans un premier temps les fondements de la t
 
 \section{Les fondements de la DFT}
 
-Contrairement aux méthodes HARTREE-FOCK, noté HF, (cf annexe~\ref{annexeHF}), et \textit{a fortiori} post-HF (cf annexe~\ref{annexemp2}) qui décrivent le système électronique par une fonction d'onde $\Psi_{(\vec{r})}$, la théorie de la fonctionnelle de la densité le décrit par la densité électronique, notée $\rho_{(\vec{r})}$, qui est liée à la fonction d'onde $\Psi_{(\vec{r})}$ par la relation suivante~:
+Contrairement aux méthodes HARTREE-FOCK, noté HF, et \textit{a fortiori} post-HF qui décrivent le système électronique par une fonction d'onde $\Psi_{(\vec{r})}$, la théorie de la fonctionnelle de la densité le décrit par la densité électronique, notée $\rho_{(\vec{r})}$, qui est liée à la fonction d'onde $\Psi_{(\vec{r})}$ par la relation suivante~:
 
 \begin{align}
 \rho_{(\vec{r})} &= \int \Psi_{(\vec{r})}^{*} \Psi_{(\vec{r})} \\
@@ -141,13 +142,13 @@ En définissant un potentiel fictif $\nu_{eff(\vec{r})}$ pouvant être appliqué
 \nu_{eff(\vec{r})} = \nu_{H}[\rho] + \nu_{xc}[\rho] + \nu_{ext}[\rho]
 \end{equation}
 
-\noindent nous introduisons alors un jeu d'orbitales $\psi_{(\vec{r})}$, appelées orbitales de Kohn-Sham, et nous obtenons un jeu d'équations aux valeurs propres :
+\noindent nous introduisons alors un jeu d'orbitales $\psi_{(\vec{r})}$, appelées orbitales de \textsc{Kohn-Sham}, et nous obtenons un jeu d'équations aux valeurs propres :
 
 \begin{equation}
 \hat{H}_{KS} \psi_{i(\vec{r})} = \epsilon_{i} \psi_{i(\vec{r})}
 \end{equation}
 
-Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de KOHN-SHAM. L'énergie du système est alors donnée par :
+Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de \textsc{Kohn-Sham}. L'énergie du système est alors donnée par :
 
 \begin{equation}
 E_{KS}^{tot}[\rho] = T_{s}[\rho] + J[\rho] + E_{xc}[\rho] + \int V_{ext(\vec{r})}\rho_{(\vec{r})} .d\vec{r}
@@ -174,7 +175,7 @@ Le terme d'échange corrélation peut ainsi être explicité comme étant la som
 E_{xc}[\rho] = T[\rho] - T_{s}[\rho] + V_{ee}[\rho] - J[\rho]
 \end{equation}
 
-La théorie de la fonctionnelle de la densité de KOHN-SHAM a connu un grand succès parmi les méthodes de calcul appliquées aux grands systèmes dû à son ratio coût calculatoire/performance très intéressant. C'est pour cet avantage indéniable qu'elle sert de base à de nombreuses évolutions de la DFT.
+La théorie de la fonctionnelle de la densité de \textsc{Kohn-Sham} a connu un grand succès parmi les méthodes de calcul appliquées aux grands systèmes dû à son ratio coût calculatoire/performance très intéressant. C'est pour cet avantage indéniable qu'elle sert de base à de nombreuses évolutions de la DFT.
 
 \section{Les différentes classes de fonctionnelle}
 
@@ -242,9 +243,9 @@ PBE0~\cite{adamo1999toward} Celle-ci présente 25\% d’échange HF~\cite{adamo1
 E_{xc}^{PBE0} = E_{xc}^{PBE} + \frac{1}{4} (E_{x}^{HF} - E_{x}^{PBE})
 \end{equation}
 
-Elle a l’avantage d’être non paramétrée (car le pourcentage d’HF inclus n’est pas empirique mais basé sur des arguments de théorie perturbationnelle), et de fournir des résultats très précis, que ce soit au niveau du calcul des structures moléculaires, des structures électroniques ou encore des propriétés spectroscopiques~\cite{pbe0}.
+Elle a l’avantage d’être non paramétrée (car le pourcentage d’HF inclus n’est pas empirique mais basé sur des arguments de théorie perturbationnelle), et de fournir des résultats très précis, que ce soit au niveau du calcul des structures moléculaires, des structures électroniques ou encore des propriétés spectroscopiques \cite{adamo1999toward}.
 
-Nous mentionnerons également la fonctionnelle hybride la plus utilisée pour traiter des systèmes moléculaires, à savoir la fonctionnelle B3LYP~\cite{Bcxthermo}. Comme son nom l’indique, elle inclus trois paramètres et est basée sur les fonctionnelles GGA d’échange et de corrélation de \textsc{Becke} (B)~\cite{B88} et \textsc{Lee}, \textsc{Yang} et \textsc{Parr} (LYP)~\cite{lyp}, suivant l’expression :
+Nous mentionnerons également la fonctionnelle hybride la plus utilisée pour traiter des systèmes moléculaires, à savoir la fonctionnelle B3LYP \cite{becke1993density}. Comme son nom l’indique, elle inclus trois paramètres et est basée sur les fonctionnelles GGA d’échange et de corrélation de \textsc{Becke} (B) \cite{becke1988density} et \textsc{Lee}, \textsc{Yang} et \textsc{Parr} (LYP) \cite{chengteh1988development}, suivant l’expression :
 
 \begin{equation}
 E_{xc}^{B3LYP} = (1-a) E_{x}^{LSDA} + a E_{x}^{HF} + b \Delta E_{x}^{B} + (1-c) E_{c}^{LSDA} + c E_{c}^{LYP}
@@ -261,11 +262,11 @@ Bien que calculatoirement très pratiques, les méthodes basées sur la fonction
 %!!!!!!!!!!!! tensioactif, température de fusion, ébullition, solvatation des ions, capillarité...
 
 
-\subsubsection{Mise en évidence des forces de VdW}
+\subsubsection{Mise en évidence des forces de Van der Waals}
 
 L'existence de phases naturellement condensées comme les liquides et les solides moléculaires a permis de démontrer de façon empirique la présence de forces attractives entre les molécules. Avec un raisonnement analogue, des forces répulsives à faibles distances ont été mises en avant grâce aux propriétés d'incompressibilité infinie de ces mêmes systèmes chimiques.
 
-Johannes Diderik VdW fut le premier en 1873 à intégrer cette notion de forces attractives et répulsives dans le modèle du \og gaz parfait \fg{} (\ref*{GP}) en introduisant comme suit deux termes correctifs dans sa loi des \og gaz réels \fg{} (\ref*{GR})~:
+Johannes Diderik Van der Waals fut le premier en 1873 à intégrer cette notion de forces attractives et répulsives dans le modèle du \og gaz parfait \fg{} (\ref{GP}) en introduisant comme suit deux termes correctifs dans sa loi des \og gaz réels \fg{} (\ref{GR})~:
 
 \begin{align}
 PV &= nRT \label{GP} \\
@@ -285,23 +286,21 @@ avec & $P$ : & pression (Pa), \\
 
 Cette équation d'état est beaucoup plus proche des valeurs expérimentales, notamment aux fortes pressions. En effet, le volume d'exclusion $nb$ permet de tenir compte du volume propre occupé par les molécules. Nous rappelerons que dans le modèle des gaz parfaits, dans lequel les molécules sont assimilées à des points ponctuels, ce volume est négligé. Notons que la pression est aussi corrigée par le terme $\frac{n^{2}a}{V^{2}}$ afin de tenir compte de la diminution de pression au voisinage des parois, du fait de l'existence d'interactions attractives entre les molécules.
 
-L'écriture de la loi des \og \fg{gaz réels} par VdW a réellement initié la volonté de comprendre la nature de ces interactions et a naturellement conduit à de nombreuses études concernant les différents systèmes chimiques. Des efforts sont particulièrement portés sur la modélisation de forces de cohésions universelles, et non pas liées à une seule problèmatique.
+L'écriture de la loi des \og gaz réels \fg{} par Van der Waals a réellement initié la volonté de comprendre la nature de ces interactions et a naturellement conduit à de nombreuses études concernant les différents systèmes chimiques. Des efforts sont particulièrement portés sur la modélisation de forces de cohésions universelles, et non pas liées à une seule problématique.
 
 \subsubsection{Natures des interactions à modéliser}
 
-Avant de pouvoir établir une théorie, il faut avant tout comprendre la nature du phénomène. Les atomes et molécules étant composés de particules naturellement chargées, ie de noyaux et d'électrons, ils interagissent donc par des forces de \textsc{Coulomb}. Celles-ci se décomposent en plusieurs éléments selon leur nature~: l'électrostatique, l'induction (ou polarisation), la dispersion et l'échange.
-L'effet du terme électrostatique représente la répulsion ou l'attraction entre des charges respectivement de même signe ou de signes opposés (figure~\ref{chargecharge}). Son énergie $E_{Coulomb}$ a été définie par Charles-Augustin \textsc{Coulomb} en 1785 comme suit :
+Avant de pouvoir établir une théorie, il faut avant tout comprendre la nature du phénomène. Les atomes et molécules étant composés de particules naturellement chargées, \textit{i.e.} de noyaux et d'électrons, ils interagissent donc par des forces de \textsc{Coulomb}. Celles-ci se décomposent en plusieurs éléments selon leur nature~: l'électrostatique, l'induction (ou polarisation), la dispersion et l'échange.
+L'effet du terme électrostatique représente la répulsion ou l'attraction entre des charges respectivement de même signe ou de signes opposés (figure \ref{chargecharge}). Son énergie $E_{Coulomb}$ a été définie par Charles-Augustin \textsc{Coulomb} en 1785 comme suit :
 
 \begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
-%\nuage{charge+}{-1.5}{0}{}
-%\nuage{charge-}{1.5}{0}{}
-\draw [latex-latex, thick] (-0.8,0) --++ (1.6,0) node [above, midway] {$F_{Coulomb}$} ;
-\end{tikzpicture}
+	\centering
+\includegraphics[scale=0.5]{image/chargecharge}	
 \caption{Interaction électrostatique entre charges.}
 \label{chargecharge}
 \end{figure}
+
+
 
 \begin{equation}
 E_{Coulomb} = \frac{1}{4 \pi \epsilon_{0}} * \frac{q_{1} q_{2}}{r}
@@ -315,10 +314,10 @@ avec & $q_{1}$ et $q_{2}$ : & charges respectives des particules 1 et 2, \\
 \end{flushleft}
 
 L'induction est quant à elle due à la déformation de la densité électronique d'un atome ou d'une molécule par l'effet du champ électrique d'une molécule voisine. Ces deux contributions sont très bien définies en physique classique, contrairement à la dispersion et l'échange, qui sont liés à des effets quantiques.
-En effet, ce sont les phénomènes de fluctuations quantiques de la distribution des charges qui sont à l'origine du terme de dispersion, et la contribution d'échange est dûe au principe d'exclusion de \textsc{Pauli} qui impose que deux électrons ne peuvent pas posséder le même état quantique au même moment. Dans le cas d'une paire d'atomes en interaction ayant leurs couches électroniques partiellement occupées, cette contribution est positive et engendre une liaison chimique liante forte. À l'inverse, lorsqu'il s'agit de systèmes électroniques à couche fermée, elle devient un terme de répulsion à courte distance responsable du phénomène d'exclusion stérique. Ce phénomène étant inclu dans la loi des \og \fg{gaz réels} de VdW (équation~\ref{GR}) sous la forme du volume d'exclusion $nb$.  
+En effet, ce sont les phénomènes de fluctuations quantiques de la distribution des charges qui sont à l'origine du terme de dispersion, et la contribution d'échange est dûe au principe d'exclusion de \textsc{Pauli} qui impose que deux électrons ne peuvent pas posséder le même état quantique au même moment. Dans le cas d'une paire d'atomes en interaction ayant leurs couches électroniques partiellement occupées, cette contribution est positive et engendre une liaison chimique liante forte. À l'inverse, lorsqu'il s'agit de systèmes électroniques à couche fermée, elle devient un terme de répulsion à courte distance responsable du phénomène d'exclusion stérique. Ce phénomène étant inclu dans la loi des \og gaz réels \fg{} de Van der Waals (équation~\ref{GR}) sous la forme du volume d'exclusion $nb$.  
 
 
-D'une manière plus générale, c'est-à-dire en dépassant le cadre des gaz, les interactions de VdW sont générées par les fluctuations de distributions de charge des atomes et molécules et conduisent aux équations suivantes, où l'énergie est exprimée en Joules :
+D'une manière plus générale, c'est-à-dire en dépassant le cadre des gaz, les interactions de Van der Waals sont générées par les fluctuations de distributions de charge des atomes et molécules et conduisent aux équations suivantes, où l'énergie est exprimée en Joules :
 
 \begin{align}
 E_{Keesom} &= - \frac{1}{r^{6}} \left(\frac{\mu_{1}^{2}\mu_{2}^{2}}{3(4\pi \epsilon_{0} \epsilon)^{2} k_{B}T}\right) \\
@@ -342,62 +341,28 @@ L'énergie de \textsc{Keesom} (effet d'orientation) représente l'énergie d'int
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
-%\nuage{nnul}{-2}{0}{permanent}
-%\nuage{nnul}{2}{0}{permanent}
-\draw [latex-latex, thick] (-1,0) --++ (1.4,0) node [above, midway] {$F_{Keesom}$} ;
-\end{tikzpicture}
+\includegraphics[scale=0.5]{image/Keesom}
 \caption{Interaction entre dipôles électrostatiques.}
 \label{figKeesom}
 \end{figure}
 
-Celle de \textsc{Debye} (effet d'induction) résulte de la déformation du nuage électronique d'une molécule, d'un atome ou d'un ion, par action du champ électrique engendré par le moment dipolaire d'une molécule voisine (figure~\ref{figDebye}). Il en résulte ainsi un moment dipolaire induit. Elle est souvent nommé interaction dipôle {permanent-dipôle{ induit et fait intervenir le moment dipolaire $\mu$ et la polarisabilité\footnote{La polarisabilité est la capacité du nuage électronique à se déformer sous l'action d'un champ électrique. Le barycentre des charges négatives (électrons) étant légèrement décalé par rapport à celui des charges positives (noyaux) sous l'effet du champ, un moment électronique induit $\vec{m}_{e}$ apparaît, engendrant la notion de polarisabilité $\alpha$.} $\alpha$ des molécules concernées. Le nominateur $\mu_{1}^{2}\alpha_{2}+\mu_{2}^{2}\alpha_{1}$ décrit l'interaction lorsque les deux molécules sont polaires (cas A) mais s'écrit naturellement $\mu_{1}^{2}\alpha_{2}$ quand la seconde molécule est apolaire (cas B).
+Celle de \textsc{Debye} (effet d'induction) résulte de la déformation du nuage électronique d'une molécule, d'un atome ou d'un ion, par action du champ électrique engendré par le moment dipolaire d'une molécule voisine (figure \ref{figDebye}). Il en résulte ainsi un moment dipolaire induit. Elle est souvent nommé interaction dipôle {permanent-dipôle{ induit et fait intervenir le moment dipolaire $\mu$ et la polarisabilité\footnote{La polarisabilité est la capacité du nuage électronique à se déformer sous l'action d'un champ électrique. Le barycentre des charges négatives (électrons) étant légèrement décalé par rapport à celui des charges positives (noyaux) sous l'effet du champ, un moment électronique induit $\vec{m}_{e}$ apparaît, engendrant la notion de polarisabilité $\alpha$.} $\alpha$ des molécules concernées. Le nominateur $\mu_{1}^{2}\alpha_{2}+\mu_{2}^{2}\alpha_{1}$ décrit l'interaction lorsque les deux molécules sont polaires (cas A) mais s'écrit naturellement $\mu_{1}^{2}\alpha_{2}$ quand la seconde molécule est apolaire (cas B).
 
 % mettre les deux cas dans la figure !
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}] %%%%%%%%%%%%%% MISE A L'ÉCHELLE DE LA POLICE AUSSI !!!!
-\draw [dashed] (0,-4) -- (0,2) ;
-\begin{scope}[xshift=-5.4cm]
-\draw (-0.9,1.5) --++ (1.3,0) node [above, midway] {cas A} ;
-%\nuage{nnul}{-3.5}{0}{permanent}
-%\nuage{nnul}{3.5}{0}{permanent}
-\draw (-0.3,0) node {\shortstack{sans\\ interaction}} ;
-%\nuage{nnul}{-2}{-3}{induit}
-%\nuage{nnul}{2}{-3}{induit}
-\draw [latex-latex, thick] (-1,-3) --++ (1.4,0) node [above, midway] {$F_{Debye}$} ;
-\end{scope}
-\begin{scope}[xshift=6cm]
-\draw (-0.9,1.5) --++ (1.3,0) node [above, midway] {cas B} ;
-%\nuage{nnul}{-3.5}{0}{permanent}
-%\nuage{nul}{3.5}{0}{}
-\draw (-0.3,0) node {\shortstack{sans\\ interaction}} ;
-%\nuage{nnul}{-2}{-3}{permanent}
-%\nuage{nnul}{2}{-3}{induit}
-\draw [-latex, thick] (-1,-3) --++ (1.4,0) node [above, midway] {$F_{Debye}$} ;
-\end{scope}
-\end{tikzpicture}
+\includegraphics[scale=0.9]{image/Debye}
 \caption{Interaction entre une molécule polaire et une seconde polarisable.}
 \label{figDebye}
 \end{figure}
 
-Finalement, l'énergie de \textsc{London} (effet de dispersion), qui est la plus importante en terme de grandeur, représente l'interaction entre deux dipôles instantanés (figure~\ref{figLondon}). Par définition, une molécule apolaire possède un moment dipolaire moyen nul mais la combinaison des mouvements des noyaux et des électrons fait qu'il existe malgré tout un moment dipolaire instantané. Cette interaction est d'autant plus forte que les deux molécules sont facilement polarisables, donc d'autant plus forte que leur taille est importante. Les forces de \textsc{London} étant présentes entre toutes les particules, quelle que soit leur nature, ce sont principalement elles qui permettent la cohésion de la matière dans l'univers.
+Finalement, l'énergie de \textsc{London} (effet de dispersion), qui est la plus importante en terme de grandeur, représente l'interaction entre deux dipôles instantanés (figure \ref{figLondon}). Par définition, une molécule apolaire possède un moment dipolaire moyen nul mais la combinaison des mouvements des noyaux et des électrons fait qu'il existe malgré tout un moment dipolaire instantané. Cette interaction est d'autant plus forte que les deux molécules sont facilement polarisables, donc d'autant plus forte que leur taille est importante. Les forces de \textsc{London} étant présentes entre toutes les particules, quelle que soit leur nature, ce sont principalement elles qui permettent la cohésion de la matière dans l'univers.
 
-Notons que les énergies de VdW varient en fonction de l'inverse de la distance à l'ordre 6.
+Notons que les énergies de Van der Waals varient en fonction de l'inverse de la distance à l'ordre 6.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
-%\nuage{nul}{-3.5}{0}{}
-%\nuage{nul}{3.5}{0}{}
-\draw (-0.3,0) node {\shortstack{sans\\ interaction}} ;
-%\nuage{nnul}{-3.5}{-3}{instantanne}
-%\nuage{nul}{3.5}{-3}{}
-\draw (-0.3,-3) node {\shortstack{sans\\ interaction}} ;
-%\nuage{nnul}{-2}{-6}{instantanne}
-%\nuage{nnul}{2}{-6}{induit}
-\draw [latex-latex, thick] (-1,-6) --++ (1.4,0) node [above, midway] {$F_{London}$} ;
-\end{tikzpicture}
+\includegraphics[scale=0.95]{image/London}
 \caption{Interaction entre deux dipôles instantanés.}
 \label{figLondon}
 \end{figure}
@@ -409,24 +374,20 @@ Il existe toutefois d'autres types d'interactions électrostatiques que celles d
 E_{ion-dipôle} = - \frac{1}{r^{2}} \frac{\mu_{1}q_{2}}{4\pi \epsilon_{0} \epsilon}
 \end{equation} 
 
-Il s'agit là encore de l'interaction positive entre une espèce chargée, anion ou cation, et une molécule possédant un moment dipolaire non-nul (\ref*{figiondipole}). Ce phénomène est notamment à l'origine de la dissolution des espèces ioniques (ex~:~NaCl) dans un solvant polaire, de l'étape de solvatation qui suit, puis de la bonne dispersion des charges en solution.
+Il s'agit là encore de l'interaction positive entre une espèce chargée, anion ou cation, et une molécule possédant un moment dipolaire non-nul (\ref{figiondipole}). Ce phénomène est notamment à l'origine de la dissolution des espèces ioniques (ex~:~NaCl) dans un solvant polaire, de l'étape de solvatation qui suit, puis de la bonne dispersion des charges en solution.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
-%\nuage{cation}{-2}{0}{}
-\%nuage{nnul}{2}{0}{permanent}
-\draw [latex-latex, thick] (-1.4,0) --++ (1.8,0) node [above, midway] {$F_{ion-dipole}$} ;
-\end{tikzpicture}
+\includegraphics[scale=0.7]{image/Ion-dipole}
 \caption{Interaction entre une espèce chargée et une molécule polaire.}
 \label{figiondipole}
 \end{figure}
 
 De plus, notons aussi la spécificité de la liaison hydrogène qui est une liaison chimique non covalente, de type dipôle-dipôle. Lorsqu'un hétéroatome possédant au moins une paire libre est suffisamment électronégatif (ex : O, N, F), il vient se positionner aux abords d'un hydrogène acide porté par un autre atome fortement électronégatif afin d'en stabiliser la charge partielle $\delta (+)$ ainsi créée.
 
-Bien que de la même famille que les forces de VdW , ie électrostatique, les liaisons hydrogènes s'en distinguent par une intensité environ dix fois supérieure. Elles restent toutefois une vingtaine de fois plus faibles qu'une liaison covalente. La distance moyenne entre les deux hétéroatomes est de l'ordre de 2,5 \AA .
+Bien que de la même famille que les forces de Van der Waals, \textit{i.e.} électrostatique, les liaisons hydrogènes s'en distinguent par une intensité environ dix fois supérieure. Elles restent toutefois une vingtaine de fois plus faibles qu'une liaison covalente. La distance moyenne entre les deux hétéroatomes est de l'ordre de 2,5 \AA .
 
-Dans le cadre de cette thèse, ce sont principalement les interactions entre systèmes conjugués, ie interactions $\pi-\pi$, qu'il sera nécessaire de traduire. Comme nous pouvons le voir dans le cas simple d'un dimère de benzène représenté en figure~\ref{pistackbenz}, l'interaction positive se fait entre les liaisons $\sigma$ et les liaisons $\pi$ alors que les nuages électroniques des liaisons $\pi$ se repoussent naturellement, dû à leurs charges négatives.
+Dans le cadre de cette thèse, ce sont principalement les interactions entre systèmes conjugués, \textit{i.e.} interactions $\pi-\pi$, qu'il sera nécessaire de traduire. Comme nous pouvons le voir dans le cas simple d'un dimère de benzène représenté en figure \ref{pistackbenz}, l'interaction positive se fait entre les liaisons $\sigma$ et les liaisons $\pi$ alors que les nuages électroniques des liaisons $\pi$ se repoussent naturellement, dû à leurs charges négatives.
 
 Notons que nous retrouvons ce phénomène sous des aspects intramoléculaires, comme par exemple dans le cas de l'hyperconjugaison $\sigma-\pi$ qui vient stabiliser certaines conformations du toluène.
 
@@ -451,16 +412,16 @@ Notons que nous retrouvons ce phénomène sous des aspects intramoléculaires, c
 \label{pistackbenz}
 \end{figure}
 
-Même si la théorie de la fonctionnelle de la densité connaît un large succès tant elle arrive désormais bien à traduire les phénomènes de liaisons chimiques, les structures géométriques et même la cohésion des solides moléculaires et cristallins, il reste toujours l'obstacle des systèmes chimiques où les forces de VdW sont prédominantes. En effet, les effets de corrélation électronique des forces de dispersion étant purement non-locaux, l'approximation locale ou non-locale qui fait le fondement de la DFT restera problèmatique. Se pose alors la question de savoir comment modéliser ces types d'interaction de façon idiomatique. Nous allons voir que l'élaboration d'une fonctionnelle hybride à longue portée est capable de répondre à cette problèmatique.
+Même si la théorie de la fonctionnelle de la densité connaît un large succès tant elle arrive désormais bien à traduire les phénomènes de liaisons chimiques, les structures géométriques et même la cohésion des solides moléculaires et cristallins, il reste toujours l'obstacle des systèmes chimiques où les forces de Van der Waals sont prédominantes. En effet, les effets de corrélation électronique des forces de dispersion étant purement non-locaux, l'approximation locale ou non-locale qui fait le fondement de la DFT restera problèmatique. Se pose alors la question de savoir comment modéliser ces types d'interaction de façon idiomatique. Nous allons voir que l'élaboration d'une fonctionnelle hybride à longue portée est capable de répondre à cette problèmatique.
 
-\section[LC-DFT-D hybride : WBXD]{Construction d'une LC-DFT-D hybride : cas de la WBXD}
+\section[LC-DFT-D hybride : $\omega$BXD]{Construction d'une LC-DFT-D hybride : cas de la $\omega$BXD}
 
-Les DFT hybrides avec correction à longue portée basées sur la théorie KS ont naturellement rencontré un grand engouement puisque la précision apportée n'accroît pas le coût calculatoire par rapport aux DFT hybrides.
+Les DFT hybrides avec correction à longue portée basées sur la théorie \textsc{Kohn-Sham} ont naturellement rencontré un grand engouement puisque la précision apportée n'accroît pas le coût calculatoire par rapport aux DFT hybrides.
 
 \subsection{B88}
 
 Comme nous l'avons vu dans le cadre des approximations de la fonctionnelle de la densité, notées DFAs\footnote{\og Density Functional Approximations \fg{} }, la décroissance en exponentielle du potentiel d'échange-corrélation, au lieu d'être en $1/r$, engendre une mauvaise représentation des interactions à longue distance. Cette erreur, nommée erreur d'auto-interaction (SIE, pour \og self-interaction error \fg{}), est liée au fait que ces approximations, basées sur la densité de spin locale (LSDA, pour \og local spin density approximation \fg{}), décrivent mal l'état fondamental qui devrait être, dans le cadre de la DFT pure, strictement sans auto-interaction.     
-C'est pourquoi, afin d'introduire un effet non-local de l'échange-corrélation dans le modèle KS-DFT (partie~\ref{Kohn-Sham}), \textsc{Becke} proposa en 1988 d'incorporer dans sa fonctionnelle d'échange B88~\cite{B88} une petite part d'echange exact HF. 
+C'est pourquoi, afin d'introduire un effet non-local de l'échange-corrélation dans le modèle KS-DFT (partie~\ref{Kohn-Sham}), \textsc{Becke} proposa en 1988 d'incorporer dans sa fonctionnelle d'échange B88~\cite{becke1988density} une petite part d'echange exact \textsc{Hartree-Fock}. 
 
 Dans le cadre général des DFAs, l'énergie d'échange-corrélation s'écrit donc :
 
@@ -469,23 +430,23 @@ E_{xc} = c_{x}E_{x}^{HF} + E_{xc}^{DFA}
 \label{xcB88}
 \end{equation}
 
-\noindent où $c_{x}$ prend généralement des valeurs comprises entre 0,2 et 0,25~\cite{Bcxthermo} pour les données thermodynamiques et entre 0,4 et 0,6~\cite{Bcxcine} pour les études cinétiques.
+\noindent où $c_{x}$ prend généralement des valeurs comprises entre 0,2 et 0,25~\cite{becke1993density} pour les données thermodynamiques et entre 0,4 et 0,6~\cite{boese2004development} pour les études cinétiques.
 
-Basée sur ce modèle, la désormais bien connue DFT hybride B3LYP~\cite{Bcxthermo} (équation~\ref{B3LYP}) donne des résultats comparables à ceux obtenus à partir de la théorie perturbative \textsc{M\o ller-Plesset} à l'ordre 2~\cite{MP2}, noté MP2 (cf annexe~\ref{annexemp2}), souvent utilisée comme référence, dans le cadre de systèmes fortement liés. Depuis, de nombreuses recherches ont porté sur l'amélioration constante de ce potentiel d'échange-corrélation $E_{xc}[\rho]$.
+Basée sur ce modèle, la désormais bien connue DFT hybride B3LYP \cite{becke1993density} (équation~\ref{B3LYP}) donne des résultats comparables à ceux obtenus à partir de la théorie perturbative \textsc{M\o ller-Plesset} à l'ordre 2 \cite{moller1934note}, noté MP2 (cf annexe~\ref{annexemp2}), souvent utilisée comme référence, dans le cadre de systèmes fortement liés. Depuis, de nombreuses recherches ont porté sur l'amélioration constante de ce potentiel d'échange-corrélation $E_{xc}[\rho]$.
 
 \subsection{B97}
 
-Une avancée significative a de nouveau été faite par \textsc{Becke} en 1997 dans le domaine des KS-DFT. Par une méthode similaire à la combinaison linéaire d'orbitales atomiques, notée LCAO\footnote{\og Linear Combination of Atomic Orbitals \fg{}.}, il a proposé un modèle mathématique basé sur l'approximation de densité de spin local (LSDA), sa première dérivée et une petite fraction d'échange HF pour décrire le potentiel d'échange-corrélation $E_{xc}[\rho]$. Une optimisation systématique des coefficients linéaires à partir d'un jeu classique de données expérimentales a conduit à l'apparition de la méthode B97~\cite{B97}. La base de données contient notamment des valeurs relatives à l'interaction entre systèmes conjugués.
+Une avancée significative a de nouveau été faite par \textsc{Becke} en 1997 dans le domaine des KS-DFT. Par une méthode similaire à la combinaison linéaire d'orbitales atomiques, notée LCAO\footnote{\og Linear Combination of Atomic Orbitals \fg{}.}, il a proposé un modèle mathématique basé sur l'approximation de densité de spin local (LSDA), sa première dérivée et une petite fraction d'échange HF pour décrire le potentiel d'échange-corrélation $E_{xc}[\rho]$. Une optimisation systématique des coefficients linéaires à partir d'un jeu classique de données expérimentales a conduit à l'apparition de la méthode B97~\cite{becke1997density}. La base de données contient notamment des valeurs relatives à l'interaction entre systèmes conjugués.
 
-Cette méthodologie a été reprise par F. A. \textsc{Hamprecht} etal, P. J. \textsc{Wilson} etal et T. W. \textsc{Keal} etal pour respectivement conduire à la B97-1~\cite{B97a} (1998), la B97-2~\cite{B97b} (2001) et la B97-3~\cite{B97c} (2005). Il s'agissait alors de réoptimisations des coefficients linéaires par rapport à d'autres bases de données expérimentales plus complètes.
+Cette méthodologie a été reprise par F. A. \textsc{Hamprecht} et al, P. J. \textsc{Wilson} et al et T. W. \textsc{Keal} et al pour respectivement conduire à la B97-1 \cite{hamprecht1998development} (1998), la B97-2 \cite{wilson2001hybrid} (2001) et la B97-3 \cite{keal2005semiempirical} (2005). Il s'agissait alors de réoptimisations des coefficients linéaires par rapport à d'autres bases de données expérimentales plus complètes.
 
 Mais cette reparamétrisation empirique du terme d'échange-corrélation ne résout pas le problème de sa non-décroissance en $1/r$. La prise en compte totale du terme d'échange HF $E_{x}^{HF}$ ($c_{x}$=1 dans l'équation~\ref{xcB88}) pourait résoudre ce problème mais cela serait incompatible avec le terme de corrélation DFA $E_{c}^{DFA}$. En effet, il existerait alors une mauvaise compensation des erreurs respectives.
 
-\subsection{WB}
+\subsection{$\omega$B97}
 
 L'idée de séparer le traitement des interactions courtes (SR, pour \og short range \fg{}) et longues portées (LR, pour \og long range \fg{}) s'est alors présentée comme le choix le plus évident, aussi bien au niveau de la compréhension des phénomènes que mathématiquement parlant. Nous pouvons ainsi traiter séparément à l'aide d'une fonction erreur $(erf)$ les interactions à courtes distances par une fonctionnelle de la densité et celles longue distance par une fonction d'onde. Ce principe conduit naturellement à l'élaboration d'une fonctionnelle hybride à séparation de portée. L'introduction de la fonction erreur, avec un paramètre libre, permet de contrôler le rayon d'action des interactions de courte-portée.
 
-La première proposition faite par \textsc{Iikura} etal\cite{iiakura} a été de traiter la partie d'échange LR par la théorie HF alors que la partie SR est approximée par une DFA; le terme de corrélation est quant à lui le même que celui de \textsc{Coulomb}, quelle que soit la distance :
+La première proposition faite par \textsc{Iikura} et al\cite{iikura2001long} a été de traiter la partie d'échange LR par la théorie HF alors que la partie SR est approximée par une DFA; le terme de corrélation est quant à lui le même que celui de \textsc{Coulomb}, quelle que soit la distance :
 
 \begin{equation}
 E_{xc}^{LC-DFA} = E_{x}^{LR-HF} + E_{x}^{SR-DFA} + E_{c}^{DFA}
@@ -510,7 +471,7 @@ avec & $\frac{erf(\omega r_{12})}{r_{12}}$ : & interaction de courte portée, \\
 \end{flushleft}
 
 Notons que l'introduction du paramètre $\omega$, qui s'exprime comme l'inverse d'une distance, permet de donner un sens physique à cette valeur, en cela qu'il est étroitement lié à une longueur caractéristique de la séparation.
-Naturellement, il existe différents types de fonctions erreur $(erf)$ afin de faciliter son intégration mathématique dans les codes de calculs. Dans le cas de la WB\cite{WB97X} et, par conséquent, des fonctionnelles WBX et WBXD, c'est la fonction $erf/erfc$ qui a été choisie par Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} dans leurs travaux. \\
+Naturellement, il existe différents types de fonctions erreur $(erf)$ afin de faciliter son intégration mathématique dans les codes de calculs. Dans le cas de la $\omega$B97 \cite{chai2008long} et, par conséquent, des fonctionnelles $\omega$B97X et $\omega$B97X-D, c'est la fonction $erf/erfc$ qui a été choisie par Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} dans leurs travaux. \\
 
 Le choix des auteurs s'est porté sur un terme d'échange exact HF longue portée $E_{x}^{LR-HF}$, calculé à partir des spin-orbitales occupées $\phi_{i \sigma}(r)$, et une forme analytique du terme d'échange $E_{x}^{SR-DFA}$ obtenue par l'intégration du carré de la matrice densité LSDA :
 
@@ -540,17 +501,17 @@ En retenant une fonctionnelle de corrélation basée elle aussi sur la LSDA $E_{
 E_{xc}^{RSHXLDA} = E_{x}^{LR-HF} + E_{x}^{SR-LSDA} + E_{c}^{LSDA}
 \end{equation}
 
-La fonctionnelle WB\cite{WB97X} s'écrit alors :
+La fonctionnelle $\omega$B97\cite{chai2008long} s'écrit alors :
 
 \begin{equation}
 E_{xc}^{\omega B97} = E_{x}^{LR-HF} + E_{x}^{SR-B97} + E_{c}^{B97}
 \end{equation}
 
-Il est à noter que celle-ci ne possède pas d'échange HF à courte portée (SR), comme la plupart des fonctionnelles hybrides à correction de portée.
+Il est à noter que celle-ci ne possède pas d'échange \textsc{Hartree-Fock} à courte portée (SR), comme la plupart des fonctionnelles hybrides à correction de portée.
 
 Malgré plusieurs études visant à optimiser la valeur du paramètre $\omega$, la précision calculatoire reste insuffisante en terme de thermochimie. En effet, nous l'avons déjà vu, une valeur trop grande pour $\omega$ tendrait vers une incompatibilité entre le terme d'échange non-local $E_{x}^{LR-HF}$ et le terme local de corrélation $E_{c}^{LSDA}$. De plus, nous pouvons aisément comprendre, d'après l'équation~\ref{erf}, que plus $\omega$ est petit, plus la contribution du terme d'échange SR $E_{x}^{SR-LSDA}$ sera importante. L'utilisation d'une trop faible valeur  reviendrait alors à traiter le problème dans un cadre très proche de la LDA classique qui, comme nous l'avons vu dans la partie~\ref{lda}, est incapable de traduire correctement le terme d'échange à courte portée.
 
-\subsection{WBX}
+\subsection{$\omega$B97X}
 
 Afin d'y remédier, une partie d'échange SR HF $E_{x}^{SR-HF}$, est ajoutée à $E_{x}^{SR-LSDA}$ dans une proportion d'environ 16\%,  de la même manière que \textsc{Becke} dans la fonctionnelle B88. Ceci à l'avantage de ne pas perturber la partie LR qui est dorénavant correcte. Ainsi, la nouvelle fonctionnelle comporte désormais un paramètre $c_{x}$ contrôlant la proportion d'échange exact HF à courte distance, comme nous pouvons le voir dans son expression :
 
@@ -564,19 +525,19 @@ E_{xc}^{LC-DFA} = E_{x}^{LR-HF} + c_{x}E_{x}^{SR-HF} + E_{x}^{SR-DFA} + E_{c}^{D
 E_{x}^{SR-HF} = -\frac{1}{2} \sum_{\sigma} \sum_{ij}^{occ.} \iint \phi_{i \sigma}^{*}(r_{1}) \phi_{j \sigma}^{*}(r_{1}) \frac{erfc(\omega r_{12})}{r_{12}} \phi_{i \sigma}(r_{2}) \phi_{j \sigma}(r_{2}).dr_{1}.dr_{2}, \\
 \end{equation}
 
-C'est ainsi que la fonctionnelle WBX\cite{WB97X} se décompose de la façon suivante~:
+C'est ainsi que la fonctionnelle $\omega$B7X\cite{chai2008long} se décompose de la façon suivante~:
 
 \begin{equation}
 E_{xc}^{\omega B97X} = E_{x}^{LR-HF} + c_{x}E_{x}^{SR-HF} + E_{x}^{SR-B97} + E_{c}^{B97}
 \end{equation}
 
-La valeur de $\omega$, comme les valeurs des coefficients de développements linéaires et de développements à l'ordre $m$ des fonctionnelles WB et WBX ont été déterminées par la méthode des moindres carrés appliquée à une base de données composées de 412 valeurs précises, expérimentales et théoriques.
+La valeur de $\omega$, comme les valeurs des coefficients de développements linéaires et de développements à l'ordre $m$ des fonctionnelles $\omega$B97 et $\omega$B97X ont été déterminées par la méthode des moindres carrés appliquée à une base de données composées de 412 valeurs précises, expérimentales et théoriques.
 
-Malgré toutes ces optimisations conduisant à une bien meilleure représentation des systèmes en interaction, ces fonctionnelles connaissent encore des lacunes quant à la traduction des interactions de dispersion entre atomes, ie les forces de \textsc{London}. Comme nous allons le voir dans le cas de la fonctionnelle WBXD, ceci peut être corrigé par une prise en compte empirique des effets de dispersion.
+Malgré toutes ces optimisations conduisant à une bien meilleure représentation des systèmes en interaction, ces fonctionnelles connaissent encore des lacunes quant à la traduction des interactions de dispersion entre atomes, ie les forces de \textsc{London}. Comme nous allons le voir dans le cas de la fonctionnelle $\omega$B97X-D, ceci peut être corrigé par une prise en compte empirique des effets de dispersion.
 
-\subsection{WBXD}
+\subsection{$\omega$B97X-D}
 
-Cette dernière correction pourrait naturellement passer par le calcul idiomatique de l'énergie de dispersion entre chaque atome, mais cela occasionnerait alors un coût calculatoire prohibitif. C'est pourquoi Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} ont fait le choix d'appliquer cette correction de façon empirique par l'ajout d'un terme $E_{disp}$ à la fonctionnelle KS-DFT, ici la WBX. L'expression de l'énergie de la fonctionnelle WBXD\cite{wB97XD} ainsi créée devient alors :
+Cette dernière correction pourrait naturellement passer par le calcul idiomatique de l'énergie de dispersion entre chaque atome, mais cela occasionnerait alors un coût calculatoire prohibitif. C'est pourquoi Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} ont fait le choix d'appliquer cette correction de façon empirique par l'ajout d'un terme $E_{disp}$ à la fonctionnelle KS-DFT, ici la $\omega$B97X. L'expression de l'énergie de la fonctionnelle $\omega$B97X-D \cite{chai2008long} ainsi créée devient alors :
 
 \begin{equation}
 E_{DFT-D}=E_{\omega B97X}+E_{disp}
@@ -593,7 +554,7 @@ E_{disp}=-\sum_{i-1}^{N_{at}-1} \sum_{j-i+1}^{N_{at}} \frac{C_{6}^{ij}}{R_{ij}^{
 f_{damp} (R_{ij})=\frac{1}{1+a(\frac{R_{ij}}{R_{r}})^{-12}}
 \end{equation}
 
-Une nouvelle fois, la partie empirique a été paramétrée par rapport à la même base de données que pour les fonctionnelles WB et WBX.
+Une nouvelle fois, la partie empirique a été paramétrée par rapport à la même base de données que pour les fonctionnelles $\omega$B97 et $\omega$BX97.
 
 
 \newpage
@@ -601,9 +562,9 @@ Une nouvelle fois, la partie empirique a été paramétrée par rapport à la m�
 \section*{Conclusion}
 \markright{CONCLUSION}{}
 
-En résumé, l'apport de la fonction erreur $(erf)$ permet de mieux gérer les contributions d'échange-corrélation selon la distance d'interaction. Les DFT hybrides WB et WBX prennent ainsi en compte la totalité de l'échange exact à longue distance et utilisent la méthode des gradients généralisés à faible distance, alors que la corrélation électronique reste basée sur celle initialement développée par \textsc{Becke} dans la fonctionnelle B97. Ceci a pour effet de supprimer le problème d'auto-interaction de la fonctionnelle d'échange à longue distance.
+En résumé, l'apport de la fonction erreur $(erf)$ permet de mieux gérer les contributions d'échange-corrélation selon la distance d'interaction. Les DFT hybrides $\omega$B97 et $\omega$B97X prennent ainsi en compte la totalité de l'échange exact à longue distance et utilisent la méthode des gradients généralisés à faible distance, alors que la corrélation électronique reste basée sur celle initialement développée par \textsc{Becke} dans la fonctionnelle B97. Ceci a pour effet de supprimer le problème d'auto-interaction de la fonctionnelle d'échange à longue distance.
 
-Les travaux de Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} ont finalement conduit à la fonctionnelle WBXD, de type LC-DFT-D hybride, où la totalité de l'échange exact HF est pris en compte à longue distance, en même temps qu'une petite partie -- environ 22 \% -- de l'échange exact HF est introduite à courte distance pour compléter une fonctionnelle d'échange B97 modifiée ; une correction empirique de la dispersion est finalement appliquée.
+Les travaux de Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} ont finalement conduit à la fonctionnelle $\omega$B9X-D, de type LC-DFT-D hybride, où la totalité de l'échange exact HF est pris en compte à longue distance, en même temps qu'une petite partie -- environ 22 \% -- de l'échange exact HF est introduite à courte distance pour compléter une fonctionnelle d'échange B97 modifiée ; une correction empirique de la dispersion est finalement appliquée.
 
 Comme toutes les fonctionnelles LC-DFT, le problème de l'auto-interaction est corrigé à longue distance mais reste quelque peu présent à courte distance. Les effets de corrélation à longue distance sont quant à eux purement et simplement traités par la correction empirique de dispersion.
 

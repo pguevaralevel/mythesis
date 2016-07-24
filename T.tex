@@ -1,8 +1,8 @@
 \documentclass[12pt,a4paper]{book}
-\usepackage[french]{babel}
+\usepackage[french,UKenglish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[a4paper,left=3cm,top=3cm,right=2cm,bottom=2.5cm]{geometry}
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage[pdftex]{graphicx}
 \usepackage{ragged2e}
@@ -25,7 +25,7 @@
 \usepackage{paralist}
 \usepackage[toc,page]{appendix}
 \bibliographystyle{unsrt}
-
+\sloppy
 \newcommand{\ket}[1]{\ensuremath{|#1\rangle}\xspace} %mecanica quantica
 \newcommand{\bra}[1]{\ensuremath{\langle #1|}\xspace} %mecanica quantica
 \newcommand{\braket}[2]{\ensuremath{\langle #1|#2\rangle}\xspace} %mecanica quantica
@@ -202,6 +202,7 @@
 \include{Asp/Chap1}
 \include{ChapitreD/Chapitre_DFT}
 \include{vib/chap_vib}
+\include{chap4/chap4}
 \include{conclu/conclu}
 \begin{appendices}
 	\include{anex/anex1}
@@ -210,5 +211,4 @@
 \renewcommand{\bibname}{Références bibliographiques}
 \bibliography{biblio}
 \bibliographystyle{unsrt}
-
 \end{document}

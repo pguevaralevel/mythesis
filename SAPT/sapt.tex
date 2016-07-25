@@ -1,0 +1,149 @@
+\newgeometry{textwidth=16cm}
+\chapter[Modélisation des interactions intermoléculaires]{Modélisation des interactions intermoléculaires}
+\minitoc
+\restoregeometry
+
+\newpage
+
+\section*{Introduction}
+\markright{INTRODUCTION}{}
+\spacing{1.5}
+
+Les interactions non-covalentes ou interactions Van der Waals occupent une place prépondérante dans les problématiques actuelles de recherche, celles-ci étant aujourd'hui considérées comme les pierres angulaires de disciplines telles que la chimie supramoléculaire, la science des matériaux ou la biochimie.  Après les liaison hydrogènes et les interactions électrostatiques fortes (\textit{e.g.} charge- charge, charge- dipôle, dipôle- dipôle), la plus significatif interaction non covalente est probablement laquelle implique les systèmes aromatiques \cite{grimme2008special}. Attractives interactions entre cycles aromatiques ont été considérées comme  responsables de la stabilité de la double hélice d'ADN et ARN, ainsi comme l'agrégation de Porphyrines \cite{mcgaughey1998pi}.
+
+L'énergie d'interaction intermoléculaire d'un ensemble de molécules se situe généralement entre 1 et 20 kcal/mol selon le nombre et le type de molécules impliquées. Cependant, l'énergie d'une liaison chimique covalente se mesure entre 100 et 300 kcal/mol, ce qui est d’un autre ordre de grandeur. De même, la portée d’une liaison chimique dépasse rarement quelques Angströms tandis que les interactions intermoléculaires s'étendent théoriquement jusqu'à l'infini (électrostatique) et de manière pratique entre 2 et 10 Angströms selon la taille et la nature du système.
+
+Malgré toute cette importance pour grandes structures, $\pi$-stacking est un phénomène pas bien connu. L’étude expérimentale de ces interactions présente un défi car il est complique séparer les interactions $\pi$-stacking d’interactions secondaires ou les effets de solvant. A cause de ces difficultés expérimentales, les études en chimique computationnelle apparaissent ainsi qu’un avantage pour comprendre la nature fondamentale des interactions non covalentes, et l’influence sur les systèmes chimiques. 
+
+\section{Bases Théoriques}
+
+La modélisation en chimique théorique de la corrélation électronique représente la principale difficulté dans les systèmes des molécules ou bien dans de complexes faisant intervenir des interactions intermoléculaires. Ce phénomène déterminé par l’impossibilité de trouver deux électrons au même endroit de l’espace, apparaît puisque il n’existe pas une solution analytique à l’équation de  Schrödinger à des systèmes à plus d’un électron; plusieurs méthodes ont été développées pour traites des systèmes électroniques à n corps.
+
+La méthode Hartree-Fock, proposée indépendamment par Hartree et Fock en 1930 \cite{slater1930note}, met chaque électron d’un systèmes dans un champ moyen de façon isolé, dans lequel chaque électron pris subit l’interaction des n-1 autres électrons du systèmes. La méthode permet de reproduire le trou de Fermi, par contre ne prends pas compte de trou de Coulomb et il manque de la corrélation électronique, indispensable pour calculer avec la précision nécessaire des énergies et différences. Cela sera ajouté par perturbation, interaction de configurations, random phase approximation ou autres méthodes post Hartree-Fock.
+
+D'autre part la théorie de la fonctionnelle de la densité (DFT) permet de prendre en compte à la fois le trou de Coulomb et le trou de Fermi. Elle modélise un système multi électronique par un système fictif sans interaction électron- électron  ayant la même densité que le système réel
+
+L’énergie d’interaction intermoléculaire est une observable qu’on peut interpréter par différentes décompositions qui ont un sens physique. Buckingham \cite{buckingham1967permanent}, a proposé par exemple une décomposition de l’énergie d’interaction intermoléculaire en quatre grandes contributions : l’électrostatique $E_{elec}$, l’induction $E_{ind}$, l’echange-repulsion $E_{rep}$, et la dispersion $E_{disp}$.
+
+\begin{equation}
+\Delta E = E_{elec} + E_{ind} + E_{rep} + E_{disp}
+\end{equation} 
+
+L’interaction électrostatique est l’ensemble des interactions coulombiennes des deux densités de charges isolées, est additive et peut être répulsive ou attractive selon l’orientation relative des molécules. Elle constitue la plus grande partie de l’interaction intermoléculaire.  
+L’énergie d’induction est la stabilisation d’un système par la polarisation des constituant par le champ électrique qu’ils subissent de la part de densités de charge que les avoisinant. Cette énergie est non additive et toujours attractive.
+
+La répulsion vient du principe de Pauli, qui stipule que deux électrons ne peuvent pas occuper le même spin au sein d’une même orbitale. C’est une interaction toujours répulsive et qui apparaît seulement à court distance.
+
+Finalement la dispersion n’a pas d’équivalent classique car c’est une interaction qui est liée à la corrélation électronique de deux densités de charge en interaction. Elle est attractive et existe dans tous les complexes.
+
+Il y a deux manière différentes de calculer une énergie d’interaction intermoléculaire. L’une est la méthode supermoléculaire, et l’autre est la construction d’une interaction par contributions directement résultat des fonctions d’onde des monomères séparés.
+
+Dans la méthode supermoleculaire l’énergie d’interaction intermoléculaire est la différence entre l’énergie totale du dimère et la somme de l’énergie total de chaque monomère.
+
+
+\begin{equation}
+\Delta E = E_{AB} - E_{A} - E_{B} \label{eq2}
+\end{equation}
+
+A et B représentent les monomères et AB le dimère. Dans ce cas là, une erreur subtile peut se produire autour de l’énergie d’interaction. Cette erreur est connue sous le nom de Basis Set Superposition Error (BSSE) \cite{sherrill2010counterpoise}. Si nous calculons les deux monomères dans leurs bases spécifiques, et ensuite un dimère dans l’ensemble des fonctions de base des monomères, nous pourrons utiliser les orbitales virtuelles d’un monomère pour agrandir la base disponible pour la distribution de charge de l’autre monomère et vice versa. Le résultat est donc une augmentation de la qualité de la base pour le dimère vis-à-vis des monomères, et par conséquent une surestimation de l’énergie de l’interaction. Pour corriger l’erreur de BSSE, une méthode possible est de travailler dans une base complète ou saturée pour les monomères et le dimère. Une autre méthode est de calculer l’énergie des monomères dans la base du dimère, ce qui est le plus fréquemment utilisé sous le nom de counterpoise grace a Boys et Bernardi \cite{boys1970calculation}. Cette correction entraîne que pour chaque distance intermoléculaire considérée il faut calculer l’énergie totale du dimère et des monomères.
+
+L'energie sans correction donnée pour l'equation \ref{eq2}  peut-etre modifiée pour l'estimation de la quantité pour laquelle le monomere A est stabilisé artificiellment pour la base supplémentaire du monomere B et vice versa, avec la relation suivante :
+
+\begin{equation}
+E_{BSSE}(A) = E_{A}^{AB}(A) - E_{A}^{A}(A)
+\end{equation}
+
+\begin{equation}
+E_{BSSE}(B) = E_{B}^{AB}(B) - E_{B}^{B}(B)
+\end{equation}
+
+Où l'exposant designe la base utilisée, l'indice designe la geometrie et le symbole entre parentheses est le systeme chimique consideré. Ainsi nous soustrayons l'energie du monomere A et ses bases de l'energie et bases du dimer, egalment dans le cas du monomere B. 
+
+Pour le moment nous considerons que la geometrie des monomeres ne changent pas quand ils s'approchent pour former le complexe . Normalement cette approximation simplifie les calculs et donne de bon resultat. 
+
+Le calcul direct d’une énergie d’interaction par la méthode supermoléculaire ne donne aucune information sur la nature de l’interaction. Il y a des méthodes pour décomposer l’énergie d’interaction en différentes contributions ayant en sens physique. 
+
+La première théorie mécanique quantique pour interactions intermoléculaire a été développée en 1930 par London et al \cite{london1930z}, (la même idée été dégagée plutôt par Wang \cite{wang1927mutual}. Cette théorie est basée en le standard bas ordre de l’expansion  de perturbation de Rayleidgh Schrödinger avec l’hamiltonien non perturbé des monomères pas interagissant. 
+
+La différence entre le totale et l’hamiltonien non perturbé est l’opérateur V d’interaction intermoléculaire, lequel est remplacé par ses multipôles expansions. La méthode de London est validée seule de façon asymptotique pour large séparation intermoléculaire.
+
+Elle peut être améliorée par l’utilisation de l’opérateur \textbf{V} non étendu, l’expansion de perturbation résultant est  dénommée comme l’approximation de la polarisation. Les composant qui sont présentes dans la polarisation et qui manquent dans la théorie de London sont visé comme l’effet de pénétration.  
+
+Autre approche, la méthode de Morokuma, qui est l’une des premières méthodes développées, modifiée plus tard par Kitaura et Morokuma, où l'energie est divisée au niveau Hartree-Fock dans les composants  électrostatique, echange, polarisation et transfert de charge. Ces constituants sont determinés pour le change de l'energie totale quand quelques elements bien defini sont eliminés de la matrice d'interaction de Fock et la matrice de recouvrement. Ils derivent d'un fonction d'onde  qui n'a pas été antisymetrisé \cite{morokuma1977molecules}. Restricted Virtual Space (RVS), qui a été proposée indépendamment par Stevens et Fink \cite{stevens1987frozen}, corrige nombreux tendance insatisfaisant de la décomposition de Morokuma en conséquence des termes lesquels n’étaient pas bien corrigés du principe d’exclusion de Pauli. Cependant elle combine leurs termes électrostatique et d’échange et modifie l’évaluation de la polarisation et les composants de transfert de charge \cite{chen1996energy}.
+
+\singlespacing
+\section{La Théorie de Perturbations à Symétrie Adaptée (SAPT)}
+
+\spacing{1.5}
+
+Cette théorie est un ab initio méthode qui prends en compte les déficiences de la théorie de London et permet de calculer la surface d’énergie potentiel, grâce à une structure conceptuel pour comprendre le phénomène des interactions intermoléculaire. 
+
+Le point du départ est similaire à la théorie de London avec l’hamiltonien non perturbé, mais chacune des corrections à l’énergie d’interaction calculées dans cette approximation peuvent être classifiés tels en décrivant les quatre interactions fondamentales : l’électrostatique,  l’induction, l’échange et la dispersion. Ainsi SAPT représente l’énergie d’interactions comme la somme des termes bien définis avec interprétation physique. 
+
+Les propriétés de cette approximation ont été étudiées depuis 1960 pour systèmes simples comme H2+. Dans le cas de systèmes multiélectroniques SAPT a fallu appliquer une double perturbation, laquelle a été fait après 1970 \cite{szalewicz1979symmetry}. 
+
+L’hamiltonien du dimère est partitionné dans les contributions de l’opérateur de Fock de chaque monomère (F), l’interaction entre les monomères (V) et le potentiel de fluctuation (W).
+
+\begin{equation}
+H = F_{A} + F_{B} + V + W_{A} + W_{B}
+\end{equation}
+
+L’énergie d’interaction peut être décrit comme une série perturbative :
+
+\begin{equation}
+E_{int} = \sum_{n=1}^{\infty} \sum_{k=0}^{\infty} \sum_{l=0}^{\infty} (E_{pol}^{(nkl)}+ E_{exch}^{(nkl)}) 
+\end{equation}
+
+Le terme n dénote l’ordre en V, k et l dénotent l’ordre en W$_{A}$ et W$_{B}$ respectivement. $E_{pol}$ sont de termes qui viennent de l’expansion de la polarisation et $E_{exch}$ sont de termes résultants de l’antisymétrisation de la fonction d’onde par rapport à l’échange des électrons entre les monomères.  
+La série peut être effectuée à divers degrés d’exhaustivité selon la taille du système étudie et la précision souhaitée.  
+
+Historiquement plusieurs troncatures de la série ont été faite :
+
+\begin{equation}
+E_{SAPT0} = E_{HF} + E_{disp}^{(20)} + E_{exch-disp}^{(20)} \label{sapt0}
+\end{equation}
+
+\begin{equation}
+E_{HF} = E_{elst}^{(10)} + E_{exch}^{(10)} + E_{ind,resp}^{(20)} + E_{exch-ind,resp}^{(20)} + \delta E_{HF}
+\end{equation}
+
+Où $\delta E_{HF}$ contient tous les termes de troisieme et ordre superieur en induction et echange – induction. 
+
+\begin{equation}
+E_{SAPT2} = E_{SAPT0} + E_{elst,resp}^{(12)} + \epsilon_{exch}^{(1)} (2) + ^{t}E_{ind}^{(22)} + ^{t}E_{exch-ind}^{(22)} \label{sapt2}
+\end{equation}
+
+\begin{equation}
+E_{SAPT} = E_{SAPT2} + E_{elst,resp}^{(13)} + [\epsilon_{exch}^{(1)} (CCSD) - \epsilon^{(1)}(2)] + \epsilon_{disp}^{(2)}(2) \label{sapt}
+\end{equation}
+
+Dans l’équation \ref{sapt0} $E_{HF}$ est l’énergie d’interactions de Hartree- Fock, en \ref{sapt2} $\epsilon_{exch}^{(1)}(2) = E_{exch}^{(11)} + E_{exch}^{(22)}$, alors que dans l’équation \ref{sapt}  $\epsilon_{exch}^{(1)}(CCSD)$ fait référence à la correction de corrélation intramonomère d’échange évaluée au niveau CCSD de théorie. L’indice \og resp \fg montre que la contribution due à la réponse de l’orbitale a été considérée, egalment l'equation \ref{sapt} est équivalente à l'ordre 4 de la theorie des perturbations supramoléculaire. Ces équations ont été utilisées jusqu'à la moitie des années 90, après les développements des systèmes informatiques ont aidé à l’inclusion de termes d’ordre supérieur dans la formulation.
+
+\begin{equation}
+E_{SAPT}^{(30)} = E_{ind}^{(30)} + E_{ind-disp}^{(30)} + E_{disp}^{(30)} + E_{exch-ind}^{(30)} + E_{exch-ind-disp}^{(30)} + E_{exch-disp}^{(30)}
+\end{equation}
+
+Pour reduire l’effort numérique, souvent les termes EHF sont remplacés par un calcul Hartree-Fock du dimère, reintroduisant les approximations d’orthogonalisation et couplage entre ordres différents de dispersion et induction par exemple.
+Au delà du deuxième ordre en V, les termes dispersion et induction et ind-disp perdent un peu leur signification physique et deviennent des grandeurs numériques qui augmentent ou baissent tel ou tel effet au 2$^{e}$ ordre.
+
+\subsection{L'interaction Electrostatique}
+
+
+Le premier ordre de l'energie de polarisation peut être ecrit :
+
+\begin{equation}
+E_{pol}^{(10)} = \langle \Phi_{A}^{0} \Phi_{B}^{0} |V_{AB}| \Phi_{A}^{0} \Phi_{B}^{0} \rangle  \label{pol}
+\end{equation}
+
+Pour avoir une representation physique nous transformons l'equation \ref{pol} dans :
+
+\begin{equation}
+E_{pol}^{(10)} = \int \int \rho_{A} (r_{1}) \frac{1}{r_{12}} \rho_{B} (r_{2}) dr_{1} dr_{2} \label{pol-phys}
+\end{equation}
+
+Avec $\Phi_{A/B}$ est la fonction d'onde sans perturbée des monomeres A et B, ainsi comme $\rho_{A/B}$ est la densité de charge qui s'obtient de l'integration sur les coordennées de tous les electrons moins un. 
+
+L'equation \ref{pol-phys} represent l'interaction entre deux distribution de charge, et on peut la nomme comme l'energie electrostatique $E_{elst}^{(10)}$. Dans le limite de la separation asymptotique,peut-être representée comme la somme de l'interaction des moments des multipôles permanents. Alors que dans la région non-asymptotique il contient effet de penetration de charge.
+
+
+		

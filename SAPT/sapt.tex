@@ -47,19 +47,19 @@ Dans la méthode supermoleculaire l’énergie d’interaction intermoléculaire
 
 A et B représentent les monomères et AB le dimère. Dans ce cas là, une erreur subtile peut se produire autour de l’énergie d’interaction. Cette erreur est connue sous le nom de Basis Set Superposition Error (BSSE) \cite{sherrill2010counterpoise}. Si nous calculons les deux monomères dans leurs bases spécifiques, et ensuite un dimère dans l’ensemble des fonctions de base des monomères, nous pourrons utiliser les orbitales virtuelles d’un monomère pour agrandir la base disponible pour la distribution de charge de l’autre monomère et vice versa. Le résultat est donc une augmentation de la qualité de la base pour le dimère vis-à-vis des monomères, et par conséquent une surestimation de l’énergie de l’interaction. Pour corriger l’erreur de BSSE, une méthode possible est de travailler dans une base complète ou saturée pour les monomères et le dimère. Une autre méthode est de calculer l’énergie des monomères dans la base du dimère, ce qui est le plus fréquemment utilisé sous le nom de counterpoise grace a Boys et Bernardi \cite{boys1970calculation}. Cette correction entraîne que pour chaque distance intermoléculaire considérée il faut calculer l’énergie totale du dimère et des monomères.
 
-L'energie sans correction donnée pour l'equation \ref{eq2}  peut-etre modifiée pour l'estimation de la quantité pour laquelle le monomere A est stabilisé artificiellment pour la base supplémentaire du monomere B et vice versa, avec la relation suivante :
+L'energie sans correction donnée pour l'equation \ref{eq2}  peut-être modifiée pour l'estimation de la quantité pour laquelle le monomère A est stabilisé artificiellement pour la base supplémentaire du monomère B et vice versa, avec la relation suivante:
 
 \begin{equation}
-E_{BSSE}(A) = E_{A}^{AB}(A) - E_{A}^{A}(A)
+E_{BASE}(A) = E_{A}^{AB}(A) - E_{A}^{A}(A)
 \end{equation}
 
 \begin{equation}
 E_{BSSE}(B) = E_{B}^{AB}(B) - E_{B}^{B}(B)
 \end{equation}
 
-Où l'exposant designe la base utilisée, l'indice designe la geometrie et le symbole entre parentheses est le systeme chimique consideré. Ainsi nous soustrayons l'energie du monomere A et ses bases de l'energie et bases du dimer, egalment dans le cas du monomere B. 
+Où l'exposant désigne la base utilisée, l'indice désigne la géométrie et le symbole entre parenthèses est le système chimique considéré Ainsi nous soustrayons l'énergie du monomère A et ses bases de l'énergie et bases du dimer, également dans le cas du monomère B. 
 
-Pour le moment nous considerons que la geometrie des monomeres ne changent pas quand ils s'approchent pour former le complexe . Normalement cette approximation simplifie les calculs et donne de bon resultat. 
+Pour le moment nous considérons que la géométrie des monomères ne changent pas quand ils s'approchent pour former le complexe . Normalement cette approximation simplifie les calculs et donne de bon résultat 
 
 Le calcul direct d’une énergie d’interaction par la méthode supermoléculaire ne donne aucune information sur la nature de l’interaction. Il y a des méthodes pour décomposer l’énergie d’interaction en différentes contributions ayant en sens physique. 
 
@@ -145,5 +145,103 @@ Avec $\Phi_{A/B}$ est la fonction d'onde sans perturbée des monomeres A et B, a
 
 L'equation \ref{pol-phys} represent l'interaction entre deux distribution de charge, et on peut la nomme comme l'energie electrostatique $E_{elst}^{(10)}$. Dans le limite de la separation asymptotique,peut-être representée comme la somme de l'interaction des moments des multipôles permanents. Alors que dans la région non-asymptotique il contient effet de penetration de charge.
 
+\subsection{L'Induction}
 
+Si deux molecules en interaction s'appeochent, le potentiel électrostatique de la molecule A deforme la distribution de charge de la molecule B et vice versa. Ce phenomene est communement appelle induction. La deformation de la charge va dans le sens du champ électrostatique, et introduit un champ électrosttique dan sle sens opposé (principe de Le Ch\^{a}telier).  Le dipôle induit a une interaction favorable avec le champ exterieur, donc l'interaction baisse l'energie totale. Une induction est toujours attractive. 
+
+L'energie de polarisation de deuxieme ordre $E_{pol}(2)$ vient donnée par :
+
+\begin{equation}
+E_{pol}^{(2)} = - \langle \Phi_{0}| V \hat{R}V| \Phi_{0}\rangle = - \sum_{m \neq 0} \frac{|\langle \Phi_{0}|V \Phi_{m}\rangle|^{2}}{E_{m} - E_{0}} \label{pol2}
+\end{equation}
+
+L'energie de l'induction s'obtient quand la somme sur tous les states de la equation \ref{pol2} est limitée aux etats excités. Ainsi l'energie totale d'induction : 
+
+\begin{equation}
+E_{ind}^{(2)} = E_{ind}^{(2)}(A) + E_{ind}^{(2)}(B) \label{ind}
+\end{equation}
 		
+Où  \begin{equation}
+E_{ind}^{(2)}(A) = -\langle \Phi_{A}|\Omega_{B}\hat{R_{0}^{A}}\Omega_{B}| \Phi_{A} \rangle  \label{indA}
+\end{equation}		
+
+$\Omega_{B}$ est l'operateur du potentiel electrostatique généré par le monomere B sans perturbé. 
+
+\begin{equation}
+\Omega_{B} = \sum_{i\in A} \omega_{B}(r_{i})
+\end{equation}
+
+\begin{equation}
+\omega_{B}(r_{i}) = \int \frac{1}{r_{ij}} \rho_{B}^{tot}(r_{j}) d^{3}r_{j}
+\end{equation}
+
+$\hat{R_{0}^{A}} = (H_{A}- E_{A} + P_{A})^{-1}Q_{A}$ où $P_{A} = |\Phi_{A}\rangle \langle \Phi_{A}|$ et $Q_{A} = 1- P_{A}$, il est le resolvante reduitée de $H_{A}$ à l'etat fondamental. 
+
+
+Dans les calculs de l'énergie d'induction $E_{ind}^{(2)}(A)$ les mouvements des électrons du monomère A n'est pas corrélé avec le mouvement des électrons du monomère B. Cela signifie que la méthode négligent complètement la corrélation électronique intermonomere en ne considérant que l'interaction d'induction.  
+
+\subsection{Dispersion}
+
+Ce terme a son origine dans le fait que la distribution de charge n'est pas statique, mais fluctue, même pour les positions des noyaux fixées. Un dipôle (temporaire) induit un dipôle sur l'autre molecule avec la loi d'induction : $E\sim (1/R_{AB})^{6}$.
+
+L'energie de la dispersion de deuxieme ordre $E_{disp}^{(2)}$ est définie par la différence entre l'énergie de polarisation et l'énergie d'induction, $E_{disp}^{(2)} = E_{pol}^{(2)} - E_{ind}^{(2)}$
+	
+En utilisant les expressions \ref{pol2}- \ref{indA}, nous écrivons directement la définition : 
+
+\begin{equation}
+E_{disp}^{(2)} = -\langle \Phi_{0}|V\hat{R_{0}^{AB}}V|\Phi_{0}\rangle
+\end{equation}
+ 
+ Avec $\hat{R_{0}^{AB}} = \hat{R_{0}}- \hat{R_{0}^{A}}P_{B} - P_{A}\hat{R_{0}^{B}}$ comme la partie de la dispersion du résolvante $\hat{R_{0}}$. 
+ 
+ La définition même de l'interaction de dispersion représente un effet de corrélation intermoléculaire pur, elle peut être vue comme l'effet de stabilisation énergétique de la corrélation instantanée des moments des multipôles du monomère Grâce au travail de Casimir et Polder \cite{casimir1948influence} nous savons que l'énergie de l'interaction de dispersion peut être exprimé en termes des polarisabilités multipolaires dynamiques des monomères 
+
+
+\subsection{Échange}
+
+L'operateur d'antisymetrisation peut être ecrit : 
+
+\begin{equation}
+\mathscr{A} = \frac{N_{A}! N_{B}!}{(N_{A}+ N_{B})!} \mathscr{A_{A}} + \mathscr{B} (1+\mathscr{P})
+\end{equation}
+
+Où $N_{A/B}$ est le nombre des electrons dans les monomeres et $\mathscr{P}$ est l'operateur d'echange des electrones entre les monomeres, il peut s'exprimer comme une serie :
+
+\begin{equation}
+\mathscr{P} = \sum_{i=1}^{\infty} \mathscr{P_{i}}
+\end{equation}
+
+$\mathscr{P_{i}}$ troque $i+1$ electrons entre les deux monomeres. 
+
+D'ailleurs le terme d'echange-induction $E_{exch-ind}^{(2)}$ represente l'echange d'electrons entre les monomères quand un est perturbé par le champ electrique statique de l'autre, et le terme d'echange-dispersion $E_{exch-disp}^{(2)}$ represente l'effet electronique d'echange pendant la polarisation mutuel des deux monomeres.   
+
+
+\section{DFT-SAPT}
+
+Cette methode a été developpée par Misquitta et al \cite{misquitta2005intermolecular}, et independamment par Heßelmann et Jansen \cite{hesselmann2002first}, en poursuivant les idées de Williams et Chabalowski \cite{williams2001using}. 
+
+\subsection{L'Energie Electrostatique et d'Echange }
+
+En utilisant les fonctionnelles d'echange-correlation de la theorie de la fonctionnelle de la densité (DFT), nous pouvons calculer $E_{elst}^{1}$, equation \ref{pol-phys}. Heßelmann et Jansen \cite{hesselmann2002first} et Misquita et al \cite{misquitta2005symmetry} rapportent la fonctionnelle PBE0 comme la meilleure adapté pour reproduire l'energie electrostatique trouvée avec SAPT(HF). 
+
+Dans les calculs de l'energie d'echange $E_{exch}^{(1)}$ où se requiert de matrices de densité d'un et deux electrons, la DFT seulemente fournit de matrices d'un electron, cependant $E_{exch}^{(1)}$ est calculée avec un minimum d'erreurs. 
+
+\subsection{L'energie d'Induction et d'Echange- Induction}
+
+Les termes SAPT(HF) d'induction et d'echange-induction $E_{ind}^{(2)}$ et $E_{exch-ind}^{(2)}$ ne prennent pas en compte les changements qui se produisent dans le potentiel de Coulomb ou dans le potentiel d'echange- correlation due à des changements induits dans la densité électronique. Grace à l'utilisation de l'approche DFT, ces changements sont pris en compte par l'emploi des fonctions de reponse densité- densité \cite{jansen2001comment}
+
+\subsection{L'Energie de Dispersion et d'Echange- Dispersion}
+
+La fonction de reponse densite- densite est employée dans le calculs du terme de dispersion \cite{hesselmann2003intermolecular}. l'energie de dispersion peut être ecrite par la expression :
+
+\begin{equation}
+E_{disp}^{(2)} \propto \sum_{p\geq q} \sum_{r\geq s} \sum_{t\geq u} \sum_{v\geq w} \int_{0}^{\infty} \alpha_{pq,rs}^{A} (i\omega) \alpha_{tu,vw}^{B} (i\omega) d\omega
+\end{equation}
+ 
+ Où $\alpha(i\omega)$ sont les frequences de dependance lineaire de la fonction de reponse. 
+ 
+ \begin{equation}
+ \alpha(i\omega) \propto \sum_{p} \frac{2\omega_{p}}{\omega^{2} + \omega_{p}^{2}}  \label{ome}
+ \end{equation}
+ 
+ $\omega_{p}$ sont les autovaleurs du produit de deux matrices Hessians 

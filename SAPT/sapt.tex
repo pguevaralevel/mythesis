@@ -72,13 +72,67 @@ Elle peut être améliorée par l’utilisation de l’opérateur \textbf{V} non
 Autre approche, la méthode de Morokuma, qui est l’une des premières méthodes développées, modifiée plus tard par Kitaura et Morokuma, où l'energie est divisée au niveau Hartree-Fock dans les composants  électrostatique, echange, polarisation et transfert de charge. Ces constituants sont determinés pour le change de l'energie totale quand quelques elements bien defini sont eliminés de la matrice d'interaction de Fock et la matrice de recouvrement. Ils derivent d'un fonction d'onde  qui n'a pas été antisymetrisé \cite{morokuma1977molecules}. Restricted Virtual Space (RVS), qui a été proposée indépendamment par Stevens et Fink \cite{stevens1987frozen}, corrige nombreux tendance insatisfaisant de la décomposition de Morokuma en conséquence des termes lesquels n’étaient pas bien corrigés du principe d’exclusion de Pauli. Cependant elle combine leurs termes électrostatique et d’échange et modifie l’évaluation de la polarisation et les composants de transfert de charge \cite{chen1996energy}.
 
 \singlespacing
+\section{Interactions intermoléculaires en théorie des perturbations}
+\spacing{1.5}
+
+A partir de la théorie des perturbations de Rayleigh-Schr\"{o}dinger nous pouvons construire l'énergie d'interaction d'un système, puisque elles sont faibles. 
+
+L'Hamiltonien du système est la somme de l'hamiltonien de chaque monomere $H^{A/B}$ dont on connait la solution plus un terme perturbatif V. 
+
+\begin{equation}
+H = H^{A} + H^{B} + V
+\end{equation}
+
+\begin{equation}
+H = H_{0}^{A} + W^{A} + H_{0}^{B} + W^{B} + V
+\end{equation}
+
+Les termes $W^{A/B}$ représentent des perturbations intramoléculaire des monomères, connues par la corrélation normal de chaque fragment, et V représente la perturbation intermoléculaire. 
+
+Sans la corrélation nous avons $H_{0} = H^{A} + H^{B}$ avec $E_{0} = E^{A} + E^{B}$, ou V devient l'interaction electrostatique entre A et B. Nous ecrivons l'equation de Schr\"{o}dinger :
+
+\begin{equation}
+(H_{0} - E_{0}) \psi (\xi) = (E_{int} - \xi V) \psi (\xi)
+\end{equation}
+
+Avec le paramètre $\xi$ pour moduler la perturbation. La théorie de Rayleigh-Schr\"{o}dinger fournit une série de corrections pour l'energie et la fonction d'onde \cite{chipman1973perturbation}.
+
+\begin{equation}
+\psi = \phi_{0} + \sum_{n} \xi^{n} \phi_{pol}^{(n)}
+\end{equation}
+
+\begin{equation}
+E_{pol}^{(n)} = \langle \phi_{0}|V| \phi_{pol}^{(n)}
+\end{equation}
+
+Le terme \og pol \fg{} signifie qu’on est dans l'approximation de polarisation, sans effet d'un échange d’électrons entre les monomères dans la fonction $\phi_{pol^{(0)}}$, violant ainsi le principe d’antisymétrie. Les orbitales ne sont ni orthogonalisées, ni relaxées, mais proviennent directement du calcul de monomères séparés.
+
+Pour assurer la convergence de la fonction est employé une asymptote. 
+
+\begin{equation}
+E_{int} = \sum_{n=1}^{N} E_{pol}^{(n)} + O(1/R^{2 (N+1)})
+\end{equation}
+
+ Pour retrouver des termes classiques induction et dispersion, l'énergie en deuxième ordre est encore décomposé en deux parties selon les excitations impliquées, selon la figure \ref{figExc}.
+
+\singlespacing
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{image/D-I} \label{figExc}
+	\caption[Les excitations contribuent à l'énergie
+	de perturbation intermoléculaire en $2^{eme}$ ordre]{Classes d'excitations qui contribuent à l'énergie
+		de perturbation intermoléculaire en $2^{eme}$ ordre}
+\end{figure}
+
+
+
 \section{La Théorie de Perturbations à Symétrie Adaptée (SAPT)}
 
 \spacing{1.5}
 
-Cette théorie est un ab initio méthode qui prends en compte les déficiences de la théorie de London et permet de calculer la surface d’énergie potentiel, grâce à une structure conceptuel pour comprendre le phénomène des interactions intermoléculaire. 
+Cette théorie est un ab initio méthode qui prends en compte les déficiences de la théorie de London et permet de calculer la surface énergie potentiel, grâce à une structure conceptuel pour comprendre le phénomène des interactions intermoléculaire. 
 
-Le point du départ est similaire à la théorie de London avec l’hamiltonien non perturbé, mais chacune des corrections à l’énergie d’interaction calculées dans cette approximation peuvent être classifiés tels en décrivant les quatre interactions fondamentales : l’électrostatique,  l’induction, l’échange et la dispersion. Ainsi SAPT représente l’énergie d’interactions comme la somme des termes bien définis avec interprétation physique. 
+Le point du départ est similaire à la théorie de London avec l'hamiltonien non perturbé, mais chacune des corrections à l’énergie d’interaction calculées dans cette approximation peuvent être classifiés tels en décrivant les quatre interactions fondamentales: l’électrostatique,  l’induction, l’échange et la dispersion. Ainsi SAPT représente l’énergie d’interactions comme la somme des termes bien définis avec interprétation physique. 
 
 Les propriétés de cette approximation ont été étudiées depuis 1960 pour systèmes simples comme H2+. Dans le cas de systèmes multiélectroniques SAPT a fallu appliquer une double perturbation, laquelle a été fait après 1970 \cite{szalewicz1979symmetry}. 
 
@@ -91,11 +145,26 @@ H = F_{A} + F_{B} + V + W_{A} + W_{B}
 L’énergie d’interaction peut être décrit comme une série perturbative :
 
 \begin{equation}
-E_{int} = \sum_{n=1}^{\infty} \sum_{k=0}^{\infty} \sum_{l=0}^{\infty} (E_{pol}^{(nkl)}+ E_{exch}^{(nkl)}) 
+E_{int} = \sum_{n=1}^{\infty} \sum_{k=0}^{\infty} \sum_{l=0}^{\infty} (E_{pol}^{(nkl)}+ E_{exch}^{(nkl)}) \label{serie}
 \end{equation}
 
-Le terme n dénote l’ordre en V, k et l dénotent l’ordre en W$_{A}$ et W$_{B}$ respectivement. $E_{pol}$ sont de termes qui viennent de l’expansion de la polarisation et $E_{exch}$ sont de termes résultants de l’antisymétrisation de la fonction d’onde par rapport à l’échange des électrons entre les monomères.  
-La série peut être effectuée à divers degrés d’exhaustivité selon la taille du système étudie et la précision souhaitée.  
+Le terme n dénote l’ordre en V, k et l dénotent l’ordre en W$_{A}$ et W$_{B}$ respectivement. $E_{pol}$ sont de termes qui viennent de l’expansion de la polarisation et $E_{exch}$ sont de termes résultants de l’antisymétrisation de la fonction d’onde par rapport à l’échange des électrons entre les monomères, cela qui manque dans la perturbation de Rayleigh-Schr\"{o}dinger. Nous pouvons écrire l'energie RS avec l'opérateur d'antisymetrisation comme :
+
+\begin{equation}
+E_{RS}^{(n)} = \frac{1}{\langle\phi_{0}|\mathscr{A}\phi_{0}\rangle} \left[\langle\phi_{0} | V| \mathscr{A} \phi_{pol}^{(n-1)}\rangle - \sum_{\kappa=1}^{n-1} E_{RS}^{\kappa} \langle \phi_{0}|\mathscr{A} \phi_{pol}^{(n-\kappa)}\rangle\right]
+\end{equation}
+
+Par conséquent les termes d'interaction $E_{pol}^{(n)}$ son completés ordre par ordre par des termes d'échange. 
+\begin{equation}
+\begin{split}
+E_{SAPT}^{(1)} = E_{pol}^{(1)} + E_{exch}^{(1)}\\
+E_{SAPT}^{(2)} = E_{pol}^{(2)} + E_{exch}^{(2)}
+\end{split}
+\end{equation}
+
+L'opérateur $\mathscr{A}$ est représenté en pratique pour un seul échange d'électron car toute autre approche est difficile à gérer.
+
+La série \ref{serie} peut être effectuée à divers degrés d’exhaustivité selon la taille du système étudie et la précision souhaitée.  
 
 Historiquement plusieurs troncatures de la série ont été faite :
 
@@ -244,4 +313,29 @@ E_{disp}^{(2)} \propto \sum_{p\geq q} \sum_{r\geq s} \sum_{t\geq u} \sum_{v\geq 
  \alpha(i\omega) \propto \sum_{p} \frac{2\omega_{p}}{\omega^{2} + \omega_{p}^{2}}  \label{ome}
  \end{equation}
  
- $\omega_{p}$ sont les autovaleurs du produit de deux matrices Hessians 
+ $\omega_{p}$ sont les autovaleurs du produit de deux matrices Hessians calculés en utilisant l'approximation adiabatique de la densité locale (Adiabatic local density ALDA)\cite{gross1996density} dans le noyau d'echange- correlation avec DFT dependant du temps (TDDFT). Dans les valeurs de l'energie de dispersion cette approximation a montré être en accordance avec les resultats du SAPT(HF). 
+ 
+ \section{Methodes Basées sur la DFT} 
+ 
+ La theorie de la fonctionnelle de la densité DFT est ampliament utilisée dans les calculs de l'interacion intermolcular des systems aromatiques, neanmoins il manque toujours dans les fonctionalles employé dans la procedure Kohn Sham la contribution à la dispersion. Pendant que les calculs avec fonctionalles locales d'echange-correlation dirigent à surestimé l'energie d'interaction, non local fonctionnelles d'echange- correlation souvent sous-estimé l'energie [].
+ 
+ Une approche pour decrire correctement la dispersion en DFT est l’ajout d’un terme interatomique de type Lennard-Jones en $C_{6}/R^{6}$ , module par une fonction d’amortissement empirique. Un autre développement dans l’amelioration de la DFT a été propose par l’utilisation de fonctionnelles double-hybrides, ou une partie de l’échange et une partie de la corrélation sont calcule par MP2 a l’aide de coefficients empiriques.
+ 
+ \section{Dimère du Benzène}
+ 
+ L'interaction intermoléculaire du dimère de benzène a été largement étudiée par méthodes  expérimentales et théoriques, puisque il représente un prototype pour les interactions $\pi-\pi$stacking.
+ 
+ L'énergie de liaison du dimère obtenu à partir de l'énergie de dissociation de l'ion et les potentiel de ionisation du dimère et du monomère ont été mesuré par Krause et al \cite{krause1991binding} $D_{0}= 1.6 \pm 0.2 kcal mol^{1}$ et par Grover et al \cite{grover1987dissociation} comme $2.4 \pm 0.4 kcal mol^{-1}$. La plupart des études discutent trois configurations de prototypes, qui sont affiches dans la figure \ref{figprot}.
+ 
+ \begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.8]{image/Prot} \label{figprot}
+ \caption[Structures du dimère de Benzène]{Structures des dimères de Benzène : (S) Sandwich, (T) En forme de T et (PD) Parallèle Déplacé}
+ \end{figure}
+ 
+ La configuration en sandwich ayant une superposition maximal, peut apparaitre comme la plus favorable pour maximiser les interactions de dispersion, mais elle est rarement observée dans des systemes contenant des noyaux phenyles, alors la configuration parallèle déplacée est souvent observée dans les structures cristallines de composés aromatiques \cite{hunter1991pi,fyfe1997synthetic,rebek1996assembly} ou dans les interactions des chaînes latérales aromatiques dedans les proteines \cite{hunter1991pi,burley1985aromatic}.
+ 
+ Klemperer et al \cite{janda1975benzene} rapportent la configuration en forme de T comme predominante dans leur étude
+ 
+ 
+  du dimère en phase gaz. 

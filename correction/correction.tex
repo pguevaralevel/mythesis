@@ -167,6 +167,9 @@
 	E^{ABC} = \frac{C_{9}^{ABC}(3\cos\theta_{a}\cos\theta_{b}\cos\theta_{c}+ 1)}{(r_{AB} r_{BC} r_{CA})^{3}}
 	\end{equation}
 	
+	
+	Reckien et al \cite{reckien2012implementation} ont mis en place dans le logiciel VASP les corrections D2 et D3. Ils ont étudié métaux, oxydes métalliques, cristaux moléculaires comme benzène, et l'adsorption sur surfaces. Tous les deux méthodes montrent qualitatif et quantitatif resultats des paramètres de maille, cependant la méthode D3 proportionne une meilleure performance.   
+	
 	\bigskip
 	\section{La méthode Tkatchenko-Scheffler (DFT-TS)}
 	
@@ -244,3 +247,18 @@
 	L'energie de dispersion est évaluée en utilisant la même équation DFT-TS, avec les paramètres corrigés $C_{6ii}^{SCS}$, $\alpha_{i}^{SCS}$ et $R_{0i}^{SCS}$
 	
 	Cette methode est disponible sur le code VASP grâce à Bu\u{c}ko et col\cite{buvcko2013tkatchenko} qui étudiaient une large gamme de solides comme gaz nobles, cristaux ioniques et moléculaires, structures type chaines et métaux. La méthode conduit à des valeurs raisonnablement précises des propriétés structurelles et de cohésion pour divers types de matières solides. Cependant, l'analyse des résultats a montré que les performances ne sont pas aussi bons pour tous les systèmes et il y a certains types de solides où l'approche échoue définitivement. C'est ainsi que pour les cristaux moléculaires le volume calculé est tout à fait exact, l'énergie de cohésion est exacte pour l'azote, mais surestimée dans une certaine mesure pour les autres systèmes. Ils ont montré que les effets de dépistage sont assez petites pour les systèmes constitués par interactions faibles des atomes neutres et molécules. La méthode est moins performante dans les solides ioniques.
+	
+	\newpage
+	
+	\subsection*{Conclusion}
+	
+	Les interactions faibles ou de Van der Waals jeu un important rôle dans le comportement des systèmes en interaction, en raison de cela la compréhension de ces interactions représentent un domaine d'intérêt surtout dans les calculs théoriques qui ont donné d'importants idées aux scientifiques. 
+	\bigskip
+	
+	Bien qu'il existe de méthodes lesquels prennent en compte la dispersion du systèmes, tels que MP2 ou CCSDT, la taille moléculaire représente une limitant dû au cout de ressources et temps. En conséquence différents approches pour ajouter la dispersion dans les calculs DFT fournissent d'une opportunité pour l'étude de systèmes complexes dont actuellement nous ne connaissons pas vraiment comme ils interagissent. 
+	\bigskip
+	
+	Sans doute chaque système présente caractéristiques spécifiques pour lesquelles une ou autre correction sera plus appropriée, cependant nombreux travaux donnent les pistes à suivre ou les bases pour la démarche dans l'analyse de molécules à l'état solide. 
+	\bigskip
+	
+	En définitive la DFT continue apporter un approche ajusté au molécules de plusieurs atomes dans les différents états d'agrégation. 

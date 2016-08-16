@@ -24,6 +24,8 @@
 \usepackage{makeidx}
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{longtable}
+\usepackage[para,online,flushleft]{threeparttable}
 \usepackage[multiple]{footmisc} %permite colocar virgulas entre footnotes
 \usepackage{relsize} %permite aumentar o tamanho das integrais
 \usepackage{pbox} %permite quebrar a linha numa tabela
@@ -206,13 +208,15 @@
 \include{intro/intro}
 \include{Asp/Chap1}
 \include{ChapitreD/Chapitre_DFT}
-\include{correction/correction}
-\include{SAPT/sapt}
+%\include{correction/correction}
+%\include{SAPT/sapt}
 \include{vib/chap_vib}
+\include{chap3/IP}
 \include{MD/MD}
 \include{chap4/chap4}
 \include{conclu/conclu}
 \begin{appendices}
+	\include{anex/anex3}
 	\include{anex/etatS}
 	\include{grand-resumes/frances}
 \end{appendices}

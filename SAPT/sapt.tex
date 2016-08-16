@@ -7,14 +7,10 @@
 
 \section*{Introduction}
 \markright{INTRODUCTION}{}
-\spacing{1.5}
 
 Les interactions non-covalentes ou interactions Van der Waals occupent une place prépondérante dans les problématiques actuelles de recherche, celles-ci étant aujourd'hui considérées comme les pierres angulaires de disciplines telles que la chimie supramoléculaire, la science des matériaux ou la biochimie.  Après les liaison hydrogènes et les interactions électrostatiques fortes (\textit{e.g.} charge- charge, charge- dipôle, dipôle- dipôle), la plus significatif interaction non covalente est probablement laquelle implique les systèmes aromatiques \cite{grimme2008special}. Attractives interactions entre cycles aromatiques ont été considérées comme  responsables de la stabilité de la double hélice d'ADN et ARN, ainsi comme l'agrégation de Porphyrines \cite{mcgaughey1998pi}.
 
-\bigskip
-
 L'énergie d'interaction intermoléculaire d'un ensemble de molécules se situe généralement entre 1 et 20 kcal/mol selon le nombre et le type de molécules impliquées. Cependant, l'énergie d'une liaison chimique covalente se mesure entre 100 et 300 kcal/mol, ce qui est d’un autre ordre de grandeur. De même, la portée d’une liaison chimique dépasse rarement quelques Angströms tandis que les interactions intermoléculaires s'étendent théoriquement jusqu'à l'infini (électrostatique) et de manière pratique entre 2 et 10 Angströms selon la taille et la nature du système.
-\bigskip
 
 Malgré toute cette importance pour grandes structures, $\pi$-stacking est un phénomène pas bien connu. L’étude expérimentale de ces interactions présente un défi car il est complique séparer les interactions $\pi$-stacking d’interactions secondaires ou les effets de solvant. A cause de ces difficultés expérimentales, les études en chimique computationnelle apparaissent ainsi qu’un avantage pour comprendre la nature fondamentale des interactions non covalentes, et l’influence sur les systèmes chimiques. 
 
@@ -25,8 +21,6 @@ Malgré toute cette importance pour grandes structures, $\pi$-stacking est un ph
 La modélisation en chimique théorique de la corrélation électronique représente la principale difficulté dans les systèmes des molécules ou bien dans de complexes faisant intervenir des interactions intermoléculaires. Ce phénomène déterminé par l’impossibilité de trouver deux électrons au même endroit de l’espace, apparaît puisque il n’existe pas une solution analytique à l’équation de  Schrödinger à des systèmes à plus d’un électron; plusieurs méthodes ont été développées pour traites des systèmes électroniques à n corps.\\
 
 La méthode Hartree-Fock, proposée indépendamment par Hartree et Fock en 1930 \cite{slater1930note}, met chaque électron d’un systèmes dans un champ moyen de façon isolé, dans lequel chaque électron pris subit l’interaction des n-1 autres électrons du systèmes. La méthode permet de reproduire le trou de Fermi, par contre ne prends pas compte de trou de Coulomb et il manque de la corrélation électronique, indispensable pour calculer avec la précision nécessaire des énergies et différences. Cela sera ajouté par perturbation, interaction de configurations, random phase approximation ou autres méthodes post Hartree-Fock.\\
-
-D'autre part la théorie de la fonctionnelle de la densité (DFT) permet de prendre en compte à la fois le trou de Coulomb et le trou de Fermi. Elle modélise un système multi électronique par un système fictif sans interaction électron- électron  ayant la même densité que le système réel.\\
 
 L’énergie d’interaction intermoléculaire est une observable qu’on peut interpréter par différentes décompositions qui ont un sens physique. Buckingham \cite{buckingham1967permanent}, a proposé par exemple une décomposition de l’énergie d’interaction intermoléculaire en quatre grandes contributions : l’électrostatique $E_{elec}$, l’induction $E_{ind}$, l’echange-repulsion $E_{rep}$, et la dispersion $E_{disp}$.\\
 
@@ -72,9 +66,9 @@ Elle peut être améliorée par l’utilisation de l’opérateur \textbf{V} non
 
 Autre approche, la méthode de Morokuma, qui est l’une des premières méthodes développées, modifiée plus tard par Kitaura et Morokuma, où l'energie est divisée au niveau Hartree-Fock dans les composants  électrostatique, echange, polarisation et transfert de charge. Ces constituants sont determinés pour le change de l'energie totale quand quelques elements bien defini sont eliminés de la matrice d'interaction de Fock et la matrice de recouvrement. Ils derivent d'un fonction d'onde  qui n'a pas été antisymetrisé \cite{morokuma1977molecules}. Restricted Virtual Space (RVS), qui a été proposée indépendamment par Stevens et Fink \cite{stevens1987frozen}, corrige nombreux tendance insatisfaisant de la décomposition de Morokuma en conséquence des termes lesquels n’étaient pas bien corrigés du principe d’exclusion de Pauli. Cependant elle combine leurs termes électrostatique et d’échange et modifie l’évaluation de la polarisation et les composants de transfert de charge \cite{chen1996energy}.
 
-\singlespacing
+
 \section{Interactions intermoléculaires en théorie des perturbations}
-\spacing{1.5}
+
 
 A partir de la théorie des perturbations de Rayleigh-Schr\"{o}dinger nous pouvons construire l'énergie d'interaction d'un système, puisque elles sont faibles. L'Hamiltonien du système est la somme de l'hamiltonien de chaque monomere $H^{A/B}$ dont on connait la solution plus un terme perturbatif V. 
 
@@ -127,7 +121,7 @@ E_{int} = \sum_{n=1}^{N} E_{pol}^{(n)} + O(1/R^{2 (N+1)})
 
 \section{La Théorie de Perturbations à Symétrie Adaptée (SAPT)}
 
-\spacing{1.5}
+
 
 Cette théorie est un ab initio méthode qui prends en compte les déficiences de la théorie de London et permet de calculer la surface énergie potentiel, grâce à une structure conceptuel pour comprendre le phénomène des interactions intermoléculaire.\\
 

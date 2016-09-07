@@ -1,5 +1,44 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[french,UKenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2cm,top=3cm,right=2cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{mathrsfs}
+\usepackage[pdftex]{graphicx}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage[T1]{fontenc} %para escurecer a cor da fonte
+\usepackage{lmodern}
+\usepackage[mathcal]{eucal}
+\usepackage{pdfpages}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{minitoc}
+\usepackage{pdftexcmds}
+\usepackage{tikz}
+\usepackage[version=3]{mhchem}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage[multiple]{footmisc} %permite colocar virgulas entre footnotes
+\usepackage{relsize} %permite aumentar o tamanho das integrais
+\usepackage{pbox} %permite quebrar a linha numa tabela
+\usepackage{paralist}
+\usepackage[toc,page]{appendix}
+\bibliographystyle{unsrt}
+\sloppy
 
-	\newgeometry{textwidth=16cm}
+
+\begin{document}	
+	
+\newgeometry{textwidth=16cm}
 \chapter{Généralités -- Contexte de l'étude}
 \minitoc
 \restoregeometry
@@ -22,7 +61,7 @@ Le présent chapitre se veut une présentation du cadre de ce travail de thèse,
 
 \subsubsection{Définitions}
 
-Le pétrole brut est un matériau provenant de la transformation physico-chimique de résidus animaux et végétaux sur de longues périodes géologiques. Les variations locales de température et de pression au sein des couches géologiques en font un matériau non uniforme, dont la composition chimique varie sensiblement suivant de multiples paramètres, tels que la localisation géographique, l'âge du filon exploité ou encore la profondeur de forage. Constitué en majeure partie de carbone et d'hydrogène, sa composition chimique fait néanmoins apparaître en proportions non négligeables des hétéroélements (azote, oxygène, soufre), de même que des métaux (majoritairement du nickel et du vanadium). Speight [ref] résume la composition chimique du pétrole en termes de distribution élémentaire : 
+Le pétrole brut est un matériau provenant de la transformation physico-chimique de résidus animaux et végétaux sur de longues périodes géologiques. Les variations locales de température et de pression au sein des couches géologiques en font un matériau non uniforme, dont la composition chimique varie sensiblement suivant de multiples paramètres, tels que la localisation géographique, l'âge du filon exploité ou encore la profondeur de forage. Constitué en majeure partie de carbone et d'hydrogène, sa composition chimique fait néanmoins apparaître en proportions non négligeables des hétéroélements (azote, oxygène, soufre), de même que des métaux (majoritairement du nickel et du vanadium). Speight \cite{speight1979some} résume la composition chimique du pétrole en termes de distribution élémentaire : 
 
 \begin{table}[h!]
 	\begin{center}
@@ -39,7 +78,7 @@ Le pétrole brut est un matériau provenant de la transformation physico-chimiqu
 			\hline
 		\end{tabular}
 	\end{center}
-	\caption{Composition chimique du pétrole en termes de distribution élémentaire, selon les données recueillies par Speight \textit{et al.}}
+	\caption{Composition chimique du pétrole en termes de distribution élémentaire, selon les données recueillies par Speight \textit{et al.}\cite{speight1979some}}
 	\label{DESpeight}
 \end{table}
 
@@ -75,7 +114,7 @@ Les résines et les asphaltènes appartiennent à cette dernière catégorie, en
 Les asphaltènes sont des molécules de grande taille, généralement observées sous forme de poudre noire, hautement polaires, constituées de noyaux aromatiques condensés, substitués par des chaînes aliphatiques et naphténiques. Ces arrangements hétérocycliques comportent plusieurs hétéroéléments (azote, oxygène, soufre), en proportion variable suivant le procédé d'extraction employé, comme évoqué dans les paragraphes précédents \cite{calles2007properties}. 
 
 Historiquement, le premier emploi du terme \og asphaltène \fg{} est attribué au français Boussingault, qui l'utilise dès 1837 pour caractériser certains des produits de distillation de l'asphalte\cite{goual2012petroleum}. Dans ce contexte, les \og asphaltènes \fg{} sont définis comme les constituants solides insolubles dans l'alcool mais solubles dans l'essence de térébenthine, par opposition aux \og pétrolènes\fg, constituants volatils solubles dans l'éther.
-Désormais obsolète, cette définition des asphaltènes fait néanmoins appel aux propriétés de solubilité de ces systèmes, caractéristique que l'on emploie de nouveau aujourd'hui pour tenter de définir ces composés sur la base de leurs propriétés physiques. Ainsi, à l'heure actuelle, les asphaltènes sont définis comme une fraction du pétrole soluble dans les solvants aromatiques "légers" (tels que le benzène) mais insolubles dans les solvants paraffiniques (tels que les n-alcanes). Une définition plus précise passe par une classification des asphaltènes suivant le type de solvant paraffinique apte à provoquer leur précipitation. L'étude menée par Speight \textit{et al.} [ref !!] tend à montrer la corrélation existant entre le caractère aromatique de l'asphaltène (indiqué par le rapport entre le nombre d'atomes d'hydrogène et le nombre d'atomes de carbone) et la masse molaire de la fraction d'asphaltène précipitée dans le solvant paraffinique.  
+Désormais obsolète, cette définition des asphaltènes fait néanmoins appel aux propriétés de solubilité de ces systèmes, caractéristique que l'on emploie de nouveau aujourd'hui pour tenter de définir ces composés sur la base de leurs propriétés physiques. Ainsi, à l'heure actuelle, les asphaltènes sont définis comme une fraction du pétrole soluble dans les solvants aromatiques "légers" (tels que le benzène) mais insolubles dans les solvants paraffiniques (tels que les n-alcanes). Une définition plus précise passe par une classification des asphaltènes suivant le type de solvant paraffinique apte à provoquer leur précipitation. L'étude menée par Speight \textit{et al.} \cite{speight2004petroleum} tend à montrer la corrélation existant entre le caractère aromatique de l'asphaltène (indiqué par le rapport entre le nombre d'atomes d'hydrogène et le nombre d'atomes de carbone) et la masse molaire de la fraction d'asphaltène précipitée dans le solvant paraffinique.  
 
 Si l'on considère les propriétés physico-chimiques des asphaltènes et la nature des constituants chimiques qui composent les différentes fractions du pétrole, il apparaît rapidement qu'il existe des incompatibilités physiques, qui rendent problématique la présence des asphaltènes dans les différentes phases de distillation et de raffinage du pétrole. En effet, les asphaltènes ayant tendance à précipiter au contact de solvants de type paraffiniques, leur mélange aux autre constituants du pétrole déclenche un phénomène d'agrégation. Les asphaltènes forment des agrégats baptisés micelles, et le système constitué par les asphaltènes et les fractions hydrocarbonées du pétrole forme une solution colloïdale. Les procédés intervenant à tous les stade de la production industrielle du pétrole se doivent de tenir compte de ce système colloïdal, en retenant les micelles ou en les solvatant. Cette problématique est rendue un peu plus complexe encore par les nécessaires changements de température et/ou de pression aux différents stades de la distillation et du raffinage, paramètres qui influent notablement sur les propriétés de précipitation des asphaltènes. 
 
@@ -93,13 +132,13 @@ En règle générale, ces dérivés se divisent en cinq grandes classes chimique
 			\hline
 			RSH & Thiols \\
 			RSR' & Sulfures \\
-			\includegraphics[scale=0.08]{image/sulfure-cycle} & Sulfures cycliques \\
+			\includegraphics[scale=0.08]{../image/sulfure-cycle} & Sulfures cycliques \\
 			RSSR' & Disulfures \\
-			 \includegraphics[scale=0.08]{image/thiophene} & Thiophène \\
-			\includegraphics[scale=0.08]{image/benzothiophene} & Benzothiophène \\
-			\includegraphics[scale=0.08]{image/dibenzothiophene} & Dibenzothiophène \\
-			\includegraphics[scale=0.08]{image/naphto1} & Naphtobenzothiophènes \\
-			\includegraphics[scale=0.08]{image/naphto2} & \\
+			 \includegraphics[scale=0.08]{../image/thiophene} & Thiophène \\
+			\includegraphics[scale=0.08]{../image/benzothiophene} & Benzothiophène \\
+			\includegraphics[scale=0.08]{../image/dibenzothiophene} & Dibenzothiophène \\
+			\includegraphics[scale=0.08]{../image/naphto1} & Naphtobenzothiophènes \\
+			\includegraphics[scale=0.08]{../image/naphto2} & \\
 			\hline 
 		\end{tabular}
 	\end{center}
@@ -114,8 +153,8 @@ Thiols, sulfures, sulfoxydes et disulfides peuvent être classés plus précisé
 	\begin{center}
 		\begin{tabular}{rl}
 			\hline
-			\includegraphics[scale=0.4]{image/phenanthro-thiophene} & Phénanthro-thiophènes \\
-			\includegraphics[scale=0.4]{image/benzo-naphto-thiophene} & Benzonaphto-thiophènes \\
+			\includegraphics[scale=0.4]{../image/phenanthro-thiophene} & Phénanthro-thiophènes \\
+			\includegraphics[scale=0.4]{../image/benzo-naphto-thiophene} & Benzonaphto-thiophènes \\
 			\hline 
 		\end{tabular}
 	\end{center}
@@ -134,12 +173,12 @@ Comme indiqué dans le tableau \ref{tab:azote}, les structures "basiques" identi
 	\begin{center}
 		\begin{tabular}{rl}
 			\hline
-			\includegraphics[scale=0.08]{image/pyridine} & Pyridine \\
-			\includegraphics[scale=0.08]{image/quinoline} & Quinoline \\
-			\includegraphics[scale=0.08]{image/isoquinoline} & Isoquinoline \\
-			\includegraphics[scale=0.08]{image/pyrrole} & Pyrrole \\
-			\includegraphics[scale=0.08]{image/indole} & Indole \\
-			\includegraphics[scale=0.08]{image/carbazole} & Carbazole \\
+			\includegraphics[scale=0.08]{../image/pyridine} & Pyridine \\
+			\includegraphics[scale=0.08]{../image/quinoline} & Quinoline \\
+			\includegraphics[scale=0.08]{../image/isoquinoline} & Isoquinoline \\
+			\includegraphics[scale=0.08]{../image/pyrrole} & Pyrrole \\
+			\includegraphics[scale=0.08]{../image/Indole} & Indole \\
+			\includegraphics[scale=0.08]{../image/carbazole} & Carbazole \\
 			\hline 
 		\end{tabular}
 	\end{center}
@@ -175,7 +214,7 @@ Ce type de représentations est corrélé par des analyses en spectroscopie RMN,
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=5cm]{image/Zhao}
+	\includegraphics[height=5cm]{../image/Zhao}
 	\caption[Structure moyenne du modèle continental des asphaltènes]{Structure moyenne du modèle continental des asphaltènes (Zhao et col. \cite{zhao2001molecular})}
 	\label{figZ1}
 \end{figure}
@@ -185,7 +224,7 @@ Le modèle "archipel" présente quant à lui ces systèmes comme un ensemble de 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=8cm]{image/Sher}
+	\includegraphics[height=8cm]{../image/Sher}
 	\caption[Molecule d'asphaltènes type archipel]{Représentation d'asphaltènes à l'aide du modèle archipel, proposé par Sheremata \textit{et al.}\cite{sheremata2004quantitative}}
 	\label{fig2}
 \end{figure}
@@ -252,4 +291,8 @@ La construction d'un modèle moléculaire des asphaltènes peut en dernier lieu 
 
 
 
+\renewcommand{\bibname}{Références bibliographiques}
+\bibliography{biblio}
+\bibliographystyle{unsrt}
 
+\end{document}

@@ -1,144 +1,82 @@
 \newgeometry{textwidth=16cm}
-\chapter{Calcul de l'énergie de polarisation}
+\chapter[]{}
 \minitoc
 \restoregeometry
 
 \newpage
-
-Cherchons à exprimer les différents termes matriciels relatifs à l'énergie de polarisation. Certains de ces termes sont nuls et ne nécessiteront pas de calculs. Les conditions calculatoires vont pouvoir être établies par la connaissance des combinaisons permises entre les nombres quantiques des états considérés au vu des règles de la mécanique quantique. Pour cela, nous allons nous servir des propriétés induites par le théorème de (WE).\\
-
-L'énergie de polarisation représente l'énergie au second ordre des perturbations. Elle se compose de deux termes : un terme de dispersion impliquant simultanément les états excités de $a$ et de $b$ et un terme d'induction ne faisant intervenir qu'un seul ensemble d'états excités de l'un des deux systèmes. En reprenant l'expression \ref{1.33} de l'opérateur de perturbation, on obtient pour expression de l'énergie au second ordre : 
-
+	
+\section*{Calcul de la polarisabilité en fonction de la fréquence imaginaire}
+	
+En l'absence de champ électrostatique, les interactions entre deux systèmes, sont décrites en fonction de leurs moments permanents et des polarisabilités statiques. Pour un champ périodique de pulsation $\omega$, les interactions sont modifiées et les polarisabilités dépendent de cette pulsation. L'étude des forces de dispersion à longue distances nécessite la connaissance d'intégrales qui tiennent compte de l'ensemble de fréquences $\omega$. Pour des raisons mathématiques simples, les intégrations de fonctions discontinues restent difficiles. On doit se ramener alors à la connaissance de la variation des polarisabilités dépendantes des fréquences imaginaires de chacun des deux systèmes pris isolement puisque ces fonctions sont continues.\\
+	
+Un champ oscillant de fréquence $\omega$ provoque sur un système donné une distorsion de la distribution des charges. Si $\omega$ est loin d'une résonance, les charges induites peuvent facilement s'interpréter à partir des moments électriques du système. Si $\omega$ est proche d'une résonance, les moments électriques induits sont très importants est seule une émission où une absorption d'un photon, associée à un changement d'état quantique du système peut se produire. Nous n'aborderons pas ici le problème dans son détail et renverrons le lecteur au travail effectué par Ayma et al \cite{ayma1997etude}.\\
+	
+	
+L'énergie d'induction résulte de la distorsion d'un système (se trouvant dans un état $m_{b}$) sous l'effet d'un champ $F_{\alpha}^{b}$ et d'un gradient de champ $F_{\beta\gamma}^{b}$, induite par ses plus proches voisins (système $a$). Elle dépend directement des propriétés statiques : 
+	
 \begin{equation}
-E(2) = \sum_{i,j=0}^{\infty} \sum_{i',j'=0}^{\infty} \frac{E_{disp}^{ii'jj'} (\nu , \lambda) + E_{induc}^{ii'jj'}(\nu , \lambda)}{R^{i+i'+j+j'+2}} = \sum_{i+i'+j+j'+2=2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}} \label{2.21}
+E_{ind} = -\frac{1}{2} \alpha_{\alpha\beta}^{m_{b}} (0) F_{\alpha}^{b} F_{\beta}^{b} - \frac{1}{3!} A\alpha , \beta\gamma (0) F_{\alpha}^{b} F_{\beta\gamma}^{b} - \ldots
+\end{equation}
+	
+Elle est rarement la source prépondérante d'une attraction entre deux système et peut être souvent négligée en comparaison des énergies électrostatiques et des dispersion. 
+	
+Le calcul de l'énergie de dispersion nécessite quant à lui la connaissance des polarisabilités dynamiques qui représentent la réponse du système à une variation dépendante du temps provoquée par le champ électrique externe. 
+	
+L'expression des coefficients de dispersion déterminée à partir de l'énergie au second ordre de perturbation.
+	
+\begin{equation}
+C_{2k} = \sum_{r\neq=0} \sum_{t\neq=0} 4\pi \sum_{m=-l}^{l} d_{m} (l,l) \frac{|\langle \psi_{r}(a) | \sum_{k_{a}} r_{k_{a}} Y_{l}^{m}| \psi_{0} (a) \rangle \langle \psi_{t}(b)| \sum_{k_{b}} r_{k_{b}} Y_{l}^{-m}| \psi_{0}(b)\rangle|^{2}}{\Delta E_{\gamma_{0} L\rightarrow \gamma_{r} L'} + \Delta E_{\gamma_{0} L\rightarrow \gamma_{t} L"}}
+\end{equation}
+		
+s'exprime facilement en fonction des forces d'oscillateurs ($l + 1$)-polaires :
+	
+\begin{equation}     
+C_{2k} = \sum_{r\neq=0} \sum_{t\neq=0} 4\pi \sum_{m=-l}^{l} d_{m} (l,l)  \frac{f_{\gamma_{0}L\rightarrow \gamma_{r}L'}^{l_{a}} f_{\gamma_{0}L \rightarrow \gamma_{t}L"}^{l_{b}}}{\Delta E_{\gamma_{0}L\rightarrow \gamma_{r}L'} \Delta E_{\gamma_{0}L\rightarrow \gamma_{t}L"} (\Delta E_{\gamma_{0}L\rightarrow \gamma_{r}L'} + \Delta E_{\gamma_{0}L\rightarrow \gamma_{t}L'})}
+\end{equation}
+		
+Chaque terme de cette somme fait intervenir des grandeurs dépendantes de $a$ et de $b$. On peut transformer ce problème à deux centres, en deux problèmes à un centre, en introduisant la polarisabilité à la fréquences imaginaires : 
+	
+\begin{equation}
+\alpha_{l}(i\omega) = \frac{8\pi}{(2l + 1)} \sum_{s} \frac{(E_{s} - E_{0}) |\langle \psi_{0}| \sum_{k_{a}} r_{k_{a}}^{l} Y_{l}^{0} | \psi_{s}\rangle|^{2}}{\Delta E^{2} + \omega^{2}}
 \end{equation}
 
-Le domaine de validité d'un tel développement est limité pour les très grandes distances par les effets de retardement. Pour les faibles distances où le recouvrement orbitalaire ne peut plus être négligé, l'équation \ref{2.21} n'est plus valable et l'on doit prendre en compte l'énergie de répulsion. Pour des distances comprises entre faibles et supérieures à 100 u.a où il n'existe généralement que très peu information expérimentales, les méthodes dites asymptotiques peuvent apporter de précieux résultats, notamment pour les expérimentateurs qui s'intéressent aux études des collisions entre atomes. 
-
-\subsection{Energie de dispersion}
-
-\subsubsection{Eléments de matrices}
-
-L'énergie de dispersion fait intervenir simultanément les états excités de $a$ et de $b$ que nous noterons respectivement $\Psi_{r}(a)$ et $\Psi_{t}(b)$.
-
+et en utilisant l'astuce mathématique proposée par Dalgarno et al\cite{dalgarno1966calculation,linder1962generalized,chan1965long,dalgarno1966long} où : 
+	
 \begin{equation}
-E_{disp}^{ii'jj'} (\nu , \lambda) = - \sum_{r0}^{\infty} \sum_{t0}^{\infty} \frac{\langle \Psi_{0}^{\nu} (a) \Psi_{0}^{\nu} (b)| V_{ij}|\Psi_{r} (a) \Psi_{t} (b) \rangle  \langle \Psi_{r} (a) \Psi_{t} (b) |V_{i'j'}| \Psi_{0}^{\lambda} (a) \Psi_{0}^{\lambda}(b) \rangle}{(E_{r} (a) - E_{0} (a)) + (E_{t} (b) - E_{0} (b))} \label{2.22}
+\frac{1}{X + Y} = \frac{2}{\pi} \int_{0}^{\infty} \frac{XY}{(X^{2} + u^{2}) (Y^{2} + u^{2})} \hspace{0.3cm} du \hspace{1.5cm} avec \hspace{0.5cm} X,Y > 0
 \end{equation}
-
-
-En reprenant la forme générale des fonctions d'onde dépendantes des nombres quantiques orbitaux, magnétiques et de spin de chacun des systèmes pris isolément, l'équation \ref{2.22} peut s'écrire : 
-
-\begin{equation}
-\begin{array}{c}
-E_{disp}^{ii'jj'} (\nu , \lambda) = - \sum_{k=1}^{n_{\nu}} \sum_{l=1}^{n_{\lambda}} \alpha_{\nu , k} \alpha_{\lambda , l} \hspace{1cm} x \\
-\\
-\sum_{w"_{a} w"_{b}} \frac{\langle S_{k} L_{k} M_{S_{K}} M_{L_{K}} (a) |\langle S'_{k} L'_{k} M'_{S_{K}} M'_{L_{K}} (b)| V_{ij} (ab) | S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)\rangle| S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}} \rangle}{(E_{n"_{a}} - E_{0}(a)) + (E_{n"_{b}} - E_{0}(b))} \hspace{0.5 cm} x \\
-\\
-\frac{\langle S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)| \langle S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}} | V_{i'j'}(a,b)| S_{l} L_{l} M_{S_{l}} M_{L_{l}} (a) \rangle | S'_{l} L'_{l} M'_{S_{l}} M'_{L_{l}} (b) \rangle}{(E_{n"_{a}} - E_{0} (a)) + (E_{n"_{b}} - E_{0}(b))}
-\end{array}
-\end{equation}
-
-avec $w"_{a} = (n"_{a}, l"_{a}, S"_{a}, L"_{a}, M"_{S_{a}}, M"_{L_{a}})$. L'indice " sera réservé aux états excités. 
-
-Comme pour l'énergie électrostatique, la démarche adoptée consiste à séparer les parties relatives au système $a$ de celles relatives au système $b$. \\
-
-\subsubsection{Règles de sélection sur les moments orbitaux}
-
-Par application des règles de sélection sur les termes de Wigner qui composent l'expression de $\mathfrak{R}_{L"_{a} L"_{b}}^{ii'jj'}$ (la partie purement radiale), on obtient les valeurs de $i, j, i'$ et $j'$ permises. 
-
-
-\begin{equation}
-\begin{cases}
-l_{k} + i + l"_{a} = entier\ pair \\
-|l_{k} - l"_{a}| \leq i \leq l_{k} + l"_{a} \\
-l"_{a} + i' + l_{l} = entier\ pair \\
-|l"_{a} - l_{l}| \leq i' \leq l"_{a} + l_{l} \\
-l'_{k} + j + l"_{b} = entier\ pair \\
-|l'_{k} - l"_{b}| \leq j \leq l'_{k} + l"_{b} \\
-l'_{l} + j' + l"_{b} = entier\ pair \\
-|l'_{l} - l"_{b}| \leq j' \leq l'_{l} + l"_{b}
-\end{cases}
-\end{equation}
-
-\begin{itemize}
-	\item Dans le cas d'interaction de type $S + S : l_{k} = l_{l} = 0$ et $l'_{k} = l'_{l} = 0$ on a:
-\end{itemize}
-
-\begin{equation}
-\begin{cases}
-0 + i + l"_{a} = entier\ pair \\
-|0 - l"_{a}| \leq i \leq 0 + l"_{a} \\
-l"_{a} + i' + 0 = entier\ pair \\
-|l"_{a} - 0| \leq i' \leq l"_{a} + 0 \\
-0 + j + l"_{b} = entier\ pair \\
-|0 - l"_{b}| \leq j \leq 0 + l"_{b} \\
-0 + j' + l"_{b} = entier\ pair \\
-|0 - l"_{b}| \leq j' \leq 0 + l"_{b}
-\end{cases}
-\end{equation}
-
-Soit $i = i' = l"_{a}$ et $j = j' = l"_{b}$. L'ensemble des combinaison (i, i', j, j') permises sont telles que $i = i'$ et $j = j'$. En tenant compte de la définition de l'énergie de dispersion \ref{2.21} : 
-
-\begin{equation}
-E_{disp}(2) = \sum_{i+i'+j+j'+2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}}
-\end{equation}
-
-Il est désormais possible de pouvoir dénombrer et connaitre les différents contributions des coefficients de dispersion (encore appelés coefficients de Van der Waals) à la correction énergétique au second ordre sur l'énergie du système [$a - b$].
-
-La combinaison (1,1,1,1) représente la contribution du coefficients $C_{1+1+1+1+2} = C_{6}$.
-
-Les combinaison (1,1,2,2) et (2,2,1,1) représentent les deux contributions au coefficients $C_{8}$. etc
-
-
-
-\subsection{Energie d'induction}
-
-\subsubsection{Eléments de matrices}	
-
-Contrairement à l'énergie de dispersion, l'énergie d'induction ne fait intervenir que les états excités de l'un ou l'autre des systèmes $a$ ou $b$ : 
-
-\begin{equation}
-E_{ind}(2) = \sum_{i,j=0}^{\infty} \sum_{i',j'=0}^{\infty} \frac{E_{ind}^{ii'jj'} (a; \nu , \lambda) + E_{ind}^{ii'jj'} (b; \nu , \lambda)}{R^{i+i'+j+j'+2}} = \sum_{i+j+j'+i'+1=2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}}
-\end{equation}
-
-
-Soit par exemple l'énergie d'induction du système $a$ :
-
-\begin{equation}
-E_{ind}^{ii'jj'} (a;\nu , \lambda) = \sum_{r \neq 0}^{\infty} \sum_{t\neq 0}^{\infty} \frac{\langle \Psi_{0}^{\nu} (a) \Psi_{0}^{\nu} (b) |V_{ij} (a,b)|\Psi_{r} (a) \Psi_{0} (b) \rangle  \langle \Psi_{r} (a)\Psi_{0} (b) |V_{i'j'}|\Psi_{0}^{\lambda} (a) \Psi_{0}^{\lambda}(b) \rangle}{(E_{r} (a) - E_{0}(a)}
-\end{equation}
-
-Avec $\Psi_{0}^{\nu} (a) = |S_{k} L_{k} M_{S_{k}} M_{L_{k}}\rangle$ et $\Psi_{r}(a) = |S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}}\rangle$. Il existe une formule similaire $E_{ind}^{ii'jj'} (b;\nu , \lambda)$ pour le système $b$. Chaque terme est calculé séparément.
-
-\subsubsection{Règles de sélection sur les moments orbitaux}
-
-\textbf{Système $a$}
-
-Les règles de sélection sont identiques à celles énoncées dans l'énergie de dispersion. \\
-
-\textbf{Système $b$}
-
-Les règles de sélection propres au système $b$ sont fixées par les lois sur les coefficients : 
-
+	
+L'expression classique des coefficients de dispersion s'écrit : 
+	
 \begin{center}
-	$\begin{pmatrix}
-	L'_{k} & j & L_{b}\\
-	0 & 0 & 0 
-	\end{pmatrix} \ x \ \begin{pmatrix}
-	L_{b} & j' & L'_{l}\\
-	0 & 0 & 0
-	\end{pmatrix}$
+\fbox{$C_{2k} = \sum_{(l_{a},l_{b})}^{k-1} \frac{d_{m} (l_{a},l_{b})=0}{2\pi} \int_{0}^{\infty} \alpha^{l_{a}} (i\omega) \alpha^{l_{b}} (i\omega)d\omega$}
 \end{center}
-
-et sont : 
-
+		
+dans laquelle : 
+	
+\begin{center}
+\fbox{$\alpha_{LL'}^{l_{a}} (i\omega) = \sum_{\gamma L} \frac{f_{\gamma_{0}L \rightarrow \gamma L'}^{l_{a}}}{(\Delta E_{\gamma_{0}L \gamma_{r}L'} + \omega^{2})} $}
+\end{center}
+	
+et où $\gamma$ représente l'ensemble des nombres quantiques excepté le nombre quantique orbitalaire L.
+	
+Le calcul de $\alpha(i\omega)$ sous cette forme infinie, semble à priori impossible puisque nous ne disposons que de très peu de données expérimentales te théoriques sur les forces d'oscillateurs pour les états très excites. Le calcul des polarisabilités imaginaires est alors effectué à l'aide de la méthode time dependent gauge invariant (TDGI). La gamme de fréquences généralement utilisée est comprise entre 0 et 3 u.a. puisque, au delà, les valeurs de la polarisabilité deviennent très faibles et négligeables.
+	
+A partir de ces valeurs dynamiques, le coefficients de dispersion d'ordre 6 dont l'expression à depuis longtemps établie par Casimir- Polder \cite{casimir1948influence}, est la suivante : 
+	
 \begin{equation}
-\begin{cases}
-L_{b} + j + L'_{k} = entier\ pair \\
-|L'_{k} - L_{b}| \leq j \leq L'_{k} + L_{b} \\
-L_{b} + j' + L'_{l} = entier\ pair \\
-|L'_{l} - L_{b}| \leq j' \leq L'_{l} + L_{b}
-\end{cases}
+C_{6}= \frac{3}{\pi} \int_{0}^{\infty} \alpha_{LL'_{a}}^{1} (i\omega)\ x \ \alpha_{LL"_{b}}^{1} (i\omega) d\omega \label{3.65}
 \end{equation}
+	
+Dans le cas de deux atomes $a$ et $b$ se trouvant dans leur état fondamental, le terme en $C_{6}$ est obtenu par un simple ajustement de l'expression \ref{3.65}.\\
+	
+Le terme en $C_{8}$ obtenu pour deux systèmes isotropes est calculé de la même façon. 
+	
+\begin{equation}
+\bar{C_{8}} = \frac{15}{\pi} \int_{0}^{\infty} [\bar{\alpha}_{LL'_{a}}^{1} (i\omega) \bar{C}_{LL"_{b}} (i\omega) + \bar{C}_{LL'_{a}} (i\omega) \bar{\alpha}_{LL"_{b}}^{1} (i\omega)] d\omega
+\end{equation}
+	
+où $C_{LL'}(i\omega) = \frac{1}{3} \alpha^{2}_{LL'}(i\omega)$ \cite{orr1971perturbation} représente la polarisabilité quadrupolaire obtenue en remplaçant l'opérateur $\overrightarrow{r}$ de perturbation par $\overrightarrow{r}^{2}$.
+	
+			
 
-\textbf{Système $a - b$}

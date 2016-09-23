@@ -12,7 +12,7 @@ The strategy in the present work is to perform high-precision quantum mechanical
 
 Acenes, a family of linear polynuclear aromatic compounds possessing only $\pi-\pi$ interactions, for which high precision experimental data are available up to pentacene \cite{michaelian2012far}, comprise a first benchmark example that illustrates both the potential and the computational challenges found in this line of inquiry. In this respect, various calculation hypotheses used for these large molecules are presented, together with the impact of these calculation hypotheses on the quality vis-à-vis experimental data and the computational cost of vibrational spectra.\\
 
-Spectral assignments, determined on the basis of both wavenumber and relative intensity values, are made primarily using computed spectra for individual molecules, and dimers. In addition, based on experimental observation assessing the presence of deformed molecules in tetracene and pentacene crystals, impact on vibrational spectra of these deformations is evaluated. Finally, the phonon spectra of the two tetracene and pentacene systems are calculated in order to finalize assignments and to calibrate our methodological approaches. 
+Spectral assignments, determined on the basis of both wavenumber and relative intensity values, are made primarily using computed spectra for individual molecules, and dimers. In addition, based on experimental observation assessing the presence of deformed molecules in tetracene and pentacene crystals, impact on vibrational spectra of these deformations is evaluated. Finally, the phonon spectra of the two tetracene and pentacene systems are calculated in order to finalize assignments and to calibrate our methodological approaches. \\
 
 In the last part of this chapter additional calculations were performed for other compounds of the acene family, as well as other systems of the aromatic polycycle molecules family. The aim of these additional calculations is verifying if the position and activity of the network modes identified for the two tetracene and pentacle molecules in the solid state, and particularly the more active mode, depend on the size, length or on the moiety of the polycycle system in study.\\
 
@@ -28,12 +28,12 @@ Experimental solid-state infrared spectra of tetracene and pentacene \cite{micha
 
 The Becke Three-Parameters Hybrid Functional (B3LYP), a combination of the Becke three-parameter exchange functional (B3) \cite{becke1993density} that includes a mixture of Hartree-Fock exchange with the density functional theory (DFT) exchange-correlation and the LYP correlation functional \cite{lee1988development}, has proven to be a reasonable choice for predicting geometries of aromatic molecules \cite{bauschlicher1995comparison,tirado2008performance}.  Stephens et al. \cite{stephens1994ab} showed that the B3LYP force field yields infrared spectra in very good agreement with experimental data. It has become a standard method for studying vibrational spectra of organic molecules (in the far- and mid- Infrared) in the gas phase \cite{bauschlicher1997calculation,gohaud2005vibrational}. Although the B3LYP method coupled with a sufficiently large basis set is a good candidate to study vibrational spectra of polynuclear aromatic molecules \cite{michaelian2012far}, this standard DFT calculation approach fails to describe long-distance interactions. Consequently, it does not reproduce spectra of interacting molecules \cite{becke1993density,stephens1994ab,kristyan1994can,hobza1995density} where the interpretation of experimental vibration spectra requires consideration of both isolated and interacting molecules.\\
 
- In parallel to the development to ab initio methods, some progress has been made on implementing the London dispersion force effect into DFT methods, permitting calculations with larger individual molecules and binary pairs. Although the CCSD(T) method in combination with a sufficiently flexible basis set is the most accurate method for reproducing rotation-vibration spectra and to describe intermolecular complexes between aromatic hydrocarbons \cite{begue2006new}, such calculations are impractical for the description of large molecules \cite{begue2012nitrile}. The MP2 method \cite{pople1979derivative}, also able to handle dispersive interactions such as $\pi-\pi$ stacking \cite{chalasinski2000state,johnson2006structure},is a computationally intensive and inadequate method for large molecules too \cite{eilmes2012theoretical}. Chai et al.78  developed a functional based on optimized long-range corrected hybrid density functionals \cite{chai2008systematic}, which employs 100\% Hartree-Fock (HF) exchange for long-range electron-electron interactions, $\omega$B97X, to which they added an empirical dispersive interaction correction \cite{eilmes2012theoretica}. This method was tested by Salzner et al \cite{salzner2011improved} for $\pi$-conjugated oligomers and it overcame the difficulties encountered with standard DFT functionals when dealing with interacting $\pi$-systems.\\
+ In parallel to the development to ab initio methods, some progress has been made on implementing the London dispersion force effect into DFT methods, permitting calculations with larger individual molecules and binary pairs. Although the CCSD(T) method in combination with a sufficiently flexible basis set is the most accurate method for reproducing rotation-vibration spectra and to describe intermolecular complexes between aromatic hydrocarbons \cite{begue2006new}, such calculations are impractical for the description of large molecules \cite{begue2012nitrile}. The MP2 method \cite{pople1979derivative}, also able to handle dispersive interactions such as $\pi-\pi$ stacking \cite{chalasinski2000state,johnson2006structure},is a computationally intensive and inadequate method for large molecules too \cite{eilmes2012theoretical}. Chai et al.78  developed a functional based on optimized long-range corrected hybrid density functionals \cite{chai2008systematic}, which employs 100\% Hartree-Fock (HF) exchange for long-range electron-electron interactions, $\omega$B97X, to which they added an empirical dispersive interaction correction \cite{eilmes2012theoretical}. This method was tested by Salzner et al \cite{salzner2011improved} for $\pi$-conjugated oligomers and it overcame the difficulties encountered with standard DFT functionals when dealing with interacting $\pi$-systems.\\
  
  In this work, for isolated molecules and dimers, extended basis-sets consisting of atomic orbitals expressed as fixed linear combinations of Gaussian functions are employed for the calculations.  A split valence 6-311G and 6-311G(p,d) \cite{krishnan1980self,frisch1984self} was needed to provide correct calculation outcomes for naphthalene monomer \cite{saeki2006theoretical}. Validation tests for the $\omega$B97X-D/6-311G calculation method were also performed. The accuracy of DFT calculations in predicting molecular geometries and vibrational frequencies depend on the density functional employed. Thus geometrical optimizations were performed for isolated tetracene, using the $\omega$B97X-D functional as well as the more conventional B3LYP method. The computational results are benchmarked using experimental data obtained by Campbell et al.\cite{campbell1962crystal}.\\
  
  The solid state calculations in the present work were carried out with the use of two approaches:
-First, the calculations were carried out with the projector augmented wave (PAW) implementation of Vienna Ab initio Simulation Package (VASP)\cite{kresse1996efficient}. The generalized gradient approximation (GGA) in the PBE parameterization was considered as the exchange correlational functional \cite{perdew1996generalized}. Structural optimizations (triclinic tetracene crystal) were achieved by setting the convergence criteria for total energies are below $5*10^{-6}$ eV, residual forces to be less than $1*10^{-3}$ eV/Å, and stresses limited to 0.02 GPa. To correct the missing dispersion interactions, we have used several recently proposed methods such as PBE functional with pair potential methods D2, D3 (BJ), TS, and TS+SCS. The details of the implementations and usage of these methods can be found elsewhere \cite{grimme2006semiempirical,grimme2011effect,tkatchenko2009accurate,tkatchenko2012accurate,dion2004van}. To obtain accurate band gaps, we have used the GW approximation86.  For getting accurate quasiparticle eigenvalues, we used 200 bands for the summation over the bands in the polarizability and the self-energy formulas, and the polarizability matrices were calculated up to a cutoff  of 200 eV.\\ 
+First, the calculations were carried out with the projector augmented wave (PAW) implementation of Vienna Ab initio Simulation Package (VASP)\cite{kresse1996efficient}. The generalized gradient approximation (GGA) in the PBE parameterization was considered as the exchange correlational functional \cite{perdew1996generalized}. Structural optimizations (triclinic tetracene crystal) were achieved by setting the convergence criteria for total energies are below $5*10^{-6}$ eV, residual forces to be less than $1*10^{-3}$ eV/Å, and stresses limited to 0.02 GPa. To correct the missing dispersion interactions, we have used several recently proposed methods such as PBE functional with pair potential methods D2, D3 (BJ), TS, and TS+SCS. The details of the implementations and usage of these methods can be found elsewhere \cite{grimme2006semiempirical,grimme2011effect,tkatchenko2009accurate,tkatchenko2012accurate,dion2004van}. To obtain accurate band gaps, we have used the GW approximation \cite{bowman2008variational}.  For getting accurate quasiparticle eigenvalues, we used 200 bands for the summation over the bands in the polarizability and the self-energy formulas, and the polarizability matrices were calculated up to a cutoff  of 500 eV.\\ 
 Second, periodic calculations for tetracene were also performed in order to calculated IR intensities with CRYSTAL14 program\cite{dovesi2014crystal14}, using PBE functional and STO-6G (Pople's STO-6G) basis set. Default criteria were used as consider accuracy and SCF convergence. Vibrational frequencies at the $\Gamma$ Point were calculated for the optimized geometry. The empirical dispersion correction by Grimme \cite{grimme2006semiempirical} was performed to take into account weak interactions. 
 
 \subsection{Geometrical parameters of isolated tetracene molecule optimized using B3LYP and $\omega$B97X-D methods associated with 6-311G and 6-311G** basis set}
@@ -115,9 +115,9 @@ While it is now common to determine the PES accurately for small molecules (3-5 
 \begin{enumerate}
 	\item It is possible to truncate the PES in terms of only significant coupling. For this, it suffices to identify the constant of cubic and quartic force of very low intensity. We have realized calculations by successively suppressing force constants smaller than 2, 5, 8 and 10 $cm^{-1}$.  This study showed that the discrepancy regarding the calculated frequencies of fundamental modes is not higher than 2.8 $cm^{-1}$, and 3.3 $cm^{-1}$ for the combination modes. These disparities are small enough to justify use of this approximation. Moreover this allows setting 7, 33, 48 and 55 \% of the forces to zero when suppressing constants smaller than 2, 5, 8 and 10 $cm^{-1}$, respectively, thus saving computational cost and enabling variational calculations for larger systems. Note, however, that this restriction is potentially acceptable only without any Fermi or Darling-Dennison resonance, often characterized totally or partially using these finest couplings. Regarding the time saved when suppressing the forces lower than 10 $cm^{-1}$ while the wavenumber values of fundamental modes remain the same, it would be tempting to truncate the PES this way, but this would represent a serious risk of losing information regarding combination bands. Indeed our tests show that the upper limit of the truncation to maintain all the information of combination bands consists in considering all the forces higher than 5 $cm^{-1}$. Removal of these forces would disregard combinations whose weight is less important, resulting in the loss of details that provide a complete interpretation of infrared spectra. Thus, for the following tests of truncature and for calculations presented in this study, we will consider a PES calculated with force constants higher than 5 $cm^{-1}$.
 	
-	\item The second truncation tested in this work consists of separating modes of high and low wavenumber. We assumed that the description of the low-wavenumber modes (mainly torsion modes), were weakly coupled with bending and scissoring modes occurring at higher wavenumber.  This hypothesis has been tested and validated on the base of calculations on the tetracene molecule (Table 2); indeed each of the first 15 modes calculated using the PES truncated to torsional and libration modes are in perfect adequacy with values calculated a posteriori using complete PES. 
+	\item The second truncation tested in this work consists of separating modes of high and low wavenumber. We assumed that the description of the low-wavenumber modes (mainly torsion modes), were weakly coupled with bending and scissoring modes occurring at higher wavenumber.  This hypothesis has been tested and validated on the base of calculations on the tetracene molecule (Table \ref{table2}); indeed each of the first 15 modes calculated using the PES truncated to torsional and libration modes are in perfect adequacy with values calculated a posteriori using complete PES. 
 	
-	\item We have also tested the association of a complete grid of points of the surface at the fourth order, with a fit at the sixth order on the diagonal, in order to refine coupling between closely coupled modes. Because this refining is demanding in terms of computing time, we applied it on the 10 first modes only, supposing that the modes of higher wavenumber were correctly described with a polynome of $4^{th}$ order. The results, listed in Table 2, show that this refining doesn’t bring any improvement for describing the vibrational spectrum of tetracene.
+	\item We have also tested the association of a complete grid of points of the surface at the fourth order, with a fit at the sixth order on the diagonal, in order to refine coupling between closely coupled modes. Because this refining is demanding in terms of computing time, we applied it on the 10 first modes only, supposing that the modes of higher wavenumber were correctly described with a polynome of $4^{th}$ order. The results, listed in Table \ref{table2}, show that this refining doesn’t bring any improvement for describing the vibrational spectrum of tetracene.
 	
 	\item The last approximation used in this work consists of applying a second adjustment of the PES; this adjustment would aim to eliminate the weight of vibrators we excluded in point (i), to refine the fit of remaining force constants so that they reflect, in fine, only the couplings between remaining modes. If this had proved to be an acceptable approximation, we could have extended this methodology to the study of specific molecules vibrators of undifferentiated dimension, by calculating a limited number of specific points to sought vibrators. In accordance with what Bowman et al \cite{bowman2008variational} and Begue et al \cite{begue2010calculation}  showed on the study of water clusters, our calculations show that only the separation between libration modes with all other active modes is possible.
 	
@@ -129,7 +129,7 @@ This methodology was used in the remainder of our work for the characterization 
 
 \subsection{Resolution of the vibrational Schrödinger equation (non-core bands with intensity)}
 
- The presence of overtones and combination bands in infrared spectra is a manifestation of the breakdown of the double-harmonic approximation, usually implemented in electronic structure codes. The calculation of intensities is essential in order to determine which non-fundamental transitions are active and to assign all experimental bands. Since both mechanical (anharmonicity of the potential) and electrical (non-linear dependence of the dipole moment on the normal coordinates) anharmonicities are expected to give non-zero intensities to non-fundamental transitions, these two effects must be considered in the treatment of transition energies and related vibrational wavefunctions. The wavenumber calculations in the mechanical anharmonic approximation were carried out using a variational method developed by Bégué et al \cite{begue2007comparison} Using this method, implemented in the P\textunderscore Anhar.v2.0 program \cite{gohaud2005new},  it was possible to compute all the vibrational frequencies (fundamental, combination bands and overtones) that contribute to the mid- and near-infrared spectrum of tetracene and pentacene. In addition, the activity of each mode was also calculated in the electrical anharmonic approximation using a method developed by Baraille et al \cite{begue2010calculation,baraille2001calculation} , which is also available in the same software.
+ The presence of overtones and combination bands in infrared spectra is a manifestation of the breakdown of the double-harmonic approximation, usually implemented in electronic structure codes. The calculation of intensities is essential in order to determine which non-fundamental transitions are active and to assign all experimental bands. Since both mechanical (anharmonicity of the potential) and electrical (non-linear dependence of the dipole moment on the normal coordinates) anharmonicities are expected to give non-zero intensities to non-fundamental transitions, these two effects must be considered in the treatment of transition energies and related vibrational wavefunctions. The wavenumber calculations in the mechanical anharmonic approximation were carried out using a variational method developed by Bégué et al \cite{begue2007comparison} Using this method, implemented in the P\textunderscore Anhar.v2.0 program \cite{gohaud2005new},  it was possible to compute all the vibrational frequencies (fundamental, combination bands and overtones) that contribute to the mid- and near-infrared spectrum of tetracene and pentacene. In addition, the activity of each mode was also calculated in the electrical anharmonic approximation using a method developed by Baraille et al \cite{begue2010calculation,baraille2001calculation} , which is also available in the same software.\\
 
 The experimental spectra of tetracene and pentacene, extracted from the work of Michaelian et al \cite{michaelian2012far} , are shown in Figure \ref{spectra-TP}. The corresponding calculated infrared active transitions both fundamental and combination bands overlay the data and are listed in Table \ref{table3} and Table \ref{table4} where they are further compared with available experimental and theoretical values. Threshold intensity for IR-activity of 0.001 km/mol was chosen for the calculations. This threshold is justified following a discussion of band assignments for each molecule, and presentation of vibrational bands common for the two molecules.
 
@@ -223,7 +223,7 @@ The experimental spectra of tetracene and pentacene, extracted from the work of 
 \subsection*{Raman-transition active in infrared: molecular deformation}
 
 Raman transitions can become active in infrared spectre, when a molecule is deformed in the solid state. For example, Homes et al\cite{holmes1999nature} showed experimentally that acene molecules in the solid state are not planar and attributed this observation to crystal-packing forces that induce deformation; additionally, deformation effect on lattice-phonon frequencies has been measured, then enabling discrimination of different solid phases of tetracene \cite{venuti2004phonons} and pentacene \cite{venuti2002probing,brillante2002raman}. 
-In order to underpin this contention, we performed calculations on a deformed tetracene molecule, shown in Figure \ref{figure3}. In this conformation the molecule does not possess D$_{2}$h symmetry. The molecule does still possess symmetry, however. The deformation concerns dihedral angles [C$_{1}$-C$_{2}$-C$_{3}$-C$_{4}$], [C$_{2}$-C$_{3}$-C$_{4}$-C$_{5}$], [C$_{4}$-C$_{5}$-C$_{6}$-C$_{7}$], [C$_{5}$-C$_{6}$-C$_{7}$-C$_{8}$], [C$_{9}$-C$_{10}$-C$_{11}$-C$_{12}$] and [C$_{10}$-C$_{11}$-C$_{12}$-C$_{13}$], equal to 175$^{\circ}$ , 178$^{\circ}$ , -178$^{\circ}$, -178$^{\circ}$, -178$^{\circ}$, -178$^{\circ}$, respectively, instead of $\pm$180$^{\circ}$ in the case of the molecule in the D2h conformation. The bond lengths are unchanged. Wavenumbers of fundamental modes and associated intensities calculated with the harmonic approximation are listed in Table A1 in the supplementary data. The calculated vibrational spectrum exhibits only positive wavenumbers, which attests that this deformation is located at a minimum of the PES. The intensities corresponding to the R-denominated-bands of the deformed molecule, calculated at the harmonic level, are given in Table \ref{table3}. For the deformed molecule, modes that would normally be inactive in infrared (Raman active or silent modes), present significant intensities, ranging from 0.002 to 0.05 km/mol.
+In order to underpin this contention, we performed calculations on a deformed tetracene molecule, shown in Figure \ref{figure3}. In this conformation the molecule does not possess D$_{2}$h symmetry. The molecule does still possess symmetry, however. The deformation concerns dihedral angles [C$_{1}$-C$_{2}$-C$_{3}$-C$_{4}$], [C$_{2}$-C$_{3}$-C$_{4}$-C$_{5}$], [C$_{4}$-C$_{5}$-C$_{6}$-C$_{7}$], [C$_{5}$-C$_{6}$-C$_{7}$-C$_{8}$], [C$_{9}$-C$_{10}$-C$_{11}$-C$_{12}$] and [C$_{10}$-C$_{11}$-C$_{12}$-C$_{13}$], equal to 175$^{\circ}$ , 178$^{\circ}$ , -178$^{\circ}$, -178$^{\circ}$, -178$^{\circ}$, -178$^{\circ}$, respectively, instead of $\pm$180$^{\circ}$ in the case of the molecule in the D$_{2}$h conformation. The bond lengths are unchanged. Wavenumbers of fundamental modes and associated intensities calculated with the harmonic approximation are listed in Table A1 in the supplementary data. The calculated vibrational spectrum exhibits only positive wavenumbers, which attests that this deformation is located at a minimum of the PES. The intensities corresponding to the R-denominated-bands of the deformed molecule, calculated at the harmonic level, are given in Table \ref{table3}. For the deformed molecule, modes that would normally be inactive in infrared (Raman active or silent modes), present significant intensities, ranging from 0.002 to 0.05 km/mol.
 
 \begin{figure}[h]
 	\centering
@@ -233,13 +233,13 @@ In order to underpin this contention, we performed calculations on a deformed te
 
 \subsection*{Assignment based on intensity value}
 
-Transitions for which there is a double hypothesis (142, 192 and 392 cm$^{-1}$) can be resolved on the basis of relative intensity values. Thus the band at 142 cm$^{-1}$ could be attributed to a second harmonic whose intensity would be three times lower than the Raman-active one that becomes optically active for the deformed molecule. The band at 192 cm-1 could be either a combination of an IR-active mode and a Raman-active mode, whose intensity would be ten times lower than a Raman-active band calculated at 196 cm$^{-1}$. The band at 392 cm$^{-1}$ could either be a combination of an overtone and an infrared active mode, or a Raman-active band ten times more intense. From the relative intensities, in each case, the assumption of the Raman-band becoming active is more likely. For other transitions, there is a single hypothesis. The transition, denoted v$_{8}$, located at 322 cm$^{-1}$ is a Raman-active band while the bands located at 252, 306 and 342 cm$^{-1}$ are combination bands.\\ 
+Transitions for which there is a double hypothesis (142, 192 and 392 cm$^{-1}$) can be resolved on the basis of relative intensity values. Thus the band at 142 cm$^{-1}$ could be attributed to a second harmonic whose intensity would be three times lower than the Raman-active one that becomes optically active for the deformed molecule. The band at 192 cm$^{-1}$ could be either a combination of an IR-active mode and a Raman-active mode, whose intensity would be ten times lower than a Raman-active band calculated at 196 cm$^{-1}$. The band at 392 cm$^{-1}$ could either be a combination of an overtone and an infrared active mode, or a Raman-active band ten times more intense. From the relative intensities, in each case, the assumption of the Raman-band becoming active is more likely. For other transitions, there is a single hypothesis. The transition, denoted v$_{8}$, located at 322 cm$^{-1}$ is a Raman-active band while the bands located at 252, 306 and 342 cm$^{-1}$ are combination bands.\\ 
 
 For pentacene, Table \ref{table4}, the situation is similar. 11 bands arise from combination vibrations. One, found experimentally at 257 cm$^{-1}$, was previously assigned to a predicted Raman-active mode. Calculations on a deformed pentacene molecule lead to an IR active band at a comparable wavenumber and with a comparable intensity. Thus, this one assignment remains uncertain on the basis of these calculations. 
 
 \subsection*{Use of trends for assignment}
 
-The trends for normal modes of infrared active vibrations found for both tetracene and pentacene molecules (see types of vibration in Table \ref{table3} and Table \ref{table4}) are shown in Figure \ref{figure4} where they are also compared with experimental data. By viewing the wavenumbers in this way, wavenumber assignments for the two molecules can be evaluated in parallel. From the similarity of the trends for tetracene and pentacene, as well as the proximity of the respective computed wavenumbers to experimental ones, the assignment choices - combination bands over Raman-active ones – are supported and this outcome is independent of intensity values. Only one band remains unassigned in the experimental spectrum of tetracene, 106 cm-1. Michaelian et al \cite{michaelian2012far} suggested that it originated from lattice vibration. The pentacene band attributed to a Raman-active vibration, 102 cm$^{-1}$, may be of the same type as well.  These bands and intermolecular bands more broadly are addressed by performing calculations with tetracene and pentacene dimers. 
+The trends for normal modes of infrared active vibrations found for both tetracene and pentacene molecules (see types of vibration in Table \ref{table3} and Table \ref{table4}) are shown in Figure \ref{figure4} where they are also compared with experimental data. By viewing the wavenumbers in this way, wavenumber assignments for the two molecules can be evaluated in parallel. From the similarity of the trends for tetracene and pentacene, as well as the proximity of the respective computed wavenumbers to experimental ones, the assignment choices - combination bands over Raman-active ones – are supported and this outcome is independent of intensity values. Only one band remains unassigned in the experimental spectrum of tetracene, 106 cm$^{-1}$. Michaelian et al \cite{michaelian2012far} suggested that it originated from lattice vibration. The pentacene band attributed to a Raman-active vibration, 102 cm$^{-1}$, may be of the same type as well.  These bands and intermolecular bands more broadly are addressed by performing calculations with tetracene and pentacene dimers. 
 
 \begin{figure}[H]
 	\centering
@@ -255,13 +255,14 @@ $\pi$-stacking is responsible for the cohesive structure of acene crystals \cite
 
 Far-infrared spectra provide information about intermolecular and inter-ring interactions and about $\pi$-stacking in particular. Hineno et al \cite{hineno1975far}  measured spectra of naphthalene and anthracene in the region 190-50 cm$^{-1}$ at liquid helium temperature and observed that some bands were due to lattice vibrations. In the same way, bands in the experimental vibrational spectra of tetracene and pentacene that cannot be interpreted based on computed wavenumbers for a single molecule are expected to arise from lattice modes. A first step toward understanding $\pi -\pi$ interaction of acene compounds consists of considering the interaction of acene dimers. The choice of the calculation method for describing these electronic interactions is justified, and then the differentiation of inter- and intramolecular vibrations in the acene family, is addressed.\\
 
-\textbf{Naphthalene dimer}: to assess the performance of the $\omega$B97X-D method for $\pi -\pi$ interaction calculations involving aromatic molecules, the robustness of the $\omega$B97X-D/6-311G method for naphthalene dimers, for which a broad literature exists \cite{saeki2006theoretical,brillante2002raman} 50,97,98,99,100, is discussed in light of results based on reliable data and accurate computational results. For example, Gonzalez et al.102 and Tsuzuki et al \cite{tsuzuki2004high} calculated ground-state structures and binding energies of van der Waals dimers of naphthalene using an aromatic intermolecular interaction model, at the MP2 and CCSD(T) levels of theory, respectively, using Pople’s basis sets of various size. Their calculations yield two low energy dimers of similar energy: D$_{2d}$ (crossed) and C$_{2h}$ (parallel-displaced), and two C$_{2v}$ T-shaped structures. Walsh et al \cite{walsh2002ab,rubevs2008investigation}, using calculations at the MP2/6-31*(0.25) level found eight stationary points for naphthalene dimers: the four reported previously and four others of lower symmetry. Following these studies, Saeki et al \cite{saeki2006theoretical} performed vibrational analysis of naphthalene dimers at the MP2/6-311G level of theory and their results are compared with the values obtained in this work. 
-In the present work, geometry optimizations of naphthalene dimers in various configurations - parallel displaced (PD), parallel displaced according to C$_{2h}$ symmetry, crossed-parallel according to C$_{2}$ and D$_{2h}$ symmetry - using the $\omega$B97X-D method, with the 6-311G and 6-311G(p,d) basis sets were performed. All stationary points were characterized by frequency calculations to ensure that the optimized structures were located at a local minimum. The basis set superposition error (BSSE) correction developed by Simon et al.106 was included in the calculations for all complexes. Calculations without this correction were carried out to characterize the importance of this error. Negative binding energies indicate exothermic complex formation \cite{boys2002calculation}. Analysis of dimer configurations showed that only the low-level symmetry configurations, C$_{2}$ and parallel-displaced (PD), represented in Figures 5a and b, respectively, correspond to minima on the PES. Vibrational calculations for the symmetric configurations exhibited negative frequencies. This outcome is in agreement with Walsh et al \cite{walsh2002ab} who showed that structures of low symmetry are the most stable. The center of mass separation (r), rotation angle ($\Theta$) for the C$_{2}$ structure, and the distance of relative translation (x1 and x2) for the PD structure are given in Table \ref{table5}. For these two configurations the interaction energies at the different levels of theory considered, with and without BSSE correction, as well as the first harmonics, are reported in Table 6. Interaction energies and associated wavenumbers were obtained using $\omega$B97X-D and 6-311G, 6-311G** and cc-pVDZ basis sets. Computed values are compared with results obtained by Walsh et al \cite{walsh2002ab}, Saeki et al \cite{saeki2006theoretical} and Rubes et al \cite{rubevs2008investigation}. BSSE-correction lowers the absolute value of the energy by 1.5 kcal.mol-1 on average, and represents only 0.04\% of the binding energy.  Thus BSSE-correction does not affect the order of stability of the tested configurations. This outcome is in full agreement with the cited prior work. Further there are no trends for the impact of basis-set and BSSE-correction on the geometry of the dimer configurations. However, by calculating the mean difference of computed values, this work, with those of Saeki et al \cite{saeki2006theoretical} shows the  6-311G basis-set combined with BSSE-correctionto be a preferred option.
+\textbf{Naphthalene dimer}: to assess the performance of the $\omega$B97X-D method for $\pi -\pi$ interaction calculations involving aromatic molecules, the robustness of the $\omega$B97X-D/6-311G method for naphthalene dimers, for which a broad literature exists \cite{saeki2006theoretical,gonzalez2000quantum,tsuzuki2004high,walsh2002ab,rubevs2008investigation} is discussed in light of results based on reliable data and accurate computational results. For example, Gonzalez et al \cite{gonzalez2000quantum} and Tsuzuki et al \cite{tsuzuki2004high} calculated ground-state structures and binding energies of van der Waals dimers of naphthalene using an aromatic intermolecular interaction model, at the MP2 and CCSD(T) levels of theory, respectively, using Pople’s basis sets of various size. Their calculations yield two low energy dimers of similar energy: D$_{2d}$ (crossed) and C$_{2h}$ (parallel-displaced), and two C$_{2v}$ T-shaped structures. Walsh et al \cite{walsh2002ab,rubevs2008investigation}, using calculations at the MP2/6-31*(0.25) level found eight stationary points for naphthalene dimers: the four reported previously and four others of lower symmetry. Following these studies, Saeki et al \cite{saeki2006theoretical} performed vibrational analysis of naphthalene dimers at the MP2/6-311G level of theory and their results are compared with the values obtained in this work.\\
+
+In the present work, geometry optimizations of naphthalene dimers in various configurations parallel displaced (PD), parallel displaced according to C$_{2h}$ symmetry, crossed-parallel according to C$_{2}$ and D$_{2h}$ symmetry - using the $\omega$B97X-D method, with the 6-311G and 6-311G(p,d) basis sets were performed. All stationary points were characterized by frequency calculations to ensure that the optimized structures were located at a local minimum. The basis set superposition error (BSSE) correction developed by Simon et al \cite{simon1996does} was included in the calculations for all complexes. Calculations without this correction were carried out to characterize the importance of this error. Negative binding energies indicate exothermic complex formation \cite{boys2002calculation}. Analysis of dimer configurations showed that only the low-level symmetry configurations, C$_{2}$ and parallel-displaced (PD), represented in Figures \ref{fig5d}a and b, respectively, correspond to minima on the PES. Vibrational calculations for the symmetric configurations exhibited negative frequencies. This outcome is in agreement with Walsh et al \cite{walsh2002ab} who showed that structures of low symmetry are the most stable. The center of mass separation (r), rotation angle ($\Theta$) for the C$_{2}$ structure, and the distance of relative translation (x$_{1}$ and x$_{2}$) for the PD structure are given in Table \ref{table5}. For these two configurations the interaction energies at the different levels of theory considered, with and without BSSE correction, as well as the first harmonics, are reported in Table \ref{table6}. Interaction energies and associated wavenumbers were obtained using $\omega$B97X-D and 6-311G, 6-311G** and cc-pVDZ basis sets. Computed values are compared with results obtained by Walsh et al \cite{walsh2002ab}, Saeki et al \cite{saeki2006theoretical} and Rubes et al \cite{rubevs2008investigation}. BSSE-correction lowers the absolute value of the energy by 1.5 kcal.mol$^{-1}$ on average, and represents only 0.04\% of the binding energy.  Thus BSSE-correction does not affect the order of stability of the tested configurations. This outcome is in full agreement with the cited prior work. Further there are no trends for the impact of basis-set and BSSE-correction on the geometry of the dimer configurations. However, by calculating the mean difference of computed values, this work, with those of Saeki et al \cite{saeki2006theoretical} shows the  6-311G basis-set combined with BSSE-correctionto be a preferred option.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{image/napthalene-dimer}     \label{fig5d}
-	\caption[Optimized geometries for naphthalene dimers]{Optimized geometries at the $\omega$B97X-D/6-311G level of theory for naphthalene dimers in the most stable configurations a) C$_{2}$, and b) Parallel-displaced (PD)}  
+	\includegraphics[scale=0.5]{image/napthalene-dimer}     
+	\caption[Optimized geometries for naphthalene dimers]{Optimized geometries at the $\omega$B97X-D/6-311G level of theory for naphthalene dimers in the most stable configurations a) C$_{2}$, and b) Parallel-displaced (PD)}  \label{fig5d}
 \end{figure}
 
 
@@ -321,7 +322,7 @@ In the present work, geometry optimizations of naphthalene dimers in various con
 			\textbf{SAPT0/aug-cc-pVDZ} &  &   &   & -7.27  & \\
 			(Hohenstein et al\cite{hohenstein2010density}) &  &  &  &  & \\
 			\bottomrule
-		\end{tabular}}
+		\end{tabular}} \label{table6}
 	\end{center}
 \end{table}
 
@@ -370,8 +371,8 @@ In the present work, geometry optimizations of naphthalene dimers in various con
 
 \subsection{$\pi$-stacking in the acene family}
 
-Optimization at the $\omega$B97XD/6-311G level with BSSE correction gives rise to the expected parallel tilted configuration \cite{brock1990temperature} for anthracene, tetracene and pentacene dimers, as shown in Figure 6. This configuration closely resembles that found in triclinic tetracene\cite{campbell1962crystal} and pentacene\cite{holmes1999nature} crystals. The associated interaction energies are reported Table \ref{table8}.  Other configurations were found to be unstable. They possess negative calculated harmonic values and were clearly not located at a minimum of the PES. So, only naphthalene has a more energetically stable C$_{2}$ configuration. Computations related to both the C$_{2}$ and PD configurations for naphthalene are shown in Table \ref{table7}. The PD configuration results are used for comparisons with other acene family members where it is the most stable configuration.
-For a given geometry, in this case parallel-tilted, the binding interaction energy increases with the number of interacting cycles in a non-linear manner. This result is consistent with previous studies by Hohenstein et al \cite{hohenstein2010density} and Grimme et al\cite{grimme2008special} who compared interaction energies of naphthenic and aromatic dimers of increasing size using the B2PLYP/TZV(2d,p) level of theory. They found that arene dimers were strongly preferred over equivalent naphthenic dimers, especially for anthracene and tetracene, which were stabilized by 3 to 4 kcal.mol$^{-1}$. The calculations reported here are in accordance with these prior results and confirm the prevalence of $\pi$-stacking interactions.  
+Optimization at the $\omega$B97XD/6-311G level with BSSE correction gives rise to the expected parallel tilted configuration \cite{brock1990temperature} for anthracene, tetracene and pentacene dimers, as shown in Figure \ref{figure6}. This configuration closely resembles that found in triclinic tetracene\cite{campbell1962crystal} and pentacene\cite{holmes1999nature} crystals. The associated interaction energies are reported Table \ref{table8}.  Other configurations were found to be unstable. They possess negative calculated harmonic values and were clearly not located at a minimum of the PES. So, only naphthalene has a more energetically stable C$_{2}$ configuration. Computations related to both the C$_{2}$ and PD configurations for naphthalene are shown in Table \ref{table7}. The PD configuration results are used for comparisons with other acene family members where it is the most stable configuration.
+For a given geometry, in this case parallel-tilted, the binding interaction energy increases with the number of interacting cycles in a non-linear manner. This result is consistent with previous studies by Hohenstein et al \cite{hohenstein2010density} and Grimme et al\cite{grimme2008special} who compared interaction energies of naphthenic and aromatic dimers of increasing size using the B2PLYP/TZV(2d,p) level of theory. They found that arene dimers were strongly preferred over equivalent naphthenic dimers, especially for anthracene and tetracene, which were stabilized by 3 to 4 kcal.mol$^{-1}$. The calculations reported here are in accordance with these prior results and confirm the prevalence of $\pi$-stacking interactions.\\
 
 The wavenumbers assigned to intermolecular (Table \ref{table9}) and intramolecular (Table \ref{table10}) modes of vibration for the acene family were calculated at the $\omega$B97XD/6-311G level of theory using BSSE correction. The characteristic wavenumbers for intermolecular vibrations fall in the same range for all  acene dimers. The lower bound wavenumbers are 15 - 33 cm$^{-1}$ and the upper bound wavenumbers are 94 - 112 cm$^{-1}$. The wavenumbers for the intramolecular vibrations are found at higher wavenumbers but begin to overlap with the intermolecular vibration wavenumbers starting with anthracene where the intermolecular mode at a wavenumber of 111 cm$^{-1}$ with an intensity of 0.8 is not readily discriminated from the intramolecular mode at 112 cm$^{-1}$ with an intensity of 1.2, on the basis of wavenumber or intensity value. Thus, inter and intramolecular vibrations are easily discriminated for naphthalene, and the inter- and intramolecular vibration modes are uncorrelated. For anthracene, tetracene and pentacene, the lowest intramolecular vibration modes fall within the range of intermolecular vibrations.\\ 
 
@@ -447,7 +448,8 @@ The other vibration modes, shown in Table \ref{table10} correspond to intramolec
 
 \subsection{The impact of molecule distortion on the vibration modes of acene dimers}
 
-The impact of molecular distortion on vibration modes for dimers was evaluated in the same manner as for monomers. The molecular conformations were perturbed as illustrated in Figure 3 and the distance r (defined in Figure \ref{figure6}) between the molecules was set equal to 3.4, 3.4 and 2.9 Å for naphthalene, anthracene and tetracene dimers, respectively.  As distortion reduces the aromaticity of the molecules, the stability of $\pi$-stacked dimers is expected to be reduced or eliminated. Table 11, where interaction energies for these systems are listed, highlights this loss of stability. For example, no conformations for distorted pentacene dimers correspond to local minima in the PES. Distortion did not affect intramolecular modes of vibration overall for dimers as shown in Table A3 in the supplementary data. Only butterfly vibration modes for anthracene and tetracene, whose wavenumbers get closer to the ones observed for monomers, shown in Table \ref{table10}, appear to be affected. Some other modes, for which two wavenumbers are given in Table A3, do not exhibit the combined movement of the two molecules either in the same direction or in the opposite direction (as observed for the other intramolecular modes), but movement of the molecules simultaneously. These exceptions are a consequence of the decoupling between the molecules forming the distorted dimer. However, the intermolecular vibration modes, shown in Table \ref{table12}, are shifted to lower wavenumbers compared to the symmetric analogues shown in Table \ref{table9}. For the symmetric dimers, the intermolecular vibration modes are effectively independent of molecule size, while for the distorted molecules, the vibration modes tend to lower values as molecular size increases. 
+The impact of molecular distortion on vibration modes for dimers was evaluated in the same manner as for monomers. The molecular conformations were perturbed as illustrated in Figure \ref{figure3}
+ and the distance r (defined in Figure \ref{figure6}) between the molecules was set equal to 3.4, 3.4 and 2.9 Å for naphthalene, anthracene and tetracene dimers, respectively.  As distortion reduces the aromaticity of the molecules, the stability of $\pi$-stacked dimers is expected to be reduced or eliminated. Table \ref{table11}, where interaction energies for these systems are listed, highlights this loss of stability. For example, no conformations for distorted pentacene dimers correspond to local minima in the PES. Distortion did not affect intramolecular modes of vibration overall for dimers as shown in Table A3 in the supplementary data. Only butterfly vibration modes for anthracene and tetracene, whose wavenumbers get closer to the ones observed for monomers, shown in Table \ref{table10}, appear to be affected. Some other modes, for which two wavenumbers are given in Table A3, do not exhibit the combined movement of the two molecules either in the same direction or in the opposite direction (as observed for the other intramolecular modes), but movement of the molecules simultaneously. These exceptions are a consequence of the decoupling between the molecules forming the distorted dimer. However, the intermolecular vibration modes, shown in Table \ref{table12}, are shifted to lower wavenumbers compared to the symmetric analogues shown in Table \ref{table9}. For the symmetric dimers, the intermolecular vibration modes are effectively independent of molecule size, while for the distorted molecules, the vibration modes tend to lower values as molecular size increases. 
 The behavior of the symmetric dimers is attributed to a balancing of opposing effects. One would expect intermolecular vibration modes to shift to lower wavenumbers with increasing ring number (as is observed for intramolecular modes). However, the intensity of the intermolecular interactions increases with the number of rings (Table \ref{table8}) for symmetric dimers, and this tends to increase wavenumbers. This compensative effect is diminished or absent for the distorted dimers, hence the difference in behavior, and wavenumber invariance for a given intermolecular vibration mode may be a characteristic of $\pi$-stacking interactions. 
 
 \subsection{Identification of unassigned peaks in the experimental spectra of tetracene and pentacene}
@@ -522,8 +524,9 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  
  
  \begin{table}[htb]
- 	\caption{Calculated intermolecular vibrational modes (cm$^{-1}$) and their intensities for distorted dimers of naphthalene, anthracene and tetracene.}
+ 	\caption{Calculated intermolecular vibrational modes (cm$^{-1}$) and their intensities for distorted dimers of naphthalene, anthracene and tetracene.} \label{table12}
  	\begin{center}
+ 		\begin{threeparttable}
  		\begin{tabular}{c c c c}
  			\toprule
  			\textbf{Type*} & \textbf{naphthalene} & \textbf{anthracene} & \textbf{tetracene}\\
@@ -537,9 +540,13 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\multicolumn{1}{p{4cm}}{\centering Twisting of \\ the full system} &  &  & 
  			74(0.08)\\
  			\bottomrule
- 			\end{tabular}  \label{table12}
+ 			\end{tabular} 
+ 			
+ 			\begin{tablenotes}
+ 				\item[*] 1/2 means one molecule relative to the other.
+ 			\end{tablenotes}
+ 		\end{threeparttable}
  	\end{center}
- 	\footnotemark{* 1/2 means one molecule relative to the other.}
  \end{table}
 
  
@@ -554,7 +561,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  	\begin{threeparttable}
  		\begin{tabular}{c c c c c c c}
  			\toprule
- 			 & \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 			 & \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{campbell1962crystal} \\
  			 \midrule
  			 \textbf{a} &7.54 (7.41) &  7.92 & 7.71 & 7.70 & 9.25 & 7.90\\
  			 \textbf{b}& 5.96 (5.83) & 6.00 & 5.99 & 6.08 & 7.21 & 6.03 \\
@@ -576,20 +583,23 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  
  \begin{figure}[h]
  	\centering
- 	\includegraphics[scale=0.7]{image/T-a}
+ 	\includegraphics[scale=0.6]{image/T-a}
+ 	\caption{The \textit{bc} plane of Tetracene Crystal}  \label{tetra-crystal-a}
  \end{figure}
  
  \begin{figure}[h]
  	\centering
- 	\includegraphics[scale=0.7]{image/T-b}
+ 	\includegraphics[scale=0.6]{image/T-b}
+ 	\caption{The \textit{ac} plane of Tetracene Crystal} \label{tetra-crystal-b}
  \end{figure}
  
  \begin{figure}[h]
  	\centering
- 	\includegraphics[scale=0.7]{image/T-c}
+ 	\includegraphics[scale=0.6]{image/T-c}
+ 	\caption{The \textit{ab} plane of Tetracene Crystal}  \label{tetra-crystal-c}
  \end{figure}
  
- Table \ref{table14} reports all the results obtained for tetracene, from the isolated up to the solid-state system. Beyond the numerical differences due to the various Hamiltonians used for these calculations, the results show significant differences on both vibration frequencies and intensities that are to be attributed to the effect of the chemical environment. Indeed, the signatures of some particular modes (such as $\nu_{2}$, $\nu_{8}$ and $\nu_{10}$) are modified with respect to the isolated system due to intermolecular interactions. Besides, our previous study on tetracene dimers revealed that intermolecular interactions induced the appearance of some characteristic spectral signatures at very low wavenumbers. For instance, the mode experimentally found at 106 cm$^{-1}$, which has been assigned, with aid of calculations, to a libration mode, is part of the characteristic signatures of intermolecular vibrations of acenes; the same mode was also assigned at 102 cm$^{-1}$ for the pentacene system. In fact, this mode cannot be only associated to a dimer: it results from the vibrations of the whole tetracene molecules within the network that constitutes the aggregate or the cristalline system. Our VASP calculations clearly show that this vibration mode is linked to distortions of the  crystalline network, which can be seen as the « breathing » of the network. Such a deformation was already partially taken into account in the study of a dimer. Some other modes of the crystalline network constitute, to a lesser extent, the remaining characteristic signatures of the intermolecular vibrations. More difficult to detect experimentally, these modes are theoretically found at 69.7 cm$^{1}$ ($\nu_{1}$), 128.5 c$^{-1}$ ($\nu_{3}$) and 320.8-323.8 cm$^{-1}$ ($\nu_{8}$). Unfortunately, there is no experimental data available below 100 cm$^{-1}$ for the tetracene system. But it seems that the $\nu_{3}$ and $\nu_{8}$ modes can now be identified as the modes of medium intensity reported from experimental data at 142 and 322 cm$^{-1}$, respectively. No fundamental mode nor combination mode of the isolated tetracene can be associated with the presence of those new experimental signatures.
+ Table \ref{table14} reports all the results obtained for tetracene, from the isolated up to the solid-state system. Beyond the numerical differences due to the various Hamiltonians used for these calculations, the results show significant differences on both vibration frequencies and intensities that are to be attributed to the effect of the chemical environment. Indeed, the signatures of some particular modes (such as $\nu_{2}$, $\nu_{8}$ and $\nu_{10}$) are modified with respect to the isolated system due to intermolecular interactions. Besides, our previous study on tetracene dimers revealed that intermolecular interactions induced the appearance of some characteristic spectral signatures at very low wavenumbers. For instance, the mode experimentally found at 106 cm$^{-1}$, which has been assigned, with aid of calculations, to a libration mode, is part of the characteristic signatures of intermolecular vibrations of acenes; the same mode was also assigned at 102 cm$^{-1}$ for the pentacene system. In fact, this mode cannot be only associated to a dimer: it results from the vibrations of the whole tetracene molecules within the network that constitutes the aggregate or the cristalline system. Our VASP calculations clearly show that this vibration mode is linked to distortions of the  crystalline network, which can be seen as the « breathing » of the network. Such a deformation was already partially taken into account in the study of a dimer. Some other modes of the crystalline network constitute, to a lesser extent, the remaining characteristic signatures of the intermolecular vibrations. More difficult to detect experimentally, these modes are theoretically found at 69.7 cm$^{-1}$ ($\nu_{1}$), 128.5 cm$^{-1}$ ($\nu_{3}$) and 320.8-323.8 cm$^{-1}$ ($\nu_{8}$). Unfortunately, there is no experimental data available below 100 cm$^{-1}$ for the tetracene system. But it seems that the $\nu_{3}$ and $\nu_{8}$ modes can now be identified as the modes of medium intensity reported from experimental data at 142 and 322 cm$^{-1}$, respectively. No fundamental mode nor combination mode of the isolated tetracene can be associated with the presence of those new experimental signatures.
  
  From all the modes calculated below 400 cm$^{-1}$, whatever their intensities are, they do not seem to be coupled to the vibration of the crystalline network. It suggests that calculations of the isolated molecule (or its dimer) are a sufficient approximation to identify these vibration modes. In the present case, it explains the fact that no assignation problem was found for regions beyond 150 cm$^{-1}$ during the molecular study of tetracene and its dimer. At the molecular level, calculations on small aggregates can be sufficient to identify the modes of the crystalline network that are significantly impacted.
  
@@ -614,7 +624,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		   & & \textit{87 (0.1)} & & \\
  		  & & 94 (0) & & \\
  		  & & 112 (0) & & \\
- 		  $\nu_{2}$ & 93 (0) & 117 (0.3) & 106 (m) + sh & \multicolumn{1}{p{4cm}}{\centering 102.4 (2.1) \\ 105.7 (9.5)}\\
+ 		  $\nu_{2}$ & 93 (0) & 117 (0.3) & 106 (m) + sh & \multicolumn{1}{p{4cm}}{\centering 102.4 (2.1) \\ \textit{105.7 (9.5)}}\\
  		  & & 124 (0) & & \\
  		  3$\nu_{1}$& 132 (<0.01) & & & \\
  		  $\nu_{3}$& 153 (0.01) &  & 142 (m) & \multicolumn{1}{p{4cm}}{\centering 128.5 (7.1) \\ 148 (0.1)}\\ 
@@ -654,24 +664,27 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  
  We are aware that it is not possible to jump to conclusions on the basis of the results of a single system. In the same way, additional calculations were performed within this work for other compounds of the acene family, as well as other systems of the aromatic polycycle molecules family. The aim of these additional calculations is verifying if the position and activity of the network modes identified for the tetracene molecule, and particularly the mode clearly localise at around 106 cm$^{-1}$, depend on the size, length or on the moiety of the polycycle system in study.\\
  
- The first parameter we studied is the chain-length within the acene family. A series of calculations on the benzene, naphthalene, anthracene and pentacene calculations was performed. The crystalline structures from which we were able to do our calculation are presented hereafter. More particularly, the benzene molecule has three different phases: Phase I correspond to an orthorhombic Pbca space group that contain four molecules per unit cell. In opposite, the two other phases called II and III contain two molecules in the unit cell and crystallizes in a monoclinic system (space group P21/c) at high pressure \cite{meijer1996density,katrusiak2010association}. In that case molecule configuration observed by differents study is T-Shape \cite{katrusiak2010association}. Under ambient conditions of temperature and under low-pressure, crystals of the naphthalene belong to the monoclinic system (space group P21/a) and contain two molecules per unit cell \cite{fabbiani2006exploration}. Under the same conditions, the crystals of both anthracene and tetracene crystallize in a monoclinic phase P21/a \cite{brock1990temperature} and in a triclinic phase P\={1} \cite{sondermann1985x} respectively. Crystals of the pentacene system crystallize into a triclinic phase (space group P\={1}); it is reported to have two polymorphs structures in its bulk phase, polymorph C \cite{campbell1962crystal} and polymorph H \cite{mattheus2001polymorphism}. The ensemble of the numerical results relative to the cell parameters and cell volumes can be found in Tables \ref{table-benzsol}, \ref{table-Naphsol}, \ref{table-Anthrasol}, \ref{table-penta} and \ref{table-pentaC} . A representation of these crystalline cells is given in Figures \ref{fig-benzsol}, \ref{fig-Naphsol}, \ref{fig-Anthrasol} and  \ref{fig-Pentasol}.
+ The first parameter we studied is the chain-length within the acene family. A series of calculations on the benzene, naphthalene, anthracene and pentacene calculations was performed. The crystalline structures from which we were able to do our calculation are presented hereafter. More particularly, the benzene molecule has three different phases: Phase I correspond to an orthorhombic Pbca space group that contain four molecules per unit cell. In opposite, the two other phases called II and III contain two molecules in the unit cell and crystallizes in a monoclinic system (space group P21/c) at high pressure \cite{meijer1996density,katrusiak2010association}. In that case molecule configuration observed by differents study is T-Shape \cite{katrusiak2010association}. Under ambient conditions of temperature and under low-pressure, crystals of the naphthalene belong to the monoclinic system (space group P21/a) and contain two molecules per unit cell \cite{fabbiani2006exploration}. Under the same conditions, the crystals of both anthracene and tetracene crystallize in a monoclinic phase P21/a \cite{brock1990temperature} and in a triclinic phase P\={1} \cite{sondermann1985x} respectively. Crystals of the pentacene system crystallize into a triclinic phase (space group P\={1}); it is reported to have two polymorphs structures in its bulk phase, polymorph C \cite{campbell1961crystal} and polymorph H \cite{mattheus2001polymorphism}. The ensemble of the numerical results relative to the cell parameters and cell volumes can be found in Tables \ref{table-benzsol}, \ref{table-Naphsol}, \ref{table-Anthrasol}, \ref{table-penta} and \ref{table-pentaC} . A representation of these crystalline cells is given in Figures \ref{fig-benzsol}, \ref{fig-Naphsol}, \ref{fig-Anthrasol} and  \ref{fig-Pentasol}.
  
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.04]{image/Benzene-b}}
- 			\subfigure{\includegraphics[scale=0.04]{image/Benzene-c}}
- 		\end{center}
- 		\caption{The \textit{ac} and \textit{ab} planes of benzene crystal}  \label{fig-benzsol}
- 	\end{figure}
- 	
+ \begin{table}[H]
+ \begin{center}
+ 	\resizebox{20cm}{!}{
+ 	\begin{tabular}{c c}
+ 	\includegraphics[scale=0.5]{image/Benzene-b} & \includegraphics[scale=0.5]{image/Benzene-c} \\	
+ 	\end{tabular}}
+ 	\caption{The \textit{ac} and \textit{ab} planes of Benzene crystal}  \label{fig-benzsol}
+ \end{center}
+  \end{table}
+ 
+ 	 	
  	
  	\begin{table}[H]
- 		\caption{Lattice parameters of benzene molecule calculated in VASP code} \label{table-benzsol}
+ 		\caption{Lattice parameters of Benzene molecule calculated in VASP code} \label{table-benzsol}
  		\begin{center}
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{meijer1996density} \\
  				\midrule
  				\textbf{a} &7.24 (6.90)& 7.45 & 7.32 & 7.33  & 8.29 & 7.36\\
  				\textbf{b}& 9.09 (9.13) & 9.54 & 9.41 & 9.42 & 10.35 & 9.37\\
@@ -689,21 +702,25 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  	\end{table}
  
  
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.04]{image/Naphthalene-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Naphthalene-c}}
+ \begin{table}[H]
+ 	\begin{center}
+ 		\resizebox{20cm}{!}{
+ 			\begin{tabular}{c c}
+ 			\includegraphics[scale=0.5]{image/Naphthalene-b}	& \includegraphics[scale=0.5]{image/Naphthalene-c} \\	
+ 			\end{tabular}}
+ 		\caption{The \textit{ac} and \textit{ab} planes of Naphthalene crystal} \label{fig-Naphsol}	
  		\end{center}
- 		\caption{The \textit{ac} and \textit{ab} planes of Naphthalene crystal} \label{fig-Naphsol}
- 	\end{figure}
+ 	\end{table}
+ 
+
  	
  	\begin{table}[H]
- 		\caption{Lattice parameters of naphthalene molecule calculated in VASP code} \label{table-Naphsol}
+ 		\caption{Lattice parameters of Naphthalene molecule calculated in VASP code} \label{table-Naphsol}
  		\begin{center}
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{fabbiani2006exploration} \\
  				\midrule
  				\textbf{a} &7.71 (7.78) & 8.00 & 7.85 & 7.89 & 9.64 & 8.03\\
  				\textbf{b}& 5.84 (5.74) & 6.07 & 6.01 & 6.03 & 6.51 & 5.89 \\
@@ -721,23 +738,28 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{center}
  	\end{table}
  
-\textit{}
- 
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.04]{image/Anthracene-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Anthracene-c}}
- 		\end{center}
- 		\caption{The \textit{qc} and \textit{ab} planes of anthracene crystal}  \label{fig-Anthrasol}
- 	\end{figure}
+
+
+\begin{table}[H]
+	\begin{center}
+		\resizebox{20cm}{!}{
+			\begin{tabular}{c c}
+				\includegraphics[scale=0.5]{image/Anthracene-b} & \includegraphics[scale=0.5]{image/Anthracene-c} \\	
+			\end{tabular}}
+			\caption{The \textit{ac} and \textit{ab} planes of Anthracene crystal}  \label{fig-Anthrasol}
+		\end{center}
+	\end{table}
+
+
+
  
  	\begin{table}[htb]
- 		\caption{Lattice parameters of anthracene molecule calculated in VASP code} \label{table-Anthrasol}
+ 		\caption{Lattice parameters of Anthracene molecule calculated in VASP code} \label{table-Anthrasol}
  		\begin{center}
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{brock1990temperature} \\
  				\midrule
  				\textbf{a} &8.04 (8.40) & 8.39 &8.23 & 8.26 & 9.97 &8.55 \\
  				\textbf{b}& 5.99 (5.67) & 6.12 & 6.03 & 6.07 & 6.54 & 6.02 \\
@@ -754,16 +776,30 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{threeparttable}
  		\end{center}
  	\end{table}
- 	
- 	
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.042]{image/PentaceneC-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/PentaceneC-c}}
- 			\subfigure{\includegraphics[scale=0.042]{image/PentaceneH-a}}
+ 
+ \begin{table}[H]
+ 	\begin{center}
+ 		\resizebox{20cm}{!}{
+ 			\begin{tabular}{c c}
+ 			\includegraphics[scale=0.5]{image/PentaceneC-b} &  \includegraphics[scale=0.5]{image/PentaceneC-c}  \\
+ 			\end{tabular}}
+ 			\caption{The \textit{ac}, \textit{ab} planes of Pentacene polymorph C.}  \label{fig-Pentasol}	
  		\end{center}
- 		\caption{The \textit{ac}, \textit{ab} planes of pentacene polymorph C at the top and \textit{bc} plane of pentacene polymorph H at the bottom}  \label{fig-Pentasol}
- 	\end{figure}
+ 	\end{table}
+ 
+ 
+ 
+  \begin{table}[H]
+  	\begin{center}
+  		\resizebox{20cm}{!}{
+  			\begin{tabular}{c}
+  			  \includegraphics[scale=0.2]{image/PentaceneH-a}\\
+  			\end{tabular}}
+  			\caption{The \textit{bc} plane of Pentacene polymorph H at the bottom} 	
+  		\end{center}
+  	\end{table}
+
+ 		
  	
  	\begin{table}[htb]
  		\caption{Lattice parameters of Pentacene molecule (Polymorphe H) calculated in VASP code} \label{table-penta}
@@ -771,7 +807,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{mattheus2001polymorphism} \\
  				\midrule
  				\textbf{a} &6.16 (6.18) & 6.27 & 6.13 & 6.37 & 6.93 & 6.27\\
  				\textbf{b}& 7.25 (7.32) & 7.77 & 7.54 & 7.68 & 8.79 & 7.78 \\
@@ -797,7 +833,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{campbell1961crystal} \\
  				\midrule
  				\textbf{a} &7.40 (7.02) & 7.81 & 7.67 & 7.61 & 9.03 & 7.90\\
  				\textbf{b}& 5.98 (5.70) & 6.09 & 6.02 & 6.09 & 6.54 & 6.06 \\
@@ -817,24 +853,29 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{center}
  	\end{table}
  	
- 	The second parameter is the one characterising at the same time the chain lengths and “widths”. Calculations for the phenanthrene, pyrene and chrysene molecules were then performed. Furthermore, an additional calculation was performed for the fluorene molecule in order to verify that the signature of the interaction modes does not depend of the nature of the aromatic cycles composing the studied systems. The crystalline structures used for our modelling correspond to those already found in literature for low-pressure room-temperature conditions, \textit{i.e.}, monoclinic P21 \cite{fabbiani2006exploration}, monoclinic I2/c \cite{burns1960refinement}, monoclinic P21/a \cite{fabbiani2006exploration} and orthorombic Pnam  \cite{belsky1984fluorene}, for phenanthrene, chrysene, pyrene and fluorene, respectively. The numerical results so-obtained are reported in Tables \ref{table-phenan}, \ref{table-pyresol}, \ref{table-chrysol} and \ref{table-fluorenesol}, and the corresponding crystalline cells are shown in Figures \ref{fig-Phenansol}, \ref{fig-pyrenesol}, \ref{fig-chrysol} and \ref{fig-fluorenesol} .
+ 	The second parameter is the one characterising at the same time the chain lengths and “widths”. Calculations for the Phenanthrene, Pyrene Chrysene and Perylene molecules were then performed. Furthermore, an additional calculation was performed for the fluorene molecule in order to verify that the signature of the interaction modes does not depend of the nature of the aromatic cycles composing the studied systems. The crystalline structures used for our modelling correspond to those already found in literature for low-pressure room-temperature conditions, \textit{i.e.}, monoclinic P21 \cite{fabbiani2006exploration}, monoclinic P21/a \cite{fabbiani2006exploration}, monoclinic I2/c \cite{burns1960refinement}, monoclinic P21/c \cite{nather1998solvent} and orthorombic Pnam  \cite{belsky1984fluorene}, for phenanthrene, pyrene, chrysene, perylene and fluorene, respectively. The numerical results so-obtained are reported in Tables \ref{table-phenan}, \ref{table-pyresol}, \ref{table-chrysol}, \ref{table-perysol} and \ref{table-fluorenesol}, and the corresponding crystalline cells are shown in Figures \ref{fig-Phenansol}, \ref{fig-pyrenesol}, \ref{fig-chrysol}, \ref{fig-perylenesol} and \ref{fig-fluorenesol} .
  	
  	
- 		\begin{figure}[H]
- 			\begin{center}
- 				\subfigure{\includegraphics[scale=0.04]{image/Phenanthrene-b}}
- 				\subfigure{\includegraphics[scale=0.04]{image/Phenanthrene-c}}
+ 	\begin{table}[H]
+ 		\begin{center}
+ 			\resizebox{20cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Phenanthrene-b} & \includegraphics[scale=0.5]{image/Phenanthrene-c}  \\
+ 				\end{tabular}}
+ 				\caption{The \textit{ac} and \textit{ab} planes of Phenanthrene crystal} \label{fig-Phenansol}		
  			\end{center}
- 			\caption{The \textit{ac} and \textit{ab} planes of phenanthrene crystal} \label{fig-Phenansol}
- 		\end{figure}
+ 		\end{table}
+ 	
+ 	
+ 
  		
  		\begin{table}[H]
- 			\caption{Lattice parameters of phenanthrene molecule calculated in VASP code} \label{table-phenan}
+ 			\caption{Lattice parameters of Phenanthrene molecule calculated in VASP code} \label{table-phenan}
  			\begin{center}
  				\begin{threeparttable}
  					\begin{tabular}{c c c c c c c}
  						\toprule
- 						& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 						& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{fabbiani2006exploration} \\
  						\midrule
  						\textbf{a} & 7.91 (8.61) & 8.31 & 8.12 & 8.14 & 9.59 & 8.47\\
  						\textbf{b}& 6.04 (5.46) & 6.13 & 6.06 & 6.09 & 6.86 & 6.17\\
@@ -852,21 +893,26 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{center}
  		\end{table}
  	
- 	\begin{figure}[H]
+ 	\begin{table}[H]
  		\begin{center}
- 			\subfigure{\includegraphics[scale=0.042]{image/Pyrene-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Pyrene-c}}
- 		\end{center}
- 		\caption{The \textit{ac} and \textit{ab} planes of pyrene crystal}  \label{fig-pyrenesol}
- 	\end{figure}
+ 			\resizebox{19cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Pyrene-b} &
+ 			\includegraphics[scale=0.5]{image/Pyrene-c}  \\
+ 				\end{tabular}}
+ 			\caption{The \textit{ac} and \textit{ab} planes of Pyrene crystal}  \label{fig-pyrenesol}		
+ 			\end{center}
+ 		\end{table}
+ 	
+ 
  	
  	\begin{table}[H]
- 		\caption{Lattice parameters of pyrene molecule calculated in VASP code}  \label{table-pyresol}
+ 		\caption{Lattice parameters of Pyrene molecule calculated in VASP code}  \label{table-pyresol}
  		\begin{center}
  			\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{fabbiani2006exploration} \\
  				\midrule
  				\textbf{a} & 14.64 (13.22) & 14.93 & 15.02 & 15.10 & 16.17 & 15.35\\
  				\textbf{b}& 3.98 (4.41) & 4.04 & 3.93 & 4.00 & 4.64 & 3.85\\
@@ -884,28 +930,33 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{center}
  	\end{table}
  	
- 
- 		\begin{figure}[H]
- 			\begin{center}
- 				\subfigure{\includegraphics[scale=0.042]{image/Chrysene-b}}
- 				\subfigure{\includegraphics[scale=0.04]{image/Chrysene-C}}
+ 	
+ 	\begin{table}[H]
+ 		\begin{center}
+ 			\resizebox{20cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Chrysene-b} & \includegraphics[scale=0.5]{image/Chrysene-C}  \\
+ 				\end{tabular}}
+ 			\caption{The \textit{ac} and \textit{ab} planes of Chrysene crystal}  \label{fig-chrysol}			
  			\end{center}
- 			\caption{The \textit{ac} and \textit{ab} planes of Chrysene crystal}  \label{fig-chrysol}
- 		\end{figure}
+ 		\end{table}
+ 	
+ 
+ 	
  		
  		\begin{table}[H]
- 			\caption{Lattice parameters of chrysene molecule calculated in VASP code} \label{table-chrysol}
+ 			\caption{Lattice parameters of Chrysene molecule calculated in VASP code} \label{table-chrysol}
  			\begin{center}
  				\begin{threeparttable}
  				\begin{tabular}{c c c c c c c}
  					\toprule
- 					& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 					& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{burns1960refinement} \\
  					\midrule
  					\textbf{a} & 7.85 (8.67) & 8.18 & 8.13 & 8.04 & 9.61 & 8.39\\
  					\textbf{b}& 6.08 (5.40) & 6.23 & 6.13 & 6.13 & 6.54 & 6.20\\
  					\textbf{c}& 25.10 (24.88) & 25.39 & 25.19 & 25.15 & 26.10 & 25.20\\
  					\textbf{$\beta$} & 117.05 (114.80) & 116.39 & 116.56 & 116.87& 115.76 & 116.20\\
- 					\textbf{Volume ($\AA^{3}$)}& 1067.63 (1057.28)& 1157.58 & 1123.04 & 1105.90 & 1476.90 & 1175\\
+ 					\textbf{Volume ($\AA^{3}$)}& 1067.63 (1057.28)& 1157.58 & 1123.04 & 1105.90 & 1476.90 & 1175.00\\
  					\bottomrule
  				\end{tabular}
  				
@@ -917,14 +968,17 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{center}
  		\end{table}
  		
- 					
- 					\begin{figure}[H]
- 						\begin{center}
- 							\subfigure{\includegraphics[scale=0.042]{image/Perylene-b}}
- 							\subfigure{\includegraphics[scale=0.042]{image/Perylene-a}}
- 						\end{center}
- 						\caption{The \textit{ac} and \textit{bc} planes of Perylene crystal}  \label{fig-perylenesol}
- 					\end{figure}			
+ 	
+ 	\begin{table}[H]
+ 		\begin{center}
+ 			\resizebox{20cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Perylene-b} & \includegraphics[scale=0.5]{image/Perylene-a} \\
+ 				\end{tabular}}
+ 			\caption{The \textit{ac} and \textit{bc} planes of Perylene crystal}  \label{fig-perylenesol}		
+ 			\end{center}
+ 		\end{table}
+ 				
  					
  					
  					\begin{table}[H]
@@ -933,7 +987,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  							\begin{threeparttable}
  								\begin{tabular}{c c c c c c c}
  									\toprule
- 									& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 									& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{nather1998solvent}\\
  									\midrule
  									\textbf{a} & 9.99 (10.37)  & 10.29 & 10.21 & 10.27 & 10.80 &10.27 \\
  									\textbf{b}& 10.67 (10.27) & 11.00 & 10.91 & 10.98 & 11.41 & 10.84\\
@@ -951,14 +1005,18 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  						\end{center}
  					\end{table}
  		
- 		
- 			\begin{figure}[H]
- 				\begin{center}
- 					\subfigure{\includegraphics[scale=0.042]{image/Fluorene-c}}
- 					\subfigure{\includegraphics[scale=0.04]{image/Fluorene-b}}
- 				\end{center}
- 				\caption{The \textit{ab} and \textit{ac} planes of fluorene crystal}  \label{fig-fluorenesol}
- 			\end{figure}
+ 	
+ 	\begin{table}[H]
+ 		\begin{center}
+ 			\resizebox{20cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Fluorene-c} & \includegraphics[scale=0.5]{image/Fluorene-b} \\
+ 				\end{tabular}}
+ 			\caption{The \textit{ab} and \textit{ac} planes of Fluorene crystal}  \label{fig-fluorenesol}
+ 			\end{center}
+ 		\end{table}
+ 	
+ 			
  			
  				\begin{table}[H]
  					\caption{Lattice parameters of Fluorene molecule calculated in VASP code}  \label{table-fluorenesol}
@@ -966,7 +1024,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  						\begin{threeparttable}
  						\begin{tabular}{c c c c c c c}
  							\toprule
- 							& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 							& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{belsky1984fluorene}\\
  							\midrule
  							\textbf{a} & 7.96 (8.25) & 8.30 & 8.08 & 8.16 & 9.77 & 8.48 \\
  							\textbf{b}& 18.40 (18.61) & 18.90 & 18.77 & 18.82 & 19.54 & 18.92\\
@@ -983,15 +1041,24 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  					\end{center}
  				\end{table}
  				
+ 				
+ 	Third and last parameter studied was heteroatoms influence inside intermolecular modes. Calculations for Carbazole, Dibenzofuran and Dibenzothiophene were performed, those molecules are nitrogen, oxygene and sulphur analogues of Fluorene. The crystallines structures used for our calculations correspond to low- pressure and room- temperature conditions found in literature. All unit cell contain four molecules and crystallize in an orthorhombic Pbnm \cite{belskii1985structure}, orthorhombic Pnam \cite{dideberg1972crystal} and monoclinic P21/c \cite{schaffrin1970structure}, for carbazole, dibenzofuran and dibenzothiophene respectively. Results for lattices parameter are reported in tables \ref{table-carbazolesol}, \ref{table-freqDibenzof} and \ref{table-dibenzothiophenesol}, and the corresponding crystallines cells are shown in Figures \ref{fig-carbazolesol}, \ref{fig-dibenzofuransol} and \ref{fig-dibenzothiophenesol}. In the same way calculations with D3 dispersion correction exhibit the better values for network systems, except for dibenzothiophene where TS-SCS is comparable to D3, because it present unlike only 0.02\%.
  	
- 	
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.042]{image/Carbazole-a}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Carbazole-c}}
- 		\end{center}
+ 
+ \begin{table}[H]
+ 	\begin{center}
+ 		\resizebox{20cm}{!}{
+ 			\begin{tabular}{c c}
+ 			\includegraphics[scale=0.5]{image/Carbazole-a} & 
+ 		\includegraphics[scale=0.5]{image/Carbazole-c}	 \\
+ 			\end{tabular}}
  		\caption{The \textit{bc} and \textit{ab} planes of Carbazole crystal}  \label{fig-carbazolesol}
- 	\end{figure}
+ 		\end{center}
+ 	\end{table}
+ 
+ 
+ 
+ 	
  	
  	
  		\begin{table}[H]
@@ -1000,7 +1067,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\begin{threeparttable}
  					\begin{tabular}{c c c c c c c}
  						\toprule
- 						& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 						& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{belskii1985structure} \\
  						\midrule
  						\textbf{a} & 5.59 (5.51) & 5.77 & 5.70 & 5.70 & 6.07 & 5.71 \\
  						\textbf{b}& 7.27 (7.21) & 7.64 & 7.39 & 7.44 & 8.67 & 7.78\\
@@ -1016,15 +1083,22 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\end{threeparttable}
  			\end{center}
  		\end{table}
- 	
- 	
- 	\begin{figure}[H]
- 		\begin{center}
- 			\subfigure{\includegraphics[scale=0.042]{image/Dibenzofuran-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Dibenzofuran-c}}
- 		\end{center}
+ 
+ 
+ \begin{table}[H]
+ 	\begin{center}
+ 		\resizebox{20cm}{!}{
+ 			\begin{tabular}{c c}
+ 			\includegraphics[scale=0.5]{image/Dibenzofuran-b} & \includegraphics[scale=0.5]{image/Dibenzofuran-c}		 \\
+ 			\end{tabular}}
  		\caption{The \textit{ac} and \textit{bc} planes of Dibenzofuran crystal}  \label{fig-dibenzofuransol}
- 	\end{figure}
+ 		\end{center}
+ 	\end{table}
+ 
+ 
+ 	
+ 	
+ 
  	
  	
  	\begin{table}[H]
@@ -1033,7 +1107,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\begin{threeparttable}
  			\begin{tabular}{c c c c c c c}
  				\toprule
- 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 				& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{dideberg1972crystal} \\
  				\midrule
  				\textbf{a} & 7.17 (6.94) & 7.52 & 7.36 &7.34 & 8.68 & 7.70 \\
  				\textbf{b}& 5.69 (5.65) & 5.86& 5.78 & 5.79 & 6.29 & 5.83\\
@@ -1051,14 +1125,18 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  	\end{table}
  	
  	
- 	\begin{figure}[H]
+ 	\begin{table}[H]
  		\begin{center}
- 			\subfigure{\includegraphics[scale=0.042]{image/Dibenzothiophene-b}}
- 			\subfigure{\includegraphics[scale=0.042]{image/Dibenzothiophene-z}}
- 		\end{center}
- 		\caption{The \textit{ac} plane and other view of molecular arrangement of Dibenzothiophene crystal}  \label{fig-dibenzothiophenesol}
- 	\end{figure}			
+ 			\resizebox{20cm}{!}{
+ 				\begin{tabular}{c c}
+ 				\includegraphics[scale=0.5]{image/Dibenzothiophene-b} & \includegraphics[scale=0.5]{image/Dibenzothiophene-z}		 \\
+ 				\end{tabular}}
+ 			\caption{The \textit{ac} plane and other view of molecular arrangement of Dibenzothiophene crystal}  \label{fig-dibenzothiophenesol}	
+ 			\end{center}
+ 		\end{table}
  	
+ 	
+ 
  	
  	\begin{table}[H]
  		\caption{Lattice parameters of Dibenzothiophene molecule calculated in VASP code} \label{table-dibenzothiophenesol}
@@ -1066,7 +1144,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\begin{threeparttable}
  				\begin{tabular}{c c c c c c c}
  					\toprule
- 					& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} \\
+ 					& \textbf{D2} & \textbf{D3} & \textbf{TS} & \textbf{TS-SCS} & \textbf{PBE*} & \textbf{Exp} ref\cite{schaffrin1970structure}\\
  					\midrule
  					\textbf{a} &  8.26 (8.59) & 8.56 & 8.36 & 8.54 & 9.83 & 8.67\\
  					\textbf{b}&5.86 (5.68)  & 6.03 & 5.95 & 6.05 & 6.48 & 6.00\\
@@ -1083,7 +1161,8 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{threeparttable}
  		\end{center}
  	\end{table}
- 	
+ 
+ 	The results associated to the acene family, i.e., benzene, naphthalene, anthracene and pentacene, are reported in Tables \ref{table-benzsol}, \ref{table-Naphsol}, \ref{table-Anthrasol}, \ref{table-penta} and \ref{table-pentaC} hereafter. The calculation conditions in this piece of modelling are identical to those used just before for the tetracene molecule. The main conclusions arising from the study of these systems are in agreement with those obtained for the tetracene system. Indeed, for these systems, the structural parameters and unit cell volumes are better described by the PBE-D3 level of theory if a comparison is made with the other methods used in this work (except for the two anthracene and benzene systems where the TS and the TSC data are in relative better agreement in comparison to the experimental data \cite{buvcko2013tkatchenko}. The agreement between our theoretical and experimental data meets the requirements to the frequency calculation of the crystalline network. Moreover, the inclusion of the dispersive terms (like D3 or the modified D2:TS) must be introduce onto the frequency calculation because of the well-known dispersive character of the intermolecular modes to describe. The vibrational results calculated for these systems are reported in Table \ref{table-freqBen}, \ref{table-freqNaph}, \ref{table-freqAnthra}, \ref{table-freqPenta}, \ref{table-freqPhen}, \ref{table-freqPyr}, \ref{table-freqChry} and \ref{table-freqFluore} in which the frequency values can also be found for each acene family-member monomer and dimer. According to the conclusions drawn for the tetracene system case, one can find for these systems at least an active signature associated to a network vibrational mode around 100 cm$^{-1}$ (88 and 106 cm$^{-1}$ for naphthalene, 98 cm$^{-1}$ for anthracene, and 102 cm$^{-1}$ for pentacene). One should note that the benzene molecule (also in the acene family) in its T-Shape conformation needs a specific analysis. As a matter of fact, for this conformation, the intermolecular interactions of the crystal network do not correspond any longer to the simple pi-pi interactions (as it is the case of the other systems herein studied) but to interactions of the type pi-H, as demonstrated by Katrusiak et coll \cite{katrusiak2010association}. Yet, although the interactions are of different nature, our calculations show that the main active vibrational signature of the crystalline network remains localised in the 100-130 cm$^{-1}$ region. Moreover, in the following paragraphs, it will be shown that the spectral position remains unchanged for different systems only for this (these) specific mode(s). For all the other modes, depending on the symmetry of the system and on the strength of the long-range interactions between neighbour molecules, the spectral signatures can vary in position and in intensity. This observation only constitutes the major information to be extracted from our calculations given the aim of this work.	
  	
  				
  				\begin{table}[H]
@@ -1156,6 +1235,8 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{center}
  	\end{table}	
  	
+ 	
+ 	\begin{spacing}{1.1}
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Anthracene system).} \label{table-freqAnthra}
  			\begin{center}
@@ -1168,22 +1249,22 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  					\midrule
  					&  &  \textit{22 (0.004)} & & \\
  					&  & \textit{34 (0)} &  & \\
- 					& & \textit{57 (0)} &63 m & \\
- 					&  & \textit{75 (0.05)} & 72 w& \\
+ 					& & \textit{57 (0)} &63 (m) & \\
+ 					&  & \textit{75 (0.05)} & 72 (w)& \\
  					&  & \textit{87 (0.8)} & & \textit{98(1.37)}\\
  					\\
- 					\multirow{2}{2cm}{\centering $\nu_{1}$} & \multirow{2}{2cm}{\centering 93 (1.5)} & 111 (0.8)& \multirow{1}{2cm}{\centering 106/104 m} & 101 (4.03)\\
- 					& & 112 (1.2) & 110 s & 119 (0.05)\\
- 					\multirow{2}{2cm}{\centering $\nu_{2}$} & \multirow{2}{2cm}{\centering 124 (0)}& 148 (0.6) & \multirow{1}{2cm}{\centering 137/126 s} & 153 (1.77)\\
- 					&  & 149 (0.02) &166 s & 155 (0.07)\\
- 					\multirow{2}{2cm}{\centering $\nu_{4}$}& \multirow{2}{2cm}{\centering 243 (1.4)} & 244 (2.1) & \multirow{2}{2cm}{\centering 234/235 s} & 239 (1.25)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{1}$} & \multirow{2}{2cm}{\centering 93 (1.5)} & 111 (0.8)& \multirow{1}{2cm}{\centering 106/104(m)} & 101 (4.03)\\
+ 					& & 112 (1.2) & 110 (s) & 119 (0.05)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{2}$} & \multirow{2}{2cm}{\centering 124 (0)}& 148 (0.6) & \multirow{1}{2cm}{\centering 137/126(s)} & 153 (1.77)\\
+ 					&  & 149 (0.02) &166 (s) & 155 (0.07)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{4}$}& \multirow{2}{2cm}{\centering 243 (1.4)} & 244 (2.1) & \multirow{2}{2cm}{\centering 234 \\ 235 (s)} & 239 (1.25)\\
  					& & 244 (0) &  & 239 (0.33)\\ 
  					\multirow{2}{2cm}{\centering $\nu_{5}$}& \multirow{2}{2cm}{\centering 276 (1.1)} & 250 (0) & \multirow{2}{2cm}{\centering 244}& 236 (0)\\
  					&  & 253 (0.2) &  & 237 (0)\\
  					&   & 285 (0.02) & \multirow{2}{2cm}{\centering 287}& 278 (0)\\
  					& & 286 (0.08) &  & 281 (0)\\
- 					\multirow{2}{2cm}{\centering $\nu_{6}$} & \multirow{2}{2cm}{\centering 394 (0.05)}& 396 (0.2) & \multirow{1}{2cm}{\centering 380/361vw} & 375 (0.23)\\
- 					& & 396 (0.04) & 380 w & 379 (0.36)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{6}$} & \multirow{2}{2cm}{\centering 394 (0.05)}& 396 (0.2) & \multirow{1}{2cm}{\centering 380/361(vw)} & 375 (0.23)\\
+ 					& & 396 (0.04) & 380 (w) & 379 (0.36)\\
  					\multirow{2}{2cm}{\centering $\nu_{7}$} &\multirow{2}{2cm}{\centering 407 (0)} & 407 (0) & \multirow{2}{2cm}{\centering 397} & 389 (0)\\
  					& & 407 (0.04) & & 391 (0)\\
  					\bottomrule	    
@@ -1195,6 +1276,8 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{threeparttable}
  			\end{center}
  		\end{table}
+ 	\end{spacing}
+ 		
  		
  			\begin{table}[H]
  				\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Pentacene system).} \label{table-freqPenta}
@@ -1250,7 +1333,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\end{center}
  			\end{table}
  			
- 			
+ 	\begin{spacing}{1.1}		
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Phenanthrene system).}  \label{table-freqPhen}
  			\begin{center}
@@ -1272,17 +1355,17 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  					\multirow{2}{2cm}{\centering $\nu_{1}$}& \multirow{2}{2cm}{\centering 99 (0)} & 102 (1.04) & \multirow{2}{2cm}{\centering 97}& 103 (0.34)\\
  					&   & 113 (0.61)  &    & 118 (1.88)\\
  					\multirow{2}{2cm}{\centering $\nu_{2}$} & \multirow{2}{2cm}{\centering 103 (1.06)}& 123 (0.44)& \multirow{1}{2cm}{\centering 124/127} & 119 (0.05)\\
- 					&  &  126 (0.02) & 143 sh  & 127 (0.53)\\
- 					\multirow{2}{2cm}{\centering $\nu_{3}$} &  \multirow{2}{2cm}{\centering 235 (5.01)}& 239 (9.23)& \multirow{2}{2cm}{\centering 229(w)/233s} & 231 (0.44)\\
+ 					&  &  126 (0.02) & 143 (sh)  & 127 (0.53)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{3}$} &  \multirow{2}{2cm}{\centering 235 (5.01)}& 239 (9.23)& \multirow{2}{2cm}{\centering 229(w)/ \\ 233 (s)} & 231 (0.44)\\
  					&  & 244 (0.35)  &   & 241 (0.86)\\
- 					\multirow{2}{2cm}{\centering $\nu_{4}$} & \multirow{2}{2cm}{\centering 251 (0)} & 250 (0.31) & \multirow{4}{4cm}{\centering 248(s)/250m} & 241 (0.12) \\
+ 					\multirow{2}{2cm}{\centering $\nu_{4}$} & \multirow{2}{2cm}{\centering 251 (0)} & 250 (0.31) & \multirow{4}{4cm}{\centering 248(s)/ \\ 250 (m)} & 241 (0.12) \\
  					&  &  255 (0.5)&   & 243 (4.21)\\
  					\multirow{2}{2cm}{\centering $\nu_{5}$} & \multirow{2}{2cm}{\centering 255 (0.43)} & 255 (0.21)&  & 250 (2.51)\\
  					&   &  259 (0.13) &  & 251 (0.04) \\
  					&   &   & 289(w) & \\
- 					&  &    &  \multirow{2}{2cm}{\centering 398(vw)/395vw}& 394 (0.34)\\
+ 					&  &    &  \multirow{2}{2cm}{\centering 398(vw)/ \\ 395 (vw)}& 394 (0.34)\\
  					&  &    &   & 395 (0.11)\\
- 					\multirow{2}{2cm}{\centering $\nu_{6}$} & \multirow{2}{2cm}{\centering 412 (0)} & 411 (0.03)& \multirow{2}{2cm}{\centering 409(w)/408ms} & 403 (0.1)\\
+ 					\multirow{2}{2cm}{\centering $\nu_{6}$} & \multirow{2}{2cm}{\centering 412 (0)} & 411 (0.03)& \multirow{2}{2cm}{\centering 409(w)/ \\ 408 (ms)} & 403 (0.1)\\
  					&   &  415 (0.28) &  & 408 (0.63)\\
  					\bottomrule	    
  				\end{tabular}
@@ -1293,6 +1376,8 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{threeparttable}
  			\end{center}
  		\end{table}
+ 	\end{spacing}
+ 		
  		
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Pyrene system).}  \label{table-freqPyr}
@@ -1341,6 +1426,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{table}
  				
  	
+ 	\begin{spacing}{1.1}
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Chrysene system).}  \label{table-freqChry}
  			\begin{center}
@@ -1385,14 +1471,15 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{threeparttable}
  			\end{center}
  		\end{table}
- 		
+ 	\end{spacing}
  	
  	
- 	
+ 	\begin{spacing}{1.1}
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Perylene system).}  \label{table-freqPery}
  			\begin{center}
  				\begin{threeparttable}
+ 					\resizebox{17cm}{!}{
  					\begin{tabular}{c c c c c}
  						\toprule
  						\multicolumn{2}{p{4.5cm}}{\centering \textbf{Monomer}} & \textbf{Dimer} & \multicolumn{1}{p{4cm}}{\centering \textbf{Experimental} \\ ref \cite{michaelian2009far}} & \textbf{VASP/CRYSTAL}\\
@@ -1434,7 +1521,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  						\multirow{2}{2cm}{\centering $\nu_{10}$} & \multirow{2}{2cm}{\centering 375 (0.00)} & 375 (0.00) & \multirow{2}{2cm}{\centering 395 (vw)} & \multirow{2}{2cm}{\centering 410 (0.31)}\\
  						&  & 375 (0.04)&  &  \\
  					\bottomrule	    
- 					\end{tabular}
+ 					\end{tabular}}
  					
  					\begin{tablenotes}
  						\item[] Italic: Intermolecular modes
@@ -1442,7 +1529,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\end{threeparttable}
  			\end{center}
  		\end{table}
- 	
+ 	\end{spacing}
  	
  	
  		
@@ -1493,12 +1580,29 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  			\end{threeparttable}
  			\end{center}
  		\end{table}	
+ 
+ \newpage
+ 
+ 	The vibrational data obtained within the same calculation conditions for the polyaromatic phenanthrene, pyrene, chrysene and perylene molecule lead to the same conclusions: each system owns at least one active signature found around 100 cm$^{-1}$ and inherent to the network (93 cm$^{-1}$ for phenanthrene, 94 and 97 cm-1 for pyrene, 112 and 114 cm$^{-1}$ for chrysene, 87, 103 and 104 cm$^{-1}$ for perylene). The fluorene molecule, besides having a different aromatic constitution (other than benzenic rings) lead to the similar results, for which the modes were estimated to be found at 88 and 100 cm$^{-1}$.\\
+ 	
+ 	The available vibrational data for these  systems are not easily exploitable for the network modes characterization. For these modes, indeed, either the data is incomplete or the intramolecular signatures (highlighted by the calculations of the monomers) overlap the intermolecular ones in the 100-150 cm$^{-1}$ zone.  For example, the modes associated to pyrene (monomer calc 100 cm$^{-1}$ int 0.66 km.mol$^{-1}$ – solid state calc 97 cm$^{-1}$ int 2.31 km.mol$^{-1}$) and fluorene (monomer calc 100 cm$^{-1}$ int 0.84 km.mol$^{-1}$ – solid state calc 100 cm$^{-1}$ int 5.71 km.mol$^{-1}$) are respectively measured at 98 and 108 cm$^{-1}$, illustrating this problem.
+ 	The tetracene molecules case differs since, as indicated in Table \ref{table14}, the isolated tetracene molecule strictly owns a single signature in the zone of study (93 cm$^{-1}$) that could potentially hide the network’s one. Nevertheless, as the intensity of this mode for the monomer is expected to be zero accordingly to our calculations, one should not have problems assigning it. Even though, as previously, assigning these network modes remains a difficult task and one cannot assure that this single network mode (calc 102 cm$^{-1}$ int 2.1 km.mol$^{-1}$) corresponds undoubtly to the one observed experimentally at 106 cm-1. Notably, since an active mode (int 9.5 km.mol$^{-1}$) of the monomer was also found at 106 cm-1 in the solid state calculations, one should be prudent to interpret such results. Occasional overlap of two vibrators is then a limiting factor for our capability to identify the nature of these observed vibrators in some cases. Still, this fact does not question the presence of these active network modes that we intend to identify, neither the fact that these modes can always be associated to one or two intermolecular vibrations invariably found between 90 and 120 cm$^{-1}$ regardless of the system in study. Third, the same type of vibrational data is still not available for the benzene, naphthalene, phenanthrene and chrysene molecules.\\ 
+ 	
+ 	Anyhow, our calculations can lead experimentalists to locate the presence or not of intramolecular interactions at very low wavenumbers under any given condition (P, T, concentration, …). Noteworthy, only the 70-150 cm$^{-1}$ zone is herein commented since it is where the signatures we intend to identify are located. Notwithstanding, for the ensemble of systems, the calculated data presented in Tables 1.24-31 were also extended to englobe the 150-400 cm$^{-1}$, allowing in this way both the validation of our calculations in a better experimentally identified zone and the identification of the specific modes of the ‘non interacting’ modes. As such, the solid state calculations herein performed are generally in a very good agreement with the available experimental data. This also contributes to the validation of our results using the same calculation conditions for the regions below 150 cm$^{-1}$.\\
+ 	
+ 	Intermolecular mode around 100 cm$^{-1}$ appear not to depend to the side and ring cycle structure. Heteroatoms influence was studied by fluorene analogues, vibbrational calculation for monomer, dimer and solid state are shown in tables \ref{table-freqCarbaz}, \ref{table-freqDibenzof} and \ref{table-freqDibenzothio}. These systems present actives network modes at 72, 114 and 118 cm$^{-1}$ for carbazole; 106, 108 cm$^{-1}$ for dibenzofuran and 91, 108 and 113 cm$^{-1}$ for dibenzothiophene, accordingly our previous results for acenes family and other systems heteroatoms presence have not impact in frequence values for these actives bands which are produced by intermolecular interactions. 
+ 	
+  
+ 	
+ 
+ 
  	
  	
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Carbazole system).}  \label{table-freqCarbaz}
  			\begin{center}
  				\begin{threeparttable}
+ 					\resizebox{17cm}{!}{
  					\begin{tabular}{c c c c c}
  						\toprule
  						\multicolumn{2}{p{4.5cm}}{\centering \textbf{Monomer}} & \textbf{Dimer} & \multicolumn{1}{p{4cm}}{\centering \textbf{Experimental} \\ Fig} & \textbf{VASP/CRYSTAL}\\
@@ -1517,7 +1621,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  						&  &  &   & \textit{118 (26.62)}\\
  						\multirow{2}{2cm}{\centering $\nu_{2}$}& \multirow{2}{2cm}{\centering 150 (0.00)} &  153 (0.12) & \multirow{2}{2cm}{\centering 146 (w) } & \multirow{2}{2cm}{\centering 142 (8.41)}\\
  						&   & 168 (0.04)  &   & \\ 
- 						&  &  &  & 185 (0.49)\\
+ 						&  &  & 190 (vw) & 185 (0.49)\\
  						\multirow{2}{2cm}{\centering $\nu_{3}$}& \multirow{2}{2cm}{\centering 222 (0.38)}& 221 (0.47) & \multirow{2}{2cm}{\centering 221 (m)}& 221 (0.26)\\
  						 &  &  221 (0.35) &  & 222 (0.52)\\
  						 \multirow{2}{2cm}{\centering $\nu_{4}$}& \multirow{2}{2cm}{\centering 284(15.47)} & 301 (0.74) & \multirow{2}{2cm}{\centering 294 (w)} & \multirow{2}{2cm}{\centering 283 (0.43)}\\
@@ -1534,7 +1638,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  						 \multirow{2}{2cm}{\centering $\nu_{5}$}& \multirow{2}{2cm}{\centering 453 (0.00)} & 457 (13.23) &    &  \multirow{2}{2cm}{\centering 441 (1.34)} \\
  						 &   &  458 (0.02) &    &  \\
  						\bottomrule	    
- 					\end{tabular}
+ 					\end{tabular}}
  					
  					\begin{tablenotes}
  						\item[] Italic: Intermolecular modes
@@ -1544,10 +1648,12 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  		\end{table}	
  	
  	
+ 	    \begin{spacing}{1.1}
  		\begin{table}[H]
  			\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Dibenzofuran system).}  \label{table-freqDibenzof}
  			\begin{center}
  				\begin{threeparttable}
+ 					\resizebox{17cm}{!}{
  					\begin{tabular}{c c c c c}
  						\toprule
  						\multicolumn{2}{p{4.5cm}}{\centering \textbf{Monomer}} & \textbf{Dimer} & \multicolumn{1}{p{4cm}}{\centering \textbf{Experimental} \\ ref \cite{klots1996vibrational}} & \textbf{VASP/CRYSTAL}\\
@@ -1577,7 +1683,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  					  \multirow{2}{2cm}{\centering $\nu_{7}$}& \multirow{2}{2cm}{\centering 434 (1.88)} & 436 (1.41) & \multirow{2}{2cm}{\centering 424}& \multirow{2}{2cm}{\centering 425 (6.91)}\\
  					  &   &  436 (1.47) &  &  \\
  						\bottomrule	    
- 					\end{tabular}
+ 					\end{tabular}}
  					
  					\begin{tablenotes}
  						\item[] Italic: Intermolecular modes
@@ -1585,12 +1691,16 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\end{threeparttable}
  			\end{center}
  		\end{table}
- 	
+ 	\end{spacing}
+ 
+ 
+ 
  
  	\begin{table}[H]
  		\caption{ Calculated vibrational frequencies (cm$^{-1}$) of the monomer, dimer and solid-state (PBE Dibenzothiophene system).}  \label{table-freqDibenzothio}
  		\begin{center}
  			\begin{threeparttable}
+ 				\resizebox{17cm}{!}{
  				\begin{tabular}{c c c c c}
  					\toprule
  					\multicolumn{2}{p{4.5cm}}{\centering \textbf{Monomer}} & \textbf{Dimer} & \multicolumn{1}{p{4cm}}{\centering \textbf{Experimental} \\ Table } & \textbf{VASP/CRYSTAL}\\
@@ -1626,7 +1736,7 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  				\multirow{2}{2cm}{\centering $\nu_{8}$} & \multirow{2}{2cm}{\centering 433 (7.15)} & 433 (16.66) & \multirow{2}{2cm}{\centering 425 (s)} & 423 (18.48)\\
  				&  &  435 (0.23) &  & 435 (3.29)\\
  				\bottomrule	    
- 				\end{tabular}
+ 				\end{tabular}}
  				
  				\begin{tablenotes}
  					\item[] Italic: Intermolecular modes
@@ -1641,13 +1751,8 @@ The behavior of the symmetric dimers is attributed to a balancing of opposing ef
  	
  	
  	
- 	The results associated to the acene family, i.e., naphthalene, anthracene and pentacene, are reported in Tables \ref{table-freqNaph}, \ref{table-freqAnthra} and \ref{table-freqPenta} hereafter. The calculation conditions in this piece of modelling are identical to those used just before for the tetracene molecule. The main conclusions arising from the study of these systems are in agreement with those obtained for the tetracene system. Indeed, for these three systems, the structural parameters and unit cell volumes are better described by the PBE-D3 level of theory if a comparison is made with the other methods used in this work (except for the two anthracene and benzene systems where the TS and the TSC data are in relative better agreement in comparison to the experimental data \cite{buvcko2013tkatchenko}. The agreement between our theoretical and experimental data meets the requirements to the frequency calculation of the crystalline network. Moreover, the inclusion of the dispersive terms (like D3 or the modified D2:TS) must be introduce onto the frequency calculation because of the well-known dispersive character of the intermolecular modes to describe. The vibrational results calculated for these systems are reported in Table \ref{table-freqBen}, \ref{table-freqNaph}, \ref{table-freqAnthra}, \ref{table-freqPenta}, \ref{table-freqPhen}, \ref{table-freqPyr}, \ref{table-freqChry} and \ref{table-freqFluore} in which the frequency values can also be found for each acene family-member monomer and dimer. According to the conclusions drawn for the tetracene system case, one can find for these three systems at least an active signature associated to a network vibrational mode around 100 cm$^{-1}$ (88 and 106 cm$^{-1}$ for naphthalene, 98 cm$^{-1}$ for anthracene, and 102 cm$^{-1}$ for pentacene). One should note that the benzene molecule (also in the acene family) in its T-Shape conformation needs a specific analysis. As a matter of fact, for this conformation, the intermolecular interactions of the crystal network do not correspond any longer to the simple pi-pi interactions (as it is the case of the other systems herein studied) but to interactions of the type pi-H, as demonstrated by Katrusiak et coll \cite{katrusiak2010association}. Yet, although the interactions are of different nature, our calculations show that the main active vibrational signature of the crystalline network remains localised in the 100-130 cm$^{-1}$ region. Moreover, in the following paragraphs, it will be shown that the spectral position remains unchanged for different systems only for this (these) specific mode(s). For all the other modes, depending on the symmetry of the system and on the strength of the long-range interactions between neighbour molecules, the spectral signatures can vary in position and in intensity. This observation only constitutes the major information to be extracted from our calculations given the aim of this work.
- 	The vibrational data obtained within the same calculation conditions for the polyaromatic phenanthrene, pyrene and chrysene molecule lead to the same conclusions: each system owns at least one active signature found around 100 cm$^{-1}$ and inherent to the network (88 and 106 cm$^{-1}$ for phenanthrene, 94 and 97 cm-1 for pyrene, 112 and 114 cm$^{-1}$ for chrysene). The fluorene molecule, besides having a different aromatic constitution (other than benzenic rings) lead to the similar results, for which the modes were estimated to be found at 88 and 100 cm$^{-1}$.
- 	
- 	The available vibrational data for these nine systems are not easily exploitable for the network modes characterization. For these modes, indeed, either the data is incomplete or the intramolecular signatures (highlighted by the calculations of the monomers) overlap the intermolecular ones in the 100-150 cm$^{-1}$ zone.  For example, the modes associated to pyrene (monomer calc 100 cm$^{-1}$ int 0.66 km.mol$^{-1}$ – solid state calc 97 cm$^{-1}$ int 2.31 km.mol$^{-1}$) and fluorene (monomer calc 100 cm$^{-1}$ int 0.84 km.mol$^{-1}$ – solid state calc 100 cm$^{-1}$ int 5.71 km.mol$^{-1}$) are respectively measured at 98 and 108 cm$^{-1}$, illustrating this problem.
- 	The tetracene molecules case differs since, as indicated in Table \ref{table14}, the isolated tetracene molecule strictly owns a single signature in the zone of study (93 cm$^{-1}$) that could potentially hide the network’s one. Nevertheless, as the intensity of this mode for the monomer is expected to be zero accordingly to our calculations, one should not have problems assigning it. Even though, as previously, assigning these network modes remains a difficult task and one cannot assure that this single network mode (calc 102 cm$^{-1}$ int 2.1 km.mol$^{-1}$) corresponds undoubtly to the one observed experimentally at 106 cm-1. Notably, since an active mode (int 9.5 km.mol$^{-1}$) of the monomer was also found at 106 cm-1 in the solid state calculations, one should be prudent to interpret such results. Occasional overlap of two vibrators is then a limiting factor for our capability to identify the nature of these observed vibrators in some cases. Still, this fact does not question the presence of these active network modes that we intend to identify, neither the fact that these modes can always be associated to one or two intermolecular vibrations invariably found between 90 and 120 cm$^{-1}$ regardless of the system in study. Third, the same type of vibrational data is still not available for the benzene, naphthalene, phenanthrene and chrysene molecules.\\ 
- 	
- 	Anyhow, our calculations can lead experimentalists to locate the presence or not of intramolecular interactions at very low wavenumbers under any given condition (P, T, concentration, …). Noteworthy, only the 70-150 cm$^{-1}$ zone is herein commented since it is where the signatures we intend to identify are located. Notwithstanding, for the ensemble of systems, the calculated data presented in Tables 1.24-31 were also extended to englobe the 150-400 cm$^{-1}$, allowing in this way both the validation of our calculations in a better experimentally identified zone and the identification of the specific modes of the ‘non interacting’ modes. As such, the solid state calculations herein performed are generally in a very good agreement with the available experimental data. This also contributes to the validation of our results using the same calculation conditions for the regions below 150 cm$^{-1}$. 
+ 
+ 
  	
  		
  	
@@ -1677,6 +1782,7 @@ If our previsions turn out to be generalizable for all kind of molecular familie
  \begin{table}
  	\caption{Computed wavenumbers and intensities for distorted tetracene based on the harmonic approximation at the $\omega$B97X-D/6-311G level of calculation. Comparison with symmetric tetracene (D$_{2h}$)}
  	\begin{center}
+ 		\resizebox{17cm}{!}{
  		\begin{tabular}{c c c c c}
  			\toprule
  			& \multicolumn{2}{p{8cm}}{\centering \textbf{Tetracene with D$_{2h}$ symmetry}} & \multicolumn{2}{p{8cm}}{\centering \textbf{Distorted Tetracene}}\\
@@ -1693,7 +1799,7 @@ If our previsions turn out to be generalizable for all kind of molecular familie
  		   	$\nu_{9}$& 328 & 0 & 328 & 0.02\\
  		   	$\nu_{10}$& 389 & 0 & 389 & 0.04\\
  		   				\bottomrule
- 		\end{tabular}
+ 		\end{tabular}}
  	\end{center}
  \end{table}
  

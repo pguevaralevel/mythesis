@@ -1,0 +1,707 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[french,UKenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2cm,top=3cm,right=2cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{mathrsfs}
+\usepackage[pdftex]{graphicx}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage[T1]{fontenc} %para escurecer a cor da fonte
+\usepackage{lmodern}
+\usepackage[mathcal]{eucal}
+\usepackage{pdfpages}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{minitoc}
+\usepackage{pdftexcmds}
+\usepackage{tikz}
+\usepackage{subfigure}
+\usepackage[version=3]{mhchem}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage[multiple]{footmisc} %permite colocar virgulas entre footnotes
+\usepackage{relsize} %permite aumentar o tamanho das integrais
+\usepackage{pbox} %permite quebrar a linha numa tabela
+\usepackage{paralist}
+\usepackage[toc,page]{appendix}
+\bibliographystyle{unsrt}
+\sloppy
+
+\begin{document}
+	
+	
+\newgeometry{textwidth=16cm}
+\chapter{Partie vibrationnelle}
+\minitoc
+\restoregeometry
+
+\newpage
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\section*{Introduction}
+\markright{INTRODUCTION}{}
+
+La littérature consacrée aux applications des spectrométries vibrationnelles dans le domaine de la caractérisation des constituants présents dans les pétroles est relativement peu abondante, et ce bien que la spectrométrie infrarouge soit devenue une technique d'analyse de \og routine \fg{} dans de très nombreux laboratoires, académiques comme industriels. La raison de cette faible abondance réside essentiellement dans la complexité des mélanges qui constituent un pétrole, un asphaltène, etc.. Pourtant, les champs d'application de cette technique se sont considérablement développés depuis l'apparition sur le marché de spectrophotomètres à transformée de \textsc{Fourier}.
+Après avoir vu sa position privilégiée menacée par d'autres méthodes, telles que la spectroscopie RMN\footnote{\og Nuclear Magnetic Resonance Spectroscopy \fg{}.} ou la spectrométrie de masse, la spectrométrie infrarouge à transformée de \textsc{Fourier} (IRTF) a connu de nouvelles avancées technologiques, parmi lesquelles la spectrométrie photoacoustique que nous avons employée dans ce travail, qui lui confèrent à l'heure actuelle une précision d'analyse permettant d'atteindre des informations détaillées sur :
+
+\begin{itemize}
+	\item la structure chimique de molécules, de macromolécules : identification de l'unité de base, des ramifications ; analyses des extrémités de chaînes ; identification des défauts, d'éventuelles impuretés\dots{}
+	\item les interactions intra et inter-moléculaires, la conformation des chaînes, l'orientation des molécules et des macromolécules, les auto-associations éventuelles, \dots{}
+\end{itemize}
+
+Cette partie a pour but essentiel de définir le vocabulaire et les notions fondamentales que nous emploierons par la suite, le développement détaillé du traitement classique de la vibration se trouvant dans de nombreux ouvrages et repris dans de nombreuses thèses. Parallèlement à ces développements expérimentaux, la modélisation en spectroscopie vibrationnelle a connu ces dernières décennies de très grandes mutations. Ce chapitre vise également à rappeler les fondements essentiels de la résolution de l'équation vibrationnelle de Schr\"{o}dinger, qui sous-tendent les principales méthodes -- que nous développerons -- actuellement disponibles pour tenter de répondre aux problématiques posées par les expérimentateurs. 
+
+
+Le domaine de la pétrochimie qui nous intéresse dans ce travail, et précisément la thématique visant à l'élucidation de la composition de ces mélanges complexes, composés de milliers de molécules différentes non encore identifiées, est un domaine au champ d'investigation large et pour lequel les attentes sont grandes en termes de caractérisation comme de compréhension des processus d’interaction et d’agrégation de ces molécules. Dans ce domaine encore, la spectrométrie IRTF est certainement un des outils les plus efficaces pour élucider les mécanismes impliqués, mais les données résultantes sont complexes et de fait difficilement interprétables et justifiables sans un support théorique adapté.
+
+L'Équipe de Chimie Physique (ECP) de l'IPREM est depuis très longtemps spécialisée dans les développements méthodologiques et logiciels dans la double hypothèse des anharmonicités électriques et mécaniques. Pour ces compétences, les expérimentateurs font généralement appel à la modélisation, dans le but d'interpréter leurs données spectrales.
+Le problème qui nous a été posé dans ce travail a cependant constitué un challenge qui nous a contraint à adapter nos méthodes de calculs pour proposer, \textit{in fine}, une méthode de type variation-perturbation adaptée et simplifiée permettant une interprétation des données dans des gammes spectrales non usuelles (très bas nombres d’ondes) et sur un ensemble de molécules suffisamment large et représentatif de quelques familles moléculaires supposées présentes dans les asphaltènes. 
+
+
+\newpage
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Généralités}
+
+L'identification des principaux composés -- ou, pour le moins, des familles de composés -- chimiques fait l'objet, depuis de nombreuses années, de recherches intensives.
+
+En soit, la thématique liée à l'identification et à la caractérisation des molécules au sein d'un milieu chimique donné n'a rien de novatrice. En effet, depuis de nombreuses décennies, les chimistes de tous domaines recherchent ce \og graal \fg{} avec plus ou moins de succès. Parmi les techniques expérimentales couramment utilisées pour répondre à ce problème, la spectroscopie vibrationnelle est indubitablement celle qui a permis le plus grand nombre de progrès dans des domaines aussi variés que la biochimie, l'agroalimentaire, la chimie interstellaire ou encore la chimie des matériaux. Le point commun à l'ensemble de ces études est qu'elles sont toutes basées sur une connaissance \textit{a minima} des molécules constituant le milieu étudié. La complexité des problèmes de suivi et de devenir d’un ensemble de molécules mal défini et ayant évolué dans des conditions extrêmes sur une échelle de temps démesurée (en terme de réactivité chimique) rend toutefois l'utilisation de cette technique plus délicate et plus hasardeuse, si bien qu'il est indispensable de faire appel à des techniques complémentaires ou de recourir au soutien de la modélisation prédictive. Il est en effet indéniable que les progrès conjoints des techniques de modélisation et des moyens informatiques font aujourd'hui de cet outil un support indispensable et performant à l'identification de systèmes moléculaires de plus en plus variés.\\
+
+Le développement de ces modélisations en spectroscopie vibrationnelle fait état depuis une vingtaine d'années de progrès fulgurants. Les techniques mathématiques développées par les générations précédentes sont désormais largement éprouvées et mises en application au service des expérimentateurs.
+Il ne se passe plus une seule année sans que les limites calculatoires et les précisions atteintes par ces simulations ne soient repoussées, grâce au développement de méthodes adaptées et développées dans le cadre d'hypothèses mathématiques précises et contrôlées. \\
+
+Le travail présenté dans ce chapitre s'inscrit donc dans le cadre de ces développements mathématiques au service de l'identification de systèmes chimiques complexes. Les calculs que nous développons sont réalisés dans le cadre de la Résolution de l'Equation Vibrationnelle de Sch\"{o}dinger (REVS), dans la double hypothèse des approximations anharmoniques électriques et mécaniques permettant d'accéder à la détermination des intensités et des fréquences de tous les modes de vibrations intrinsèques à un système chimique donné, dans un environnement donné. Il est encore communément admis qu'un calcul mené dans une hypothèse plus simple, dite harmonique, suffit aux identifications. En réalité, les raisons fondamentales qui poussent les chercheurs à préférer l'approximation harmonique sont aussi bien liées au problème de coût calculatoire qu'au manque d'implémentation d'approches de type anharmonique dans les grands codes de calculs commerciaux. Dans la stratégie que nous développons, nos calculs se distinguent des études menées dans le domaine en cela qu'ils se placent précisément dans l'hypothèse anharmonique. Néanmoins, il est important de savoir qu'un calcul réalisé dans l'hypothèse harmonique engendre une erreur que le modélisateur à pour habitude de \og contrôler \fg{} par un facteur correctif adapté qu'il applique à ses résultats selon les conditions de calculs utilisées lors de la REVS. Malheureusement, cette technique de calcul, utilisée depuis une cinquantaine d'années, et qui a fait de la modélisation en spectroscopie vibrationnelle une méthode quelque peu empirique dans l'esprit des expérimentateurs, est toujours assujettie à un doute quant à l'identification précise des vibrateurs, car il n'est fondamentalement pas concevable que l'erreur commise sur chaque mode soit la même pour tous et que la correction proposée soit universellement applicable à tous les système étudiés quels que soient les milieux dans lesquels ils se trouvent. De plus, les calculs développés dans cette hypothèse ne permettent pas d'identifier d'autres vibrateurs que les modes fondamentaux puisqu'aucun couplage entre modes n'est pris en compte.
+
+En résumé, toute modélisation en spectroscopie vibrationnelle, qu’elle soit développée dans l’hypothèse harmonique ou anharmonique, est directement dépendante de la qualité de la fonction d’onde moléculaire électronique, donc de la prise en compte de la corrélation électronique. S’il est aujourd’hui commun de réaliser la REVS pour des systèmes de petite taille (3--4 atomes), ce critère devient toutefois pratiquement rédhibitoire lorsqu'il s'agit de résoudre ces mêmes problèmes dans l’hypothèse anharmonique sur des systèmes de taille plus importante.
+
+Ce chapitre constituera avant tout une occasion pour moi de recenser les difficultés inhérentes au développement méthodologique vibrationnel et de montrer les pistes avancées pour l'étude des systèmes moléculaires dont la taille excède la vingtaine d'atomes, taille minimale nécessaire à la caractérisation des motifs/familles de base présents dans les asphaltènes. Ces activités s’inscrivent dans le prolongement et en complément des actions antérieures menées au sein de l'ECP, notamment pour le développement de méthodes de variation-perturbation et de calcul des intensités IR de petits systèmes moléculaires \cite{krusic1991electron}. 
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section[Séparation des mouvements]{Séparation des mouvements rotationnels et vibrationnels}
+
+Cette partie a pour but essentiel de définir le vocabulaire et les notions fondamentales que nous emploierons par la suite, le développement détaillé du traitement classique de la vibration se trouvant dans de nombreux ouvrages~\cite{barchewitz1971spectroscopie,wilson1955molecular,wilson1955molecular} et repris dans de nombreuses thèses~\cite{pouchan1978approche,zaki1996etude}.
+
+Dans une approximation d'ordre 0 supplémentaire à celle de \textsc{Born}- \textsc{Oppenheimer}, les mouvements nucléaires peuvent être séparés en deux classes : les mouvements de rotation et les mouvements de vibration.
+Pour ce faire, il est nécessaire d'expliciter l'expression de l'énergie cinétique des noyaux au sens classique et de repérer la molécule dans un référentiel respectant les conditions d'\textsc{Eckart}~\cite{eckart1935some}.
+Considérons dans cet espace un repère mobile $oxyz$, lié à la molécule, et un repère fixe $OXYZ$, définissant les mouvements de translation et de rotation du repère mobile. Le mouvement du trièdre mobile par rapport au trièdre fixe est défini par la distance $R$ et la vitesse angulaire instantanée $\alpha$.
+Le mouvement de la molécule est défini par le trièdre mobile représentant à chaque instant la position $\stackrel{\rightarrow}{r_{\alpha}}$ des noyaux $\alpha$ par rapport à leur position d'équilibre $\stackrel{\rightarrow}{a_{\alpha}}$. Soit : 
+
+\begin{equation}
+\stackrel{\rightarrow}{\rho_{\alpha}} = \stackrel{\rightarrow}{r_{\alpha}} - \stackrel{\rightarrow}{a_{\alpha}}
+\end{equation}
+
+La vitesse $\stackrel{\rightarrow}{v_{\alpha}}$ du $\alpha^{ieme}$ noyau est donc : $\stackrel{\rightarrow}{v_{\alpha}} =\stackrel{\rightarrow}{\dot{r_{\alpha}}} =  \stackrel{\rightarrow}{\dot{\rho_{\alpha}}}$ puisque, par définition, $\stackrel{\rightarrow}{a_{\alpha}}$ est constant dans le temps.
+
+Ainsi, dans le repère fixe, la vitesse de ce noyau s'écrit :
+
+\begin{equation}
+\stackrel{\rightarrow}{V_{\alpha}} = \stackrel{\rightarrow}{\dot{R}} + \left(\stackrel{\rightarrow}{\omega} \wedge \stackrel{\rightarrow}{r_{\alpha}}\right) + \stackrel{\rightarrow}{v_{\alpha}}
+\end{equation}
+
+On peut facilement déduire de cette expression l'énergie cinétique totale des noyaux :
+
+\begin{align}\label{2T-Eckart}
+2T = \dot{R}^2 \sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{\omega} \wedge \stackrel{\rightarrow}{r_{\alpha}}\right)^2 &+ \sum_{\alpha}m_{\alpha}v^2_{\alpha} \\ \notag
+&+ 2\stackrel{\rightarrow}{\dot{R}}\sum_{\alpha}m_{\alpha}\stackrel{\rightarrow}{v_{\alpha}} \\ \notag 
+&+ 2\left(\stackrel{\rightarrow}{\dot{R}} \wedge  \stackrel{\rightarrow}{\omega}\right)\sum_{\alpha}m_{\alpha}\stackrel{\rightarrow}{r_{\alpha}} \\ \notag
+&+ 2\stackrel{\rightarrow}{\omega}\sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{r_{\alpha}} \wedge \stackrel{\rightarrow}{v_{\alpha}}\right)
+\end{align}
+
+Si nous supposons que les noyaux ne possèdent aucun mouvement de translation dans le système mobile et que l'origine de ce dernier correspond au centre de gravité de la molécule, alors :
+
+\begin{equation}
+\sum_{\alpha}m_{\alpha}\stackrel{\rightarrow}{v_{\alpha}} = 0
+\end{equation}
+\noindent et
+\begin{equation}
+\sum_{\alpha}m_{\alpha}\stackrel{\rightarrow}{r_{\alpha}} = 0
+\end{equation}
+
+Si, de plus, nous considérons que dans le trièdre mobile la molécule ne possède aucun mouvement de rotation, nous pouvons écrire :
+
+\begin{equation}
+\sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{a_{\alpha}} \wedge \stackrel{\rightarrow}{v_{\alpha}}\right) = 0
+\end{equation}
+\noindent et donc
+\begin{equation}
+\sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{r_{\alpha}} \wedge \stackrel{\rightarrow}{v_{\alpha}}\right) = \sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{\rho_{\alpha}} \wedge \stackrel{\rightarrow}{v_{\alpha}}\right)
+\end{equation}
+
+Les deux conditions ci-dessus portent le nom de conditions d'\textsc{Eckart} et simplifient l'expression~\ref{2T-Eckart} :
+
+\begin{equation}
+2T = \dot{R}^2\sum_{\alpha}m_{\alpha} + \sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{\omega} \wedge \stackrel{\rightarrow}{r_{\alpha}}\right)^2 + \sum_{\alpha}m_{\alpha}v^2_{\alpha} + 2\stackrel{\rightarrow}{\omega}\sum_{\alpha}m_{\alpha}\left(\stackrel{\rightarrow}{r_{\alpha}} \wedge \stackrel{\rightarrow}{v_{\alpha}}\right)
+\end{equation}
+
+Le premier terme correspond à l'énergie cinétique de translation de la molécule. Il ne contribue pas à la quantification de l'énergie. Le second terme correspond  à l'énergie cinétique de rotation. Le troisième terme correspond à l'énergie de vibration moléculaire. Le dernier terme est appelé terme de \textsc{Coriolis}. Il est relatif à l'interaction entre la rotation et la vibration, et peut être négligé si nous considérons que les mouvements vibrationnels sont de faible amplitude : $\stackrel{\rightarrow}{r_{\alpha}} \approx \stackrel{\rightarrow}{a_{\alpha}}$. Cette approximation,  appelée condition de \textsc{Casimir}~\cite{casimir1931rotation}, est généralement vérifiée pour les vibrations d'élongation, par opposition aux modes très mous de torsion, qui restent souvent mal traduits dans ce cadre.
+
+En conséquence, l'énergie cinétique des noyaux peut s'écrire, en première approximation, comme la somme d'un terme rotationnel et d'un terme vibrationnel :
+
+\begin{equation}
+2T_n = 2T_R + 2 T_V \text{ en supposant }2T_{VR} = 0
+\end{equation}
+
+D'un point de vue quantique, les considérations ci-dessus conduisent à séparer les mouvements rotationnels et vibrationnels de l'équation nucléaire en deux équations distinctes :
+
+\begin{align}
+\psi^n_{R_{\alpha}} &= \psi^R_{R_{\alpha}} \bullet \psi^V_{R_{\alpha}} \\
+E_n &= E_V + E_R
+\end{align}
+\begin{flushleft}
+	\begin{tabular}{@{}lrp{10cm}}
+		avec & $\psi^R_{R_{\alpha}}$ : & fonction d'état rotationnelle, \\
+		& $\psi^V_{R_{\alpha}}$ : & fonction d'état vibrationnelle,\\
+		& $E_R$ : & énergie correspondant à la fonction d'état rotationnelle,\\
+		& $E_V$ : & énergie correspondant à la fonction d'état vibrationnelle.
+	\end{tabular}
+\end{flushleft}
+
+On obtient ainsi l'équation de Schr\"{o}dinger décrivant les mouvements vibrationnels :
+
+\begin{equation}
+\left(\hat{T}_V + \hat{V}_V\right) \psi^V_{R_{\alpha}} = E_V \psi^V_{R_{\alpha}}
+\end{equation}
+
+\noindent et l'équation de Schr\"{o}dinger décrivant les mouvements rotationnels, dans l'hypothèse où les liaisons interatomiques ne s'allongent pas pendant la rotation (hypothèse du rotateur rigide):
+
+\begin{equation}
+T_R \psi^R_{R_{\alpha}} = E_R \psi^R_{R_{\alpha}}
+\end{equation}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Energie cinétique de vibration }
+
+L'énergie cinétique de vibration d'une molécule composée de $n$ atomes dans le repère d'\textsc{Eckart} s'écrit :
+
+\begin{equation}
+2T_V = \sum^n_{\alpha}m_{\alpha}\left( \dot{x}^2_{\alpha} + \dot{y}^2_{\alpha} + \dot{z}^2_{\alpha}\right)
+\end{equation}
+
+\begin{flushleft}
+	\begin{tabular}{@{}lrp{10cm}}
+		avec & $\dot{x}_{\alpha}, \dot{y}_{\alpha}, \dot{z}_{\alpha}$ : & composantes de la vitesse $\stackrel{\rightarrow}{\dot{\rho}}_{\alpha}$ de l'atome $\alpha$. 
+	\end{tabular}
+\end{flushleft}
+
+En exprimant cette énergie dans le système des coordonnées cartésiennes pondérées par les masses $(q_x = m^{1/2}_{\alpha}x_{\alpha}, q_y = m^{1/2}_{\alpha}y_{\alpha} et q_z = m^{1/2}_{\alpha}z_{\alpha} )$, et sans labelliser les axes cartésiens, nous obtenons une écriture simplifiée, fonction explicite de $3n$ coordonnées :
+
+\begin{equation}
+2T_V = \sum^{3n}_i \dot{q}^2_i
+\end{equation}
+
+Matriciellement, l'équation ci-dessus prend la forme :
+
+\begin{equation}
+2T_V = \left[\dot{q}\right]^t\left[\dot{q}\right]
+\end{equation}
+
+\begin{flushleft}
+	\begin{tabular}{@{}lrp{10cm}}
+		avec & $\dot{q}_i$ : & dérivée de $q_{i}$ en fonction du temps $\left( \dfrac{dq_i}{dt} \right)$,\\
+		& $\left[\dot{q}\right]^t$ : & matrice transposée de $\left[\dot{q}\right]$.
+	\end{tabular}
+\end{flushleft}
+
+Notons que, dans l'espace des coordonnées cartésiennes non pondérées, nous avons :
+
+\begin{equation}
+2T_V = \left[\dot{x}\right]^t \left[M_{\alpha}\right] \left[\dot{x}\right]
+\label{eq_nrj_cin_vib}
+\end{equation}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Energie potentielle harmonique}\label{E-harmonique}
+
+La fonction potentielle s'écrit généralement comme un développement en série de \textsc{Taylor} au voisinage de la position d'équilibre. Dans l'espace des coordonnées ci-dessus, elle prend la forme d'un polynôme caractéristique d'ordre $n$, dont nous limitons le développement à l'ordre 2 dans l'hypothèse harmonique :
+
+\begin{equation}
+V = V_{eq} + \sum^{3n}_i\left(\frac{\partial V}{\partial q_i}\right)_{eq} q_i + \frac{1}{2!} \sum^{3n,3n}_{i\leq j}\left(\frac {\partial^2 V}{\partial q_i \partial q_j}\right)_{eq} q_iq_j
+\end{equation}
+
+Les coefficients de ce polynôme représentent les dérivées $n^{ièmes}$ de la fonction potentielle à la structure géométrique d'équilibre. Pour cette configuration d'équilibre, $V$ est égale à $V_{eq}$ ; ce terme d'ordre 0 peut être pris comme référence. De plus, si l'état électronique est un état stable, ce qui est le cas lorsque la molécule peut vibrer, les dérivées premières $\left(\frac{\partial V}{\partial q_i}\right)_{eq}$ sont nulles. Les coefficients d'ordre 2 sont appelés constantes de forces quadratiques ou harmoniques (notées $f^{(q)}_{ij}$ dans cet espace) et constituent le champ de force harmonique.
+Ainsi, la fonction potentielle harmonique s'écrit :
+
+\begin{equation}
+2V = \sum^{3n,3n}_{i\leq j} f^{(q)}_{ij} q_iq_j
+\end{equation}
+
+\noindent soit, sous sa forme matricielle :
+
+\begin{equation}
+2V = \left[q\right]^t\left[ f^q\right]\left[q\right]
+\end{equation}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Équations de \textsc{Lagrange}}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Espace des coordonnées cartésiennes pondérées par les masses}\label{esp_pond_masse}
+La détermination des $3n$ mouvements vibrationnels et de leur fréquence s'effectue en résolvant les $3n$ équations de \textsc{Lagrange} à partir de la connaissance des deux fonctions fondamentales de la mécanique, exprimées dans les deux sous-paragraphes précédents :
+
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial T}{\partial \dot{q}_i}\right) + \frac{\partial V}{\partial q_i} = 0
+\end{equation}
+
+\noindent soit : 
+\begin{equation}
+\ddot{q}_i + \sum^{3n}_j f^{(q)}_{ij} q_j
+\end{equation}
+
+Les solutions sont de la forme $q_i = q_i^{\check{r}} \cos \lambda^{1/2} t$, où $q_i^{\check{r}}$ est l'amplitude maximale du mode i et $\lambda^{1/2}$ est relié à sa fréquence de vibration. Pour déterminer la valeur des $3n$ fréquences, nous injectons ces solutions particulières dans les $3n$ équations. Matriciellement, cette opération revient tout simplement à diagonaliser la matrice $\left[ f^q\right]$.
+On obtient 6 valeurs propres nulles qui correspondent aux trois mouvements de translation et aux trois mouvements de rotation de la molécule (deux mouvements de rotation si la molécule est linéaire) et $3n-6$ valeurs propres non nulles (5 dans le cas d'une molécule linéaire), correspondant aux mouvements de vibration de la molécule. Nous déduisons de ces valeurs propres les nombres d'ondes $\varpi$ (exprimés en cm$^{-1}$) et les fréquences de vibration $\omega$ (en Hz) par la relation :
+
+\begin{equation}
+\lambda^{1/2} = 2\pi c\varpi = 2\pi\omega
+\label{varpi}
+\end{equation}
+\begin{flushleft}
+	\begin{tabular}{@{}lrp{10cm}}
+		avec & $c$ : & célérité de la lumière dans le vide. 
+	\end{tabular}
+\end{flushleft}
+
+Lorsque certaines valeurs propres sont identiques, ce qui correspond à deux ou trois mouvements vibrationnels différents mais de même fréquence, ces modes sont dits doublement ou triplement dégénérés.
+Les vecteurs propres représentent le mouvement des atomes en coordonnées cartésiennes pondérées par les masses, induits par les $3n-6$ (ou $3n-5$) vibrations. Ces mouvements, propres à chaque vibration, se nomment \og modes normaux de vibration \fg. Ce nouvel espace, représenté par un repère orthonormé où chaque dimension correspond à un mouvement vibrationnel harmonique de la molécule, constitue une base de construction du Hamiltonien vibrationnel dans le traitement quantique.
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Espace des coordonnées internes : résolution par la méthode de \textsc{Wilson}}
+
+Le choix de cet espace permet de réduire la dimension des équations à traiter en éliminant les valeurs propres nulles correspondant aux mouvements de translation et de rotation de la molécule. Ceci est possible si nous choisissons un référentiel qui obéit aux conditions d'\textsc{Eckart}. De plus, les vibrations moléculaires sont étudiées en fonction des variations des longueurs de liaison et des déformations angulaires, ce qui permet d'attribuer un sens physique aux constantes de force calculées dans cet espace.
+
+Ici, l'expression de l'énergie cinétique est plus complexe, car il est nécessaire de définir une matrice de passage de dimension $(3n-6)\times3n$ (notée $\left[B\right]$) entre les coordonnées cartésiennes de déplacements $x$ et les coordonnées de déplacement $r$ : $\left[r\right] = \left[B\right]\left[x\right]$. D'après l'équation~\ref{eq_nrj_cin_vib}, et dans l'hypothèse d'une transformation à coefficients constants, valable pour les petits mouvements, l'énergie cinétique s'écrit~:
+
+\begin{equation}
+2T = \left[\dot{r}\right]^t\left[G^{-1}\right]\left[\dot{r}\right] 
+\end{equation}
+\noindent où :
+\begin{equation}
+\left[G^{-1}\right] = \left[B^{-1}\right]^t \left[M_{\alpha}\right]\left[B^{-1}\right]
+\end{equation}
+
+L'énergie potentielle s'écrit en fonction des constantes de force harmoniques exprimées dans la base des coordonnées internes :
+
+\begin{equation}
+2V = \left[r\right]^t \left[f^{(r)}\right] \left[r\right]
+\end{equation}
+
+La résolution des $3n-6$ équations de \textsc{Lagrange} revient à diagonaliser le produit matriciel $\left[G\right]\left[f^{(r)}\right]$ :
+
+\begin{equation}
+\left[G\right]\left[f^{(r)}\right]\left[L\right] = \left[\lambda\right]\left[L\right]
+\end{equation}
+\begin{flushleft}
+	\begin{tabular}{@{}lrp{10cm}}
+		où & $\left[L\right]$ est la matrice des vecteurs propres. 
+	\end{tabular}
+\end{flushleft}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Espace des coordonnées internes de symétrie}
+
+Une coordonnée interne de symétrie (notée $s_i$) est une combinaison linéaire de coordonnées internes et peut représenter un mode local de vibration. Un mode de vibration peut être constitué à son tour d'une combinaison linéaire de plusieurs modes locaux possédant la même symétrie. Cette propriété est extrêmement importante puisque, dans cet espace, il est possible de déterminer \textit{a priori} les constantes de force harmoniques $f^{(s)}_{ij}$ nulles par simple application des règles de calcul du produit direct issues de la théorie des groupes. Les matrices $\left[G^{(s)}\right]$ et $\left[f^{(s)}\right]$ ont ici la propriété d'être bloc-symétriques. Une étude intéressante a été menée par \textsc{Pulay}~\cite{pulay1979systematic} sur la construction de cet espace en fonction des différents groupements fonctionnels de composés organiques.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Traitement quantique de la vibration}
+
+Que l'approche classique soit menée dans l'espace des coordonnées cartésiennes, internes ou internes de symétrie, la finalité est d'exprimer les coordonnées normales, seules capables de conduire au traitement quantique de l'équation vibrationnelle. Dans cet espace, les deux énergies s'expriment sous forme quadratique :
+
+\begin{align}
+2T &= \sum^{3n-6(5)}_{i=1} \dot{Q}^2_i = \left[\dot{Q}\right]^t\left[\dot{Q}\right] \\
+2V &= \sum^{3n-6(5)}_{i=1} \lambda_i Q^2_i = \left[Q\right]^t\left[\lambda\right]\left[Q\right]
+\end{align}
+
+\noindent et le Hamiltonien correspondant s'écrit :
+
+\begin{equation}
+\hat{H} = \hat{T} + \hat{V} = \frac{1}{2} \sum^{3n-6(5)}_{i=1} \left(\dot{Q}^2_i + \lambda_i Q^2_i\right)
+\end{equation}
+
+En associant à ces grandeurs leur opérateur correspondant,
+
+\begin{align}
+\hat{Q} &= Q \\
+\hat{\dot{Q}} &= \hat{P} = -i\hbar \frac{\partial}{\partial Q}
+\end{align}
+
+\noindent nous obtenons l'équation de Schr\"{o}dinger vibrationnelle :
+
+\begin{equation}
+\sum^{3n-6(5)}_{i=1} \frac{\partial^2 \Psi}{\partial Q^2_i} + \frac{2}{\hbar^2}\left(E - \frac{1}{2} \sum^{3n-6(5)}_{i=1} \lambda_i Q^2_i\right) \Psi = 0
+\label{schro_vib}
+\end{equation}
+
+Cas de l'oscillateur non dégénéré :
+
+Considérons les séparations de variables suivantes :
+
+\begin{align}
+\Psi(Q_1,Q_2,\ldots,Q_{3n-6}) &= \Psi_1(Q_1) \Psi_2(Q_2)\ldots \Psi_{3n-6}(Q_{3n-6}) \\
+E &= E_1 +E_2 + \ldots + E_{3n-6}
+\end{align}
+
+L'équation~\ref{schro_vib} revient donc à résoudre $(3n-6)$ équations à une seule variable~:
+
+\begin{equation}
+\frac{d^2 \Psi_i(Q_i)}{dQ^2_i} + \frac{2}{\hbar^2}\left(E - \frac{\lambda_i}{2} Q^2_i\right) \Psi_i\left(Q_i\right) = 0	
+\end{equation}
+
+Habituellement, les coordonnées normales $Q_i$ sont remplacées par les coordonnées normales sans dimension $q_i$ (à ne pas confondre avec les coordonnées cartésiennes pondérées par les masses définies dans la partie~\ref{esp_pond_masse}) \textit{via} l'application de la relation :
+
+\begin{equation}
+Q_i = \left(\frac{\hbar^2}{\lambda_i}\right)^{1/4} q_i
+\end{equation}
+
+Dans ce système de coordonnées, l'équation de Schr\"{o}dinger vibrationnelle monodimensionnelle prend la forme bien connue :
+
+\begin{equation}
+\frac{d^2 \Psi_i(q_i)}{dq^2_i} + \left(\frac{2E_i}{\hbar\lambda^{1/2}_i} - q^2_i\right) \Psi_i\left(q_i\right) = 0	
+\end{equation}
+
+Il existe une infinité de couples $(E_i, \Psi_i)$ solution de cette équation, dont les caractéristiques dans l'espace des coordonnées normales sans dimension sont les suivantes :
+
+\begin{align}
+\Psi_i\left(q_i\right) &= N_{v_i} H_{v_i} \left(q_i\right) e^{-\frac{q^2_i}{2}} \\
+E_i &= \int \Psi_i H_i \Psi_i dq_i = hc \varpi_i\left(v_i + \frac{1}{2}\right)
+\end{align}
+\begin{tabular}{@{}lrp{14cm}}
+	avec & $v_i$ : & nombre quantique vibrationnel de la coordonnée $q_i$, entier positif,\\
+	& $N_{v_i}$ : & facteur de normation des fonctions d'état vibrationnelles (\ref{f_norm_f_etat_vib}),\\
+	& $H_{v_i}(q_i)$ : & un polynôme d'\textsc{Hermite} (\ref{poly_hermite}).\\
+\end{tabular}
+
+
+\begin{equation}
+N_{v_i} = \left(2^{v_i} v_i ! \sqrt{\pi} \right)^{-1/2}
+\label{f_norm_f_etat_vib}
+\end{equation}
+\begin{equation}
+H_{v_i}(q_i) = (-1)^{\upsilon_i} e^{q_{i}^{2}} \frac{d^{\upsilon_i}}{dq_{i}^{\upsilon_i}} \left(e^{-q_{i}^{2}} \right)
+\label{poly_hermite}
+\end{equation}
+
+Notons de plus que d'après la partie~\ref{esp_pond_masse}, ces fonctions d'état s'expriment en fonction des coordonnées normales et sont donc, de fait, orthogonales.
+Ce traitement est le plus général et peut bien entendu s'appliquer lorsque certaines valeurs propres sont dégénérées. Dans ce cas, nous ne discernons pas de façon explicite un mode à dégénerescence multiple mais de multiples modes à dégénerescence simple de même valeur propre. Nous appellerons ce type de traitement \og traitement implicite de la dégénerescence \fg{} par opposition au \og traitement explicite de la dégénerescence \fg{} que nous abordons dans le sous-paragraphe suivant.
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{La fonction potentielle anharmonique}
+
+Le concept de mode normal de vibration est basé sur l'hypothèse de déplacements infinitésimaux autour de la position d'équilibre. En réalité, les états vibrationnels excités ou les modes mous correspondent à des mouvements de large amplitude. De fait, l'expression du potentiel développée dans la partie~\ref{E-harmonique} n'est plus suffisante, et les termes d'ordres supérieurs à 2 de la fonction potentielle doivent être pris en compte pour modéliser plus exactement le spectre vibrationnel de la molécule étudiée. Dans l'espace des coordonnées internes curvilignes de symétrie $s_i$\footnote{Dans le cas d'oscillateurs fortement anharmoniques, des coordonnées de type \textsc{Simons-Parr-Finlan}~\cite{simons1973new} ou des coordonnées de type \textsc{Morse}~\cite{meyer1986abinitio} peuvent être aussi utilisées.}, la forme analytique de cette fonction devient :
+
+\begin{align} \label{V-Taylor-si}
+V_v = V_{eq} + \sum^{3n-6}_i\left(\frac{\partial V}{\partial s_i}\right)_{eq} s_i &+ \frac{1}{2} \sum^{3n-6}_{i\leq j} \left(\frac{\partial^2 V}{\partial s_i \partial s_j}\right)_{eq} s_i s_j \\ \notag
+&+ \frac{1}{3} \sum^{3n-6}_{i\leq j\leq k} \left(\frac{\partial^3 V}{\partial s_i \partial s_j \partial s_k}\right)_{eq} s_i s_j s_k \\ \notag
+&+ \frac{1}{4} \sum^{3n-6}_{i\leq j\leq k\leq l} \left(\frac{\partial^4 V}{\partial s_i \partial s_j \partial s_k \partial s_l}\right)_{eq} s_i s_j s_k s_l \\ \notag
+&+ \ldots
+\end{align}
+
+Les dérivées d'ordre 2, 3 et 4 sont appelées respectivement constantes de force quadratique, cubique et quartique. 
+La troncature à l'ordre 4 de l'expression du potentiel est, selon \textsc{Maslen}~\cite{maslen1991higher}, suffisante pour étudier correctement les modes de stretching fortement excités jusqu'à 10~000~cm$^{-1}$.
+Les différentes constantes de force sont déterminées, soit classiquement par calcul \textit{ab initio} (ou DFT) de l'énergie moléculaire pour plusieurs configurations nucléaires autour de la position d'équilibre, soit par une procédure de différences finies des dérivées secondes ou premières de l'énergie électronique par rapport aux coordonnées nucléaires.
+
+La fonction potentielle est ensuite exprimée dans l'espace des modes normaux sans dimension, de manière à pouvoir construire le Hamiltonien dans cette base. Elle prend alors la forme :
+
+\begin{equation}
+\frac{V_v}{hc} = \frac{1}{2!} \sum_i \varpi_i q^2_i + \frac{1}{3!} \sum_{i,j,k} \phi_{ijk}q_i q_j q_k + \frac{1}{4!} \sum_{i,j,k,l} \phi_{ijkl}q_i q_j q_k q_l
+\end{equation}
+
+\noindent où $\phi_{ijk}$ et $\phi_{ijkl}$ sont, respectivement, les constantes de force cubique et quartique, exprimées en $cm^{-1}$. Les relations entre les dérivées d'ordre 3 et 4 de l'équation~\ref{V-Taylor-si} et les $\phi$, qui s'obtiennent par les termes de la matrice de passage $[L]$, sont détaillées dans la référence~\cite{hoy1972anharmonic}.
+Lorsqu'il est nécessaire d'expliciter la dégénérescence des coordonnées, nous utiliserons la notation de \textsc{Nielsen}~\cite{nielsen1951vibration} dans la base des modes normaux sans dimension :
+
+\begin{align} \label{V-Nielsen}
+V_{pot} = \sum_i^{3n-6} \frac{\omega_i}{2} q_i^2 + \sum_{{\vert \vert S \vert \vert}_1 = 3}^{S} K_S \prod_{i=1}^{3n-6} q_i^{S_i}
+\end{align}
+
+avec $\omega_i$ la fréquence harmonique (en $cm^{-1}$) associée à la coordonnée $q_i$, ${\vert \vert S \vert \vert}_1$ la somme des éléments du multi-indice S=($S_1$, $S_2$, …, $S_{3n-6}$) et S le degré maximal de la PES. 
+
+Les valeurs numériques des constantes de force peuvent être déterminées de plusieurs façons. Il est important de noter préalablement que le nombre de coefficients de la PES est fonction du nombre de vibrateurs et de l’ordre de son développement (même si certains termes peuvent être simplement déterminés par la prise en compte de la symétrie moléculaire). On distingue trois grandes familles de méthodes pour la détermination des constantes de force : 
+\begin{itemize}
+\item les méthodes analytiques : elles consistent à rechercher l’expression analytique des dérivées secondes, troisièmes et quatrièmes de l’énergie et à calculer ces dérivées à la configuration d’équilibre. \\
+\item les méthodes numériques : il s’agit ici de calculer la valeur du potentiel pour différentes structures géométriques du système étudié, pour ensuite ajuster une fonction analytique sur la grille de points ainsi obtenue. L’expression de cette fonction est déterminée par des procédés de régression linéaire. C’est cette approche qui est le plus couramment employée, car elle conduit à des résultats de précision satisfaisante à condition de disposer d’une redondance d’informations convenables et d’une disposition correcte des points sur le domaine de calcul. En contrepartie, l’effort calculatoire devient très vite gigantesque, contraignant l’utilisateur à \og dégrader \fg{} la qualité de la méthode de calcul de la fonction d’onde moléculaire pour pouvoir mener à bien l’acquisition de la PES. \\
+\item les méthodes analytiques-numériques : ces approches, proposées par Peter Pulay \cite{pulay1969ab}, représentent un compromis entre les deux procédés de dérivation précédents. On construit ici par différences finies un champs de force d’ordre $n$ à l’aide des dérivées analytiques d’ordre $n-x$ disponibles. Cette méthode requiert, certes, moins de calculs que l’approche précédente, mais est numériquement très sensible, conduisant parfois à des résultats difficilement exploitables lorsque l’on veut connaître la forme analytique d’un potentiel d’ordre 4 pour des systèmes de grande dimension. Ainsi, une molécule de 10 atomes conduit à 20475 calculs \textit{ab initio}, nombre que l’on double généralement pour assurer la convergence des résultats. 
+\end{itemize}
+Indépendamment de la famille de méthodes utilisée pour la détermination des constantes de force, il est important de souligner le fait que la dimension du problème augmente de façon vertigineuse avec le nombre d’atomes du système à étudier. Il suffit, pour s’en persuader, de rappeler que l’étude d’une molécule de 12 atomes conduit à 46376 calculs $\it{ab initio}$, soit plus du double de calculs nécessaires pour traiter le système à 10 atomes précédemment cité. De plus, il est également important de rappeler que chacun des termes (constantes de force) qui constitue l’expression analytique de la PES ne contribue pas avec la même intensité à la description des couplages entre tous les modes. Enfin, compte-tenu de la dimension des molécules à l'étude dans le présent travail (présentant toutes plus de 20 atomes), il nous est apparu très rapidement nécessaire de trouver un moyen pour : \textit{(i)} ne pas avoir à calculer l’ensemble des termes de la PES jusqu’à l’ordre 4 ou \textit{(ii)} chercher à ne tenir compte que des termes qui traduisent les couplages principaux entre modes, en essayant d’influer le moins possible sur la précision des calculs vibrationnels résultants. 
+Deux pistes sont actuellement en cours de développement au sein de  notre équipe. La première consiste à supprimer de la PES les monômes d’ordre 3 et 4 inférieurs à une constante de force prédéterminée par l’utilisateur. Cette stratégie \og arbitraire \fg{} a été employée avec succès dans le travail relatif à la famille des acènes, qui sera présenté au chapitre xx. La seconde piste, développée très récemment dans le cadre d’un stage de Master \cite{fradet2016}, consiste à prendre en compte la notion de \og proximité énergétique \fg{} afin d’éliminer de la PES les monômes d’ordre 3 et 4 qui couplent les états vibrationnels les plus éloignés énergétiquement. L’un et l’autre de ces critères sont intimement liés aux formules énergétiques issues de la méthode standard de perturbation dite de \textsc{Rayleigh-Schrödinger}, que nous développerons ci-après et qui permet d’évaluer la correction énergétique apportée par chaque état vibrationnel à l’énergie d’un état donné à travers l’ahnarmonicité mécanique. Le premier critère est directement corrélé à la valeur numérique des constantes de forces $Ks$ envisagées (présentes au numérateur des formules de perturbation), alors que le second critère est, quant à lui, directement corrélé à la différence énergétique des modes couplés par cette constante (terme présent au dénominateur des formules perturbatives). Cette observation devrait nous permettre, dans un proche avenir, de disposer d’un outil de contrôle efficace et moins \og arbitraire \fg{} pour réduire de façon efficace la dimension de la PES utile à la REVS. 
+
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section[Représentation matricielle du Hamiltonien]{Représentation matricielle du Hamiltonien, calcul d'intégrales}
+
+Le premier terme de l'équation (\ref{V-Nielsen}) représente le Hamiltonien d'ordre 0. Ce terme est diagonal. De ce fait, les $j \ \left(j\in\left[1,N\right]\right)$ fonctions propres normées $\psi^{(0)}_{j,v}$, produits  d'oscillateurs harmoniques $\Theta^{(0)}_{j,v}(q_k)$ issues du traitement de l'équation vibrationnelle d'ordre 0 forment un système orthogonal complet~:
+
+\begin{equation}
+\psi^{(0)}_{j,v} = \prod^{nv}_{k=1} \Theta^{(0)}_{j,v}(q_k) \text{ avec } \left\langle \Theta^{(0)}_{j,v} \right| \Theta^{(0)}_{j,v} \rangle = \delta_{v_k v_{k'}}
+\end{equation}
+
+Ce système constitue une base de développement des $i$ $\left(i\in\left[1, N_s\right.]\right) \left(N_s\leq N\right.)$ fonctions d'onde vibrationnelles recherchées $\left.|v\right.\rangle_i$, construites comme des combinaisons linéaires de fonctions propres d'ordre 0 :
+
+\begin{equation}
+\left.|v\right.\rangle_i = \left.|v_1, v_2, \ldots, v_{nv}\right.\rangle_i = \sum_j C_j \psi^{(0)}_{j,v}
+\end{equation}
+
+Dans le cas des modes doublement dégénérés, nous noterons la fonction d'onde vibrationnelle associée à l'oscillateur dégénéré $i$ : $\left.\left.\right|v,l\right\rangle_i$.
+
+Il s'agit alors de résoudre l'équation de Schr\"{o}dinger vibrationnelle anharmonique~:
+
+\begin{equation} \label{Eq-Schrod-anhar}
+\hat{H}_{v,l} \left.\left.\right|v,l\right\rangle_i = E_{v,l} \left.\left.\right|v,l\right\rangle_i
+\end{equation}
+
+Cette résolution se fait habituellement à l'aide de méthodes de perturbation ou de variation, ou bien encore à l'aide de méthodes combinées de type variation-perturbation.
+
+Pour résoudre des systèmes d'équations tels que l'équation~(\ref{Eq-Schrod-anhar}), l'outil informatique prend toute sa valeur. Par conséquent, il est commode de résoudre le problème sous sa forme algébrique, c'est-à-dire de le représenter matriciellement. Pour cela, nous définissons la représentation matricielle du Hamiltonien par la projection de ce dernier dans sa base de fonctions harmoniques non dégénérées et doublement dégénérées. Les éléments matriciels $H_{(v,l)(v',l')}$ sont définis par la relation :
+
+\begin{align}
+H_{(v,l)(v',l')} &= \int \Psi^{(0)}_{(v,l)} \hat{H} \Psi^{(0)}_{(v',l')}dq_{(i,j,\ldots ,nv)} \\
+&= \left\langle (v,l)^{(0)}\right| \hat{H} \left| (v',l')^{(0)} \right\rangle 
+\end{align}
+
+\noindent dans laquelle $\hat{H}$ est partitionné de la manière suivante : 
+
+\begin{equation}
+\hat{H} = \hat{H}^0 + \hat{H}^1 + \hat{H}^2 
+\end{equation}
+
+\noindent où $\hat{H}^0$ se rapporte au Hamiltonien harmonique, $\hat{H}^1$ et $\hat{H}^2$ traduisent l'anharmonicité et font intervenir respectivement les opérateurs $q^3$ et $q^4$, ces derniers pouvant être décomposés en un produit d'opérateurs $q$~\cite{barchewitz1961spectroscopie} : $q^3 = \displaystyle{\prod^3_{i,j,k}q_iq_jq_k}$ , $q^4 = \displaystyle{\prod^4_{i,j,k,l}q_iq_jq_kq_l}$.
+Les variables étant séparables, chaque terme matriciel se décompose en un produit d'intégrales monomodes.
+
+\subsubsection*{Cas des modes non dégénérés}
+
+Soit l'intégrale $\left\langle v_{\alpha}\left|q \right|v'_{\alpha} \right\rangle$. Les fonctions monomodes étant dans ce cas caractérisées par des polynômes d'\textsc{Hermite}, notés ici $\textsl{\textbf{H}}$, l'intégrale s'écrit :
+
+\begin{equation}
+\left\langle v \left|q \right|v' \right\rangle = N_v N_{v'} \int e^{-q^2} \textsl{\textbf{H}}_v q \textsl{\textbf{H}}_{v'} dq
+\end{equation}
+
+On peut montrer qu'il existe des relations de récurrence entre les polynômes, ce qui conduit à \cite{wilson1955molecular} :
+
+\begin{equation}
+\left\langle v \left|q \right|v' \right\rangle = N_v N_{v'} \int e^{-q^2} \textsl{\textbf{H}}_{v'}\left(v\textsl{\textbf{H}}_{v-1} + \frac{1}{2} \textsl{\textbf{H}}_{v+1}\right) dq
+\end{equation}
+
+Ces polynômes étant orthogonaux, cette intégrale est non nulle si $v' = v\pm 1$ et nous obtenons :
+
+\begin{align}
+\left\langle v \left|q \right| v+1\right\rangle &= \left\langle v+1 \left|q \right| v\right\rangle = \sqrt{\frac{v+1}{2}} \\
+\left\langle v \left|q \right| v-1\right\rangle &= \left\langle v-1 \left|q \right| v\right\rangle = \sqrt{\frac{v}{2}}
+\end{align}
+
+Comme le développement limité de la fonction potentielle est tronqué à l'ordre 4 dans notre étude, les opérateurs présents dans le Hamiltonien sont de type $p^2,q,q^2,q^3,q^4$. Le résultat des intégrales correspondantes est tabulé~\cite{carbonniere2002calcul}.
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Méthodes perturbationnelles}
+
+Il existe deux méthodes de calcul perturbationnel, à savoir la méthode dite de \og transformation de contact \fg, issue des travaux de \textsc{Van Vleck}~\cite{papousek1982molecular,van1929sigma}, et la méthode standard dite de \textsc{Rayleigh-Schrödinger} \cite{oka1967vibration}.
+Cette dernière est relativement simple à mettre en place et conduit aux expressions bien connues de l'énergie :
+
+\begin{equation}
+E^{Tot}_{(v,l)} = E^{(0)}_{(v,l)} + H^{(2)}_{(v,l),(v,l)} + \sum_{v\neq v'} \frac{(H^{(1)}_{(v,l),(v',l')})^2}{E^{(0)}_{(v,l)} - E^{(0)}_{(v',l')}}
+\end{equation}
+
+$E^{(0)}_v$ et $E^{(0)}_{v'}$ étant respectivement les énergies harmoniques des états $v$ et $v'$.
+Le développement de la fonction d'onde est habituellement déduit d'un traitement perturbationnel d'ordre 1 :
+
+\begin{equation}
+\left| v,l \right\rangle^{(1)} = \left| v,l \right\rangle^{(0)} + \sum_{v \neq v'} \frac{H_{(v,l),(v',l')}}{E^{(0)}_{(v,l)} - E^{(0)}_{(v',l')} } * \left| v',l' \right\rangle^{(0)}
+\end{equation}
+
+Quelle que soit l'approche  envisagée, l'expression perturbationnelle de l'énergie totale de vibration peut se formuler de la façon suivante :
+
+\begin{align}
+E_{(v,l)} &= \sum_s \omega_s \left(v_s + \frac{1}{2}\right) + \sum_t	\omega_t \left(v_t + 1\right) + \sum_{s\geq s'} x_{ss'}\left(v_s + \frac{1}{2}\right)\left(v_{s'} + \frac{1}{2}\right) \\ \notag
+&+ \sum_{s,t} x_{st} \left(v_s + \frac{1}{2}\right)\left(v_t + 1\right) + \sum_{t\geq t'}\left(v_t + 1\right)\left(v_{t'} + 1\right) + \sum_{t\geq t'} g_{tt'}l_t l_{t'} + \ldots
+\end{align}
+
+\noindent soit encore\footnote{On pose pour des raisons pratiques : $q_{\pm} = q_x \pm iq_y$} :
+
+\begin{align}
+E_{(v,l)} &= \sum_s \omega_s \left\langle v_s \right| q^2_s\left| v_s\right\rangle +\sum_t \omega_t \sum_l \left\langle v_t, l \right| q^2_t\left| v_t, l\right\rangle \\ \notag
+&+ \sum_{s \neq s'} k_{sss's'} \left\langle v_s \right| q^2_s\left| v_s\right\rangle \left\langle v_{s'} \right| q^2_{s'}\left| v_{s'}\right\rangle + \sum_{s=s'} k_{ssss} \left\langle v_s \right| q^4_s\left| v_s\right\rangle \\ \notag
+&+ \sum_{s,t} k_{sstt} \left\langle v_s \right| q^2_s\left| v_s\right\rangle \left(\sum_l \left\langle v_t,l \right| q_{t_+}q_{t_-}\left| v_t,l\right\rangle\right) \\ \notag
+&+ \sum_{t \neq t'} k_{ttt't'} \left( \sum_l \left\langle v_t,l \right| q_{t_+}q_{t_-}\left| v_t,l\right\rangle\right) \left( \sum_{l'}\left\langle v_{t'},l' \right| q_{{t'}_+}q_{{t'}_-}\left| v_{t'},l'\right\rangle\right) \\ \notag
+&+ \sum_{t=t'} k_{tttt} \left( \sum_l \left\langle v_t,l \right| q^2_{t_+}q^2_{t_-}\left| v_t,l\right\rangle\right) \\ \notag
+&- \frac{1}{2} \sum_{t=t'} k_{tttt} l^2_t + \Theta(q^3)
+\end{align}
+
+\noindent où les indices $s$ et $t$ se rapportent successivement aux états non et doublement dégénérés, $x$ et $g$ sont les constantes d'anharmonicité dépendantes des termes cubique et quartique. Si la méthode de perturbation est facile à programmer, et malgré le fait qu'elle soit une des techniques les plus utilisées pour calculer un spectre anharmonique~\cite{frisch2015gaussian}, il n'en demeure pas moins que son utilisation reste limitée puisqu'elle ne s'adresse, en toute rigueur, qu'au calcul des fréquences les plus basses d'un spectre, zone spectrale où la densité d'états vibrationnels est peu élevée. Cette limitation de la théorie de perturbation est due aux phénomènes de résonance (type \textsc{Fermi}~\cite{fermi1931ramaneffekt} ou bien encore \textsc{Darling-Dennison}~\cite{darling1940water}) et au fait que, en tronquant la fonction à l'ordre 4 (termes (semi) diagonaux), il n'est pas possible de prendre en compte tous les termes d'interaction indispensables au traitement des bandes chaudes et de combinaison.
+
+Des solutions ont été developpées ces dix dernières années afin de résoudre ce problème. Nous pouvons citer, par exemple, la méthode du Hamiltonien vibrationnel à transformée de contact, couplée à une procédure automatisée pour mettre en place et résoudre les résonances pertinentes propres aux systèmes de \textsc{Martin} et \textsc{Taylor}~\cite{martin1997accurate}, la théorie de perturbation canonique de grand ordre de \textsc{Van Vleck}~\cite{nielsen1951vibration}, ou encore l'approximation du champ vibrationnel auto-cohérent (VSCF, pour \og Vibrational Self-Consistent Field \fg{}) qui inclus les corrections concernant la corrélation entre les modes par la théorie de la perturbation développée par \textsc{Jung}, \textsc{Gerber} et \textsc{Norris}. Elle se nomme CC-VSCF pour \og Correlation Corrected VSCF \fg ~\cite{jung1996vibrational,norris1996mo}. 
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Méthodes variationnelles}\label{methodesvariationnelles}
+
+La résolution approchée de l'équation de Schr\"{o}dinger vibrationnelle par la méthode variationnelle consiste à développer les états propres de $H_v$ dans la base des fonctions propres connues du Hamiltonien d'ordre 0, $H^{(0)}_v$, puis de diagonaliser la représentation matricielle de ce Hamiltonien. 
+
+Le problème revient donc à calculer les coefficients $C_j$ des fonctions propres $\left|v,l\right\rangle_i$ solutions du Hamiltonien vibrationnel $H_v$, de sorte que :
+
+\begin{itemize}
+	\item $\left|v,l\right\rangle$ soit normé : 
+	\begin{equation}
+	\left\langle v,l\right|\left. v ,l\right\rangle = \sum^N_j C^2_j
+	\end{equation}
+	\item l'énergie vibrationnelle : 
+	\begin{align}
+	E_{v,l} = \left\langle v,l\right. \left|H_{v,l}\right|\left. v,l\right\rangle &= \sum^N_j C^2_j \left\langle \psi^{(0)}_{j,v}\right. \left|H_{v,l}\right|\left. \psi^{(0)}_{j,v}\right\rangle + \sum^N_j \sum^N_{k\neq j}C_jC_k \left\langle \psi^{(0)}_{j,v}\right. \left|H_{v,l}\right|\left. \psi^{(0)}_{j,v}\right\rangle \\
+	E_{v,l} &= \sum^N_j C^2_j H_{jj} + 2 \sum^N_j \sum^N_{k\neq j} C_jC_k H_{jk}
+	\end{align}
+	\noindent soit minimale compte-tenu de la condition de normalisation.
+	\item la variation sur l'énergie conduise à l'obtention d'un extremum : 
+	\begin{equation}
+	dE_{v,l} = \sum^N_{j=1} \frac{\partial E_{v,l}}{\partial C_j}dC_j = 0 	
+	\end{equation}
+	\noindent où
+	\begin{equation}
+	\frac{\partial E_{v,l}}{\partial C_j}dC_j = 2C_jH_{jj} + 2\sum^N_{k\neq j} C_kH_{jk}
+	\end{equation}
+\end{itemize}
+
+
+Les variations $(\partial C_j)$ ne sont pas indépendantes les unes des autres puisqu'il faut qu'elles vérifient simultanément la condition de normation. La méthode des multiplicateurs de Lagrange permet de prendre en compte ces conditions. L'application du théorème de variation conduit donc à calculer la transformation unitaire $(C)$ qui diagonalise la représentation du Hamiltonien $(H)$ :
+
+\begin{equation}
+(H)(C) = E (C)
+\end{equation}
+
+\noindent dans la base des fonctions propres du Hamiltonien non perturbé afin d'obtenir les valeurs propres -- énergies des niveaux vibrationnels -- et vecteurs propres -- états vibrationnels -- correspondants. Les solutions vibrationnelles seront d'autant plus proches des solutions exactes que la base $(N)$ de développement tendra vers l'infini. Cette dernière étant toujours finie et limitée, le problème repose alors sur le choix des configurations de l'espace à diagonaliser.
+
+
+Les stratégies de sélection sont nombreuses~\cite{pouchan1997ab,carter1997vibrational,koput2001ab,cassam2003alternative,gohaud2005new,culot1995vibrational} et très proches de celles pratiquées en chimie quantique pour les méthodes permettant d'atteindre l'énergie de corrélation électronique. 
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsubsection*{Choix de l'espace à diagonaliser} 
+
+Le choix de l'espace à diagonaliser $(N_s)$ influe grandement sur la précision et la rapidité de convergence des méthodes variationnelles. La troncature de l'espace complet $(N)$ est un problème délicat sur lequel il est nécessaire de s'attarder tant il est à l'origine des particularités singulières des différentes approches.
+
+Pour une meilleure interprétation d'un spectre vibrationnel résonant, il est donc préférable d'employer une méthode variationnelle, même si ce type de méthodes conduit à des écueils connus. En effet, l'ensemble des données extraites à partir de la fonction potentielle $V$ croît rapidement avec la taille de la molécule, i.e. proportionnellement au nombre de vibrateurs et au terme noté $g$ qui représente le nombre de termes non nuls de la PES. Il est possible de montrer que cette croissance se comporte en $O(gN)$ \cite{colaud2016}. Or, la précision de la méthode est entièrement dépendante de la qualité de $V$ et de l'obligation de prendre en compte un maximum des $N$ configurations vibrationnelles dans l’espace actif variationnel. La solution recherchée sera d'autant plus proche de le solution exacte que la base $N$ tendra vers l'infini ; toutefois, cette dernière étant forcément finie et limitée, le problème réside donc dans le choix des configurations $N_{s}$ à diagonaliser. Ce point est crucial car de ce choix dépendent grandement la précision et la rapidité de convergence de la méthode variationnelle. La troncature faite sur l'espace $N$ est ainsi devenue un axe de recherche majeur, qui a conduit à différentes méthodes possédant chacune ses spécificités.
+
+Ces méthodes de sélection sont très proches de celles employées pour le calcul de l'énergie de corrélation électronique en chimie quantique. Il y a presque autant de stratégies sélectives que de programmes basés sur l'interaction de configuration (CI, pour \og Configuration Interaction \fg{}). En accord avec les deux algorithmes de \textsc{Wyatt} etal~\cite{wyatt1995toward}, nous avons initialement commencé par implémenter une méthode dite P\_MWCI (Parallel Multiple Windows CI) basée sur la construction itérative et parallélisée ($\gamma$ cycles) de $\langle H_{v} \rangle$ de l’espace de configuration. Les détails sont reportés dans la référence~\cite{begue2007comparison}. Plus récemment, une méthode plus efficace, appelée A-VCI (Adaptative Variational CI) a été mise au point au laboratoire pour sélectionner, non plus la matrice complète du problème, mais une sous-matrice suffisamment représentative du problème pour nous permettre d’être en mesure de calculer les premières valeurs propres d’intérêt pour nos analyses (sans jamais avoir à diagonaliser la matrice globale du problème variationnel). Notre analyse est basée sur une méthode hiérarchique apparentée à la méthode de Rayleigh-Ritz variationnelle utilisant une nouvelle façon d’écrire l’erreur résiduelle commise entre deux itérations \cite{garnier2016adaptive}. Cet algorithme adaptatif a donc été développé afin de corréler trois conditions simultanément, à savoir : un espace approprié de départ qui ne comporte aucun \og trou \fg{} énergétique, un critère de convergence contrôlé et une procédure d’enrichissement de l'espace actif raisonnée. L’utilisation \textit{a postériori} du résidu nous permet de contrôler la/les direction(s) la (les) plus pertinente(s), dans laquelle (lesquelles) il est nécessaire d’enrichir l’espace actif de travail.
+
+Ces méthodes ne sont cependant pas uniques et, parmi les différentes méthodes variationnelles développées, nous pouvons citer en exemple le travail innovant de \textsc{Bowman} et \textsc{Gerber} relatif à l'approche VSCF~\cite{bowman1978self,bowman1986self,gerber1988self,gerber1979semiclassical}, au développement du MULTIMODE~\cite{carter2009high} et à la très efficace approche VCC (\og Vibrational Coupled Cluster \fg{}) récemment développée par \textsc{Christiansen}~\cite{sparta2010using}. Plus récemment encore, une extension de la VSCF par l'introduction de la théorie de la perturbation des états quasi-dégénérés (QDPT, pour \og Quasi-Degenerate Perturbation Theory \fg{}) a été développée, afin d'améliorer la description de la résonance vibrationnelle dans le cas de molécules polyatomiques~\cite{yagi2008vibrational}. Il est cependant important de rappeler ici que la précision moyenne actuelle concernant les calculs variationnels sur les petits systèmes organiques est de 1 à 15~cm$^{-1}$, suivant la nature des mouvements étudiés. Celle-ci est à la fois dépendante de la qualité et de la forme analytique choisie pour décrire le champ de forces. Notons enfin que ces approches en cours de développement ne sont destinées, pour le moment, qu’à l’étude de systèmes comportant moins de 10 atomes au total.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsubsection{Les méthodes de variation-perturbation}
+
+
+Face à l’impossibilité de résoudre le problème séculaire de grande dimension associé à une interaction de configuration (CI) complète, nous avons fait le choix dans ce travail d’avoir recours à une méthode de variation-perturbation similaire à celle développée dans le domaine de la spectroscopie électronique CIPSI \cite{huron1973iterative}, dont l’équipe ECP s’est fait une spécialité depuis plus de 20 ans. Dans cette méthode, on cherchera à diagonaliser la représentation du Hamiltonien vibrationnel dans une base construite de façon itérative, et l’espace des fonctions générées à partir d’un sous espace initial $S_0$ verra l’information qu’il contient traitée de manière plus approximative par une méthode de perturbation de type Rayleigh-Schrödinger à l’ordre 2 (sur l’énergie).
+
+Le processus itératif pour l’enrichissement de la base se fait par rapport aux coefficients de fonctions générées qui seront testées dans la correction de la fonction d’onde d’ordre 0 au premier ordre de perturbation. Seules les fonctions qui ont un poids $(C_{jj})^2$ important, défini par l’utilisateur, seront incluses dans la base pour l’itération suivante. 
+Ce choix réside dans le fait que l’on cherche à décrire le mieux possible les fonctions d’onde associées aux états étudiés. On améliore donc la description de la fonction  d’onde en lui adjoignant une correction qui tient compte des excitations de cette dernière, à l’aide d’une méthode de perturbation de Rayleigh-Schrödinger au second ordre. Pour chacun des états, la norme de la correction apportée à la fonction initiale est calculée, cette norme permettant de suivre l’importance de la correction et de juger si le choix de la base (l’espace générateur) est judicieux. Le choix de la base de départ $S_0$ détermine donc la qualité du calcul. Il faut nécessairement y inclure toutes les fonctions vibrationnelles (fonctions produit d’oscillateurs harmoniques) que l’on juge importantes pour décrire les états étudiés. Dans la pratique, la dimension de la base peut être de l’ordre de 200 tandis que l’espace total généré peut être de plusieurs milliers ou dizaines de milliers.
+
+Un détail plus précis de la méthode de variation-perturbation est donné ci-après.
+
+Le but de l'algorithme est de construire une base de fonctions vibrationnelles (les fonctions propres $\psi^{(0)}$ de $H^{(0)}$) sur laquelle seront développés les états propres de H ($H=H^{(0)} + H'$)
+
+\begin{equation}
+H^{(0)} \psi^{(0)}_{i} = E^{(0)}_{i}  \psi^{(0)}_{i} 
+\end{equation}
+
+avec
+
+\begin{equation}
+\psi^{(0)}_{i} = \prod^{nv}_{k=1} \Theta^{(0)}_{v_k}(q_k) \text{ avec } v_k = 0,1,2, ...
+\end{equation}
+
+A chaque itération, le processus de génération des fonctions $\psi^{(0)}$ à partir des fonctions contenues dans S se fait suivant :
+
+\begin{equation} 
+\left\langle \psi^{(0)}_{i} \right \vert H' \left  \vert \psi^{(0)}_{k} \right\rangle \text{ avec }  \psi^{(0)}_{k} \notin S_0
+\end{equation}
+
+Soient ($S^{(n)}_{m}$, $\psi^{(n)}_{0m}$, $\eta^{(n)}_{m}$, $\psi^{(n)}_{1m}$, $E^{(n)}_{0m}$, $E^{(n)}_{m}$) représentant respectivement le sous-espace $S$, la fonction d'onde d'ordre 0, le seuil de sélection, la fonction d'onde d'ordre 1, l'énergie d'ordre 0 et l'énergie corrigée à la (n)$^{ième}$ itération. La diagonalisation du Hamiltonien dans le sous-espace $S^{(n)}_{m}$ nous permet d'obtenir la fonction d'onde $\psi^{(n)}_{0m}$ associée à l'état étudié, de valeurs propres associées $E^{(n)}_{0m}$ :
+
+
+\begin{align} \label{dev}
+\psi^{(n)}_{0m} =  \sum_{i \in  S^{(n)}_{m}}  C_i \psi^{(0)}_{i}
+\end{align}
+
+\begin{equation}
+\left\langle \psi^{(n)}_{0m} \right| H \left| \psi^{(n)}_{0m} \right\rangle 
+\end{equation}
+
+A l'itération n, l'énergie associée à l'état étudié sera :
+
+\begin{equation}
+E^{(n)}_{m} = E^{(n)}_{0m} + \epsilon^{(n)}_{m}
+\end{equation}
+
+\begin{equation}
+\epsilon^{(n)}_{m} =  \sum_{j \notin  S^{(n)}_{m}}  \frac{\left| \left\langle \psi^{(0)}_{i} \right| H' \left| \psi^{(0)}_{j} \right\rangle \right|^2}       {E^{(0)}_{(i)} - E^{(0)}_{(j)}}
+\end{equation}
+
+$\epsilon^{(n)}_{m}$ est la correction due à la perturbation de l'état $m$, décrit par la fonction d'onde $\psi^{(n)}_{0m}$ par toutes les fonctions générées à partir des fonctions de $S^{(n)}_{m}$.
+Ceci donne lieu à la fonction :
+
+
+\begin{equation}
+\left| \psi^{(n)}_{1m} \right\rangle  =  \left| \psi^{(n)}_{0m} \right\rangle + \sum_{j \notin  S^{(n)}_{m}}  \frac{| \left\langle \psi^{(0)}_{i} \right| H' \left| \psi^{(0)}_{j} \right\rangle |} {E^{(0)}_{i} - E^{(0)}_{j}}  \left| \psi^{(0)}_{j} \right\rangle = \left| \psi^{(n)}_{0m} \right\rangle  + \sum_{j \notin  S^{(n)}_{m}} C_{ij}^{(n)} \left| \psi^{(0)}_{j} \right\rangle
+\end{equation}
+
+Seules les fonctions générées $\left \vert \psi^{(0)}_{j} \right \rangle$ dont les coefficients du développement satisfont la condition :
+
+
+\begin{equation}
+\left| C_{ij}^{(n)} \right| > \eta^{(n)}_{m}
+\end{equation}
+
+vont contribuer à la correction au premier ordre de la fonction d'onde vibrationnelle. Le sous-espace $S^{(n)}_{m}$ sera enrichi par les fonctions qui ont un poids $(C_{ij}^{(n)})^2$ important (supérieur à un seuil choisi par l'utilisateur) servant à définir ainsi le sous-espace $S^{(n+1)}_{m}$ qui nous permettra, par diagonalisation, d'engendrer la fonction $\psi^{(n+1)}_{0m}$ et de recommencer un cycle, jusqu'à obtenir un résultat stable. Précisons toutefois que cette notion de \og résultat stable \fg{} reste délicate à définir, comme l'on prouvé nos récents développements concernant la notion de résidu \cite{garnier2016adaptive}. Néanmoins, de façon générale, la fonction d'onde vibrationnelle s'améliore au cours des itérations, cette amélioration étant obtenue en diminuant le seuil de sélection ($\eta^{(n)}_{m}$) ainsi que le poids ($C_{ij}^{(n)})^2)$ des fonctions choisies. A la fin du processus itératif, on aura donc :
+\begin{itemize}
+\item un sous-espace S judicieusement choisi, qui sera traité par une méthode variationnelle. Les fonctions propres obtenues sont de bonnes approximations des solutions vraies pour les états de plus basse énergie.
+\item un sous-espace généré, dont on va évaluer la contribution à l'énergie vibrationnelle en faisant la somme des contributions à la correction de perturbation au second ordre de chacune des fonctions qui le composent. Les fonctions du sous-espace générateur doivent interagir faiblement avec celles de l'espace complémentaire, de sorte que la fonction d'onde $\psi^{(n)}_{1m}$ soit normalisée, ce qui correspond à :
+
+\begin{equation}
+\sum_{j \notin  S^{(n)}_{m}}  \left| C_{ij}^{(n)} \right|^2  \cong 0
+\end{equation}
+\end{itemize}
+
+
+\renewcommand{\bibname}{Références bibliographiques}
+\bibliography{biblio}
+\bibliographystyle{unsrt}
+
+
+\end{document}	
+	
+	

@@ -52,36 +52,37 @@
 \titleformat{\chapter}[display]%para centralizar o capitulo e o ti�tulo
 {\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}%para centralizar o capitulo e o ti�tulo
 \usepackage[shortcuts]{extdash} 
+\usepackage[nointegrals]{wasysym}
 \begin{document}
 \newenvironment{romanpages}
 {\setcounter{page}{1}
 	\renewcommand{\thepage}{\roman{page}}}
 {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
-\newcommand{\PRESn}{Dr Brigitte PEPIN-DONAT}
-\newcommand{\PRESp}{CNRS, France}
-\newcommand{\PRESq}{Président}
+\newcommand{\PRESn}{}
+\newcommand{\PRESp}{}
+\newcommand{\PRESq}{}
 
-\newcommand{\INVAn}{Dr }
-\newcommand{\INVAp}{xxxxxxx, Univ.}
-\newcommand{\INVAq}{Invit\'e}
-\newcommand{\RAPAn}{Dr Christophe RAYNAUD}
-\newcommand{\RAPAp}{Universit\'e de Montpellier, France}
+\newcommand{\INVAn}{ }
+\newcommand{\INVAp}{}
+\newcommand{\INVAq}{}
+\newcommand{\RAPAn}{Dr Jo\"{e}lle MASCETTI}
+\newcommand{\RAPAp}{Universit\'e de Bordeaux 1, France}
 \newcommand{\RAPAq}{Rapporteur}
-\newcommand{\RAPBn}{Dr Johannes GIERSCHNER}
-\newcommand{\RAPBp}{IMDEA, Spain}
+\newcommand{\RAPBn}{Dr Benjamin HANOUNE}
+\newcommand{\RAPBp}{Université de Lille 1, France}
 \newcommand{\RAPBq}{Rapporteur}
 
-\newcommand{\EXAAn}{Dr}
-\newcommand{\EXAAp}{A}
-\newcommand{\EXAAq}{Examinateur}
+\newcommand{\EXAAn}{}
+\newcommand{\EXAAp}{}
+\newcommand{\EXAAq}{}
 
-\newcommand{\EXABn}{Jury}
-\newcommand{\EXABp}{UPPA}
-\newcommand{\EXABq}{Examinateur}
+\newcommand{\EXABn}{}
+\newcommand{\EXABp}{}
+\newcommand{\EXABq}{}
 
-\newcommand{\EXACn}{M.}
-\newcommand{\EXACp}{xxxxxxxxxx}
-\newcommand{\EXACq}{Examinateur}
+\newcommand{\EXACn}{}
+\newcommand{\EXACp}{}
+\newcommand{\EXACq}{}
 
 \newcommand{\JURY}{
 	\textbf{\large{\textbf{JURY}}}\\[\baselineskip]
@@ -123,11 +124,11 @@
 	\setlength{\baselineskip}{4pt}
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{10pt}~\\
 	\vspace*{-5pt}
-	{\Large\textbf{Title in English \\ \textit{Titre en français}}}~\\[\baselineskip]
+	{\Large\textbf{Vibrational spectra calculations, fingerprints allow to elucidate composition and reactivity of complex chemical systems}}~\\[\baselineskip]
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}~\\
 	
 	Directeur de Thèse: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
-	Soutenue le  XXth, 2016\\[\baselineskip]
+	Date de soutenance prévue le 28 Novembre 2016\\[\baselineskip]
 	devant la commission d'examen composée de :\\[\baselineskip]~\\[\baselineskip] 
 	
 	\JURY
@@ -208,21 +209,22 @@
 \newpage
 \include{abrev/abrev}
 \newpage
-\include{intro/intro}
-%\include{Asp/Chap1}
+%\include{intro/intro}
+\include{Asp/Chap1}
 %\include{ChapitreD/Chapitre_DFT}
 %\include{correction/correction}
 %\include{SAPT/sapt}
-%\include{vib/chap_vib}
-\include{chap3/IP}
+\include{vib/ChapvibEG}
+\include{chap3/Chap3EG}
 %\include{chap-P1/P1}
-\include{chap-P2/P2}
+%\include{chap-P2/P2}
+%\include{chap4/chap4-29sept2016v4}
 %\include{MD/MD}
-%\include{chap4/chap4Didier4}
 %\include{conclu/conclu}
 \begin{appendices}
 	%\include{anex/anex3}
 	%\include{anex/etatS}
+	%\include{anex/P2-Mon}
 	%\include{grand-resumes/frances}
 \end{appendices}
 \renewcommand{\bibname}{Références bibliographiques}

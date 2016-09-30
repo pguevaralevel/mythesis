@@ -197,6 +197,7 @@
 
 \newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
 \restoregeometry
+\frontmatter
 \include{remerciements/remerciements}
 \include{epigrafe/epigrafe}
 \include{dedic/dedic}
@@ -209,22 +210,21 @@
 \newpage
 \include{abrev/abrev}
 \newpage
-%\include{intro/intro}
+\include{intro/intro}
+\mainmatter
 \include{Asp/Chap1}
-%\include{ChapitreD/Chapitre_DFT}
-%\include{correction/correction}
-%\include{SAPT/sapt}
 \include{vib/ChapvibEG}
 \include{chap3/Chap3EG}
-%\include{chap-P1/P1}
-%\include{chap-P2/P2}
-%\include{chap4/chap4-29sept2016v4}
-%\include{MD/MD}
-%\include{conclu/conclu}
+\include{chap-P1/P1}
+\include{chap-P2/P2}
+\include{chap4/chap4-29sept2016v4}
+\include{MD/MD}
+\backmatter
+\include{conclu/conclu}
 \begin{appendices}
-	%\include{anex/anex3}
-	%\include{anex/etatS}
-	%\include{anex/P2-Mon}
+	\include{anex/anex3}
+	\include{anex/etatS}
+	\include{anex/P2-Mon}
 	%\include{grand-resumes/frances}
 \end{appendices}
 \renewcommand{\bibname}{Références bibliographiques}

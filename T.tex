@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{book}
+\documentclass[12pt,a4paper,openany]{book}
 \usepackage[french,UKenglish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -110,7 +110,7 @@
 \end{center}
 \begin{center}
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 15cm}}\setlength{\baselineskip}{13pt}~\\
-	{\Large{\textbf{THESES}}}\\[\baselineskip]
+	{\Large{\textbf{THESE}}}\\[\baselineskip]
 	préparée et présentée à \\[\baselineskip]
 	L'UNIVERSIT\'E DE PAU ET DES PAYS DE L'ADOUR \\[\baselineskip]
 	pour obtenir le grade de\\[\baselineskip]
@@ -124,7 +124,7 @@
 	\setlength{\baselineskip}{4pt}
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{10pt}~\\
 	\vspace*{-5pt}
-	{\Large\textbf{Vibrational spectra calculations, fingerprints allow to elucidate composition and reactivity of complex chemical systems}}~\\[\baselineskip]
+	{\Large\textbf{Vibrational spectra calculations, fingerprints allow to elucidate composition and reactivity of complex chemical systems: application to asphaltene systems}}~\\[\baselineskip]
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}~\\
 	
 	Directeur de Thèse: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
@@ -197,7 +197,6 @@
 
 \newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
 \restoregeometry
-\frontmatter
 \include{remerciements/remerciements}
 \include{epigrafe/epigrafe}
 \include{dedic/dedic}
@@ -211,15 +210,13 @@
 \include{abrev/abrev}
 \newpage
 \include{intro/intro}
-\mainmatter
 \include{Asp/Chap1}
 \include{vib/ChapvibEG}
-\include{chap3/Chap3EG}
+\include{chap3/chap3EG}
 \include{chap-P1/P1}
 \include{chap-P2/P2}
 \include{chap4/chap4-29sept2016v4}
 \include{MD/MD}
-\backmatter
 \include{conclu/conclu}
 \begin{appendices}
 	\include{anex/anex3}

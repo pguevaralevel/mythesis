@@ -1,5 +1,5 @@
 	\newgeometry{textwidth=16cm}
-	\chapter[longue portee]{Systèmes en interaction à longue portée - De la nécessité des approches DFT}
+	\chapter[Interactions à longue portée]{Systèmes en interaction à longue portée - De la nécessité des approches DFT}
 	\minitoc
 	\restoregeometry
 	
@@ -8,13 +8,13 @@
 	\section*{Introduction}
 	\markright{INTRODUCTION}{}
 	
-	Un des challenges qui nous ont été proposés initialement par les expérimentateurs était celui de la caractérisation des molécules et de leurs interactions au sein des mélanges d’asphaltènes. Comme nous l’avons rappelé dans le chapitre I, très peu d’informations sont connues à ce sujet à l’heure actuelle. Aucune technique de caractérisation, quelle soit physique ou chimique, n’est véritablement à même de répondre précisément à cette question. J. Shaw a proposé (ref), bien avant les autres acteurs du domaine, que ces systèmes \og associés \fg{} soient caractérisés à l’aide des spectroscopies Infra-Rouge et Raman, en utilisant notamment la technique de la photo-acoustique, dans le but d’accéder aux informations spectrales de très bas nombres d’ondes (zone spectrale suspectée de contenir la signature des modes de libration associés aux interactions intermoléculaires). Au-delà des difficultés inhérentes au manque d’informations, aussi bien quant à la nature des molécules et des familles qui constituent ces mélanges complexes que concernant le rôle des hétéroéléments, une autre des difficultés qui s’est imposée à nous concernait le traitement quantique vibrationnel de systèmes de grande dimension et, qui plus est, en interaction. En admettant même que les deux problèmes vibrationnels majeurs, i.e. la détermination de la SEP et la résolution de l’équation vibrationnelle de Schr\"{o}dinger, soient absents et indépendants de la dimension du problème (ce qui n’a bien entendu aucun sens, comme nous l’avons montré dans le chapitre II), la prise en compte dans nos modèles quantiques des interactions est à elle seule un des problèmes majeurs qu’il nous a fallu intégrer dès le départ, sous peine de ne pouvoir fournir aux expérimentateurs des données suffisamment fiables pour rendre compte des observations spectroscopiques. 
+	Un des challenges qui nous ont été proposés initialement par les expérimentateurs était celui de la caractérisation des molécules et de leurs interactions au sein des mélanges d’asphaltènes. Comme nous l’avons rappelé dans le chapitre 1, très peu d’informations sont connues à ce sujet à l’heure actuelle. Aucune technique de caractérisation, quelle soit physique ou chimique, n’est véritablement à même de répondre précisément à cette question. J. Shaw a proposé, bien avant les autres acteurs du domaine, que ces systèmes \og associés \fg{} soient caractérisés à l’aide des spectroscopies Infra-Rouge et Raman, en utilisant notamment la technique de la photo-acoustique, dans le but d’accéder aux informations spectrales de très bas nombres d’ondes (zone spectrale suspectée de contenir la signature des modes de libration associés aux interactions intermoléculaires). Au-delà des difficultés inhérentes au manque d’informations, aussi bien quant à la nature des molécules et des familles qui constituent ces mélanges complexes que concernant le rôle des hétéroéléments, une autre des difficultés qui s’est imposée à nous concernait le traitement quantique vibrationnel de systèmes de grande dimension et, qui plus est, en interaction. En admettant même que les deux problèmes vibrationnels majeurs, i.e. la détermination de la SEP (Surface d'Energie Potentiel) et la résolution de l’équation vibrationnelle de Schr\"{o}dinger, soient absents et indépendants de la dimension du problème (ce qui n’a bien entendu aucun sens, comme nous l’avons montré dans le chapitre 2), la prise en compte dans nos modèles quantiques des interactions est à elle seule un des problèmes majeurs qu’il nous a fallu intégrer dès le départ, sous peine de ne pouvoir fournir aux expérimentateurs des données suffisamment fiables pour rendre compte des observations spectroscopiques. 
 	
-	Ainsi, pour ce qui concerne le traitement quantique des interactions intermoléculaires, qui fait l’objet principal de ce chapitre, il est important de rappeler que notre travail ne se situe pas dans un contexte de développement méthodologique mais plutôt dans un contexte de recherche des stratégies calculatoires les plus adaptées pour traiter de problèmes vibrationnels concernant des systèmes chimiques en interaction, de grandes dimensions, qu’une méthode fortement corrélée ne permet pas encore d’atteindre \footnote{malgré les progrès particulièrement significatifs réalisés au cours de ces dernières années, tels que l’emploi de bases cc-pVXZ-F12 (X=D,T,Q) développées pour l’utilisation de méthodes explicitement corrélées (citons notamment les bases dédiées à la résolution des approximations d'identité RI (en anglais « Resolution Identity »)), des approximations d'ajustement de la densité DF (en anglais « Density Fitting ») pour le calcul d’intégrales, la non-linéarité des facteurs de corrélation, etc.}. L’utilisation de la DFT s’est donc naturellement imposée à nous.
+	Ainsi, pour ce qui concerne le traitement quantique des interactions intermoléculaires, qui fait l’objet principal de ce chapitre, il est important de rappeler que notre travail ne se situe pas dans un contexte de développement méthodologique mais plutôt dans un contexte de recherche des stratégies calculatoires les plus adaptées pour traiter de problèmes vibrationnels concernant des systèmes chimiques en interaction, de grandes dimensions, qu’une méthode fortement corrélée ne permet pas encore d’atteindre\footnote{malgré les progrès particulièrement significatifs réalisés au cours de ces dernières années, tels que l’emploi de bases cc-pVXZ-F12 (X=D,T,Q) développées pour l’utilisation de méthodes explicitement corrélées (citons notamment les bases dédiées à la résolution des approximations d'identité RI (en anglais « Resolution Identity »)), des approximations d'ajustement de la densité DF (en anglais « Density Fitting ») pour le calcul d’intégrales, la non-linéarité des facteurs de corrélation, etc.}. L’utilisation de la DFT s’est donc naturellement imposée à nous.
 	
-	Force est de constater les progrès réalisés depuis une décennie dans la description du formalisme de la théorie de la fonctionnelle de la densité, qui rendent son utilisation quasi-systématique. Bien loin des effets de mode, on constate les réussites frappantes de la DFT dans la description de propriétés telles que les liaisons, les structures, la cohésion aussi bien au niveau moléculaire que dans les solides. Néanmoins, il est des domaines dans lesquels les progrès sont encore lents et où les méthodes sont encore mises en défaut, tels que : le traitement des atomes lourds, les systèmes possédant des électrons fortement corrélés, le traitement crucial en réactivité des états multi-déterminantaux, le problème de la correction de la self-itération et, bien entendu, le problème qui nous occupe directement de la description des forces de dispersion. Cette dernière problématique n’est pas récente puisqu'elle émerge des premiers travaux de Gordon et Kim (R. G. Gordon and Y. S. Kim, J. Chem. Phys. 56, 3122 (1972)) en 1972. Elle s’avère particulièrement prégnante pour l’étude des systèmes fortement liés (tels certains oxydes métalliques) et dans les cas où les forces de van der Waals sont prédominantes (matière molle, complexes de van der Waals, biomolécules et autres matériaux lamellaires). L’origine de ce problème est désormais clairement identifiée : les effets de corrélation électronique des forces de dispersion sont purement non locaux et en aucun cas une approximation locale ou semi-locale ne pourra en rendre compte. Si la fonctionnelle d’échange-corrélation exacte pouvait être connue, il serait cependant possible de répondre à la question posée par la description des forces de van der Waals dans le formalisme KS. Cela fait plus d’une décennie que la recherche dans ce domaine est extrêmement active. L’idée qui prévaut aujourd’hui est celle de développer des méthodes ayant les moyens, pour un moindre coût calculatoire, d’incorporer des corrections au formalisme KS sans perdre de vue les avantages de la DFT, aussi bien au niveau moléculaire que dans le calcul en conditions périodiques. 
+	Force est de constater les progrès réalisés depuis une décennie dans la description du formalisme de la théorie de la fonctionnelle de la densité, qui rendent son utilisation quasi-systématique. Bien loin des effets de mode, on constate les réussites frappantes de la DFT dans la description de propriétés telles que les liaisons, les structures, la cohésion aussi bien au niveau moléculaire que dans les solides. Néanmoins, il est des domaines dans lesquels les progrès sont encore lents et où les méthodes sont encore mises en défaut, tels que : le traitement des atomes lourds, les systèmes possédant des électrons fortement corrélés, le traitement crucial en réactivité des états multi-déterminantaux, le problème de la correction de la self-itération et, bien entendu, le problème qui nous occupe directement de la description des forces de dispersion \cite{gerber2005description}. Cette dernière problématique n’est pas récente puisqu'elle émerge des premiers travaux de Gordon et Kim \cite{gordon1972theory}. Elle s’avère particulièrement prégnante pour l’étude des systèmes fortement liés (tels certains oxydes métalliques) et dans les cas où les forces de van der Waals sont prédominantes (matière molle, complexes de van der Waals, biomolécules et autres matériaux lamellaires). L’origine de ce problème est désormais clairement identifiée : les effets de corrélation électronique des forces de dispersion sont purement non locaux et en aucun cas une approximation locale ou semi-locale ne pourra en rendre compte. Si la fonctionnelle d’échange-corrélation exacte pouvait être connue, il serait cependant possible de répondre à la question posée par la description des forces de van der Waals dans le formalisme KS. Cela fait plus d’une décennie que la recherche dans ce domaine est extrêmement active. L’idée qui prévaut aujourd’hui est celle de développer des méthodes ayant les moyens, pour un moindre coût calculatoire, d’incorporer des corrections au formalisme KS sans perdre de vue les avantages de la DFT, aussi bien au niveau moléculaire que dans le calcul en conditions périodiques. 
 	
-	Rappelons que l’utilisation pratique de la DFT dans son formalisme KS repose sur l’approximation de la fonctionnelle d’échange-corrélation. L’approximation originelle, i.e. l’Approximation de Densité Locale (LDA pour l’anglais \og Local Density Approximation \fg), s’est révélée étonnamment efficace et difficile à améliorer de manière systématique. Il a été montré que la LDA, étant locale par construction, est particulièrement adaptée pour décrire les corrélations à très courte portée inter-électronique, mais échoue à décrire quantitativement les corrélations à longue portée électronique. Ceci reste vrai avec la plupart des améliorations post-LDA classiques (que nous n’aborderons pas dans ce travail), qui demeurent par essence des approximations de nature locale. Différentes solutions existent désormais pour traiter ce problème. Citons par exemple sans aucune volonté d’exhaustivité, avec différents niveaux d’empirisme, les travaux autour de paramétrisations spécifiques de nouvelles fonctionnelles GGA ou méta-GGA (Truhlar et al., J. Chem. Phys., 125, 194101 (2006)), les travaux de type DFT+D incluant des corrections de dispersion de Grimme pour ne citer que le plus connu (Grimme, J. Comput. Chem., 27, 1787 (2006), J. Chem. Phys, 132, 154104 (2010), les travaux de type Symmetry-Adapted Perturbation Theory (SAPT) ou SAPT(DFT) même si ces derniers ne s’attachent plus tout à fait à la recherche d’une fonctionnelle d’échange-corrélation, et les travaux qui vont finalement s’atteler à donner une forme explicite de la fonctionnelle d’échange-corrélation (vdW-DF, non-local vdW correlation functional Michaelides et al., J. Chem. Phys., 137, 120901 (2012) ; Hutter et al., J. Chem. Phys., 138, 204103 (2013)) en recherchant son caractère non-local (notamment au travers de l’application du théorème de fluctuation-dissipation combiné à la connexion adiabatique, comme dans les méthodes AC-FDT, DRSLL M. Dion, H. Rydberg, E. Schröder, D. C. Langreth, and B. I. Lundqvist, Phys. Rev. Lett. 92, 246401 (2004); 95, 109902 (2005) et Bayesian error estimation functional BEEF Jacobsen et al. Phys. Rev. B, 85, 235149 (2012)). Parmi ces dernières solutions non-empiriques, on peut citer notamment les modèles d’Anderssson-Langreth-Lundqvist (ALL) ou ceux de type Random Phase Approximation (RPA) qui ont très récemment fait l’objet d’études approfondies de la part, par exemple, de S. Lebègue et coll (S. Lebègue, J. Harl, Tim Gould, J. G. Ángyán, G. Kresse, and J. F. Dobson Phys. Rev. Lett. 105, 196401 (2010)).\\
+	Rappelons que l’utilisation pratique de la DFT dans son formalisme KS repose sur l’approximation de la fonctionnelle d’échange-corrélation. L’approximation originelle, i.e. l’Approximation de Densité Locale (LDA pour l’anglais \og Local Density Approximation \fg), s’est révélée étonnamment efficace et difficile à améliorer de manière systématique. Il a été montré que la LDA, étant locale par construction, est particulièrement adaptée pour décrire les corrélations à très courte portée inter-électronique, mais échoue à décrire quantitativement les corrélations à longue portée électronique. Ceci reste vrai avec la plupart des améliorations post-LDA classiques (que nous n’aborderons pas dans ce travail), qui demeurent par essence des approximations de nature locale. Différentes solutions existent désormais pour traiter ce problème. Citons par exemple sans aucune volonté d’exhaustivité, avec différents niveaux d’empirisme, les travaux autour de paramétrisations spécifiques de nouvelles fonctionnelles GGA ou méta-GGA \cite{valero2006nonadiabatic}, les travaux de type DFT+D incluant des corrections de dispersion de Grimme pour ne citer que le plus connu \cite{grimme2006semiempirical,grimme2010consistent}, les travaux de type Symmetry-Adapted Perturbation Theory (SAPT) ou SAPT(DFT) même si ces derniers ne s’attachent plus tout à fait à la recherche d’une fonctionnelle d’échange-corrélation, et les travaux qui vont finalement s’atteler à donner une forme explicite de la fonctionnelle d’échange-corrélation \cite{klimevs2012perspective,tran2013nonlocal}, en recherchant son caractère non-local (notamment au travers de l’application du théorème de fluctuation-dissipation combiné à la connexion adiabatique, comme dans les méthodes AC-FDT, DRSLL \cite{dion2004van,wellendorff2012density}  et Bayesian error estimation functional BEEF \cite{wellendorff2012density}. Parmi ces dernières solutions non-empiriques, on peut citer notamment les modèles d’Anderssson-Langreth-Lundqvist (ALL) ou ceux de type Random Phase Approximation (RPA) qui ont très récemment fait l’objet d’études approfondies de la part, par exemple, de S. Lebègue et coll \cite{lebegue2010cohesive,mussard2013modelisations}.\\
 	
 	
 	Pour résumer, on peut rappeler que, d’un point de vue théorique, l’énergie d’interaction intermoléculaire est une observable que l’on peut soit calculer directement (à l’aide d’une approche globale de type \og supermolécule \fg), soit chercher à interpréter par différentes décompositions auxquelles on peut adjoindre, dans la mesure du possible, un sens physique. Nous avons fait le choix arbitraire, dans la première partie de ce chapitre, de présenter les termes d’interaction à partir de la théorie de perturbation développée jusqu’au second ordre. Cette présentation nous semblait justifiée par le fait qu’une fois les hypothèses de travail définies et les fonctions de réponses -- nécessaires au calcul des termes d’interaction -- établies, le détail des approches méthodologiques les plus avancées dans ce domaine s’en trouve facilité. De plus, parce qu’il est désormais acquis qu’un tel traitement conduit généralement à une mauvaise convergence de la série de perturbation, nous profiterons de cette présentation pour introduire l’approche SAPT (\og Symmetry-Adapted Perturbation Theory \fg), qui corrige ces divergences et qui est considérée aujourd’hui comme l’une des plus précises pour le calcul des énergies d’interaction intermoléculaires. 
@@ -41,7 +41,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Au-delà des liaisons hydrogène et des interactions de nature électrostatique (\textit{e.g.} charge-charge, charge-dipôle, dipôle-dipôle), l’interaction non covalente parmi les plus étudiées à l’heure actuelle est probablement celle impliquant les systèmes aromatiques \cite{grimme2008special}. Ces interactions entre cycles aromatiques, dénommées \og $\pi$-stacking \fg{} (peut-être à mauvais escient (Chelsea R. Martinez and Brent L. Iverson Chem Science 2012,3, 2191-2201), sont notamment considérées comme responsables de la stabilité d’un très grand nombre de structures remarquables \cite{mcgaughey1998pi}, dont celles qui préfigurent certainement la structure des asplhaltènes. L’étude expérimentale de ces interactions représente encore un défi car il est généralement complexe de séparer les interactions de type $\pi$-stacking des interactions secondaires ou des effets de l’environnement. Du fait de ces difficultés expérimentales, les études en chimie computationnelle apparaissent comme une alternative de choix pour comprendre aussi bien la nature fondamentale de ces interactions non covalentes, que leur influence sur les systèmes chimiques étudiés. Nous encourageons le lecteur à se reporter au travail de revue réalisé sur le sujet par Martinez et Iverson, dans lequel sont recensés les principales définitions et les principaux modèles employés pour décrire ces interactions particulières.
+	Au-delà des liaisons hydrogène et des interactions de nature électrostatique (\textit{e.g.} charge-charge, charge-dipôle, dipôle-dipôle), l’interaction non covalente parmi les plus étudiées à l’heure actuelle est probablement celle impliquant les systèmes aromatiques \cite{grimme2008special}. Ces interactions entre cycles aromatiques, dénommées \og $\pi$-stacking \fg{} (peut-être à mauvais escient \cite{martinez2012rethinking}), sont notamment considérées comme responsables de la stabilité d’un très grand nombre de structures remarquables \cite{mcgaughey1998pi}, dont celles qui préfigurent certainement la structure des asplhaltènes. L’étude expérimentale de ces interactions représente encore un défi car il est généralement complexe de séparer les interactions de type $\pi$-stacking des interactions secondaires ou des effets de l’environnement. Du fait de ces difficultés expérimentales, les études en chimie computationnelle apparaissent comme une alternative de choix pour comprendre aussi bien la nature fondamentale de ces interactions non covalentes, que leur influence sur les systèmes chimiques étudiés. Nous encourageons le lecteur à se reporter au travail de revue réalisé sur le sujet par Martinez et Iverson, dans lequel sont recensés les principales définitions et les principaux modèles employés pour décrire ces interactions particulières.
 	Le \og graal \fg{}, pour les expérimentateurs comme pour les théoriciens, serait d’arriver \textit{in fine} à caractériser séparément la contribution de chacune de ces interactions non covalentes et de prévoir tout à la fois leur rôle et leur intensité.\\
 	
 	À ce jour, nous savons que l’énergie d'interaction intermoléculaire d'un ensemble de molécules se situe généralement entre 1 et 20 kcal/mol selon le nombre et le type de molécules impliquées. Cependant, l'énergie d'une liaison chimique covalente se mesure entre 100 et 300 kcal/mol, et se situe donc dans un autre ordre de grandeur. De même, la portée d’une liaison chimique dépasse rarement quelques Angströms, tandis que les interactions intermoléculaires s'étendent théoriquement jusqu'à l'infini (électrostatique) et de manière pratique entre 2 et 10 Angströms selon la taille et la nature du système.\\
@@ -108,7 +108,7 @@
 	\end{equation}
 	
 	Les bases ayant une extension spatiale finie, cette erreur est d'autant moins importante que les molécules sont éloignées les une des autres, la BSSE étant nulle dans la limite des bases infinies. En pratique, le calcul de la BSSE doit donc être effectué pour chaque conformation d’énergie minimale déterminée pour chacune des distances intermoléculaires qui séparent les espèces A et B. Plus la base est petite, plus cette erreur est importante. À l'inverse, dans la limite d’une base complète, la BSSE s’annule.
-	Les calculs HF et KS souffrent moins des effets de la BSSE (J. Garza, J.-Z. Ramírez, and R. Vargas, J. Phys. Chem. A 109, 643 (2005)), qui sont plus marqués dans les calculs post-HF (MPn, CCSD(T)), du fait en particulier du traitement de l’espace des virtuels, nécessaire pour ces approches.\\
+	Les calculs HF et KS souffrent moins des effets de la BSSE \cite{garza2005role}, qui sont plus marqués dans les calculs post-HF (MPn, CCSD(T)), du fait en particulier du traitement de l’espace des virtuels, nécessaire pour ces approches.\\
 	
 	
 	Malheureusement, le calcul direct d’une énergie d’interaction par la méthode \og supermolécules \fg{} est extrêmement coûteux et ne donne aucune information sur la nature des interactions mises en jeu.\\
@@ -122,7 +122,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	
-	La première théorie proposée en mécanique quantique pour déterminer la nature des interactions intermoléculaires a été développée dès 1927 par Wang \cite{wang1927mutual} puis reprise et très largement étendue à partir de 1930 par London \textit{et al.} \cite{london1930z}. Nous avons fait le choix, dans les paragraphes qui vont suivre, de ne mener le recensement des termes d’interaction introduits par London qu'aux plus bas ordres de perturbation, ceux-ci contenant les termes porteurs du sens physique. Notamment, le second ordre de perturbation contient \textit{a priori} les termes de distorsion et de dispersion que l’on peut naturellement relier aux propriétés électroniques des fragments en interaction. Les choix du modèle et de la troncature sont eux aussi totalement arbitraires, puisqu’il existe aujourd’hui d’autres modèles tels ceux de Kitaura et Morokuma \cite{morokuma1977molecules} ou de Stevens et Fink \cite{stevens1987frozen}, pour ne citer qu’eux. Le modèle perturbatif est celui qui, selon nous, permet la meilleure compréhension de la physique qui se cache derrière les forces de dispersion. Il présente l'avantage de rendre compte des coefficients dits de van der Waals ainsi que des fonctions de réponse qui leur sont associées telles que les polarisabilités multipolaires, elles-mêmes reliées aux fonctions spectrales telles que les forces d’oscillateur et les énergies d’excitation (ref). Enfin, le choix de présenter les termes d’interaction à partir de la théorie de perturbation nous semblait justifié par le fait qu’une fois les hypothèses de travail définies et les fonctions de réponse établies, la présentation des approches de type SAPT (Symmetriy-Adapted Perturbation Theory) et des méthodes basées sur la détermination des fonctions semi-empiriques rendant compte des effets de dispersion s’en trouve facilitée et justifiée.
+	La première théorie proposée en mécanique quantique pour déterminer la nature des interactions intermoléculaires a été développée dès 1927 par Wang \cite{wang1927mutual} puis reprise et très largement étendue à partir de 1930 par London \textit{et al.} \cite{london1930z}. Nous avons fait le choix, dans les paragraphes qui vont suivre, de ne mener le recensement des termes d’interaction introduits par London qu'aux plus bas ordres de perturbation, ceux-ci contenant les termes porteurs du sens physique. Notamment, le second ordre de perturbation contient \textit{a priori} les termes de distorsion et de dispersion que l’on peut naturellement relier aux propriétés électroniques des fragments en interaction. Les choix du modèle et de la troncature sont eux aussi totalement arbitraires, puisqu’il existe aujourd’hui d’autres modèles tels ceux de Kitaura et Morokuma \cite{morokuma1977molecules} ou de Stevens et Fink \cite{stevens1987frozen}, pour ne citer qu’eux. Le modèle perturbatif est celui qui, selon nous, permet la meilleure compréhension de la physique qui se cache derrière les forces de dispersion. Il présente l'avantage de rendre compte des coefficients dits de van der Waals ainsi que des fonctions de réponse qui leur sont associées telles que les polarisabilités multipolaires, elles-mêmes reliées aux fonctions spectrales telles que les forces d’oscillateur et les énergies d’excitation \cite{begue1999dynamic}. Enfin, le choix de présenter les termes d’interaction à partir de la théorie de perturbation nous semblait justifié par le fait qu’une fois les hypothèses de travail définies et les fonctions de réponse établies, la présentation des approches de type SAPT (Symmetriy-Adapted Perturbation Theory) et des méthodes basées sur la détermination des fonctions semi-empiriques rendant compte des effets de dispersion s’en trouve facilitée et justifiée.
 	
 	
 	Dans ce paragraphe consacré aux interactions à longues distances, nous allons donner les expressions générales du Hamiltonien d'interaction, et établir à l'aide de la méthode de perturbation les équations du problème.\\ 
@@ -150,10 +150,10 @@
 	\noindent avec : 
 	
 	\begin{equation}
-	H_{0}(a) = -\frac{1}{2} \sum_{k_{a}=1}^{n_{a}} \triangledown^{2} k_{a} - \sum_{k_{a}=1}^{n_{a}} \frac{Z_{a}}{rk_{a}} + \sum_{k'_{a}>k_{a}} \frac{1}{rk_{a},k'_{a}} + H_{l.s}(a)  \label{1.3}
+	H_{0}(a) = -\frac{1}{2} \sum_{k_{a}=1}^{n_{a}} \triangledown^{2} k_{a} - \sum_{k_{a}=1}^{n_{a}} \frac{Z_{a}}{r_{k_{a}}} + \sum_{k'_{a}>k_{a}} \frac{1}{r_{k_{a},k'_{a}}} + H_{l.s}(a)  \label{1.3}
 	\end{equation}
 	
-	Où $\triangledown_{k_{a}}$, $Z_{a}$, $r_{k_{a}}$ et $rk_{a},k'_{a}$ représentent respectivement l'opérateur énergie cinétique, la charge du noyau de $a$, les distances noyau- électron $k_{a}$ et électron $k_{a}$- électron $k'_{a}$. L'expression de $H_{0}(b)$ se déduit facilement de celle de $H_{0}(a)$ en remplaçant les coordonnées des $n_{a}$ électrons du système $a$ par les coordonnées des $n_{b}$ électrons du système $b$. $H_{l.s}(a)= \sum_{k_{a}=1}^{n_{a}} \zeta_{k_{a}} \widehat{l_{k_{a}}} \widehat{S_{k_{a}}}$ est le hamiltonien de spin-orbite de l'atome $a$, avec $\widehat{l_{k_{a}}}$ et $\widehat{S_{k_{a}}}$ les opérateurs moment orbital et moment de spin de l'électron $k_{a}$, et $\zeta_{k_{a}}$ une constante de couplage spin-orbite pour le même électron.
+	Où $\triangledown_{k_{a}}$, $Z_{a}$, $r_{k_{a}}$ et $r_{k_{a},k'_{a}}$ représentent respectivement l'opérateur énergie cinétique, la charge du noyau de $a$, les distances noyau- électron $k_{a}$ et électron $k_{a}$- électron $k'_{a}$. L'expression de $H_{0}(b)$ se déduit facilement de celle de $H_{0}(a)$ en remplaçant les coordonnées des $n_{a}$ électrons du système $a$ par les coordonnées des $n_{b}$ électrons du système $b$. $H_{l.s}(a)= \sum_{k_{a}=1}^{n_{a}} \zeta_{k_{a}} \widehat{l_{k_{a}}} \widehat{S_{k_{a}}}$ est le hamiltonien de spin-orbite de l'atome $a$, avec $\widehat{l_{k_{a}}}$ et $\widehat{S_{k_{a}}}$ les opérateurs moment orbital et moment de spin de l'électron $k_{a}$, et $\zeta_{k_{a}}$ une constante de couplage spin-orbite pour le même électron.
 	
 		
 	
@@ -278,7 +278,7 @@
 	\end{cases}
 	\end{equation}
 	
-	$F_{\alpha}^{b}$ \ref{1.11} et $F_{\alpha\beta}^{b}$ \ref{1.12} sont exprimés en fonction des moments multipolaires [ref 4-6] précédemment définis : 
+	$F_{\alpha}^{b}$ \ref{1.11} et $F_{\alpha\beta}^{b}$ \ref{1.12} sont exprimés en fonction des moments multipolaires \cite{buckingham1965general} précédemment définis : 
 	
 	\begin{equation}
 	F_{\alpha}^{b} = -(\triangledown_{\alpha}\phi_{B})_{o} = -q^{a} T_{\alpha} + \mu_{\alpha}^{a} T_{\alpha\beta} - \frac{1}{3} \theta_{\beta\gamma}^{a} T_{\alpha\beta\lambda} + \ldots 
@@ -311,7 +311,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Le système de coordonnées cartésiennes est le système le plus utilisé et le plus naturel puisqu'il s'appuie sur la tridimensionnalité de notre espace quotidien. Néanmoins, son utilisation devient très vite complexe lorsque l'on cherche à traiter des problématiques d'interaction. Il existe ainsi un système de référence plus adapté à l'étude de ce type de propriétés, qui s'appuie sur le principe simple de proportionnalité entre les harmoniques sphériques. Ce référentiel est le système de coordonnées sphériques. Nous étudierons dans ce chapitre les développements à un et deux centres du potentiel électrostatique du à une distribution de charges discrètes, puis nous montrerons quelles sont les transformations nécessaires pour passer d'un système de coordonnées à l'autre.\\
+	Le système de coordonnées cartésiennes est le système le plus utilisé et le plus naturel puisqu'il s'appuie sur la tridimensionnalité de notre espace quotidien. Néanmoins, son utilisation devient très vite complexe lorsque l'on cherche à traiter des problématiques d'interaction. Il existe ainsi un système de référence plus adapté à l'étude de ce type de propriétés, qui s'appuie sur le principe simple de proportionnalité entre les harmoniques sphériques. Ce référentiel est le système de coordonnées sphériques. Nous étudierons dans ce chapitre les développements à un et deux centres du potentiel électrostatique du à une distribution de charges discrètes.\\
 	
 	Soit $\Phi_{\rho}$, le potentiel électrostatique créé par une distribution de charges centrée en $a$, pour un point $\rho$ extérieur à cette distribution : 
 	
@@ -327,7 +327,7 @@
 	
 	où $r <$ correspond à $\min \{r_{k_{a}}, r_{\rho}\} \equiv r_{k_{a}}$ et
 	$r >$ correspond à $\max \{r_{k_{a}}, r_{\rho}\} \equiv r$
-	et où les termes $P_{m^{i}} (\cos\theta_{\rho})$ représentent les fonctions associées au polynôme de Legendre de première espèce. Ces fonctions s'identifient aux harmoniques sphériques $Y_{i}^{m}(\theta,\phi)$ à un facteur près : 
+	et où les termes $P_{m}^{i} (\cos\theta_{\rho})$ représentent les fonctions associées au polynôme de Legendre de première espèce. Ces fonctions s'identifient aux harmoniques sphériques $Y_{i}^{m}(\theta,\phi)$ à un facteur près : 
 	
 	\begin{equation}
 	P_{m}^{i}(\cos\theta) = (-1)^{m-|m|} \frac{\sqrt{4\pi}}{\sqrt{2i+ 1}} \frac{\sqrt{(i+ |m|)!}}{\sqrt{(i-|m|)!}} e^{-im\phi} Y_{i}^{m}(\theta,\phi) \label{1.22}
@@ -378,7 +378,7 @@
 	
 	Les autres composantes du tenseur d'ordre deux seront obtenues en remplaçant $m$ par ses valeurs permises ($m=\pm 1, m=\pm 2$).
 	
-	Les propriétés de ces opérateurs sont indépendantes du système étudié et satisfont à un ensemble de règles de sélection sur lesquelles nous ne reviendrons pas dans ce travail (ref). 
+	Les propriétés de ces opérateurs sont indépendantes du système étudié et satisfont à un ensemble de règles de sélection sur lesquelles nous ne reviendrons pas dans ce travail \cite{hall2015lie}. 
 	
 	\begin{itemize}
 		\item i=2, m=0 \hspace{1cm} $Q_{0}^{2}(a) = \theta_{zz}^{a}$ \hspace{1cm} composante $z$ de l'opérateur moment quadripolaire 
@@ -396,7 +396,7 @@
 	\frac{1}{r_{k_{a}k_{b}}} = \sum_{i,j=0}^{\infty} \sum_{-l<}^{l>} B_{ij}^{|m|}(r_{k_{a}}, r_{k_{b}}; R) P_{i}^{m} (\cos\theta_{k_{b}}) P_{j}^{m}(\cos\theta_{k_{a}}) e^{im(\phi_{k_{a}}-\phi_{k_{b}})}
 	\end{equation}
 	
-	\noindent où $l<$ correspond $\inf (i,j)$
+	\noindent où $l<$ = $\inf (i,j)$
 	
 	
 	Dans l'hypothèse où les deux distributions de charges ne se recouvrent pas, on peut considérer que $R> r_{i} +r_{j}$ et poser : 
@@ -492,7 +492,7 @@
 	\end{equation*}
 	
 	\begin{equation}
-	\langle S_{k}L_{k}M_{S_{k}}M_{L_{k}}|\langle S'_{k}L'_{k}M'_{S_{k}}M'_{L_{k}}| V_{ij}(a,b)| S_{l}L_{l}M_{S_{l}} M_{L_{l}} \rangle S'_{l}L'_{l}M'_{S_{l}}M'_{L_{l}} \rangle
+	\langle S_{k}L_{k}M_{S_{k}}M_{L_{k}}|\langle S'_{k}L'_{k}M'_{S_{k}}M'_{L_{k}}| V_{ij}(a,b)| S_{l}L_{l}M_{S_{l}} M_{L_{l}} \rangle| S'_{l}L'_{l}M'_{S_{l}}M'_{L_{l}} \rangle
 	\end{equation}
 	
 	\noindent avec : 
@@ -575,11 +575,11 @@
 	
 	\begin{equation}
 	\begin{array}{c}
-	E_{disp}^{ii'jj'} (\nu , \lambda) = - \sum_{k=1}^{n_{\nu}} \sum_{l=1}^{n_{\lambda}} \alpha_{\nu , k} \alpha_{\lambda , l} \hspace{1cm} x \\
+	E_{disp}^{ii'jj'} (\nu , \lambda) = - \sum_{k=1}^{n_{\nu}} \sum_{l=1}^{n_{\lambda}} \alpha_{\nu , k} \alpha_{\lambda , l} \hspace{1cm} \times \\
 	\\
-	\sum_{w"_{a} w"_{b}} \frac{\langle S_{k} L_{k} M_{S_{K}} M_{L_{K}} (a) |\langle S'_{k} L'_{k} M'_{S_{K}} M'_{L_{K}} (b)| V_{ij} (ab) | S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)\rangle| S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}} \rangle}{(E_{n"_{a}} - E_{0}(a)) + (E_{n"_{b}} - E_{0}(b))} \hspace{0.5 cm} x \\
+	\sum_{w"_{a} w"_{b}} \frac{\langle S_{k} L_{k} M_{S_{K}} M_{L_{K}} (a) |\langle S'_{k} L'_{k} M'_{S_{K}} M'_{L_{K}} (b)| V_{ij} (ab) | S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)\rangle| S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}(b)} \rangle}{(E_{n_{a}^{"}} - E_{0}(a)) + (E_{n_{b}^{"}} - E_{0}(b))} \hspace{0.5 cm} \times \\
 	\\
-	\frac{\langle S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)| \langle S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}} | V_{i'j'}(a,b)| S_{l} L_{l} M_{S_{l}} M_{L_{l}} (a) \rangle | S'_{l} L'_{l} M'_{S_{l}} M'_{L_{l}} (b) \rangle}{(E_{n"_{a}} - E_{0} (a)) + (E_{n"_{b}} - E_{0}(b))}
+	\frac{\langle S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}} (a)| \langle S"_{b} L"_{b} M"_{S_{b}} M"_{L_{b}} (b) | V_{i'j'}(a,b)| S_{l} L_{l} M_{S_{l}} M_{L_{l}} (a) \rangle | S'_{l} L'_{l} M'_{S_{l}} M'_{L_{l}} (b) \rangle}{(E_{n_{a}^{"}} - E_{0} (a)) + (E_{n_{b}^{"}} - E_{0}(b))}
 	\end{array}
 	\end{equation}
 	
@@ -608,7 +608,7 @@
 	E_{disp}(2) = \sum_{i+i'+j+j'+2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}}
 	\end{equation}
 	
-	il est possible de dénombrer et connaitre les différentes contributions des coefficients de dispersion (encore appelés coefficients de van der Waals) à la correction énergétique au second ordre sur l'énergie du système [$a - b$].
+	il est possible de dénombrer et connaître les différentes contributions des coefficients de dispersion (encore appelés coefficients de van der Waals) à la correction énergétique au second ordre sur l'énergie du système [$a - b$].
 	
 	La combinaison (1,1,1,1) représente la contribution du coefficients $C_{1+1+1+1+2} = C_{6}$.
 	
@@ -622,13 +622,13 @@
 	Contrairement à l'énergie de dispersion, l'énergie d'induction ne fait intervenir que les états excités de l'un ou l'autre des systèmes $a$ et $b$ : 
 	
 	\begin{equation}
-	E_{ind}(2) = \sum_{i,j=0}^{\infty} \sum_{i',j'=0}^{\infty} \frac{E_{ind}^{ii'jj'} (a; \nu , \lambda) + E_{ind}^{ii'jj'} (b; \nu , \lambda)}{R^{i+i'+j+j'+2}} = \sum_{i+j+j'+i'+1=2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}}
+	E_{ind}(2) = \sum_{i,j=0}^{\infty} \sum_{i',j'=0}^{\infty} \frac{E_{ind}^{ii'jj'} (a; \nu , \lambda) + E_{ind}^{ii'jj'} (b; \nu , \lambda)}{R^{i+i'+j+j'+2}} = \sum_{i+j+j'+i'+1=2}^{\infty} \frac{C_{i+i'+j+j'+2}}{R^{i+i'+j+j'+2}} \label{2.42}
 	\end{equation}
 	
 	Soit par exemple l'énergie d'induction du système $a$ :
 	
 	\begin{equation}
-	E_{ind}^{ii'jj'} (a;\nu , \lambda) = \sum_{r \neq 0}^{\infty} \sum_{t\neq 0}^{\infty} \frac{\langle \Psi_{0}^{\nu} (a) \Psi_{0}^{\nu} (b) |V_{ij} (a,b)|\Psi_{r} (a) \Psi_{0} (b) \rangle  \langle \Psi_{r} (a)\Psi_{0} (b) |V_{i'j'}|\Psi_{0}^{\lambda} (a) \Psi_{0}^{\lambda}(b) \rangle}{(E_{r} (a) - E_{0}(a)}
+	E_{ind}^{ii'jj'} (a;\nu , \lambda) = \sum_{r \neq 0}^{\infty} \sum_{t\neq 0}^{\infty} \frac{\langle \Psi_{0}^{\nu} (a) \Psi_{0}^{\nu} (b) |V_{ij} (a,b)|\Psi_{r} (a) \Psi_{0} (b) \rangle  \langle \Psi_{r} (a)\Psi_{0} (b) |V_{i'j'} (a,b)|\Psi_{0}^{\lambda} (a) \Psi_{0}^{\lambda}(b) \rangle}{(E_{r} (a) - E_{0}(a)}
 	\end{equation}
 	
 	\noindent avec $\Psi_{0}^{\nu} (a) = |S_{k} L_{k} M_{S_{k}} M_{L_{k}}\rangle$ et $\Psi_{r}(a) = |S"_{a} L"_{a} M"_{S_{a}} M"_{L_{a}}\rangle$. On pourra trouver de même une formule similaire $E_{ind}^{ii'jj'} (b;\nu , \lambda)$ pour le système $b$. Chaque terme est calculé séparément.\\
@@ -662,11 +662,11 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection[SAPT]{Symmetry-Adapted Perturbation Theory}
+	\subsection{Symmetry-Adapted Perturbation Theory (SAPT)}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\markright{SAPT}{}
+	\markright{Symmetry-Adapted Perturbation Theory}{}
 	
 	
 	Comme nous l’avons déjà mentionné, les interactions de van der Waals ne se distinguent clairement des autres types d’interactions qu’à longue distance. Dans la région intermédiaire, qui inclus la région du minimum, il est même particulièrement difficile de décomposer de manière univoque l’énergie d'interaction totale en différentes contributions. Plusieurs schémas de décomposition ont néanmoins été proposés au fil du temps (comme celui présenté ci-avant). Le principe de ces dernières approches est d’évaluer par morceaux les différentes contributions, telles que l’électrostatique, l’induction ou encore la dispersion. Cependant, ces méthodes possèdent le défaut majeur de conduire à des processus non convergés (ou mal convergés) de la série perturbationnelle, tant du fait d'une troncature à des ordres souvent trop bas que du fait de leur non complétude. C’est pour palier ce dernier défaut que la théorie SAPT (Symmetry-Adapted Perturbation Theory) a été proposée. Dans cette approche, chacune des composantes précédentes inclus une correction d’échange afin de rendre compte de la nature anti-symétrique de la fonction d’onde du complexe formé. Cette théorie a par ailleurs été développée en partant du constat que le terme de polarisation se révèle en grande partie responsable de la divergence de la série perturbative, ce que vise à corriger l'introduction d'une correction d'échange. \\ 
@@ -701,7 +701,7 @@
 	(H_{0} - E_{0}) \psi (\xi) = (E_{int} - \xi V) \psi (\xi)
 	\end{equation}
 	
-	La théorie des perturbations de Rayleigh-Schr\"{o}dinger nous fournit une série de corrections pour l’énergie \cite{chipman1973perturbation}, de formes identiques à celles déjà fournies pour le seul ordre 2 dans le paragraphe précédent (donner les numéros des équations 2.22 et 2.42 dans ma thèse). Par soucis de simplification, nous noterons ces termes :
+	La théorie des perturbations de Rayleigh-Schr\"{o}dinger nous fournit une série de corrections pour l’énergie \cite{chipman1973perturbation}, de formes identiques à celles déjà fournies pour le seul ordre 2 dans le paragraphe précédent (voir formules \ref{2.22} et \ref{2.42}). Par soucis de simplification, nous noterons ces termes :
 	
 	\begin{equation}
 	E_{pol}^{(n)} = \langle \phi_{0}|V| \phi_{pol}^{(n)} \rangle
@@ -715,7 +715,7 @@
 	E_{int} = \sum_{n=1}^{N} E_{pol}^{(n)} + O(1/R^{2 (N+1)})
 	\end{equation}
 	
-	Afin de rétablir le principe d’antisymétrie, un opérateur d’antisymétrisation classique est initialement appliqué sur la fonction d’onde $\mathscr{A} \phi_{pol}^{(n)}$, permettant ainsi d’établir l’expression de l’énergie SRS (Symmetrized Rayleigh-Schr\"{o}dinger, d’ou découle le nom de la théorie SAPT), corrigée des différents ordres $n$ de perturbation :
+	Afin de rétablir le principe d’antisymétrie, un opérateur d’antisymétrisation classique est initialement appliqué sur la fonction d’onde $\mathscr{A} \phi_{pol}^{(n)}$, permettant ainsi d’établir l’expression de l’énergie SRS (Symmetrized Rayleigh-Schr\"{o}dinger), d’ou découle le nom de la théorie SAPT, corrigée des différents ordres $n$ de perturbation :
 	
 	\begin{equation}
 	E_{RS}^{(n)} = \frac{1}{\langle\phi_{0}|\mathscr{A}\phi_{0}\rangle} \left[\langle\phi_{0} | V| \mathscr{A} \phi_{pol}^{(n-1)}\rangle - \sum_{\kappa=1}^{n-1} E_{RS}^{\kappa} \langle \phi_{0}|\mathscr{A} \phi_{pol}^{(n-\kappa)}\rangle\right]
@@ -750,9 +750,9 @@
 	E_{int} = \sum_{k=1}^{N} ( \sum_{m,p} E_{pol}^{(kmp)} + \sum_{m,p} E_{exch}^{(kmp)} ) + O(1/R^{2 (N+1)})
 	\end{equation}
 	
-	\noindent dans laquelle $E_{pol}^{(kmp)}$ représente l'énergie de polarisation, identique aux corrections obtenues \textit{via} la théorie des perturbations de Rayleigh-Schr\"{o}dinger. Les corrections d'échange $E_{exch}^{(kmp)}$ proviennent de l'utilisation de l'opérateur d'antisymétrisation permettant l'échange des électrons entre les monomères lorsqu'ils sont suffisamment proches les uns des autres. Rappelons que le principe physique sur lequel repose ce terme est l'équivalent d'un effet tunnel permettant le passage d’un électron d’un système vers l’autre. Le défaut de la théorie des perturbations de Rayleigh-Schr\"{o}dinger classique (présentée au chapitre xx) est donc corrigé. A une distance interatomique R suffisamment grande pour négliger les termes d'échange, la théorie SAPT est similaire à la théorie des perturbations de Rayleigh-Schr\"{o}dinger.\\
+	\noindent dans laquelle $E_{pol}^{(kmp)}$ représente l'énergie de polarisation, identique aux corrections obtenues \textit{via} la théorie des perturbations de Rayleigh-Schr\"{o}dinger. Les corrections d'échange $E_{exch}^{(kmp)}$ proviennent de l'utilisation de l'opérateur d'antisymétrisation permettant l'échange des électrons entre les monomères lorsqu'ils sont suffisamment proches les uns des autres. Le défaut de la théorie des perturbations de Rayleigh-Schr\"{o}dinger classique est donc corrigé. A une distance interatomique R suffisamment grande pour négliger les termes d'échange, la théorie SAPT est similaire à la théorie des perturbations de Rayleigh-Schr\"{o}dinger.\\
 	
-	En pratique, dans une approche SAPT, quelques termes seulement sont calculés de manière exacte, les autres termes (non tronqués dans les séries perturbationnelles) étant calculés à partir des fonctions d’ondes corrélées sur les monomères. Jeziorski et coll rapportent dans leur travail l’ensemble des termes non nuls issus des séries perturbationnelles développées et montrent que l’on peut aisément séparer la contribution Hartree-Fock à l’énergie d’interaction, des contributions calculées, au moyen d’approches post-HF nécessaires à l’estimation de l’énergie de corrélation pour chaque monomère. 
+	En pratique, dans une approche SAPT, quelques termes seulement sont calculés de manière exacte, les autres termes (non tronqués dans les séries perturbationnelles) étant calculés à partir des fonctions d’ondes corrélées sur les monomères. Jeziorski et coll \cite{patkowski2004unified,jeziorski1994perturbation} rapportent dans leur travail l’ensemble des termes non nuls issus des séries perturbationnelles développées et montrent que l’on peut aisément séparer la contribution Hartree-Fock à l’énergie d’interaction, des contributions calculées, au moyen d’approches post-HF nécessaires à l’estimation de l’énergie de corrélation pour chaque monomère. 
 	
 	\begin{equation}
 	E_{int}^{HF} =  E_{pol}^{(100)} + E_{exch}^{(100)} + E_{ind}^{(200)} + E_{exch-ind}^{(200)} + \delta E_{int}^{HF}
@@ -768,7 +768,7 @@
 	
 	Il est de même possible d’accéder à la correction de la partie intramoléculaire sur l’énergie d’interaction, permettant ainsi d’atteindre une décomposition énergétique globale. À terme pour le présent travail, il sera alors intéressant de relier cette décomposition de l'énergie aux phénomènes physiques spécifiques, tels que la nature des interactions. \\
 	
-	Jeziorski et coll. relèvent dans leurs travaux que le développement en série du terme d’échange n’est pas unique et a conduit à plusieurs variantes de méthodes SAPT (ref). Ainsi, il est évident que si l’expression des termes $E_{exch}^{(kmp)}$ est propre à chacune de ces méthodes, la convergence n'est pas équivalente entre les différentes versions de la théorie SAPT. Il est bon de noter que, pour l’étude de systèmes non polaires, dominés principalement par des forces de van der Waals, les différences reportées ci-dessus sont minimes puisque ce sont alors les termes du second ordre (pratiquement identiques dans chaque approche) qui dominent la série perturbationnelle. Le choix de l’approche SAPT n’a dans ce cas pratiquement aucune incidence et il n’est pas nécessaire de pousser l’ordre de perturbation au delà du second ordre. Cette remarque n’est pas sans conséquence, lorsque l’on connaît le coût, en termes de temps de calcul, du recours aux approches SAPT pour l’étude de systèmes moléculaires. Il est à noter également que l’approche Symmetrized Rayleigh-Schr\"{o}dinger (SRS), présentée et utilisée dans ce travail, est actuellement considérée comme la méthode la plus adaptée à l’étude des systèmes à faible interaction intermoléculaire. Il n’existe, à notre avis, que très peu d’informations concernant l’étude des interactions spécifiques $\pi-\pi$.\\
+	Jeziorski et coll \cite{patkowski2004unified,jeziorski1994perturbation} relèvent dans leurs travaux que le développement en série du terme d’échange n’est pas unique et a conduit à plusieurs variantes de méthodes SAPT. Ainsi, il est évident que si l’expression des termes $E_{exch}^{(kmp)}$ est propre à chacune de ces méthodes, la convergence n'est pas équivalente entre les différentes versions de la théorie SAPT. Il est bon de noter que, pour l’étude de systèmes non polaires, dominés principalement par des forces de van der Waals, les différences reportées ci-dessus sont minimes puisque ce sont alors les termes du second ordre (pratiquement identiques dans chaque approche) qui dominent la série perturbationnelle. Le choix de l’approche SAPT n’a dans ce cas pratiquement aucune incidence et il n’est pas nécessaire de pousser l’ordre de perturbation au delà du second ordre. Cette remarque n’est pas sans conséquence, lorsque l’on connaît le coût, en termes de temps de calcul, du recours aux approches SAPT pour l’étude de systèmes moléculaires. Il est à noter également que l’approche Symmetrized Rayleigh-Schr\"{o}dinger (SRS), présentée et utilisée dans ce travail, est actuellement considérée comme la méthode la plus adaptée à l’étude des systèmes à faible interaction intermoléculaire, comme les interactions $\pi-\pi$ pour lesquelles il n’existe, à notre avis, que très peu d’informations.\\
 	
 	
 	En pratique, l’énergie d'interaction SAPT peut être calculée à différents niveaux de corrélation intramonomère. Ainsi, d’autres variantes de la méthode SAPT existent.
@@ -780,63 +780,52 @@
 	
 	A titre d’exemple, nous reportons dans ce chapitre un calcul SAPT(DFT) réalisé sur une molécule de référence, choisie tant pour ce qu'elle présente les interactions de type $\pi-\pi$ stacking qui ont motivé notre travail, que pour l'ensemble de calculs et de mesures expérimentales dont regorge la littérature à son sujet : le dimère du benzène. \\
 	
-	Krause \textit{et al.} \cite{krause1991binding} ont reporté une estimation de l’énergie de liaison du dimère, obtenue à partir de la mesure des énergies de dissociation de l'ion et des potentiels d’ionisation du dimère et du monomère : $D_{0}= 1.6 \pm 0.2 kcal mol^{1}$. Cette valeur est toutefois éloignée de celle reportée initialement par Grover \textit{et al.} \cite{grover1987dissociation}, qui avançaient $2.4 \pm 0.4 kcal mol^{-1}$. 
-	L’ensemble des études expérimentales (et théoriques) disponibles traitent toutes de trois configurations, comme reportées dans la figure ci-dessous \ref{figprot}.
+	Krause \textit{et al.} \cite{krause1991binding} ont reporté une estimation de l’énergie de liaison du dimère, obtenue à partir de la mesure des énergies de dissociation de l'ion et des potentiels d’ionisation du dimère et du monomère : $D_{0}= 1.6 \pm 0.2$ kcal mol$^{1}$. Cette valeur est toutefois éloignée de celle reportée initialement par Grover \textit{et al.} \cite{grover1987dissociation}, qui avançaient $2.4 \pm 0.4$ kcal mol$^{-1}$. 
+	L’ensemble des études expérimentales (et théoriques) disponibles traitent toutes de trois configurations, comme reportées dans la figure ci-dessous \ref{figprot} .
 	
 	\begin{figure}[H]
 		\centering
-		%\includegraphics[scale=0.8]{image/Prot} \label{figprot}
-		\caption[Structures du dimère de Benzène]{Structures possibles des dimères de benzène : (S) Sandwich, (T) En forme de T et (PD) Parallèle Déplacé}
+		\includegraphics[scale=0.8]{image/Prot} 
+		\caption[Structures du dimère de Benzène]{Structures possibles des dimères de benzène : (S) Sandwich, (T) En forme de T et (PD) Parallèle Déplacé} \label{figprot}
 	\end{figure}
 	
 	L’analyse de ces travaux montre que le débat visant à déterminer la conformation la plus stable est loin d’être clos. La majorité des travaux annoncent les formes T et PD comme les formes les plus stables. Toutefois, intuitivement, il n'est pas illogique de penser que la configuration S, dite \og en sandwich \fg, qui correspond à une superposition maximale des deux monomères et de fait à une maximisation des interactions dispersives, puisse apparaitre comme stable. La configuration parallèle déplacée est, par exemple, souvent observée dans les expériences réalisées à l’état cristallin sur des composés purement aromatiques \cite{hunter1991pi,fyfe1997synthetic,rebek1996assembly} ou dans des études visant à caractériser les interactions des chaînes latérales aromatiques de protéines \cite{hunter1991pi,burley1985aromatic}. Klemperer \textit{et al.} \cite{janda1975benzene} ont, quant à eux, rapporté que la configuration en T était prédominante à l’état gazeux. D’autres travaux, par Arunan et Gutowsky \cite{arunan1993rotational}, issus de l'analyse des spectres rotationnels et en accord avec les études Raman de Henson \textit{et al.} \cite{henson1992raman}, rapportent que les structures favorables du dimère de benzène s’approchent de la conformation T sans pour autant la confirmer.\\ 
 	
-	
-	Il existe dans la littérature une très grande variété d’approches concernant l’étude des dimères du benzène. Nous faisons le choix de ne reporter, dans le tableau ci-dessous, que les modélisations conduisant aux résultats faisant référence, jugés \textit{a priori} comme les plus précis du fait des méthodes employées. Les travaux de Park et Lee \cite{park2006accurate}, de Tsuzuki \textit{et al.} \cite{tsuzuki2002origin} et de Sinnokrot \textit{et al.} \cite{hobza1996potential} ont tous été obtenus à partir de calculs CCSD(T) avec extrapolation CBS de base (en anglais \og Complete Basis Set extrapolation \fg). Cette méthode est une technique de calcul empirique basée sur un minimum de trois calculs séparés utilisant des bases de plus en plus complètes, telles que les bases de type cc-pVXZ (X=T, Q, 5 …). Ceci revient à obtenir une estimation approchée du résultat que l'on obtiendrait en utilisant une base de dimensions infinies. Elle permet donc d’atteindre la limite de précision de la méthode de calcul la plus performante. Nous avons reporté dans le tableau les résultats que nous avons obtenu sur la forme PD, cette forme nous intéressant \textit{a priori} plus spécifiquement puisqu'elle a pu être caractérisée expérimentalement à l'état solide (état dans lequel seront les structures à modéliser dans le présent travail, après extraction des données IR obtenues en photo acoustique). On peut remarquer, en accord avec toutes les données actuellement disponibles par le biais des approches SAPT, que notre valeur d’énergie d’interaction calculée au niveau SAPT(PBE0)/aug-cc-pVTZ est conforme à la valeur attendue. Sans surprise, l’approche SAPT permet donc de reproduire avec une excellente vélocité les énergies d’interaction de systèmes en interaction $\pi--\pi$ et d’atteindre la précision nécessaire pour reproduire des variations aussi faibles que 1 à 2 kcal/mol.
-	
-	\begin{table}[H]
-		\caption{Energies d'interaction (en kcal/mol) du dimère de benzène calculées au niveau CCSD(T) et DFT-SAPT (PBE0)}
-		\begin{center}
-			\begin{tabular}{l c r r r c r r c r r r}
-				\toprule
-				& & & \multicolumn{2}{p{2cm}}{\centering S}  &	& \multicolumn{2}{p{2cm}}{\centering
-					T}& &\multicolumn{3}{p{3cm}}{\centering PD}\\
-				\cline{4-12}
-				& & & & R & &  &  R & & & R$_{1}$ & R$_{2}$ \\
-				\midrule
-				Park et Lee$^{1}$ & & & &  & &-2,67& 5,0 & &-3,03 & 3,5 & 1,8\\
-				Tsuzuki et al$^{2}$ & & & -1,48& 3,8 &  &-2,46& 5,0&  & -2,48 & 3,5& 1,8\\
-				Sinnokrot et al$^{3}$ & & & -1,81 & 3.8 & &-2,74& 5,0&  & -2,78 & 3,4 & 1,6\\
-				Hobza et al$^{4}$ & & &-1,12 & 4.1 &  &-2,17& 5,1& & -2,01 & 3,6 & 1.8\\
-				Sherrill et al$^{5}$& &  & -1,65 & 3,9 & & -2,69& 5,0 & & -2,67 & 3,5 & 1,7 \\
-				Rocca$^{6}$ & & & -1,06& 3,9& & -2,15& 5,0 & & -1,82 & 3,4 & 1,8\\ 
-				DFT-SAPT (PBE0) & & & -1,47 & 3.9 &  &-2,44 &5,0& & -2,35& 3,5 &1,7\\
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\centering
-		\footnotemark[1]{ref \cite{park2006accurate}},
-		\footnotemark[2]{ref \cite{tsuzuki2002origin}},
-		\footnotemark[3]{ref \cite{sinnokrot2002estimates}},
-		\footnotemark[4]{ref \cite{hobza1996potential}}
-		\footnotemark[5]{ref \cite{sherrill2009assessment}}
-		\footnotemark[6]{ref \cite{rocca2014random}}
+		\begin{table}[H]
+			\caption{Energies d'interaction (en kcal/mol) du dimère de benzène calculées au niveau CCSD(T) et DFT-SAPT (PBE0)} \label{table-benprot}
+			\begin{center}
+				\begin{tabular}{l c r r r c r r c r r r}
+					\toprule
+					& & & \multicolumn{2}{p{2cm}}{\centering S}  &	& \multicolumn{2}{p{2cm}}{\centering
+						T}& &\multicolumn{3}{p{3cm}}{\centering PD}\\
+					\cline{4-12}
+					& & & & R & &  &  R & & & R$_{1}$ & R$_{2}$ \\
+					\midrule
+					Park et Lee$^{1}$ & & & &  & &-2,67& 5,0 & &-3,03 & 3,5 & 1,8\\
+					Tsuzuki et al$^{2}$ & & & -1,48& 3,8 &  &-2,46& 5,0&  & -2,48 & 3,5& 1,8\\
+					Sinnokrot et al$^{3}$ & & & -1,81 & 3.8 & &-2,74& 5,0&  & -2,78 & 3,4 & 1,6\\
+					Hobza et al$^{4}$ & & &-1,12 & 4.1 &  &-2,17& 5,1& & -2,01 & 3,6 & 1.8\\
+					Sherrill et al$^{5}$& &  & -1,65 & 3,9 & & -2,69& 5,0 & & -2,67 & 3,5 & 1,7 \\
+					Rocca$^{6}$ & & & -1,06& 3,9& & -2,15& 5,0 & & -1,82 & 3,4 & 1,8\\ 
+					DFT-SAPT (PBE0)$^{7}$ & & & -1,47 & 3.9 &  &-2,44 &5,0& & -2,35& 3,5 &1,7\\
+					\bottomrule
+				\end{tabular}
+			\end{center}
+			\centering
+			\footnotemark[1]{ref \cite{park2006accurate}}, CCSD(T)/CBS,
+			\footnotemark[2]{ref \cite{tsuzuki2002origin}}, CCSD(T)/CBS,
+			\footnotemark[3]{ref \cite{sinnokrot2002estimates}}, CCSD(T)/CBS,
+			\footnotemark[4]{ref \cite{hobza1996potential}}, CCSD(T)/aug-cc-pVDZ
+			\footnotemark[5]{ref \cite{sherrill2009assessment}}, CCSD(T)/CBS,
+			\footnotemark[6]{ref \cite{rocca2014random}}, RPA, 
+			\footnotemark[7]{SAPT(PBE0)/aug-cc-pVTZ (notre travail)}
+			
+			\label{benzene}
+		\end{table}
 		
-		[1] CCSD(T)/CBS
-		[2] CCSD(T)/CBS 
-		[3] CCSD(T)/CBS
-		[4] CCSD(T)/aug-cc-pVDZ
-		[5] CCSD(T)/CBS 
-		[6] RPA
-		[7] SAPT(PBE0)/aug-cc-pVTZ (notre travail)
-		
-		\label{benzene}
-	\end{table}
+	Il existe dans la littérature une très grande variété d’approches théoriques concernant l’étude des dimères du benzène. Nous faisons le choix de ne reporter, dans le tableau ci-dessous, que les modélisations conduisant aux résultats faisant référence, jugés \textit{a priori} comme les plus précis du fait des méthodes employées. Les travaux de Park et Lee \cite{park2006accurate}, de Tsuzuki \textit{et al.} \cite{tsuzuki2002origin} et de Sinnokrot \textit{et al.} \cite{hobza1996potential} ont tous été obtenus à partir de calculs CCSD(T) avec extrapolation CBS de base (en anglais \og Complete Basis Set extrapolation \fg). Cette méthode est une technique de calcul empirique basée sur un minimum de trois calculs séparés utilisant des bases de plus en plus complètes, telles que les bases de type cc-pVXZ (X=T, Q, 5 …). Ceci revient à obtenir une estimation approchée du résultat que l'on obtiendrait en utilisant une base de dimensions infinies. Elle permet donc d’atteindre la limite de précision de la méthode de calcul la plus performante. Nous avons reporté dans le tableau \ref{table-benprot} les résultats que nous avons obtenu, entre autre, sur la forme PD, cette forme nous intéressant \textit{a priori} plus spécifiquement puisqu'elle a pu être caractérisée expérimentalement à l'état solide (état dans lequel seront les structures à modéliser dans le présent travail, après extraction des données IR obtenues en photo acoustique). On peut remarquer, en accord avec toutes les données actuellement disponibles par le biais des approches SAPT, que notre valeur d’énergie d’interaction calculée au niveau SAPT(PBE0)/aug-cc-pVTZ est conforme à la valeur attendue. Sans surprise, l’approche SAPT permet donc de reproduire avec une excellente vélocité les énergies d’interaction de systèmes en interaction $\pi-\pi$ et d’atteindre la précision nécessaire pour reproduire des variations aussi faibles que 1 à 2 kcal/mol.
 	
-	
-	
-	
-	
+
 	
 	
 	
@@ -848,13 +837,13 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\section[DFT]{De la nécessité de la DFT}
+	\section{De la nécessité de la DFT}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Dans ce chapitre, nous rappellerons dans un premier temps les fondements de la théorie de la fonctionnelle de la densité, abrégée en DFT, par le biais de l'évolution des différents modèles qui ont été proposés. Nous verrons ensuite comment les théorèmes de \textsc{Hohenberg} et \textsc{Kohn} prouvent que la seule connaissance de la densité électronique permet de résoudre l'équation de Schr\"{o}dinger dans le cadre de la DFT. La fonctionnelle universelle $F_{HK}[\rho]$, qui permettrait une résolution exacte du problème, restant inconnue, nous aborderons dans une troisième sous-partie l'approche KS qui contourne ce problème et légitime certaines approximations. Ces dernières donnant naissance à différents types de fonctionnelles, après une présentation succincte, nous introduirons la notion de fonctionnelle hybride puis détaillerons le principe des approches qui ajoutent \textit{ad hoc} à un calcul KS usuel des fonctions semi-empiriques rendant compte des effets de dispersion.
+	Dans ce chapitre, nous rappellerons dans un premier temps les fondements de la théorie de la fonctionnelle de la densité, abrégée en DFT, par le biais de l'évolution des différents modèles qui ont été proposés. Nous verrons ensuite comment les théorèmes de Hohenberg et Kohn prouvent que la seule connaissance de la densité électronique permet de résoudre l'équation de Schr\"{o}dinger dans le cadre de la DFT. La fonctionnelle universelle $F_{HK}[\rho]$, qui permettrait une résolution exacte du problème, restant inconnue, nous aborderons dans une troisième sous-partie l'approche KS qui contourne ce problème et légitime certaines approximations. Ces dernières donnant naissance à différents types de fonctionnelles. Après une présentation succincte, nous introduirons la notion de fonctionnelle hybride puis détaillerons le principe des approches qui ajoutent \textit{ad hoc} à un calcul KS usuel des fonctions semi-empiriques rendant compte des effets de dispersion.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -886,7 +875,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Le terme d'énergie cinétique a été exprimé comme une fonctionnelle de la densité pour la première fois en 1927 par \textsc{Thomas} et \textsc{Fermi}~:
+	Le terme d'énergie cinétique a été exprimé comme une fonctionnelle de la densité pour la première fois en 1927 par Thomas et Fermi:
 	
 	\begin{equation}
 	\hat{T}_{TF}[\rho] = \frac{3}{10} (3\pi)^{2/3} \int \rho_{(\vec{r})}^{5/3} .d\vec{r}
@@ -905,7 +894,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Le terme d'échange, résultant du principe d'exclusion de \textsc{Pauli}, a été ajouté par Dirac en 1930 afin d'affiner le modèle :
+	Le terme d'échange, résultant du principe d'exclusion de Pauli, a été ajouté par Dirac en 1930 afin d'affiner le modèle :
 	
 	\begin{align}
 	K[\rho] = E_{x}[\rho] &= \int \rho_{\vec{r}} \epsilon_{x}[\rho] .d\vec{r} \\
@@ -918,7 +907,7 @@
 		\end{tabular}
 	\end{flushleft}
 	
-	Le modèle de \textsc{Thomas-Fermi-Dirac} est défini par la combinaison de cette expression avec l'équation~\ref{ener_cin_thom_ferm} et le potentiel d'interaction électrons-noyaux $V_{Ne}[\rho]$. Notons que la corrélation électronique n'est toujours pas prise en compte dans ce modèle.
+	Le modèle de Thomas-Fermi-Dirac est défini par la combinaison de cette expression avec l'équation~\ref{ener_cin_thom_ferm} et le potentiel d'interaction électrons-noyaux $V_{Ne}[\rho]$. Notons que la corrélation électronique n'est toujours pas prise en compte dans ce modèle.
 	
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -927,7 +916,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Partant d'une approche basée sur la méthode HF, \textsc{Slater} propose en 1951 de substituer le terme d'énergie d'échange par une fonctionnelle de la densité issue de l'énergie d'échange de Dirac. Ce terme d'échange dans le formalisme HF peut être généralisé en introduisant le paramètre $\alpha$ :
+	Partant d'une approche basée sur la méthode HF, Slater propose en 1951 de substituer le terme d'énergie d'échange par une fonctionnelle de la densité issue de l'énergie d'échange de Dirac. Ce terme d'échange dans le formalisme HF peut être généralisé en introduisant le paramètre $\alpha$ :
 	
 	\begin{equation}
 	E_{x}[\rho] = - \frac{9\alpha}{8} \left(\frac{3}{\pi}\right)^{1/3} \int \rho_{(\vec{r})}^{4/3} .d\vec{r}
@@ -943,7 +932,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Tous ces modèles, bien qu'ils constituent les fondements de la DFT, ne démontrent pas formellement que seule la connaissance de la densité est importante pour accéder à l'énergie totale d'un système. C'est ainsi que \textsc{Hohenberg} et \textsc{Kohn} eurent l'idée, en 1965, de démontrer, par le biais de deux théorèmes, que l'équation de Schr\"{o}dinger pouvait être résolue de façon exacte dans le cadre de l'approximation de \textsc{Born-Oppenheimer}, uniquement grâce à la densité électronique.
+	Tous ces modèles, bien qu'ils constituent les fondements de la DFT, ne démontrent pas formellement que seule la connaissance de la densité est importante pour accéder à l'énergie totale d'un système. C'est ainsi que Hohenberg et Kohn eurent l'idée, en 1965, de démontrer, par le biais de deux théorèmes, que l'équation de Schr\"{o}dinger pouvait être résolue de façon exacte dans le cadre de l'approximation de Born-Oppenheimer, uniquement grâce à la densité électronique.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -967,11 +956,11 @@
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Second théorème : théorème variationnel}
+	\subsubsection{Second théorème : théorème variationnel}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Basé sur l'équation~\ref{Hohen_Kohn}, \textsc{Hohenberg} et \textsc{Kohn} ont ensuite établi un principe variationnel pour déterminer la densité électronique de l'état fondamental :
+	Basé sur l'équation~\ref{Hohen_Kohn}, Hohenberg et Kohn ont ensuite établi un principe variationnel pour déterminer la densité électronique de l'état fondamental :
 	
 	\begin{equation}
 	E[\rho] \geq E[\rho_{0}]
@@ -984,13 +973,13 @@
 		\end{tabular}
 	\end{flushleft}
 	
-	Dans cette équation, à une densité d'essai $\rho$ correspond une seule énergie potentielle $\int \rho_{(\vec{r})} \nu_{ext} .d\vec{r}$ et une seule fonction d'onde $\Psi_{\rho}$. La méthode de double minimisation, \textit{i.e.} sous contrainte de \textsc{Levy}, permet de différencier la fonction d'onde $\Psi_{\rho_{0}}$, correspondant à l'état fondamental, parmi le jeu infini des fonctions d'ondes $\Psi_{\rho}$ donnant la même densité. Ainsi, nous pouvons déterminer, parmi toutes les densités, celle qui minimisera l'énergie par la relation suivante :
+	Dans cette équation, à une densité d'essai $\rho$ correspond une seule énergie potentielle $\int \rho_{(\vec{r})} \nu_{ext} .d\vec{r}$ et une seule fonction d'onde $\Psi_{\rho}$. La méthode de double minimisation, \textit{i.e.} sous contrainte de Levy, permet de différencier la fonction d'onde $\Psi_{\rho_{0}}$, correspondant à l'état fondamental, parmi le jeu infini des fonctions d'ondes $\Psi_{\rho}$ donnant la même densité. Ainsi, nous pouvons déterminer, parmi toutes les densités, celle qui minimisera l'énergie par la relation suivante :
 	
 	\begin{equation}
 	E[\rho_{0}] = \min\limits_{\rho}\, (\min\limits_{\Psi\rightarrow\rho}\, (F[\rho] + \int \rho_{\vec{r}} \nu_{\vec{r}}\, .d\vec{r}\, ))
 	\end{equation}
 	
-	Si les théorèmes de \textsc{Hohenberg} et \textsc{Kohn} démontrent une correspondance unique entre une densité $\rho_{\vec{r}}$ et la fonction d'onde $\Psi$ du système, la fonctionnelle universelle $F_{HK}[\rho]$ reste cependant inconnue.
+	Si les théorèmes de Hohenberg et Kohn démontrent une correspondance unique entre une densité $\rho_{\vec{r}}$ et la fonction d'onde $\Psi$ du système, la fonctionnelle universelle $F_{HK}[\rho]$ reste cependant inconnue.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1020,13 +1009,13 @@
 	\nu_{eff(\vec{r})} = \nu_{H}[\rho] + \nu_{xc}[\rho] + \nu_{ext}[\rho]
 	\end{equation}
 	
-	\noindent nous introduisons un jeu d'orbitales $\psi_{(\vec{r})}$, appelées orbitales de \textsc{Kohn-Sham}, et nous obtenons un jeu d'équations aux valeurs propres :
+	\noindent nous introduisons un jeu d'orbitales $\psi_{(\vec{r})}$, appelées orbitales de Kohn-Sham, et nous obtenons un jeu d'équations aux valeurs propres :
 	
 	\begin{equation}
 	\hat{H}_{KS} \psi_{i(\vec{r})} = \epsilon_{i} \psi_{i(\vec{r})}
 	\end{equation}
 	
-	Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de \textsc{Kohn-Sham}. L'énergie du système est alors donnée par :
+	Comme dans le cas de la méthode HF, l'énergie du système peut être minimisée en résolvant ce jeu d'équations de façon auto-cohérente grâce à l'utilisation des orbitales de Kohn-Sham. L'énergie du système est alors donnée par :
 	
 	\begin{equation}
 	E_{KS}^{tot}[\rho] = T_{s}[\rho] + J[\rho] + E_{xc}[\rho] + \int V_{ext(\vec{r})}\rho_{(\vec{r})} .d\vec{r}
@@ -1075,7 +1064,7 @@
 	E_{xc}[\rho_{(\vec{r})}] = E_{x}[\rho_{(\vec{r})}] + E_{c}[\rho_{(\vec{r})}]
 	\end{equation}
 	
-	Plusieurs fonctionnelles ont donc été développées pour traiter chacune de ces contributions, de façon simultanée ou indépendante. Nous allons ici donner un bref aperçu -- non exhaustif -- des différentes familles de fonctionnelles, en suivant le critère de classification élaboré par Perdew et couramment appelé \og échelle de Jacob de Perdew \fg{}. Il a proposé de classer les fonctionnelles en fonction du degré d’informations non locales contenues dans leur forme analytique. Au premier échelon se trouvent les fonctionnelles qui dépendent uniquement de la densité électronique, dites fonctionnelles LDA (\og Local Density Approximation \fg{}). Viennent ensuite les fonctionnelles corrigées par gradient, dites GGA (\og Generalized Gradient Approximation \fg{}), dans lesquelles la non-localité est introduite grâce à leur dépendance vis-à-vis du gradient de la densité. A ce même niveau se trouvent également les fonctionnelles de type méta-GGA, dépendant aussi de l’énergie cinétique (calculée à partir des orbitales moléculaires remplies). Il faut noter que, d’un point de vue mathématique, toutes ces familles de fonctionnelles sont strictement locales. Pour parvenir à des fonctionnelles véritablement non locales, il faut encore monter d’un cran dans l’échelle de Perdew, jusqu’aux fonctionnelles dites hybrides, où la présence d’un pourcentage (variable) d’échange HF calculé en utilisant les orbitales KS, permet d’introduire un véritable terme non local. Plus récemment une autre famille de fonctionnelles hybrides a été développée (dite à longue portée ou encore à séparation de portée) dans laquelle le pourcentage d’échange calculé de façon HF n’est pas constant mais dépend de la distance inter-électronique. Enfin, des fonctionnelles non locales montrant une dépendance explicite des orbitales KS occupées et vacantes représentent le dernier niveau dans l’échelle de Perdew.
+	Plusieurs fonctionnelles ont donc été développées pour traiter chacune de ces contributions, de façon simultanée ou indépendante. Nous allons ici donner un bref aperçu -- non exhaustif -- des différentes familles de fonctionnelles, en suivant le critère de classification élaboré par Perdew et couramment appelé \og échelle de Perdew \fg{}. Il a proposé de classer les fonctionnelles en fonction du degré d’informations non locales contenues dans leur forme analytique. Au premier échelon se trouvent les fonctionnelles qui dépendent uniquement de la densité électronique, dites fonctionnelles LDA (\og Local Density Approximation \fg{}). Viennent ensuite les fonctionnelles corrigées par gradient, dites GGA (\og Generalized Gradient Approximation \fg{}), dans lesquelles la non-localité est introduite grâce à leur dépendance vis-à-vis du gradient de la densité. A ce même niveau se trouvent également les fonctionnelles de type méta-GGA, dépendant aussi de l’énergie cinétique (calculée à partir des orbitales moléculaires remplies). Il faut noter que, d’un point de vue mathématique, toutes ces familles de fonctionnelles sont strictement locales. Pour parvenir à des fonctionnelles véritablement non locales, il faut encore monter d’un cran dans l’échelle de Perdew, jusqu’aux fonctionnelles dites hybrides, où la présence d’un pourcentage (variable) d’échange HF calculé en utilisant les orbitales KS, permet d’introduire un véritable terme non local. Plus récemment une autre famille de fonctionnelles hybrides a été développée (dite à longue portée ou encore à séparation de portée) dans laquelle le pourcentage d’échange calculé de façon HF n’est pas constant mais dépend de la distance inter-électronique. Enfin, des fonctionnelles non locales montrant une dépendance explicite des orbitales KS occupées et vacantes représentent le dernier niveau dans l’échelle de Perdew.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1117,7 +1106,7 @@
 	
 	\noindent avec $k_{F} = (3 \pi^{2} \rho_{(\vec{r})})^{1/3}$. Ainsi, on fait apparaître par le biais du terme $s$ un terme quasi-local, dépendant non seulement de la densité électronique mais également de son gradient au voisinage de $\vec{r}$.
 	
-	Un exemple de fonctionnelle GGA est celle de \textsc{Perdew}, \textsc{Burke} et \textsc{Ernzherhof}, notée PBE~\cite{perdew1996generalized}.
+	Un exemple de fonctionnelle GGA est celle de Perdew, Burke et Ernzherhof, notée PBE~\cite{perdew1996generalized}.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1140,7 +1129,7 @@
 	
 	Elle a l’avantage d’être non paramétrée (car le pourcentage d’HF inclus n’est pas empirique mais basé sur des arguments de théorie perturbationnelle), et de fournir des résultats très précis, tant au niveau du calcul des structures moléculaires et électroniques que pour le calcul de propriétés spectroscopiques \cite{adamo1999toward}.
 	
-	Dans cette catégorie figure également la fonctionnelle la plus utilisée pour traiter des systèmes moléculaires, à savoir la fonctionnelle B3LYP \cite{becke1993density}. Comme son nom l’indique, elle inclus trois paramètres et se base sur les fonctionnelles GGA d’échange et de corrélation de \textsc{Becke} (B) \cite{becke1988density} et \textsc{Lee}, \textsc{Yang} et \textsc{Parr} (LYP) \cite{chengteh1988development}, suivant l’expression :
+	Dans cette catégorie figure également la fonctionnelle la plus utilisée pour traiter des systèmes moléculaires, à savoir la fonctionnelle B3LYP \cite{becke1993density}. Comme son nom l’indique, elle inclus trois paramètres et se base sur les fonctionnelles GGA d’échange et de corrélation de Becke (B) \cite{becke1988density} et Lee, Yang et Parr (LYP) \cite{chengteh1988development}, suivant l’expression :
 	
 	\begin{equation}
 	E_{xc}^{B3LYP} = (1-a) E_{x}^{LSDA} + a E_{x}^{HF} + b \Delta E_{x}^{B} + (1-c) E_{c}^{LSDA} + c E_{c}^{LYP}
@@ -1168,7 +1157,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	Les fonctionnelles hybrides avec correction à longue portée basées sur la théorie \textsc{Kohn-Sham} ont naturellement rencontré un grand engouement puisque la précision apportée n'accroît pas le coût calculatoire par comparaison aux méthodes DFT hybrides.
+	Les fonctionnelles hybrides avec correction à longue portée basées sur la théorie Kohn-Sham ont naturellement rencontré un grand engouement puisque la précision apportée n'accroît pas le coût calculatoire par comparaison aux méthodes DFT hybrides.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1177,7 +1166,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	Comme nous l'avons vu dans le cadre des approximations de la fonctionnelle de la densité, notées DFAs\footnote{\og Density Functional Approximations \fg{} }, la décroissance exponentielle du potentiel d'échange-corrélation engendre une mauvaise représentation des interactions à longue distance, qui varient quant à elles en $1/r$. Cette erreur, baptisée erreur d'auto-interaction (ou SIE, pour \og self-interaction error \fg{}), est liée au fait que ces approximations se basent sur la densité de spin locale (LSDA, pour \og local spin density approximation \fg{}). De fait, elles décrivent mal l'état fondamental qui devrait être, dans le cadre de la DFT pure, strictement sans auto-interaction.     
-	C'est pourquoi, afin d'introduire un effet non-local de l'échange-corrélation dans le modèle KS-DFT (partie~\ref{Kohn-Sham}), \textsc{Becke} proposa en 1988 d'incorporer dans sa fonctionnelle d'échange B88~\cite{becke1988density} une fraction d'échange calculée de façon exacte \textsc{Hartree-Fock}. 
+	C'est pourquoi, afin d'introduire un effet non-local de l'échange-corrélation dans le modèle KS-DFT (partie~\ref{Kohn-Sham}), Becke proposa en 1988 d'incorporer dans sa fonctionnelle d'échange B88~\cite{becke1988density} une fraction d'échange calculée de façon exacte Hartree-Fock. 
 	
 	Dans le cadre général des DFAs, l'énergie d'échange-corrélation s'écrit donc :
 	
@@ -1188,7 +1177,7 @@
 	
 	\noindent où $c_{x}$ prend généralement des valeurs comprises entre 0,2 et 0,25~\cite{becke1993density} pour traduire au mieux les propriétés thermodynamiques, et entre 0,4 et 0,6~\cite{boese2004development} pour traduire au mieux les données cinétiques.
 	
-	Basée sur ce modèle, la désormais bien connue DFT hybride B3LYP \cite{becke1993density} (équation~\ref{B3LYP}) donne des résultats comparables à ceux obtenus à partir de la théorie perturbative \textsc{M\o ller-Plesset} à l'ordre 2 \cite{moller1934note} (MP2), souvent utilisée comme référence, dans le cadre de systèmes fortement liés. Depuis, de nombreuses recherches ont porté sur l'amélioration constante de ce potentiel d'échange-corrélation $E_{xc}[\rho]$.
+	Basée sur ce modèle, la désormais bien connue DFT hybride B3LYP \cite{becke1993density} (équation~\ref{B3LYP}) donne des résultats comparables à ceux obtenus à partir de la théorie perturbative M\o ller-Plesset à l'ordre 2 \cite{moller1934note} (MP2), souvent utilisée comme référence, dans le cadre de systèmes fortement liés. Depuis, de nombreuses recherches ont porté sur l'amélioration constante de ce potentiel d'échange-corrélation $E_{xc}[\rho]$.
 	
 	À ce stade, il me paraît essentiel d'attirer l’attention du lecteur sur le caractère quelque peu \og erratique \fg{} des résultats de nombre de travaux menés en DFT, caractère qui tient au choix de la fonctionnelle d'échange et/ou de corrélation. 
 	 Lorsque, pour un système donné, une fonctionnelle d’échange-corrélation se révèle capable de traduire des paramètres physiques avec une précision satisfaisante autour de la position d’équilibre, rien ne garantit qu’elle soit en mesure de donner la même précision pour un autre (type de) système(s). Il en va de même pour l’étude de dimères (atomiques ou moléculaires). Dans le présent travail, une attention toute particulière a donc été portée au choix de la fonctionnelle d’échange-corrélation, s'agissant d'une étude portant sur une très grande variété de systèmes, \textit{i.e.} non seulement des familles de molécules comportant un ou plusieurs hétéroatome(s) mais les homo-dimères correspondants. La fonctionnelle $\omega$b97X a retenu notre attention dans ce travail.
@@ -1200,9 +1189,9 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Une avancée significative a de nouveau été faite par \textsc{Becke} en 1997 dans le domaine des KS-DFT. Par une méthode similaire à la combinaison linéaire d'orbitales atomiques, notée LCAO\footnote{\og Linear Combination of Atomic Orbitals \fg{}.}, Becke a proposé un modèle mathématique basé sur l'approximation de densité de spin local (LSDA), sa première dérivée et une petite fraction d'échange HF pour décrire le potentiel d'échange-corrélation $E_{xc}[\rho]$. Une optimisation systématique des coefficients linéaires à partir d'un jeu classique de données expérimentales a conduit à l'apparition de la méthode B97~\cite{becke1997density}. La base de données contient notamment des valeurs relatives à l'interaction entre systèmes conjugués.
+	Une avancée significative a de nouveau été faite par Becke en 1997 dans le domaine des KS-DFT. Par une méthode similaire à la combinaison linéaire d'orbitales atomiques, notée LCAO\footnote{\og Linear Combination of Atomic Orbitals \fg{}.}, Becke a proposé un modèle mathématique basé sur l'approximation de densité de spin local (LSDA), sa première dérivée et une petite fraction d'échange HF pour décrire le potentiel d'échange-corrélation $E_{xc}[\rho]$. Une optimisation systématique des coefficients linéaires à partir d'un jeu classique de données expérimentales a conduit à l'apparition de la méthode B97~\cite{becke1997density}. La base de données contient notamment des valeurs relatives à l'interaction entre systèmes conjugués.
 	
-	Cette méthodologie a été reprise par F. A. \textsc{Hamprecht} \textit{et al.}, P. J. \textsc{Wilson} \textit{et al.} et T. W. \textsc{Keal} \textit{et al.} pour respectivement conduire à la B97-1 \cite{hamprecht1998development} (1998), la B97-2 \cite{wilson2001hybrid} (2001) et la B97-3 \cite{keal2005semiempirical} (2005). Il s'agissait alors de réoptimisations des coefficients linéaires par rapport à de nouvelles bases de données expérimentales, plus complètes.
+	Cette méthodologie a été reprise par F. A. Hamprecht \textit{et al.}, P. J. Wilson \textit{et al.} et T. W. Keal \textit{et al.} pour respectivement conduire à la B97-1 \cite{hamprecht1998development} (1998), la B97-2 \cite{wilson2001hybrid} (2001) et la B97-3 \cite{keal2005semiempirical} (2005). Il s'agissait alors de réoptimisations des coefficients linéaires par rapport à de nouvelles bases de données expérimentales, plus complètes.
 	
 	Mais cette nouvelle paramétrisation empirique du terme d'échange-corrélation ne résout pas le problème de sa non-décroissance en $1/r$. La prise en compte totale du terme d'échange HF $E_{x}^{HF}$ ($c_{x}$=1 dans l'équation~\ref{xcB88}) pourrait résoudre ce problème mais serait incompatible avec le terme de corrélation DFA $E_{c}^{DFA}$, engendrant une mauvaise compensation des erreurs respectives.
 	
@@ -1214,7 +1203,7 @@
 	
 	L'idée de séparer le traitement des interactions courtes (SR, pour \og short range \fg{}) et longues portées (LR, pour \og long range \fg{}) s'est alors présentée comme le choix le plus évident, aussi bien au niveau de la compréhension des phénomènes que sur le plan mathématique. Le principe est de traiter séparément, à l'aide d'une fonction erreur $(erf)$, les interactions à courte et à longue distance. Les interactions à courte distance sont représentées par une fonctionnelle de la densité, tandis que les interactions à longue distance sont traduites par une fonction d'onde. Ce principe conduit naturellement à l'élaboration d'une fonctionnelle hybride à séparation de portée. L'introduction de la fonction erreur, avec un paramètre libre, permet de contrôler le rayon d'action des interactions à courte portée.
 	
-	Iikura \textit{et al.} \cite{iikura2001long} ont été parmi les premiers à proposer ce type de solutions. Leur méthode consiste à traiter la partie d'échange (LR) par la théorie HF, tandis que la partie SR est approximée par une DFA ; le terme de corrélation est quant à lui le même que celui de \textsc{Coulomb}, quelle que soit la distance :
+	Iikura \textit{et al.} \cite{iikura2001long} ont été parmi les premiers à proposer ce type de solutions. Leur méthode consiste à traiter la partie d'échange (LR) par la théorie HF, tandis que la partie SR est approximée par une DFA ; le terme de corrélation est quant à lui le même que celui de Coulomb, quelle que soit la distance :
 	
 	\begin{equation}
 	E_{xc}^{LC-DFA} = E_{x}^{LR-HF} + E_{x}^{SR-DFA} + E_{c}^{DFA}
@@ -1262,7 +1251,7 @@
 		\end{tabular}
 	\end{flushleft}
 	
-	En retenant une fonctionnelle de corrélation basée elle aussi sur la LSDA $E_{c}^{LSDA}$, la plus simple des DFT hybrides à correction de longue portée (RSHX-LDA pour l’anglais \og Range Separated Hybrid eXchange \fg{} J. G. Ángyan, I. C. Gerber, A Savin et J Toulouse. « van der Waals forces in densityfunctional theory : Perturbational long-range electron-interaction corrections ». Phys. Rev. A 72 (2005), 012510) s'écrit~:
+	En retenant une fonctionnelle de corrélation basée elle aussi sur la LSDA $E_{c}^{LSDA}$, la plus simple des DFT hybrides à correction de longue portée (RSHX-LDA pour l’anglais \og Range Separated Hybrid eXchange \fg{} \cite{angyan2005van} s'écrit~:
 	
 	\begin{equation}
 	E_{xc}^{RSHXLDA} = E_{x}^{LR-HF} + E_{x}^{SR-LSDA} + E_{c}^{LSDA}
@@ -1296,7 +1285,7 @@
 	E_{x}^{SR-HF} = -\frac{1}{2} \sum_{\sigma} \sum_{ij}^{occ.} \iint \phi_{i \sigma}^{*}(r_{1}) \phi_{j \sigma}^{*}(r_{1}) \frac{erfc(\omega r_{12})}{r_{12}} \phi_{i \sigma}(r_{2}) \phi_{j \sigma}(r_{2}).dr_{1}.dr_{2}, \\
 	\end{equation}
 	
-	C'est ainsi que la fonctionnelle $\omega$B7X\cite{chai2008long} se décompose de la façon suivante~:
+	C'est ainsi que la fonctionnelle $\omega$B97X\cite{chai2008long} se décompose de la façon suivante~:
 	
 	\begin{equation}
 	E_{xc}^{\omega B97X} = E_{x}^{LR-HF} + c_{x}E_{x}^{SR-HF} + E_{x}^{SR-B97} + E_{c}^{B97}
@@ -1312,7 +1301,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Cette dernière correction pourrait naturellement passer par le calcul de l'énergie de dispersion entre chaque atome, mais ceci engendrerait une augmentation démesurée du coût calculatoire. C'est pourquoi Jeng-Da \textsc{Chai} et Martin \textsc{Head-Gordon} ont fait le choix d'introduire cette correction de façon empirique au travers de l'ajout d'un terme, noté $E_{disp}$, à la fonctionnelle KS-DFT (dans le cadre du présent travail, la fonctionnelle $\omega$B97X). L'expression de l'énergie de la fonctionnelle $\omega$B97X-D \cite{chai2008long} ainsi obtenue devient alors :
+	Cette dernière correction pourrait naturellement passer par le calcul de l'énergie de dispersion entre chaque atome, mais ceci engendrerait une augmentation démesurée du coût calculatoire. C'est pourquoi Jeng-Da Chai et Martin Head-Gordon ont fait le choix d'introduire cette correction de façon empirique au travers de l'ajout d'un terme, noté $E_{disp}$, à la fonctionnelle KS-DFT (dans le cadre du présent travail, la fonctionnelle $\omega$B97X). L'expression de l'énergie de la fonctionnelle $\omega$B97X-D \cite{chai2008long} ainsi obtenue devient alors :
 	
 	\begin{equation}
 	E_{DFT-D}=E_{\omega B97X}+E_{disp}
@@ -1339,7 +1328,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Les fonctionnelles DFT-D -- \textit{i.e.} BLYP-D, B3LYP-D, B97-D, PBE-D (Anthony and Grimme 2006), M05-2x et M06-2x (Zhao and Truhlar 2008) -- sont traditionnellement incluses dans la famille des fonctionnelles dites \og {semi-empirical dispersion-corrected functionals \fg. En effet, pour ces fonctionnelles, les effets de corrélation à longue distance sont exclusivement traités par une correction empirique de dispersion selon trois niveaux d’empirisme notés respectivement DFT-D1, DFT-D2 et DFT-D3. 
+	Les fonctionnelles DFT-D -- \textit{i.e.} BLYP-D, B3LYP-D, B97-D, PBE-D, M05-2x et M06-2x -- sont traditionnellement incluses dans la famille des fonctionnelles dites \og {semi-empirical dispersion-corrected functionals \fg. En effet, pour ces fonctionnelles, les effets de corrélation à longue distance sont exclusivement traités par une correction empirique de dispersion selon trois niveaux d’empirisme notés respectivement DFT-D1, DFT-D2 et DFT-D3. 
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1417,17 +1406,17 @@
 	
 	Dans cette dernière expression, les termes $\theta_{I}$, $\theta_{J}$ et $\theta_{K}$ représentent les angles internes du triangle $ijk$. Deux fonctions d'amortissement complètent l’expression de l’énergie :
 	
-	\begin{multicols}{2}
-		\begin{equation} f_{damp}^{n} (R_{ij}) =\frac{1}{1+6(R_{ij} / (s_{r,n} R_{O}^{ij}))^{-\alpha_{n}}} \end{equation}   ;  
-		\begin{equation} f_{damp}^{(3)} (\overline{R}_{ijk}) =\frac{1}{1+6(\overline{R}_{ijk} / (4 R_{O}^{ijk}/3))^{-16}}\end{equation}; 
-	\end{multicols}
+		\begin{equation} f_{damp}^{n} (R_{ij}) =\frac{1}{1+6(R_{ij} / (s_{r,n} R_{O}^{ij}))^{-\alpha_{n}}} \end{equation}  
+		  
+		\begin{equation} f_{damp}^{(3)} (\overline{R}_{ijk}) =\frac{1}{1+6(\overline{R}_{ijk} / (4 R_{O}^{ijk}/3))^{-16}}\end{equation}
+
 	
 	Dans cette équation : 
 	\begin{itemize}
-	\item les rayons de coupure $R_{O}^{ij}$ et $R_{O}^{ijk}$ sont évalués de façon semi-empirique
+	\item les rayons de coupure $R_{O}^{ij}$ et $R_{O}^{ijk}$ sont évalués de façon semi-empirique,
 	\item les coefficients $s_{n}$ ($n$ = 8,10, \dots) sont ajustés à partir de références dont les valeurs sont ajustées selon la fonction d’échange-corrélation utilisée
-	\item les coefficients de van der Waals sont évalués au moyen de calculs TDKS et à l’aide de relations récursives
-	\item le terme $C_{6}^{ij}$, jusque-là calculé au moyen de formules d’interpolation dérivées de manière empirique est, dans la version D3, évalué à partir de l’expression de Casimir et Polder selon la procédure rappelée en annexe de ce travail
+	\item les coefficients de van der Waals sont évalués au moyen de calculs TDKS et à l’aide de relations récursives,
+	\item le terme $C_{6}^{ij}$, jusque-là calculé au moyen de formules d’interpolation dérivées de manière empirique est, dans la version D3, évalué à partir de l’expression de Casimir et Polder selon la procédure rappelée en annexe de ce travail: 
 	\end{itemize}
 	
 	\bigskip
@@ -1436,17 +1425,16 @@
 	\end{equation}
 	\bigskip
 	
-	Les coefficients d’ordre supérieur sont quant à eux évalués à l’aide des formules de récursivité établies par Starkschall et Gordon (G. Starkschall, R.G. Gordon J. Chem. Phys. 1972, 56, 2801; ibid 1972, 56, 2102; ibid 1972, 57, 3213) : 
+	Les coefficients d’ordre supérieur sont quant à eux évalués à l’aide des formules de récursivité établies par Starkschall et Gordon \cite{starkschall1972error} : 
 	
-	\begin{multicols}{2}
 		\begin{equation}{C}_{8}^{ij} = 3{C}_{6}^{ij}\sqrt {{Q}_{i}{Q}_{j}}\end{equation} avec
-		\begin{equation}Q_{i} = s\sqrt{Z^{i}} \frac{\langle r^{4}\rangle r^{i}}{\langle r^{2}\rangle r^{i}}\end{equation}; 
-	\end{multicols}
+		\begin{equation}Q_{i} = s\sqrt{Z^{i}} \frac{\langle r^{4}\rangle r^{i}}{\langle r^{2}\rangle r^{i}}\end{equation}
 	
-	\begin{multicols}{2}
+	
+	
 		\begin{equation} {C}_{10}^{ij}=\frac {49}{40} \frac{{\left({C}_{8}^{ij} \right)}^{2}}{{C}_{6}^{ij}} \end{equation} et
-		\begin{equation} {C}_{n+4}^{ij}={C}_{n-2}^{ij}{\left(\frac{ {C}_{n+2}^{ij} }{ {C}_{n}^{ij} }\right)}^{3} \end{equation}; 
-	\end{multicols}
+		\begin{equation} {C}_{n+4}^{ij}={C}_{n-2}^{ij}{\left(\frac{ {C}_{n+2}^{ij} }{ {C}_{n}^{ij} }\right)}^{3} \end{equation}
+	
 	
 	En plus de fournir un potentiel aux longues distances plus précis, les potentiels DFT-D3 fournissent également une séparation plus nette entre les termes de courte et de longue portée. 
 	
@@ -1463,11 +1451,11 @@
 	
 	Les coefficients de dispersion, la polarisabilité et les rayons atomiques sont calculés à partir des expressions suivantes :
 	
-	\begin{multicols}{3}
-		\begin{equation} \alpha_{i} = \nu_{i} \alpha_{i}^{free} \end{equation};
-		\begin{equation} C_{6ii} = \nu_{i}^{2} C_{6ii}^{free} \end{equation}; 
-		\begin{equation} R_{0i} = \left(\frac{\alpha_{i}}{\alpha_{i}^{free}}\right)^{\frac{1}{3}} R_{0i}^{free} \end{equation}; 
-	\end{multicols}
+	
+		\begin{equation} \alpha_{i} = \nu_{i} \alpha_{i}^{free} \end{equation}
+		\begin{equation} C_{6ii} = \nu_{i}^{2} C_{6ii}^{free} \end{equation}
+		\begin{equation} R_{0i} = \left(\frac{\alpha_{i}}{\alpha_{i}^{free}}\right)^{\frac{1}{3}} R_{0i}^{free} \end{equation}
+
 	
 	\noindent expressions dans lesquelles $\alpha_{i}^{free}$ est tel que :
 	
@@ -1535,5 +1523,5 @@
 	
 	Tout comme dans l’approche DFT-D2, le paramètre empirique $s_{R}$ figurant dans l’expression de la fonction d’amortissement est généralement fixé à 0,97 (pour la fonctionnelle PBE) conformément aux recommandations de Bu\u{c}ko, Lebègue et al \cite{buvcko2013tkatchenko}.
 	
-	La méthode DFT-TS-SCS est disponible dans le code VASP grâce à Bu\u{c}ko, Lebègue et coll.\cite{buvcko2013tkatchenko}. Les auteurs ont étudié une large variété de solides (gaz nobles, cristaux ioniques et solides moléculaires), ainsi que des structures de type chaîne et des métaux. La méthode se révèle traduire avec une précision raisonnable les propriétés structurales et les énergies de cohésion, hormis pour les solides ioniques. La détermination des propriétés structurales, du volume de la maille, etc., sont autant de facteurs qu’il nous faut estimer avec le plus grand soin pour mener à bien les calculs de fréquences de vibration. Toutes les informations nécessaires à la comparaison des approches D2, D3, TS et TS-SCS seront données dans ce manuscrit dans la partie relative aux développements menés sur la famille des acènes (naphtalène, anthracène, tétracène et pentacène). Par ailleurs, les auteurs ont également montré que les effets dynamiques du champ périodique traités dans la méthode TS-SCS sont en général négligeables pour des systèmes en interaction faible, comme c'est le cas des atomes et des molécules neutres qui nous intéressent de prime abord dans ce travail. Une nouvelle fois, nos résultats se révèlent en accord avec les conclusions avancées par Bu\u{c}ko, Lebègue et coll..
+	La méthode DFT-TS-SCS est disponible dans le code VASP grâce à Bu\u{c}ko, Lebègue et coll.\cite{buvcko2013tkatchenko}. Les auteurs ont étudié une large variété de solides (gaz nobles, cristaux ioniques et solides moléculaires), ainsi que des structures de type chaîne et des métaux. La méthode se révèle traduire avec une précision raisonnable les propriétés structurales et les énergies de cohésion, hormis pour les solides ioniques. La détermination des propriétés structurales, du volume de la maille, etc., sont autant de facteurs qu’il nous faut estimer avec le plus grand soin pour mener à bien les calculs de fréquences de vibration. Toutes les informations nécessaires à la comparaison des approches D2, D3, TS et TS-SCS seront données dans ce manuscrit dans le chapitre 6. Par ailleurs, les auteurs ont également montré que les effets dynamiques du champ périodique traités dans la méthode TS-SCS sont en général négligeables pour des systèmes en interaction faible, comme c'est le cas des atomes et des molécules neutres qui nous intéressent de prime abord dans ce travail.
 		

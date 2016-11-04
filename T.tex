@@ -58,42 +58,44 @@
 {\setcounter{page}{1}
 	\renewcommand{\thepage}{\roman{page}}}
 {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
-\newcommand{\PRESn}{}
-\newcommand{\PRESp}{}
+\newcommand{\PRESn}{Prof BARAILLE Isabelle}
+\newcommand{\PRESp}{Université de Pau et des Pays de l'Adour, France}
 \newcommand{\PRESq}{}
 
-\newcommand{\INVAn}{ }
-\newcommand{\INVAp}{}
+\newcommand{\INVAn}{Prof B\'EGU\'E Didider }
+\newcommand{\INVAp}{Université de Pau et des Pays de l'Adour, France}
 \newcommand{\INVAq}{}
-\newcommand{\RAPAn}{Dr Jo\"{e}lle MASCETTI}
-\newcommand{\RAPAp}{Universit\'e de Bordeaux 1, France}
+\newcommand{\RAPAn}{Dr HANOUNE Benjamin }
+\newcommand{\RAPAp}{CNRS, Université de Lille 1, France}
 \newcommand{\RAPAq}{Rapporteur}
-\newcommand{\RAPBn}{Dr Benjamin HANOUNE}
-\newcommand{\RAPBp}{Université de Lille 1, France}
-\newcommand{\RAPBq}{Rapporteur}
+\newcommand{\RAPBn}{Dr LEB\'EGUE Sebastien}
+\newcommand{\RAPBp}{Université de Lorraine, France}
+\newcommand{\RAPBq}{}
 
-\newcommand{\EXAAn}{}
-\newcommand{\EXAAp}{}
-\newcommand{\EXAAq}{}
+\newcommand{\EXAAn}{Dr MASCETTI Jo\"{e}lle}
+\newcommand{\EXAAp}{Universit\'e de Bordeaux 1, France}
+\newcommand{\EXAAq}{Rapporteur}
 
-\newcommand{\EXABn}{}
-\newcommand{\EXABp}{}
+\newcommand{\EXABn}{Dr MICHAELIAN Kirk}
+\newcommand{\EXABp}{Natural Resources Canada's. CanmetENERGY, Canada}
 \newcommand{\EXABq}{}
 
-\newcommand{\EXACn}{}
-\newcommand{\EXACp}{}
+\newcommand{\EXACn}{Prof SHAW Jhon}
+\newcommand{\EXACp}{Université d'Alberta, Canada}
 \newcommand{\EXACq}{}
 
 \newcommand{\JURY}{
 	\textbf{\large{\textbf{JURY}}}\\[\baselineskip]
 	\begin{tabular}{l@{\protect\hspace{0.5cm}}l@{\protect\hspace{0.5cm}}l}
 		%\textbf{\large{\textbf{Composition du jury :}}}
+		\PRESn &\PRESp &\PRESq\\
+		\INVAn &\INVAp &\INVAq\\
 		\RAPAn &\RAPAp &\RAPAq\\
 		\RAPBn &\RAPBp &\RAPBq\\
 		\EXAAn &\EXAAp &\EXAAq\\
-		%\EXABn &\EXABp &\EXABq\\
-		\PRESn &\PRESp &\PRESq\\
-		%\EXACn &\EXACp &\EXACq\\
+		\EXABn &\EXABp &\EXABq\\
+		%\PRESn &\PRESp &\PRESq\\
+		\EXACn &\EXACp &\EXACq\\
 		%\INVAn &\INVAp &\INVAq\\
 	\end{tabular}
 }
@@ -124,7 +126,7 @@
 	\setlength{\baselineskip}{4pt}
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}\setlength{\baselineskip}{10pt}~\\
 	\vspace*{-5pt}
-	{\Large\textbf{Vibrational spectra calculations, fingerprints allow to elucidate composition and reactivity of complex chemical systems: application to asphaltene systems}}~\\[\baselineskip]
+	{\Large\textbf{Vibrational spectra calculations as fingerprints for the elucidation of the composition and reactivity of complex chemical systems: application to asphaltene systems}}~\\[\baselineskip]
 	\hbox{\raisebox{0.4em}{\vrule depth 0pt height 1pt width 17cm}}~\\
 	
 	Directeur de Thèse: \textbf{Pr Didier B\'EGU\'E}\\[\baselineskip]
@@ -197,18 +199,18 @@
 
 \newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
 \restoregeometry
-\include{remerciements/remerciements}
-\include{epigrafe/epigrafe}
-\include{dedic/dedic}
-\include{resumes/ingles}
-\include{resumes/frances}
-\renewcommand*\contentsname{Table of Contents} %troca o nome do sumario para o que quiser
-\tableofcontents \thispagestyle{empty} 
+%\include{remerciements/remerciements}
+%\include{epigrafe/epigrafe}
+%\include{dedic/dedic}
+%\include{resumes/ingles}
+\include{resumes/frances} 
+\renewcommand*\contentsname{Table des Matière} %troca o nome do sumario para o que quiser
+\tableofcontents \thispagestyle{empty}
 \listoffigures \thispagestyle{empty} 
 \listoftables \thispagestyle{empty}
-\newpage
 \include{abrev/abrev}
 \newpage
+\mainmatter
 \include{intro/intro}
 \include{Asp/Chap1}
 \include{vib/ChapvibEG}
